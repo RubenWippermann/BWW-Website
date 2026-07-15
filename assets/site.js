@@ -80,3 +80,17 @@ function generateWithdrawal(){
   const mail='mailto:info@multiplikatorenstelle.de?subject='+encodeURIComponent('Widerruf BWW')+'&body='+encodeURIComponent(text);
   out.innerHTML=`<h2>Vorbereitete Widerrufserklärung</h2><pre>${escapeHtml(text)}</pre><a class="mailto-box" href="${mail}">Per E-Mail an BWW senden</a><p class="small-note">Später verbinden wir dieses Formular direkt mit der Kurssoftware.</p>`;
 }
+
+function generateInstructorApplication(){
+  const f=document.getElementById('instructorForm'); if(!f)return;
+  const fd=new FormData(f);
+  const files=[...(f.querySelector('input[type="file"]')?.files||[])].map(file=>file.name);
+  const d=Object.fromEntries(fd.entries());
+  const text=`Bewerbung als Dozent/in bei BWW\n\nName: ${d.name||''}\nE-Mail: ${d.email||''}\nTelefon: ${d.phone||''}\nWohnort / Einsatzregion: ${d.region||''}\nQualifikation: ${d.qualification||''}\nVerfügbarkeit: ${d.availability||''}\n\nKurzprofil:\n${d.message||''}\n\nAusgewählte Zertifikate / Nachweise:\n${files.length?files.join('\\n'):'Keine Datei ausgewählt'}\n\nHinweis: Die Dateien werden im nächsten Schritt bitte im E-Mail-Fenster angehängt, bis der direkte Upload an die neue Kurssoftware angebunden ist.`;
+  const mail='mailto:info@multiplikatorenstelle.de?subject='+encodeURIComponent('Dozentenbewerbung BWW – '+(d.name||''))+'&body='+encodeURIComponent(text);
+  const out=document.getElementById('instructorOutput');
+  if(out){
+    out.classList.add('ready');
+    out.innerHTML=`<h3>Bewerbung ist vorbereitet</h3><p>Perfekt — die wichtigsten Daten sind strukturiert. Öffne jetzt die E-Mail und hänge deine Zertifikate an.</p><a class="mailto-box" href="${mail}">Bewerbung an BWW senden</a><details><summary>Vorschau der Daten</summary><pre>${escapeHtml(text)}</pre></details>`;
+  }
+}
