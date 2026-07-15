@@ -1,60 +1,82 @@
-const bookingUrl = "https://bww.kurse-verwalten.de";
-
-function toggleMenu(){
-  document.querySelector(".nav-links")?.classList.toggle("open");
-}
 
 function calculateDguv(){
-  const employees = Math.max(0, parseInt(document.getElementById("employees")?.value || "0", 10));
-  const branch = document.getElementById("branch")?.value || "office";
-  const result = document.getElementById("calcResult");
-  const note = document.getElementById("calcNote");
-  if(!result || !note) return;
-
-  let firstAiders = 0;
-  if(employees >= 2 && employees <= 20) firstAiders = 1;
-  if(employees > 20){
-    const rate = branch === "office" ? 0.05 : 0.10;
-    firstAiders = Math.ceil(employees * rate);
-  }
-
-  let paramedics = 0;
-  let paramedicText = "In der Regel nicht automatisch erforderlich.";
-  if(branch === "construction" && employees > 100){
-    paramedics = 1;
-    paramedicText = "Auf Baustellen greift die Schwelle ab mehr als 100 anwesenden Versicherten.";
-  } else if(branch === "highrisk" && employees > 250){
-    paramedics = 1;
-    paramedicText = "Bei besonderer Art, Schwere und Zahl der Unfälle kann die Schwelle ab mehr als 250 anwesenden Versicherten greifen.";
-  } else if(employees > 1500){
-    paramedics = 1;
-    paramedicText = "Ab mehr als 1.500 anwesenden Versicherten ist mindestens ein Betriebssanitäter zu berücksichtigen.";
-  }
-
-  result.innerHTML = `
-    <div class="metric"><span>Ersthelfer mindestens</span><b>${firstAiders}</b><small>Orientierung nach DGUV Vorschrift 1 § 26</small></div>
-    <div class="metric"><span>Betriebssanitäter mindestens</span><b>${paramedics}</b><small>${paramedicText}</small></div>
-  `;
-  note.innerHTML = employees < 2
-    ? "Bitte geben Sie mindestens 2 anwesende Versicherte ein. Der Rechner arbeitet mit der typischen Anzahl anwesender Personen, nicht zwingend mit der gesamten Kopfzahl."
-    : "Hinweis: Der Rechner ersetzt keine Gefährdungsbeurteilung. Schichtbetrieb, Außenstellen, erhöhte Gefahren, räumliche Verteilung und Unfallgeschehen können den Bedarf verändern.";
+  const industry=document.getElementById('industry')?.value||'admin';
+  const employees=Math.max(0,parseInt(document.getElementById('employees')?.value||'0',10));
+  const shifts=Math.max(1,parseInt(document.getElementById('shifts')?.value||'1',10));
+  let firstAid=0;
+  if(employees<=0) firstAid=0;
+  else if(employees<=20) firstAid=1;
+  else if(industry==='admin') firstAid=Math.ceil(employees*0.05);
+  else firstAid=Math.ceil(employees*0.10);
+  firstAid=Math.max(firstAid, shifts);
+  let bsan=0;
+  if(industry==='construction') bsan=employees>100?Math.ceil(employees/150):0;
+  else bsan=employees>1500?Math.ceil(employees/1500):0;
+  const fire=Math.max(employees>0?1:0, Math.ceil(employees*0.05));
+  const el=document.getElementById('calcResult');
+  if(!el) return;
+  el.innerHTML=`<div class="metric"><span>Betriebliche Ersthelfer</span><b>${firstAid}</b><small>Orientierung nach Branche und Mitarbeitendenzahl</small></div><div class="metric"><span>Betriebssanitäter</span><b>${bsan}</b><small>abhängig von Größe, Gefährdung und Einsatzbedingungen</small></div><div class="metric"><span>Brandschutzhelfer</span><b>${fire}</b><small>Praxiswert ca. 5 %, anzupassen per Gefährdungsbeurteilung</small></div>`;
 }
 
-function askAssistant(topic){
-  const answer = document.getElementById("assistantAnswer");
-  if(!answer) return;
-  const answers = {
-    ersthelfer: "Für Betriebe ist entscheidend, wie viele Versicherte typischerweise gleichzeitig anwesend sind. Bei 2 bis 20 Personen wird mindestens ein Ersthelfer benötigt. Bei mehr als 20 Personen gelten Richtwerte von 5 % in Verwaltungs- und Handelsbetrieben sowie 10 % in sonstigen Betrieben. BWW unterstützt mit Aus- und Fortbildung sowie Inhouse-Terminen.",
-    sanitaeter: "Betriebssanitäter werden insbesondere bei großen Betrieben, Baustellen oder erhöhtem Unfallrisiko relevant. Die Schwellen nach DGUV Vorschrift 1 § 27 sind ein guter Startpunkt; die konkrete Bewertung erfolgt über Gefährdungsbeurteilung und Organisationsstruktur.",
-    brandschutz: "Brandschutzhelfer werden nach ASR A2.2 in der Regel in ausreichender Anzahl benötigt; häufig wird eine Quote von etwa 5 % der Beschäftigten als Orientierung genutzt. Je nach Brandgefährdung, Schichtbetrieb und Besucheraufkommen kann mehr sinnvoll sein.",
-    inhouse: "Inhouse-Schulungen lohnen sich, wenn mehrere Mitarbeitende geschult werden sollen, Prozesse erklärt werden müssen oder die Ausbildung direkt an Ihren Räumlichkeiten stattfinden soll. Wir klären Teilnehmerzahl, Raum, Material, Abrechnung und passende Termine.",
-    dozent: "Wer fachlich stark ist und Freude an verständlicher Ausbildung hat, kann sich als Dozent oder Honorarkraft bewerben. Besonders spannend sind Erste Hilfe, Brandschutz, Notfallmedizin, Sanitätsdienst und pädagogische Kursformate."
-  };
-  answer.textContent = answers[topic] || answers.ersthelfer;
-}
+const assistantAnswers={
+  ersthelfer:['Wie viele Ersthelfer braucht ein Betrieb?','Bis 20 anwesende Versicherte mindestens 1 Ersthelfer. Darüber meist 5 % in Verwaltungs-/Handelsbetrieben und 10 % in sonstigen Betrieben. Schichten, Außenstellen und Abwesenheiten sollten zusätzlich eingeplant werden.','/dguv-rechner/'],
+  brandschutz:['Wie viele Brandschutzhelfer sind sinnvoll?','Häufig wird mit ca. 5 % der Beschäftigten geplant. Entscheidend sind Brandgefährdung, Schichtbetrieb, Besucher, Evakuierungshelfer und die Gefährdungsbeurteilung.','/brandschutz/'],
+  abrechnung:['Wie funktioniert die BG-Abrechnung?','Viele Unfallversicherungsträger übernehmen die Kursgebühren für erforderliche betriebliche Ersthelfer. Der Weg unterscheidet sich: direkte Anmeldung, vorherige Kostenzusage oder Online-Verfahren.','/abrechnung/'],
+  kind:['Was ist anders bei Erste Hilfe am Kind?','Kinder sind keine kleinen Erwachsenen. Wichtig sind Verschlucken, Atemprobleme, Fieberkrampf, Stürze und eine ruhige Kommunikation mit Kind und Eltern.','/kurse/#erste-hilfe'],
+  fahrschule:['Passt der Kurs für den Führerschein?','Ja, die Erste-Hilfe-Ausbildung mit 9 Unterrichtseinheiten ist das Standardformat für Führerscheinanwärter und gleichzeitig sehr praxisnah für Alltag und Beruf.','https://bww.kurse-verwalten.de'],
+  dozent:['Wie bewerbe ich mich als Dozent?','Schick uns eine kurze Bewerbung mit Qualifikation, Praxiserfahrung und möglichen Einsatzbereichen. Gute Didaktik und wertschätzende Kommunikation sind uns besonders wichtig.','/dozent-werden/']
+};
+function askAssistant(key){const a=assistantAnswers[key]||assistantAnswers.ersthelfer;const el=document.getElementById('assistantAnswer');if(!el)return;el.innerHTML=`<h2>${a[0]}</h2><p>${a[1]}</p><a class="btn primary" href="${a[2]}">Mehr dazu</a>`;}
 
-document.addEventListener("DOMContentLoaded", () => {
-  calculateDguv();
-  document.getElementById("employees")?.addEventListener("input", calculateDguv);
-  document.getElementById("branch")?.addEventListener("change", calculateDguv);
-});
+const notrufPrompts={
+ adult:[
+  ['where','Notruf 112, Rettungsleitstelle Duderstadt. Wo genau ist der Notfallort?','Ort, Straße, Hausnummer, Etage oder markanter Punkt'],
+  ['what','Was ist passiert? Beschreiben Sie kurz die Situation.','Unfall, Sturz, Brand, Bewusstlosigkeit oder andere Lage'],
+  ['howmany','Wie viele Personen sind betroffen?','Anzahl der Verletzten oder Erkrankten'],
+  ['injuries','Welche Verletzungen oder Symptome sehen Sie?','Atmung, Blutung, Schmerzen, Bewusstsein'],
+  ['wait','Bleiben Sie bitte am Telefon. Können Sie auf Rückfragen warten?','Nicht auflegen, Rückfragen beantworten']
+ ],
+ child:[
+  ['where','Hallo, du hast die 112 gewählt. Ich helfe dir. Weißt du, wo du gerade bist?','Ort, Straße, Zuhause, Schule oder ein Schild'],
+  ['what','Du machst das gut. Was ist passiert?','Sag einfach, was du gesehen hast'],
+  ['howmany','Ist eine Person verletzt oder sind es mehrere?','Eine, zwei oder mehrere Personen'],
+  ['injuries','Kann die Person sprechen, atmen oder blutet sie?','Was du sehen oder hören kannst'],
+  ['wait','Bleib bitte dran. Kannst du das Telefon bei dir behalten?','Nicht auflegen, Hilfe kommt']
+ ]
+};
+let notruf={mode:'adult',step:0,answers:[],started:false};
+function speakDE(text){try{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(text);u.lang='de-DE';u.rate=notruf.mode==='child'?.86:.94;u.pitch=notruf.mode==='child'?1.08:.96;speechSynthesis.speak(u);}catch(e){}}
+function startNotrufSimulator(mode='adult'){notruf={mode,step:0,answers:[],started:true};renderNotruf();const q=notrufPrompts[mode][0][1];speakDE(q)}
+function scoreAnswer(key,text){const t=(text||'').toLowerCase();if(key==='where')return /(straße|strasse|weg|platz|duderstadt|worbis|schule|kita|firma|haus|nummer|\d)/.test(t)||t.length>18;if(key==='what')return /(unfall|sturz|brand|bewusstlos|krank|verletzt|auto|fahrrad|atmet|blutet|schmerz)/.test(t)||t.length>14;if(key==='howmany')return /(eine|zwei|drei|vier|fünf|mehrere|person|kind|\d)/.test(t);if(key==='injuries')return /(atmet|atmung|blut|bewusst|schmerz|kopf|bein|arm|brust|verletz|spricht)/.test(t)||t.length>12;if(key==='wait')return /(ja|warte|bleibe|telefon|dran|nicht auflegen|rückfragen|ok)/.test(t)||t.length>4;return false;}
+function notrufUseText(){const input=document.getElementById('notrufAnswer');if(!input||!notruf.started)return;const txt=input.value.trim();if(!txt)return;submitNotrufAnswer(txt);input.value='';}
+function submitNotrufAnswer(txt){const prompt=notrufPrompts[notruf.mode][notruf.step];notruf.answers.push({key:prompt[0],label:prompt[2],text:txt,ok:scoreAnswer(prompt[0],txt)});notruf.step++;renderNotruf();if(notruf.step<notrufPrompts[notruf.mode].length){speakDE(notrufPrompts[notruf.mode][notruf.step][1]);}else{speakDE('Danke. Das war die Simulation. Du bekommst jetzt deine Auswertung.')}}
+function notrufStartVoice(){const Rec=window.SpeechRecognition||window.webkitSpeechRecognition;if(!Rec){alert('Spracherkennung wird in diesem Browser nicht unterstützt. Bitte nutze das Textfeld.');return;}const rec=new Rec();rec.lang='de-DE';rec.interimResults=false;rec.maxAlternatives=1;document.getElementById('notrufStatus').textContent='Höre zu…';rec.onresult=e=>{const txt=e.results[0][0].transcript;submitNotrufAnswer(txt);};rec.onerror=()=>{document.getElementById('notrufStatus').textContent='Bitte Textfeld nutzen';};rec.onend=()=>{if(notruf.started&&notruf.step<notrufPrompts[notruf.mode].length)document.getElementById('notrufStatus').textContent='Bereit';};rec.start();}
+function renderNotruf(){const title=document.getElementById('notrufTitle'),prompt=document.getElementById('notrufPrompt'),log=document.getElementById('notrufLog'),status=document.getElementById('notrufStatus'),score=document.getElementById('notrufScore');if(!log)return;const prompts=notrufPrompts[notruf.mode];if(title)title.textContent=notruf.mode==='child'?'Kinder-Notruftraining: ruhig, freundlich, sicher.':'Erwachsenen-Simulation: klar bleiben unter Stress.';if(prompt)prompt.textContent=notruf.step<prompts.length?prompts[notruf.step][1]:'Auswertung abgeschlossen. Starte gern eine neue Runde.';if(status)status.textContent=notruf.step<prompts.length?`Frage ${notruf.step+1} von 5`:'Fertig';let html='<p><b>Leitstelle:</b> '+(notruf.step<prompts.length?prompts[notruf.step][1]:'Simulation beendet.')+'</p>';notruf.answers.forEach(a=>{html+=`<p class="user"><b>Du:</b> ${escapeHtml(a.text)}</p>`});log.innerHTML=html;if(score){score.innerHTML=prompts.map(p=>{const a=notruf.answers.find(x=>x.key===p[0]);return `<span class="${a?(a.ok?'ok':'miss'):''}">${p[0]==='where'?'Wo':p[0]==='what'?'Was':p[0]==='howmany'?'Wie viele':p[0]==='injuries'?'Welche Verletzung':'Warten'}</span>`}).join('');}}
+function escapeHtml(s){return String(s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));}
+
+document.addEventListener('DOMContentLoaded',()=>{if(document.getElementById('calcResult'))calculateDguv();});
+
+
+const complianceBase=[
+ 'Sind ausreichend betriebliche Ersthelfer benannt?','Sind Ersthelfer-Schulungen aktuell?','Sind Erste-Hilfe-Leistungen dokumentiert?','Sind Verbandkästen vollständig und erreichbar?','Sind Notrufnummern sichtbar ausgehängt?','Ist der nächste AED-Standort bekannt?','Gibt es eine klare Alarmierungskette?','Sind Brandschutzhelfer benannt?','Wurden Evakuierungswege geprüft?','Gibt es Sammelstellen und Räumungsabläufe?','Sind neue Mitarbeitende unterwiesen?','Sind Schicht- und Außenbereiche berücksichtigt?','Sind Gefahrstoffe mit Sicherheitsdatenblatt erfasst?','Gibt es Augenspülung bei Augenrisiken?','Sind Maschinen- oder Schnittverletzungen bedacht?','Sind psychische Erste-Hilfe-Aspekte bekannt?','Gibt es regelmäßige Notfallübungen?','Sind Zuständigkeiten schriftlich geregelt?','Wurden Fremdfirmen/Besucher berücksichtigt?','Ist der Bedarf an Betriebssanitätern geprüft?','Sind Sicherheitsbeauftragte geprüft/benannt?','Sind Führungskräfte über Pflichten informiert?','Gibt es Inhouse-Trainings für reale Szenarien?','Sind Feuerlöscher passend platziert?','Sind Beschäftigte in Löschmitteln unterwiesen?','Ist die BG/UK für Abrechnung bekannt?','Sind Kursnachweise zentral abgelegt?','Wird nach Unfällen nachbereitet?','Gibt es einen Plan für Ausfälle/Urlaub?','Ist der Arbeitsschutz jährlich überprüft?'
+];
+function initCompliance(){const wrap=document.getElementById('complianceQuestions'); if(!wrap||wrap.dataset.ready)return; wrap.dataset.ready='1'; wrap.innerHTML=complianceBase.map((q,i)=>`<label><input type="checkbox" data-compliance> ${i+1}. ${q}</label>`).join('');}
+function runSafetyCheck(){const f=document.getElementById('safetyCheckForm'); if(!f)return; const d=new FormData(f); const e=Math.max(1,parseInt(d.get('employees')||'1',10)); const sector=d.get('sector'); const shifts=Math.max(1,parseInt(d.get('shifts')||'1',10)); const risk=(d.get('chemicals')?1:0)+(d.get('machines')?1:0)+(d.get('remote')?1:0)+(d.get('public')?1:0); const first=e<=20?1:(sector==='office'?Math.ceil(e*.05):Math.ceil(e*.10)); const fire=Math.max(1,Math.ceil(e*.05)); const evac=Math.max(1,Math.ceil(e*.05)+(d.get('public')?1:0)); const kits=e<=50?1:e<=300?2:Math.ceil(e/150); const aug=d.get('chemicals')?'Ja – bei Augen-/Gefahrstoffrisiko einplanen':'Prüfen nach Gefährdungsbeurteilung'; const aed=(e>=50||sector==='care'||d.get('public'))?'Empfohlen':'Optional, Standort/Risiko prüfen'; const bsan=(sector==='construction'&&e>100)||(sector!=='construction'&&e>1500)?'Ja, Bedarf detailliert prüfen':'meist nicht erforderlich, Gefährdung prüfen'; const safety=e>20?'Sicherheitsbeauftragte prüfen/benennen':'bei Wachstum prüfen'; const trainings=['Erste-Hilfe-Ausbildung','Erste-Hilfe-Fortbildung','Brandschutzhelfer']; if(sector==='care')trainings.push('Notfalltraining Praxis/Pflege'); if(sector==='kita'||sector==='school')trainings.push('Erste Hilfe am Kind'); if(risk>=2)trainings.push('Szenario-Training / AED'); const el=document.getElementById('safetyCheckResult'); el.innerHTML=`<h2>Maßnahmenplan</h2><div class="result-list"><p>✅ Ersthelfer: <b>${Math.max(first,shifts)}</b></p><p>✅ Brandschutzhelfer: <b>${fire}</b></p><p>✅ Evakuierungshelfer: <b>${evac}</b></p><p>✅ Verbandkästen: <b>${kits}</b></p><p>✅ AED: <b>${aed}</b></p><p>✅ Augenduschen: <b>${aug}</b></p><p>✅ Betriebssanitäter: <b>${bsan}</b></p><p>✅ Sicherheitsbeauftragter: <b>${safety}</b></p></div><h3>Empfohlene Schulungen</h3><p>${trainings.join(' · ')}</p><a class="btn primary" href="/kurse/">Passende Kurse ansehen</a>`;}
+function runComplianceScan(){const checks=[...document.querySelectorAll('[data-compliance]')]; const done=checks.filter(c=>c.checked).length; const pct=checks.length?Math.round(done/checks.length*100):0; const missing=checks.filter(c=>!c.checked).slice(0,8).map(c=>c.parentElement.textContent.trim()); const el=document.getElementById('complianceResult'); if(!el)return; el.innerHTML=`<h2>Compliance-Score: ${pct} %</h2><p>${pct>=85?'🟢 Sehr solide Basis. Jetzt Feinschliff und Nachweise pflegen.':pct>=60?'🟡 Gute Ansätze, aber mehrere Punkte sollten aktiv nachgezogen werden.':'🔴 Hier liegt deutliches Potenzial: bitte Verantwortlichkeiten, Schulungen und Ausstattung prüfen.'}</p><h3>Offene Punkte</h3><ul>${missing.map(m=>`<li>${m}</li>`).join('')}</ul><a class="btn primary" href="https://bww.kurse-verwalten.de">Schulungen planen</a>`;}
+function generateIncidentReport(){const f=document.getElementById('incidentForm'); if(!f)return; const d=Object.fromEntries(new FormData(f).entries()); const report=document.getElementById('incidentReport'); const row=(k,v)=>`<p><b>${k}:</b><br>${escapeHtml(v||'—')}</p>`; report.innerHTML=`<div class="print-report"><h2>Arbeitsunfall-Dokumentation</h2>${row('Datum/Uhrzeit',d.time)}${row('Unternehmen/Standort',d.company)}${row('Verletzte Person',d.person)}${row('Unfallort',d.place)}${row('Unfallhergang',d.what)}${row('Verletzungen/Beschwerden',d.injury)}${row('Erste-Hilfe-Maßnahmen',d.measures)}${row('Zeugen',d.witnesses)}${row('Weitere Maßnahmen',d.followup)}<p class="small-note">Dokument bitte intern prüfen, ergänzen und gemäß den betrieblichen Vorgaben aufbewahren.</p><button class="btn primary" onclick="window.print()">PDF speichern / drucken</button></div>`;}
+const gameSteps={start:{img:'/media/illustrations/bewusstlos.png',title:'Ein Mitarbeiter bricht plötzlich zusammen.',text:'Er liegt am Boden und reagiert nicht auf Ansprache. Was machst du zuerst?',choices:[['ansprechen','Ansprechen und vorsichtig rütteln',10,'breathing'],['cpr','Sofort drücken',0,'warn1'],['water','Wasser holen',-5,'warn1']]},warn1:{img:'/media/illustrations/notfall-check.png',title:'Noch einmal sortieren.',text:'Erst prüfen: Reagiert die Person? Atmet sie normal? Sicherheit beachten.',choices:[['check','Bewusstsein und Atmung prüfen',10,'breathing'],['call','Direkt Notruf',5,'call']]},breathing:{img:'/media/illustrations/atemkontrolle.png',title:'Die Person atmet nicht normal.',text:'Du hast die Atmung geprüft. Es sieht nach Kreislaufstillstand aus. Was jetzt?',choices:[['call','112 rufen / rufen lassen',10,'cpr'],['side','Stabile Seitenlage',-5,'warn2'],['wait','Abwarten',-10,'warn2']]},warn2:{img:'/media/illustrations/reanimation.png',title:'Achtung: keine normale Atmung.',text:'Bei fehlender normaler Atmung zählt jede Sekunde: Notruf, Herzdruckmassage, AED.',choices:[['cpr','Herzdruckmassage starten',10,'aed'],['call','112 rufen',8,'cpr']]},call:{img:'/media/illustrations/erste-hilfe-koffer.png',title:'Notruf läuft.',text:'Die Leitstelle fragt nach Ort, Lage, Betroffenen und Atmung. Was parallel?',choices:[['cpr','Herzdruckmassage starten',10,'aed'],['search','AED holen lassen',8,'aed']]},cpr:{img:'/media/illustrations/reanimation.png',title:'Du beginnst mit Herzdruckmassage.',text:'Sehr gut. Drücke fest und schnell in der Mitte des Brustkorbs. Was hilft zusätzlich?',choices:[['aed','AED holen und Anweisungen folgen',10,'finish'],['stop','Pausieren bis Rettungsdienst kommt',-10,'warn2']]},aed:{img:'/media/illustrations/aed.png',title:'AED ist da.',text:'Du klebst die Elektroden und folgst den Sprachansagen. Was ist wichtig?',choices:[['continue','Nach Analyse weiter drücken, bis Hilfe übernimmt',10,'finish'],['remove','Elektroden wieder entfernen',-10,'warn2']]},finish:{img:'/media/illustrations/erste-hilfe-dozentin.png',title:'Simulation geschafft.',text:'Du hast die wichtigsten Schritte trainiert: prüfen, Notruf, Reanimation, AED, weitermachen.',choices:[['restart','Neu starten',0,'start']]}};
+let game={step:'start',score:0};
+function renderGame(){const s=gameSteps[game.step]; const img=document.getElementById('gameImage'); if(!img||!s)return; img.src=s.img; document.getElementById('gameTitle').textContent=s.title; document.getElementById('gameText').textContent=s.text; document.getElementById('gameScore').textContent='Score: '+game.score; document.getElementById('gameChoices').innerHTML=s.choices.map(c=>`<button onclick="chooseGame('${c[3]}',${c[2]})">${c[1]}</button>`).join('');}
+function chooseGame(next,points){if(next==='start')game.score=0;else game.score=Math.max(0,game.score+points);game.step=next;renderGame();}
+function runHazardCheck(){const q=(document.getElementById('hazardInput')?.value||'').toLowerCase(); const data=q.includes('säure')||q.includes('saeure')?['Ätzend','GHS05','Augen/Haut sofort mit viel Wasser spülen, kontaminierte Kleidung entfernen, ärztliche Abklärung.','Schutzbrille, Handschuhe, Augendusche, Sicherheitsdatenblatt.']:q.includes('lauge')?['Ätzend','GHS05','Wie bei Säuren: lange spülen, kontaminierte Kleidung entfernen, ärztliche Hilfe.','Chemikalienschutzhandschuhe, Schutzbrille, Augendusche.']:q.includes('benzin')||q.includes('alkohol')?['Entzündbar','GHS02','Frischluft, Zündquellen vermeiden, bei Beschwerden ärztliche Hilfe, bei Brand 112.','Lüftung, keine Zündquellen, geeignete Löschmittel.']:q.includes('chlor')?['Reizend/gesundheitsgefährdend','GHS07 / GHS09','Dämpfe meiden, Frischluft, Augen/Haut spülen, bei Atemnot 112.','Nicht mischen, Lüftung, Handschuhe, Schutzbrille.']:['Sicherheitsdatenblatt prüfen','SDB','Stoff eindeutig identifizieren, Exposition beenden, bei akuter Gefahr 112.','Kennzeichnung, Betriebsanweisung, PSA und Erste-Hilfe-Ausstattung prüfen.']; const el=document.getElementById('hazardResult'); if(el) el.innerHTML=`<h2>${data[0]}</h2><div class="hazard-picto">${data[1]}</div><h3>Erste Hilfe</h3><p>${data[2]}</p><h3>Schutzmaßnahmen</h3><p>${data[3]}</p><p class="small-note">Orientierung: Maßgeblich ist immer das aktuelle Sicherheitsdatenblatt.</p>`;}
+function filterKnowledge(cat){document.querySelectorAll('.knowledge-card').forEach(c=>{c.style.display=(cat==='all'||c.dataset.cat===cat)?'block':'none'});}
+document.addEventListener('DOMContentLoaded',()=>{initCompliance();renderGame();});
+
+function generateWithdrawal(){
+  const f=document.getElementById('withdrawalForm'); if(!f)return;
+  const d=Object.fromEntries(new FormData(f).entries());
+  const text=`Hiermit widerrufe ich den von mir gebuchten Kurs / Vertrag.\n\nName: ${d.name||''}\nE-Mail: ${d.email||''}\nKurs / Buchungsnummer: ${d.course||''}\nBuchungsdatum: ${d.date||''}\n\nNachricht:\n${d.message||''}\n\nBitte bestätigen Sie mir den Eingang dieses Widerrufs.`;
+  const out=document.getElementById('withdrawalOutput');
+  const mail='mailto:info@multiplikatorenstelle.de?subject='+encodeURIComponent('Widerruf BWW')+'&body='+encodeURIComponent(text);
+  out.innerHTML=`<h2>Vorbereitete Widerrufserklärung</h2><pre>${escapeHtml(text)}</pre><a class="mailto-box" href="${mail}">Per E-Mail an BWW senden</a><p class="small-note">Später verbinden wir dieses Formular direkt mit der Kurssoftware.</p>`;
+}
