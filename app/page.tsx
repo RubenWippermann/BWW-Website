@@ -1,7 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import { FormEvent, useMemo, useState } from "react";
+import { useState } from "react";
+
+const BOOKING_URL = "https://bww.kurse-verwalten.de";
 
 const courses = [
   {
@@ -40,71 +42,11 @@ const standards = [
   ["304-003", "Aus- und Fortbildung von Lehrkräften und Multiplikatorenstellen"],
 ];
 
-type BookingResult = { id: number; reference: string } | null;
-
-function fallbackMailto(payload: Record<string, FormDataEntryValue>) {
-  const subject = encodeURIComponent(`BWW Buchungsanfrage: ${String(payload.course ?? "")}`);
-  const body = encodeURIComponent(
-    [
-      "Neue Buchungsanfrage über die BWW-Website",
-      "",
-      `Kurs / Leistung: ${payload.course ?? ""}`,
-      `Name: ${payload.name ?? ""}`,
-      `Unternehmen / Einrichtung: ${payload.organization ?? ""}`,
-      `E-Mail: ${payload.email ?? ""}`,
-      `Telefon: ${payload.phone ?? ""}`,
-      `Wunschtermin: ${payload.preferredDate ?? ""}`,
-      `Teilnehmende: ${payload.participants ?? ""}`,
-      `Ort / PLZ: ${payload.location ?? ""}`,
-      "",
-      "Nachricht:",
-      `${payload.message ?? ""}`,
-    ].join("\n"),
-  );
-
-  return `mailto:info@multiplikatorenstelle.de?subject=${subject}&body=${body}`;
-}
-
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [selectedCourse, setSelectedCourse] = useState(courses[0].title);
-  const [submitting, setSubmitting] = useState(false);
-  const [result, setResult] = useState<BookingResult>(null);
-  const [error, setError] = useState("");
-
-  const selectedSummary = useMemo(
-    () => courses.find((course) => course.title === selectedCourse),
-    [selectedCourse],
-  );
 
   function chooseCourse(title: string) {
-    setSelectedCourse(title);
-    document.getElementById("buchen")?.scrollIntoView({ behavior: "smooth" });
-  }
-
-  async function submitBooking(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    setSubmitting(true);
-    setError("");
-    const form = event.currentTarget;
-    const payload = Object.fromEntries(new FormData(form).entries());
-
-    try {
-      const response = await fetch("/api/bookings", {
-        method: "POST",
-        headers: { "content-type": "application/json" },
-        body: JSON.stringify(payload),
-      });
-      const data = (await response.json()) as { booking?: BookingResult; error?: string };
-      if (!response.ok || !data.booking) throw new Error(data.error || "Die Anfrage konnte nicht übermittelt werden.");
-      setResult(data.booking);
-      form.reset();
-    } catch {
-      window.location.href = fallbackMailto(payload);
-      setError("Die direkte Online-Buchung ist noch nicht aktiv. Ihr E-Mail-Programm wurde mit der Anfrage vorbereitet.");
-    } finally {
-      setSubmitting(false);
-    }
+    window.location.href = `${BOOKING_URL}?kurs=${encodeURIComponent(title)}`;
   }
 
   return (
@@ -129,7 +71,7 @@ export default function Home() {
             <a href="#leistungen" onClick={() => setMenuOpen(false)}>Leistungen</a>
             <a href="#ueber-uns" onClick={() => setMenuOpen(false)}>Über uns</a>
             <a href="#kontakt" onClick={() => setMenuOpen(false)}>Kontakt</a>
-            <a className="nav-cta" href="#buchen" onClick={() => setMenuOpen(false)}>Kurs anfragen</a>
+            <a className="nav-cta" href={BOOKING_URL} onClick={() => setMenuOpen(false)}>Kurs buchen</a>
           </nav>
         </div>
       </header>
@@ -219,35 +161,19 @@ export default function Home() {
           <div className="booking-intro">
             <p className="eyebrow light">Online anfragen</p>
             <h2>Ihr Kurs beginnt <em>hier.</em></h2>
-            <p>Teilen Sie uns Ihren Bedarf mit. Wir prüfen Termin, Ort, Abrechnung und Verfügbarkeit und senden Ihnen anschließend die Buchungsbestätigung.</p>
-            <div className="selected-course"><span>Ihre Auswahl</span><strong>{selectedSummary?.title}</strong><small>Persönliche Bestätigung durch das BWW-Team</small></div>
-            <p className="software-note">Die Anfrage wird digital erfasst und ist für die Übergabe an die Kursverwaltung von <a href="https://www.software-wippermann.de" target="_blank" rel="noreferrer">software-wippermann.de</a> vorbereitet.</p>
+            <p>Bis zur vollständigen Anbindung unserer neuen Software laufen Kursbuchungen über die bestehende Kursverwaltung.</p>
+            <div className="selected-course"><span>Aktuelle Buchungsstrecke</span><strong>bww.kurse-verwalten.de</strong><small>Direkte Weiterleitung zur Kursauswahl und Anmeldung</small></div>
+            <p className="software-note">Die neue Schnittstelle zu <a href="https://www.software-wippermann.de" target="_blank" rel="noreferrer">software-wippermann.de</a> ist vorbereitet. Bis dahin nutzen Sie bitte die bestehende Kursverwaltung.</p>
           </div>
           <div className="booking-card">
-            {result ? (
-              <div className="success-message" role="status">
-                <div className="success-mark">✓</div><p className="eyebrow">Anfrage eingegangen</p><h3>Vielen Dank!</h3>
-                <p>Ihre Referenz lautet <strong>{result.reference}</strong>. Wir melden uns persönlich mit Termin und Buchungsbestätigung.</p>
-                <button onClick={() => setResult(null)}>Weitere Anfrage stellen</button>
-              </div>
-            ) : (
-              <form onSubmit={submitBooking}>
-                <div className="form-row full"><label htmlFor="course">Kurs / Leistung</label><select id="course" name="course" value={selectedCourse} onChange={(e) => setSelectedCourse(e.target.value)} required>{courses.map((course) => <option key={course.title}>{course.title}</option>)}<option>Inhouse-Schulung nach Maß</option><option>Multiplikatoren- / Strukturberatung</option></select></div>
-                <div className="form-row"><label htmlFor="name">Vor- und Nachname</label><input id="name" name="name" autoComplete="name" required /></div>
-                <div className="form-row"><label htmlFor="organization">Unternehmen / Einrichtung</label><input id="organization" name="organization" autoComplete="organization" /></div>
-                <div className="form-row"><label htmlFor="email">E-Mail-Adresse</label><input id="email" name="email" type="email" autoComplete="email" required /></div>
-                <div className="form-row"><label htmlFor="phone">Telefon</label><input id="phone" name="phone" type="tel" autoComplete="tel" /></div>
-                <div className="form-row"><label htmlFor="preferredDate">Wunschtermin</label><input id="preferredDate" name="preferredDate" type="date" /></div>
-                <div className="form-row"><label htmlFor="participants">Teilnehmende</label><input id="participants" name="participants" type="number" min="1" max="100" defaultValue="1" required /></div>
-                <div className="form-row full"><label htmlFor="location">Ort / PLZ</label><input id="location" name="location" placeholder="z. B. 37115 Duderstadt oder Inhouse" /></div>
-                <div className="form-row full"><label htmlFor="message">Ihre Nachricht</label><textarea id="message" name="message" rows={4} placeholder="BG-Abrechnung, Zielgruppe oder besondere Anforderungen" /></div>
-                <input className="honeypot" type="text" name="website" tabIndex={-1} autoComplete="off" />
-                <label className="consent full"><input type="checkbox" name="consent" value="accepted" required /><span>Ich habe die <a href="/legal/Datenschutz_BWW.pdf" target="_blank">Datenschutzerklärung</a> gelesen und stimme der Verarbeitung meiner Angaben zur Bearbeitung dieser Anfrage zu.</span></label>
-                {error && <p className="form-error full" role="alert">{error}</p>}
-                <button className="submit-button full" type="submit" disabled={submitting}>{submitting ? "Wird übermittelt …" : "Buchungsanfrage senden"}<span>→</span></button>
-                <p className="form-hint full">Noch kein Vertragsschluss. Sie erhalten zunächst eine persönliche Buchungsbestätigung.</p>
-              </form>
-            )}
+            <div className="success-message booking-redirect" role="status">
+              <div className="success-mark">→</div>
+              <p className="eyebrow">Online buchen</p>
+              <h3>Kurse direkt auswählen</h3>
+              <p>Sie werden zur bestehenden BWW-Kursverwaltung weitergeleitet. Dort können Sie verfügbare Termine einsehen und Kurse online buchen.</p>
+              <a className="submit-button full" href={BOOKING_URL}>Zur Kursbuchung<span>→</span></a>
+              <p className="form-hint full">Die Buchung erfolgt bis zur neuen Software-Schnittstelle über bww.kurse-verwalten.de.</p>
+            </div>
           </div>
         </div>
       </section>
