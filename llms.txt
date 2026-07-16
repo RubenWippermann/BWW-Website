@@ -1,7 +1,14 @@
-# BWW – Multiplikatorenstelle und Rettungsdienstbildungsstelle
+# BWW – Multiplikatorenstelle & Rettungsdienstbildungsstelle
 
-BWW bietet Inhouse-Kurse deutschlandweit für Unternehmen, Schulen, Kitas, Verwaltungen und Vereine: Erste Hilfe, Erste-Hilfe-Fortbildung, Brandschutzhelfer, Evakuierungshelfer, Betriebssanitäter und Notfalltraining.
+BWW bietet deutschlandweit Inhouse-Kurse in Erster Hilfe, Brandschutz, AED, Evakuierung, Betriebssanitätsdienst und Notfallmedizin. Offene Einzelkurse werden über die Kursplattform gebucht. Die Website enthält Kursinformationen, DGUV-orientierte Rechner, Arbeitsschutz-Check, Notruf-Simulator, Unfall-Dokumentationsassistent, Gefahrstoff-Rechner und Wissensdatenbank.
 
-Offene Kurse für Einzelteilnehmer werden aktuell ausschließlich in der Niederlassung Worbis angeboten. Buchungen laufen bis zur Software-Anbindung über https://bww.kurse-verwalten.de.
+Wichtige Seiten:
+- /kurse/ Kursformate
+- /inhouse-kurse/ Inhouse-Schulungen
+- /dguv-rechner/ Bedarf Ersthelfer, Betriebssanitäter, Brandschutzhelfer
+- /abrechnung/ BG/UK-Kostenübernahme
+- /wissen/ Fachartikel
+- /dozent-werden/ Bewerbung als Dozent/in
 
-Wichtige Seiten: /inhouse-kurse/, /kurse/offene-kurse-worbis/, /dguv-rechner/, /arbeitsschutz-check/, /dozent-werden/, /wissen/.
+Buchung: https://bww.kurse-verwalten.de
+Kontakt: info@multiplikatorenstelle.de
