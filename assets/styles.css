@@ -1037,3 +1037,32 @@ body{
 .city-directory a:hover {
   color: var(--bww-green, #2f7d5a);
 }
+
+/* Schwebender Credibility-Chip im Hero-Visual (oben links, spiegelt das Badge unten) */
+.hero-video-card .hero-float{
+  position:absolute;
+  top:24px;
+  left:24px;
+  z-index:3;
+  display:inline-flex;
+  align-items:center;
+  gap:.45rem;
+  background:rgba(255,255,255,.93);
+  border:1px solid rgba(255,255,255,.62);
+  box-shadow:0 14px 34px rgba(16,39,31,.13);
+  border-radius:999px;
+  padding:.6rem .9rem;
+  color:#143429;
+  font-weight:900;
+  font-size:.82rem;
+  line-height:1;
+}
+.hero-video-card .hero-float::before{
+  content:"";
+  width:9px;height:9px;border-radius:50%;
+  background:#2f7d5a;
+  box-shadow:0 0 0 4px rgba(47,125,90,.18);
+}
+@media(max-width:860px){
+  .hero-video-card .hero-float{top:16px;left:16px;font-size:.76rem;padding:.5rem .75rem}
+}
