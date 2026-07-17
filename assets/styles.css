@@ -1066,3 +1066,10 @@ body{
 @media(max-width:860px){
   .hero-video-card .hero-float{top:16px;left:16px;font-size:.76rem;padding:.5rem .75rem}
 }
+
+/* Zentrierter Sektionskopf: p-Block hat max-width -> muss horizontal zentriert werden
+   (sonst klebt der Fliesstext links, waehrend Eyebrow/H2 mittig sind) */
+.section.compact .section-head p{
+  margin-left:auto!important;
+  margin-right:auto!important;
+}
