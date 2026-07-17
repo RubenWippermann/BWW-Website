@@ -1119,3 +1119,9 @@ body{
 .final-cta .btn.ghost{background:rgba(255,255,255,.10);color:#fff;border-color:rgba(255,255,255,.28)}
 .final-cta .final-note{font-size:.95rem;margin-top:1.3rem;color:rgba(255,255,255,.72)!important}
 .final-cta .final-note a{color:#c9efb6;font-weight:800}
+
+/* Kontaktblock im Footer */
+.footer-contact{margin:.7rem 0 .3rem}
+.footer-contact a{display:block;color:#fff!important;font-weight:800;margin:.28rem 0;text-decoration:none}
+.footer-contact a:hover{color:#c9efb6!important}
+.footer-contact span{display:block;color:rgba(255,255,255,.7);font-size:.92rem;margin-top:.4rem}
