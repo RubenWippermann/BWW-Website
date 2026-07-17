@@ -1073,3 +1073,49 @@ body{
   margin-left:auto!important;
   margin-right:auto!important;
 }
+
+/* ============ Premium-Startseiten-Sektionen ============ */
+/* Ablauf / Prozess-Schritte */
+.process-steps{list-style:none;margin:0 auto;padding:0;max-width:1180px;display:grid;grid-template-columns:repeat(4,1fr);gap:1.1rem;counter-reset:step}
+.process-steps li{position:relative;background:#fff;border:1px solid var(--bww-line,#d9e5dd);border-radius:24px;padding:1.5rem 1.35rem;box-shadow:0 12px 38px rgba(16,35,27,.06)}
+.process-steps li .step-no{display:inline-grid;place-items:center;width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--bww-green,#2f7d5a),var(--bww-light,#78ba63));color:#fff;font-weight:900;font-size:1.15rem;box-shadow:0 8px 20px rgba(47,125,90,.28)}
+.process-steps li h3{font-size:1.2rem;margin:.9rem 0 .4rem;color:#0d3025}
+.process-steps li p{color:#52685e;font-size:.96rem;line-height:1.55;margin:0}
+.process-steps li:not(:last-child)::after{content:"";position:absolute;top:calc(1.5rem + 22px);right:-.75rem;width:1.5rem;height:2px;background:linear-gradient(90deg,var(--bww-light,#78ba63),transparent);z-index:1}
+@media(max-width:900px){.process-steps{grid-template-columns:1fr 1fr}.process-steps li:not(:last-child)::after{display:none}}
+@media(max-width:560px){.process-steps{grid-template-columns:1fr}}
+
+/* Tools-Highlight */
+.tools-highlight .section-head{text-align:center;margin-left:auto;margin-right:auto}
+.tools-highlight .section-head p{margin-left:auto;margin-right:auto}
+.tools-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.1rem;max-width:1180px;margin:0 auto}
+.tool-tile{display:flex;flex-direction:column;gap:.35rem;background:#fff;border:1px solid var(--bww-line,#d9e5dd);border-radius:24px;padding:1.5rem 1.3rem;text-decoration:none;color:inherit;box-shadow:0 12px 38px rgba(16,35,27,.06);transition:.2s ease}
+.tool-tile:hover{transform:translateY(-5px);box-shadow:0 24px 60px rgba(16,35,27,.13);border-color:rgba(47,125,90,.28)}
+.tool-emoji{font-size:2rem;line-height:1;filter:saturate(1.1)}
+.tool-tile h3{font-size:1.22rem;margin:.55rem 0 .2rem;color:#0d3025}
+.tool-tile p{color:#52685e;font-size:.94rem;line-height:1.5;margin:0;flex:1}
+.tool-go{margin-top:.7rem;color:var(--bww-green,#2f7d5a);font-weight:900;font-size:.92rem}
+@media(max-width:900px){.tools-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.tools-grid{grid-template-columns:1fr}}
+
+/* FAQ-Akkordeon */
+.faq-list{max-width:900px;margin:0 auto;display:grid;gap:.7rem}
+.faq-list details{background:#fff;border:1px solid var(--bww-line,#d9e5dd);border-radius:18px;box-shadow:0 8px 26px rgba(16,35,27,.05);overflow:hidden}
+.faq-list summary{list-style:none;cursor:pointer;padding:1.1rem 3rem 1.1rem 1.3rem;font-weight:850;color:#123328;position:relative;font-size:1.04rem}
+.faq-list summary::-webkit-details-marker{display:none}
+.faq-list summary::after{content:"+";position:absolute;right:1.25rem;top:50%;transform:translateY(-50%);font-size:1.5rem;font-weight:400;color:var(--bww-green,#2f7d5a);transition:transform .2s ease}
+.faq-list details[open] summary::after{content:"–"}
+.faq-list details[open] summary{color:var(--bww-green,#2f7d5a)}
+.faq-a{padding:0 1.3rem 1.2rem;color:#4d665a;line-height:1.65}
+.faq-a a{color:var(--bww-green,#2f7d5a);font-weight:800}
+
+/* Abschluss-CTA-Band */
+.home-final{padding-top:0!important}
+.final-cta{max-width:1180px;margin:0 auto;text-align:center;background:radial-gradient(circle at 78% 12%,rgba(121,189,101,.30),transparent 42%),linear-gradient(135deg,#123c2d,#0d3025);color:#fff;border-radius:38px;padding:clamp(48px,7vw,80px) clamp(24px,5vw,72px);box-shadow:0 40px 90px rgba(13,48,37,.28)}
+.final-cta .eyebrow.light{background:rgba(255,255,255,.12);color:#c9efb6;border:1px solid rgba(255,255,255,.18)}
+.final-cta h2{color:#fff!important;font-size:clamp(2rem,4vw,3.6rem)!important;line-height:1.02;margin:.5rem 0 .3rem}
+.final-cta p{color:rgba(255,255,255,.85)!important;max-width:620px;margin:.4rem auto 0}
+.final-cta .hero-actions{justify-content:center;margin-top:1.6rem}
+.final-cta .btn.ghost{background:rgba(255,255,255,.10);color:#fff;border-color:rgba(255,255,255,.28)}
+.final-cta .final-note{font-size:.95rem;margin-top:1.3rem;color:rgba(255,255,255,.72)!important}
+.final-cta .final-note a{color:#c9efb6;font-weight:800}
