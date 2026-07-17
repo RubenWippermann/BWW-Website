@@ -1018,3 +1018,22 @@ body{
   margin: .2rem 0 0 !important;
   padding: 0 !important;
 }
+
+/* Standorte-Verzeichnis auf der Hub-Seite */
+.city-directory {
+  columns: 4 220px;
+  column-gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+.city-directory a {
+  display: block;
+  padding: .45rem 0;
+  color: var(--bww-ink, #16321f);
+  text-decoration: none;
+  border-bottom: 1px solid var(--bww-line, #e3ede7);
+  break-inside: avoid;
+  font-weight: 650;
+}
+.city-directory a:hover {
+  color: var(--bww-green, #2f7d5a);
+}
