@@ -1197,3 +1197,6 @@ a:focus-visible,button:focus-visible,summary:focus-visible,.btn:focus-visible,in
 .article-related{margin:1.8rem 0 0;display:flex;flex-wrap:wrap;gap:.6rem}
 .article-related a{background:var(--bww-mint,#e8f6eb);color:var(--bww-green,#2f7d5a);border-radius:999px;padding:.5rem .95rem;text-decoration:none;font-weight:800;font-size:.9rem}
 .article-related a:hover{background:#d9efdd}
+
+/* Nav-Button "Kurs buchen" – Schrift immer weiß */
+.site-header .nav-cta,.site-header nav a.nav-cta{color:#fff!important}
