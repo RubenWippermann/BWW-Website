@@ -1243,3 +1243,8 @@ a:focus-visible,button:focus-visible,summary:focus-visible,.btn:focus-visible,in
 .form-success-ic{display:inline-grid;place-items:center;width:60px;height:60px;border-radius:50%;background:var(--bww-mint,#e8f6eb);color:var(--bww-green,#2f7d5a);font-size:1.8rem;font-weight:900;margin-bottom:.6rem}
 .form-success h3{color:#0d3025;margin:.3rem 0}.form-success p{color:#52685e;margin:0}
 @media(max-width:620px){.bww-form .fgrid,.bww-form .checks{grid-template-columns:1fr}}
+
+/* DSGVO-Consent im Formular */
+.bww-form .consent{display:flex;align-items:flex-start;gap:.6rem;margin-top:1.2rem;font-weight:600;color:#3f5238;font-size:.92rem;line-height:1.5}
+.bww-form .consent input{flex:0 0 auto;width:20px;height:20px;margin-top:2px}
+.bww-form .consent a{color:var(--bww-green,#2f7d5a);font-weight:800}
