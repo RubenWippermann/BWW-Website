@@ -1153,3 +1153,13 @@ a:focus-visible,button:focus-visible,summary:focus-visible,.btn:focus-visible,in
 .page-inner .breadcrumbs a:hover{color:#fff}
 .page-inner .breadcrumbs .current{color:#fff}
 .page-inner .breadcrumbs .sep{color:rgba(255,255,255,.42)}
+
+/* Kompaktere Hauptnavigation (8 Punkte in einer Zeile) */
+@media (min-width:861px){
+  .brand{min-width:auto}
+  .brand small{font-size:.82rem}
+  .site-header{gap:1rem}
+  .site-header nav{gap:.15rem}
+  .site-header nav a{padding:.6rem .62rem;font-size:.94rem}
+  .site-header nav a.nav-cta{padding:.72rem 1rem;margin-left:.35rem}
+}
