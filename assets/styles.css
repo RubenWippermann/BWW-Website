@@ -1139,3 +1139,17 @@ a:focus-visible,button:focus-visible,summary:focus-visible,.btn:focus-visible,in
 .sticky-book a{transition:transform .16s ease,box-shadow .2s ease}
 .sticky-book a:hover{transform:translateY(-2px);box-shadow:0 14px 30px rgba(47,125,90,.32)}
 @media (prefers-reduced-motion: reduce){*,*::before,*::after{transition-duration:.01ms!important;animation-duration:.01ms!important;scroll-behavior:auto!important}}
+
+/* Breadcrumbs */
+.breadcrumbs{max-width:1180px;margin:0 auto;padding:1.05rem clamp(22px,5vw,76px) 0;font-size:.9rem;color:#6a7d73;text-transform:none;letter-spacing:normal;font-weight:600}
+.breadcrumbs a{color:#6a7d73;text-decoration:none}
+.breadcrumbs a:hover{color:var(--bww-green,#2f7d5a);text-decoration:underline}
+.breadcrumbs .sep{margin:0 .5rem;color:#b6c4bc}
+.breadcrumbs .current{color:#123328;font-weight:700}
+
+/* Breadcrumb auf dunklem Standorte-Hero: helle Farben + an H1 ausgerichtet */
+.page-inner .breadcrumbs{max-width:none;margin:0 0 .7rem;padding:0}
+.page-inner .breadcrumbs,.page-inner .breadcrumbs a{color:rgba(255,255,255,.72)}
+.page-inner .breadcrumbs a:hover{color:#fff}
+.page-inner .breadcrumbs .current{color:#fff}
+.page-inner .breadcrumbs .sep{color:rgba(255,255,255,.42)}
