@@ -1200,3 +1200,13 @@ a:focus-visible,button:focus-visible,summary:focus-visible,.btn:focus-visible,in
 
 /* Nav-Button "Kurs buchen" – Schrift immer weiß */
 .site-header .nav-cta,.site-header nav a.nav-cta{color:#fff!important}
+
+/* ============ Neuer Hero ohne Video ============ */
+.hero-visual{position:relative;z-index:2;align-self:center}
+.hero-ill-wrap{position:relative;border-radius:36px;background:radial-gradient(circle at 30% 18%,#ffffff,#e7f4ea 72%);border:1px solid rgba(47,125,90,.15);box-shadow:0 34px 90px rgba(16,39,31,.16);padding:clamp(22px,3vw,42px);aspect-ratio:1/.9;display:grid;place-items:center}
+.hero-ill{width:100%;height:100%;object-fit:contain;display:block;filter:drop-shadow(0 16px 22px rgba(24,70,54,.12))}
+.hero-chip{position:absolute;z-index:3;display:inline-flex;align-items:center;gap:.35rem;background:#fff;border:1px solid rgba(255,255,255,.75);border-radius:999px;padding:.62rem .95rem;font-weight:900;font-size:.84rem;color:#143429;box-shadow:0 16px 36px rgba(16,39,31,.18);white-space:nowrap}
+.chip-eco{top:14px;left:-8px}
+.chip-ai{bottom:74px;right:-8px}
+.hero-tagline{position:absolute;z-index:3;left:24px;bottom:18px;background:rgba(255,255,255,.95);border-radius:999px;padding:.7rem 1.05rem;color:var(--bww-green,#2f7d5a);font-weight:900;box-shadow:0 14px 34px rgba(16,39,31,.14)}
+@media(max-width:860px){.chip-eco{top:8px;left:4px}.chip-ai{bottom:58px;right:4px;font-size:.78rem}.hero-tagline{left:12px;bottom:10px}}
