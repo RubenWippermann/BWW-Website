@@ -1125,3 +1125,17 @@ body{
 .footer-contact a{display:block;color:#fff!important;font-weight:800;margin:.28rem 0;text-decoration:none}
 .footer-contact a:hover{color:#c9efb6!important}
 .footer-contact span{display:block;color:rgba(255,255,255,.7);font-size:.92rem;margin-top:.4rem}
+
+/* ============ Accessibility & Interaktions-Politur ============ */
+a:focus-visible,button:focus-visible,summary:focus-visible,.btn:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid rgba(47,125,90,.55);outline-offset:2px;border-radius:8px}
+.btn{transition:transform .16s ease,box-shadow .2s ease,background .2s ease,color .2s ease}
+.btn.primary:hover{transform:translateY(-2px);box-shadow:0 20px 46px rgba(47,125,90,.30)}
+.btn.ghost:hover,.btn.soft:hover{transform:translateY(-2px)}
+.nav-cta{transition:transform .16s ease,box-shadow .2s ease}
+.nav-cta:hover{transform:translateY(-1px)}
+.text-link{transition:color .18s ease,transform .18s ease;font-weight:850}
+.text-link:hover{color:var(--bww-green,#2f7d5a)}
+.site-header nav a{transition:background .18s ease,color .18s ease}
+.sticky-book a{transition:transform .16s ease,box-shadow .2s ease}
+.sticky-book a:hover{transform:translateY(-2px);box-shadow:0 14px 30px rgba(47,125,90,.32)}
+@media (prefers-reduced-motion: reduce){*,*::before,*::after{transition-duration:.01ms!important;animation-duration:.01ms!important;scroll-behavior:auto!important}}
