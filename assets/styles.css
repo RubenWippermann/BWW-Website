@@ -1210,3 +1210,36 @@ a:focus-visible,button:focus-visible,summary:focus-visible,.btn:focus-visible,in
 .chip-ai{bottom:74px;right:-8px}
 .hero-tagline{position:absolute;z-index:3;left:24px;bottom:18px;background:rgba(255,255,255,.95);border-radius:999px;padding:.7rem 1.05rem;color:var(--bww-green,#2f7d5a);font-weight:900;box-shadow:0 14px 34px rgba(16,39,31,.14)}
 @media(max-width:860px){.chip-eco{top:8px;left:4px}.chip-ai{bottom:58px;right:4px;font-size:.78rem}.hero-tagline{left:12px;bottom:10px}}
+
+/* ============ Live-Termine (API) ============ */
+.termine-list{max-width:1000px;margin:0 auto;display:grid;gap:.7rem}
+.termin-row{display:grid;grid-template-columns:150px 1fr auto auto;align-items:center;gap:1rem;background:#fff;border:1px solid var(--bww-line,#d9e5dd);border-radius:18px;padding:1rem 1.2rem;text-decoration:none;color:inherit;box-shadow:0 8px 26px rgba(16,35,27,.05);transition:transform .16s ease,box-shadow .2s ease,border-color .2s ease}
+.termin-row:hover{transform:translateY(-2px);box-shadow:0 18px 44px rgba(16,35,27,.12);border-color:rgba(47,125,90,.3)}
+.termin-date b{display:block;color:#0d3025;font-size:1.02rem}.termin-date small,.termin-info small,.termin-meta small{color:#6a7d73;font-size:.85rem}
+.termin-info b{display:block;color:#123328;line-height:1.25}
+.termin-meta{text-align:right}.termin-meta b{display:block;color:var(--bww-green,#2f7d5a);font-size:1.05rem}
+.termin-cta{background:var(--bww-mint,#e8f6eb);color:var(--bww-green,#2f7d5a);font-weight:900;border-radius:999px;padding:.55rem .95rem;white-space:nowrap;font-size:.9rem}
+.termine-empty{max-width:1000px;margin:0 auto;text-align:center;color:#52685e;background:#fff;border:1px dashed var(--bww-line,#d9e5dd);border-radius:18px;padding:1.6rem}
+.termine-empty a{color:var(--bww-green,#2f7d5a);font-weight:800}
+@media(max-width:760px){.termin-row{grid-template-columns:1fr auto;grid-template-areas:'date meta' 'info info' 'cta cta';gap:.5rem}.termin-date{grid-area:date}.termin-info{grid-area:info}.termin-meta{grid-area:meta}.termin-cta{grid-area:cta;text-align:center}}
+
+/* ============ Formulare (API) ============ */
+.bww-form{max-width:720px;margin:0 auto;background:#fff;border:1px solid var(--bww-line,#d9e5dd);border-radius:26px;box-shadow:0 18px 50px rgba(16,35,27,.07);padding:clamp(1.3rem,3vw,2.2rem)}
+.bww-form .fgrid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.bww-form label{display:block;font-weight:800;color:#123328;margin:.9rem 0 .35rem;font-size:.95rem}
+.bww-form .full{grid-column:1/-1}
+.bww-form input,.bww-form select,.bww-form textarea{width:100%;border:1px solid var(--bww-line,#d9e5dd);border-radius:14px;padding:.85rem 1rem;font:inherit;background:#fbfefc;color:#16321f}
+.bww-form input:focus,.bww-form select:focus,.bww-form textarea:focus{outline:none;border-color:var(--bww-green,#2f7d5a);box-shadow:0 0 0 3px rgba(47,125,90,.14)}
+.bww-form textarea{min-height:120px;resize:vertical}
+.bww-form .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.bww-form .checks{display:grid;grid-template-columns:1fr 1fr;gap:.5rem;margin-top:.4rem}
+.bww-form .checks label{display:grid;grid-template-columns:22px 1fr;align-items:center;gap:.5rem;margin:0;font-weight:650;background:#f6fbf7;border:1px solid var(--bww-line,#d9e5dd);border-radius:12px;padding:.6rem .75rem;cursor:pointer}
+.bww-form .checks input{width:20px;height:20px}
+.bww-form .form-actions{margin-top:1.4rem;display:flex;align-items:center;gap:1rem;flex-wrap:wrap}
+.bww-form .form-hint{font-size:.86rem;color:#6a7d73}
+.form-status{margin-top:.9rem;font-weight:700;color:#2f7d5a}
+.form-status.is-error{color:#b3402f}
+.form-success{text-align:center;padding:1.5rem .5rem}
+.form-success-ic{display:inline-grid;place-items:center;width:60px;height:60px;border-radius:50%;background:var(--bww-mint,#e8f6eb);color:var(--bww-green,#2f7d5a);font-size:1.8rem;font-weight:900;margin-bottom:.6rem}
+.form-success h3{color:#0d3025;margin:.3rem 0}.form-success p{color:#52685e;margin:0}
+@media(max-width:620px){.bww-form .fgrid,.bww-form .checks{grid-template-columns:1fr}}
