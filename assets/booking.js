@@ -31,7 +31,8 @@
         var tags = [k.stadt, k.kursart];
         if (k.fuehrerschein_geeignet) tags.push('Führerschein');
         if (k.bg_uk_abrechenbar) tags.push('BG/UK abrechenbar');
-        return '<a class="termin-row" href="' + esc(k.buchungs_url) + '" target="_blank" rel="noopener">' +
+        var burl = k.buchungs_url + (k.buchungs_url.indexOf("?") > -1 ? "&" : "?") + "org=" + ORG;
+        return '<a class="termin-row" href="' + esc(burl) + '" target="_blank" rel="noopener">' +
           '<span class="termin-date"><b>' + fmtDate(k.datum) + '</b><small>' + esc(k.uhrzeit) + ' Uhr</small></span>' +
           '<span class="termin-info"><b>' + esc(k.titel) + '</b><small>' + tags.filter(Boolean).map(esc).join(' · ') + '</small></span>' +
           '<span class="termin-meta"><b>' + (k.preis != null ? esc(k.preis) + ' €' : '') + '</b><small>' + esc(k.freie_plaetze) + ' Plätze frei</small></span>' +
