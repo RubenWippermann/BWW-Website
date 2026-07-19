@@ -17,12 +17,15 @@
   function loadTermine() {
     var el = document.getElementById('live-termine');
     if (!el) return;
-    var limit = parseInt(el.getAttribute('data-limit') || '6', 10);
+    var limitAttr = el.getAttribute('data-limit');
+    // data-limit="all" (oder 0/leer) => alle Termine anzeigen; sonst auf die Zahl begrenzen
+    var limit = (!limitAttr || limitAttr === 'all') ? 0 : parseInt(limitAttr, 10);
     var stadt = el.getAttribute('data-stadt') || '';
     // ab_datum=heute IMMER mitgeben — sonst liefert der Feed auch vergangene Termine
     var url = API + '/api/kurse?org=' + ORG + '&ab_datum=' + today() + (stadt ? '&stadt=' + encodeURIComponent(stadt) : '');
     fetch(url).then(function (r) { return r.json(); }).then(function (data) {
-      var kurse = (data && data.kurse) ? data.kurse.slice(0, limit) : [];
+      var all = (data && data.kurse) ? data.kurse : [];
+      var kurse = (limit > 0) ? all.slice(0, limit) : all;
       if (!kurse.length) {
         el.innerHTML = '<p class="termine-empty">Aktuell sind hier keine offenen Termine gelistet. Fragt gern einen Wunschtermin oder <a href="/inhouse-kurse/">Inhouse-Kurs</a> an.</p>';
         return;
