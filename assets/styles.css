@@ -1274,3 +1274,8 @@ a:focus-visible,button:focus-visible,summary:focus-visible,.btn:focus-visible,in
 html.reveal-on main .section,html.reveal-on main .section-soft{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease;will-change:opacity,transform}
 html.reveal-on main .section.is-visible,html.reveal-on main .section-soft.is-visible{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){html.reveal-on main .section,html.reveal-on main .section-soft{opacity:1!important;transform:none!important;transition:none!important}}
+
+/* Fix: Checkboxen/Radios dürfen NICHT Textfeld-Stile (Padding/Höhe) erben — global + je Formular */
+input[type=checkbox],input[type=radio]{padding:0;min-height:0;box-sizing:border-box;accent-color:var(--bww-green,#2f7d5a);cursor:pointer}
+.bww-form input[type=checkbox],.checks input[type=checkbox],.consent input[type=checkbox],.check-row input[type=checkbox],.compliance-questions input[type=checkbox]{-webkit-appearance:auto;appearance:auto;width:20px;height:20px;flex:0 0 auto;align-self:start;border-radius:4px}
+.checks label{align-items:start}
