@@ -1293,3 +1293,13 @@ input[type=checkbox],input[type=radio]{padding:0;min-height:0;box-sizing:border-
 .eco-hero-card .eco-hero-emoji{font-size:4.6rem;line-height:1}
 .eco-hero-card b{font-size:1.7rem;color:var(--deep,#0d3027);margin-top:.4rem}
 .eco-hero-card small{font-size:1rem;color:var(--green,#2f6f55);font-weight:750}
+
+/* === Lesbarkeit: Überschriften & Untertitel entspannen (Feedback Brillenträgerin) ===
+   Ursache: sehr enges negatives Letter-Spacing (bis -.075em) + enge Zeilenhöhe (.88-.92)
+   ließen Buchstaben verschmelzen. Werte hier moderat gelockert, Premium-Look bleibt. */
+h1,.hero-copy h1,.page-hero h1,.apple-hero h1{letter-spacing:-.018em!important;line-height:1.04!important}
+h2,.section-head h2,.section-soft h2{letter-spacing:-.012em!important;line-height:1.12!important}
+h3,.path-card h3,.feature-card h3,.course-card h3,.knowledge-card h3{letter-spacing:0!important;line-height:1.28!important}
+/* Untertitel/Fließtext etwas luftiger und klarer lesbar */
+.hero-copy p,.page-hero p,.section-head p{line-height:1.55}
+.hero-copy p{color:#33463c}
