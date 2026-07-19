@@ -73,10 +73,18 @@
     // data-limit="all" (oder 0/leer) => alle Termine + Filter; sonst begrenzte Teaser-Liste
     var limit = (!limitAttr || limitAttr === 'all') ? 0 : parseInt(limitAttr, 10);
     var stadt = el.getAttribute('data-stadt') || '';
+    // data-art="EHA" (oder mehrere per Komma) => nur diese Kursformate, ohne Filter-Dropdown (dedizierte Kursseite)
+    var art = (el.getAttribute('data-art') || '').split(',').map(function (s) { return s.trim(); }).filter(Boolean);
     // ab_datum=heute IMMER mitgeben — sonst liefert der Feed auch vergangene Termine
     var url = API + '/api/kurse?org=' + ORG + '&ab_datum=' + today() + (stadt ? '&stadt=' + encodeURIComponent(stadt) : '');
     fetch(url).then(function (r) { return r.json(); }).then(function (data) {
       var all = (data && data.kurse) ? data.kurse : [];
+      if (art.length) {
+        all = all.filter(function (k) { return art.indexOf(String(k.kursart || '')) !== -1; });
+        if (!all.length) { el.innerHTML = '<p class="termine-empty">Für dieses Format sind aktuell keine offenen Termine gelistet. Als Inhouse-Kurs jederzeit buchbar — <a href="#anfrage">Wunschtermin anfragen →</a></p>'; return; }
+        el.innerHTML = (limit > 0 ? all.slice(0, limit) : all).map(rowHTML).join('');
+        return;
+      }
       if (!all.length) { el.innerHTML = EMPTY_MSG; return; }
       if (limit > 0) { el.innerHTML = all.slice(0, limit).map(rowHTML).join(''); return; }
       renderWithFilter(el, all);
