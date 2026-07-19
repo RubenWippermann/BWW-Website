@@ -116,3 +116,21 @@ var b=document.createElement('div');b.className='privacy-note';
 b.innerHTML='<span>Diese Website nutzt <b>keine Tracking-Cookies</b>. Mehr in der <a href="/datenschutz/">Datenschutzerklärung</a>.</span><button type="button">Verstanden</button>';
 b.querySelector('button').addEventListener('click',function(){b.remove();try{localStorage.setItem('bww-privacy-ok','1');}catch(e){}});
 if(document.body)document.body.appendChild(b);})();
+
+/* Dezente Scroll-Reveals (progressive Enhancement, respektiert reduce-motion, Sicherheits-Fallback) */
+(function(){
+  var root=document.documentElement;
+  if(!('IntersectionObserver' in window))return;                 // ohne Support: Inhalt bleibt sichtbar
+  try{if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)return;}catch(e){}
+  function start(){
+    var targets=document.querySelectorAll('main .section, main .section-soft');
+    if(!targets.length)return;
+    root.classList.add('reveal-on');
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('is-visible');io.unobserve(e.target);}});
+    },{rootMargin:'0px 0px -8% 0px',threshold:0.04});
+    targets.forEach(function(t){io.observe(t);});
+    setTimeout(function(){targets.forEach(function(t){t.classList.add('is-visible');});},3500); // Fallback: nie dauerhaft ausgeblendet
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start);else start();
+})();

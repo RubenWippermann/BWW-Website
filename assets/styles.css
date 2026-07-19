@@ -1269,3 +1269,8 @@ a:focus-visible,button:focus-visible,summary:focus-visible,.btn:focus-visible,in
 
 .termin-row.is-full{opacity:.62}
 .termin-row.is-full .termin-cta{color:#7a7a7a}
+
+/* Scroll-Reveals — nur aktiv, wenn JS die Klasse setzt (sonst voll sichtbar) */
+html.reveal-on main .section,html.reveal-on main .section-soft{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease;will-change:opacity,transform}
+html.reveal-on main .section.is-visible,html.reveal-on main .section-soft.is-visible{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){html.reveal-on main .section,html.reveal-on main .section-soft{opacity:1!important;transform:none!important;transition:none!important}}
