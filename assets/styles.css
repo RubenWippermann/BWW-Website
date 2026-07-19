@@ -1266,3 +1266,6 @@ a:focus-visible,button:focus-visible,summary:focus-visible,.btn:focus-visible,in
 .eco-highlight .eco-text span{color:#4d665a}
 .eco-highlight .btn{flex:0 0 auto}
 @media(max-width:560px){.eco-highlight{text-align:center;justify-content:center}.eco-highlight .btn{width:100%}}
+
+.termin-row.is-full{opacity:.62}
+.termin-row.is-full .termin-cta{color:#7a7a7a}

@@ -31,15 +31,20 @@
         var tags = [k.stadt, k.kursart];
         if (k.fuehrerschein_geeignet) tags.push('Führerschein');
         if (k.bg_uk_abrechenbar) tags.push('BG/UK abrechenbar');
-        var burl = k.buchungs_url + (k.buchungs_url.indexOf("?") > -1 ? "&" : "?") + "org=" + ORG;
-        return '<a class="termin-row" href="' + esc(burl) + '" target="_blank" rel="noopener">' +
-          '<span class="termin-date"><b>' + fmtDate(k.datum) + '</b><small>' + esc(k.uhrzeit) + ' Uhr</small></span>' +
+        // org=bww nur anhängen, falls die API es nicht schon liefert (sonst Dublette)
+        var burl = k.buchungs_url || '';
+        if (burl.indexOf('org=') === -1) burl += (burl.indexOf('?') > -1 ? '&' : '?') + 'org=' + ORG;
+        var voll = !!k.ausgebucht;
+        var zeit = k.uhrzeit ? esc(k.uhrzeit) + ' Uhr' : '';
+        var preis = (k.preis != null && k.preis !== '') ? esc(k.preis) + ' €' : '';
+        return '<a class="termin-row' + (voll ? ' is-full' : '') + '" href="' + esc(burl) + '" target="_blank" rel="noopener">' +
+          '<span class="termin-date"><b>' + fmtDate(k.datum) + '</b>' + (zeit ? '<small>' + zeit + '</small>' : '') + '</span>' +
           '<span class="termin-info"><b>' + esc(k.titel) + '</b><small>' + tags.filter(Boolean).map(esc).join(' · ') + '</small></span>' +
-          '<span class="termin-meta"><b>' + (k.preis != null ? esc(k.preis) + ' €' : '') + '</b><small>' + esc(k.freie_plaetze) + ' Plätze frei</small></span>' +
-          '<span class="termin-cta">Buchen →</span></a>';
+          '<span class="termin-meta"><b>' + preis + '</b><small>' + (voll ? 'Ausgebucht' : 'Plätze frei') + '</small></span>' +
+          '<span class="termin-cta">' + (voll ? 'Warteliste →' : 'Buchen →') + '</span></a>';
       }).join('');
     }).catch(function () {
-      el.innerHTML = '<p class="termine-empty">Termine konnten gerade nicht geladen werden. <a href="https://bww.kurse-verwalten.de">Zur Kursplattform →</a></p>';
+      el.innerHTML = '<p class="termine-empty">Termine konnten gerade nicht geladen werden. Bitte später erneut versuchen oder <a href="/inhouse-kurse/">Wunschtermin anfragen →</a></p>';
     });
   }
 
