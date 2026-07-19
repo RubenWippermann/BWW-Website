@@ -1,14 +1,54 @@
 # BWW – Multiplikatorenstelle & Rettungsdienstbildungsstelle
 
-BWW bietet deutschlandweit Inhouse-Kurse in Erster Hilfe, Brandschutz, AED, Evakuierung, Betriebssanitätsdienst und Notfallmedizin. Offene Einzelkurse werden über die Kursplattform gebucht. Die Website enthält Kursinformationen, DGUV-orientierte Rechner, Arbeitsschutz-Check, Notruf-Simulator, Unfall-Dokumentationsassistent, Gefahrstoff-Rechner und Wissensdatenbank.
+> BWW (BWW UG, haftungsbeschränkt) ist ein deutscher Anbieter für praxisnahe Erste-Hilfe-, Brandschutz- und Notfallmedizin-Schulungen. Kurse finden als Inhouse-Schulung deutschlandweit direkt beim Kunden vor Ort statt sowie als offene Kurse am Standort Leinefelde-Worbis/Duderstadt. Alle Trainerinnen und Trainer kommen aus dem Rettungsdienst. Buchung und Nachweise laufen digital. Sitz: Worbiser Straße 2, 37115 Duderstadt, Deutschland. Telefon: +49 5527 748 7518 (am Telefon meldet sich Bella, eine digitale Assistentin). E-Mail: info@multiplikatorenstelle.de.
 
-Wichtige Seiten:
-- /kurse/ Kursformate
-- /inhouse-kurse/ Inhouse-Schulungen
-- /dguv-rechner/ Bedarf Ersthelfer, Betriebssanitäter, Brandschutzhelfer
-- /abrechnung/ BG/UK-Kostenübernahme
-- /wissen/ Fachartikel
-- /dozent-werden/ Bewerbung als Dozent/in
+BWW eignet sich für Unternehmen, Schulen, Kindertagesstätten, Verwaltungen, Vereine und Privatpersonen (z. B. Führerschein). Viele Kurse sind über Berufsgenossenschaft bzw. Unfallkasse (BG/UK) abrechenbar. Nachhaltigkeit: BWW pflanzt einen Baum pro Kurs (auf Wunsch pro Teilnehmer:in).
 
-Buchung: https://multiplikatorenstelle.de/kurse/#live-termine
-Kontakt: info@multiplikatorenstelle.de
+## Kursangebot
+
+- Erste-Hilfe-Ausbildung (9 UE) – für Betriebe und für die Führerscheinzulassung geeignet
+- Erste-Hilfe-Fortbildung (9 UE) – Auffrischung, in der Regel alle 2 Jahre
+- Erste Hilfe am Kind – für Eltern, Kitas und Betreuungseinrichtungen
+- Erste Hilfe für Bildungs- und Betreuungseinrichtungen
+- Reanimation & AED-Training (Wiederbelebung, Defibrillator)
+- AED-Einweisung
+- Brandschutzhelfer-Ausbildung
+- Betriebssanitäter: Grundausbildung, Aufbaulehrgang, Fortbildung
+- Notfalltraining für das Gesundheitswesen
+- Schulsanitäter-Ausbildung
+- Sanitätshelfer-Ausbildung
+- Lehrkräfte-Ausbildung (Themenbereich I & II) und Lehrkräfte-Fortbildung
+
+## Wichtige Seiten
+
+- [Kursformate](https://www.multiplikatorenstelle.de/kurse/): alle Kursarten mit freien Live-Terminen und Buchung
+- [Inhouse-Kurse](https://www.multiplikatorenstelle.de/inhouse-kurse/): Schulungen deutschlandweit vor Ort anfragen
+- [Standorte](https://www.multiplikatorenstelle.de/standorte/): Inhouse-Kurse in Städten in ganz Deutschland
+- [Offene Kurse Worbis](https://www.multiplikatorenstelle.de/kurse/offene-kurse-worbis/): offene Kurse am Standort
+- [BG/UK-Abrechnung](https://www.multiplikatorenstelle.de/abrechnung/): Kostenübernahme durch Unfallversicherungsträger
+- [Dozent werden](https://www.multiplikatorenstelle.de/dozent-werden/): Bewerbung als Trainer:in
+- [Wissensdatenbank](https://www.multiplikatorenstelle.de/wissen/): Fachartikel zu Recht, Organisation und Erster Hilfe
+
+## Tools
+
+- [DGUV-Rechner](https://www.multiplikatorenstelle.de/dguv-rechner/): benötigte Ersthelfer, Betriebssanitäter und Brandschutzhelfer berechnen
+- [Arbeitsschutz-Check](https://www.multiplikatorenstelle.de/arbeitsschutz-check/): Selbstcheck zum betrieblichen Arbeitsschutz
+- [112-Notruf-Simulator](https://www.multiplikatorenstelle.de/notruf-simulator/): den Notruf üben
+- [Unfall-Dokumentation](https://www.multiplikatorenstelle.de/unfall-dokumentation/): Arbeitsunfall strukturiert dokumentieren
+
+## Wissensartikel (Auswahl)
+
+- [Wie viele Ersthelfer schreibt die DGUV vor?](https://www.multiplikatorenstelle.de/wissen/ersthelfer-anzahl-dguv/)
+- [Wann braucht ein Betrieb Betriebssanitäter?](https://www.multiplikatorenstelle.de/wissen/betriebssanitaeter-pflicht/)
+- [Wie viele Brandschutzhelfer sind vorgeschrieben?](https://www.multiplikatorenstelle.de/wissen/brandschutzhelfer-anzahl/)
+- [Erste-Hilfe-Fortbildung: Intervalle und Fristen](https://www.multiplikatorenstelle.de/wissen/erste-hilfe-fortbildung-intervalle/)
+- [Kostenübernahme für Erste-Hilfe-Kurse über BG/UK](https://www.multiplikatorenstelle.de/wissen/kostenuebernahme-erste-hilfe/)
+- [Erste-Hilfe-Kurs für den Führerschein](https://www.multiplikatorenstelle.de/wissen/erste-hilfe-fuehrerschein/)
+- [Verbandkasten in der Arbeitsstätte](https://www.multiplikatorenstelle.de/wissen/verbandkasten-arbeitsstaette/)
+
+## Kontakt & Buchung
+
+- Buchung freier Termine: https://www.multiplikatorenstelle.de/kurse/#live-termine
+- Inhouse-Anfrage: https://www.multiplikatorenstelle.de/inhouse-kurse/
+- E-Mail: info@multiplikatorenstelle.de
+- Telefon: +49 5527 748 7518
