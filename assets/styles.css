@@ -1332,3 +1332,11 @@ h3,.path-card h3,.feature-card h3,.course-card h3,.knowledge-card h3{font-weight
 .format-chip b{color:#20302a;font-size:.95rem;line-height:1.25}
 .format-chip span{color:#5c6b63;font-size:.78rem}
 @media(max-width:800px){.course-detail{grid-template-columns:1fr;gap:1.6rem}.course-facts{position:static}}
+
+/* ===== Wissens-Hub: Suche + aktiver Filter ===== */
+.filter-bar button.is-active{background:#2f7d5a;color:#fff;border-color:#2f7d5a}
+.kb-searchwrap{display:flex;align-items:center;gap:.9rem;flex-wrap:wrap;margin-bottom:1rem}
+#kbSearch{flex:1 1 320px;max-width:560px;border:1px solid var(--bww-line);border-radius:999px;padding:.85rem 1.3rem;font-size:1rem;font-family:inherit;background:#fff}
+#kbSearch:focus{outline:none;border-color:#2f7d5a;box-shadow:0 0 0 3px rgba(47,125,90,.15)}
+.kb-count{color:#5c6b63;font-size:.9rem;font-weight:700;white-space:nowrap}
+.kb-empty{color:#33463c;background:#f4f8f5;border:1px solid #e2ede7;border-radius:14px;padding:1.1rem 1.3rem;margin-top:.4rem}
