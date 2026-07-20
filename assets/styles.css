@@ -1358,3 +1358,7 @@ h3,.path-card h3,.feature-card h3,.course-card h3,.knowledge-card h3{font-weight
   /* Brotkrümel bleiben links (Konvention) */
   .breadcrumbs,.page-hero .crumb{text-align:left!important}
 }
+
+/* ===== Sektions-Intros site-weit einheitlich zentriert (Harmonie/Symmetrie, Desktop+Mobile) ===== */
+.section-head{text-align:center;margin-left:auto;margin-right:auto}
+.section-head>.eyebrow,.section-head>h2,.section-head>p{margin-left:auto;margin-right:auto}
