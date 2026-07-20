@@ -234,7 +234,44 @@
     });
   }
 
-  function init() { loadTermine(); wireForms(); wireWaitlist(); }
+  /* ---------- Kundenstimmen / Bewertungen (GET /api/bewertungen) ---------- */
+  function stars(n) { n = Math.max(0, Math.min(5, parseInt(n, 10) || 0)); var s = ''; for (var i = 0; i < 5; i++) s += (i < n ? '★' : '☆'); return s; }
+  function reviewHTML(b) {
+    var meta = [b.quelle, b.datum].filter(Boolean).map(esc).join(' · ');
+    var n = parseInt(b.sterne, 10) || 0;
+    return '<figure class="review-card"><div class="review-stars" aria-label="' + n + ' von 5 Sternen">' + stars(n) + '</div>' +
+      '<blockquote>' + esc(b.text || '') + '</blockquote>' +
+      '<figcaption><b>' + esc(b.name || 'Anonym') + '</b>' + (meta ? '<small>' + meta + '</small>' : '') + '</figcaption></figure>';
+  }
+  function injectReviewSchema(list) {
+    var rated = list.filter(function (b) { return parseInt(b.sterne, 10) > 0; });
+    if (!rated.length) return;
+    var sum = rated.reduce(function (a, b) { return a + (parseInt(b.sterne, 10) || 0); }, 0);
+    var avg = Math.round((sum / rated.length) * 10) / 10;
+    var node = {
+      '@context': 'https://schema.org', '@type': 'EducationalOrganization', '@id': 'https://www.multiplikatorenstelle.de/#organization',
+      name: 'BWW UG (haftungsbeschränkt)', url: 'https://www.multiplikatorenstelle.de/',
+      aggregateRating: { '@type': 'AggregateRating', ratingValue: avg, reviewCount: rated.length, bestRating: 5, worstRating: 1 },
+      review: rated.slice(0, 8).map(function (b) {
+        return { '@type': 'Review', author: { '@type': 'Person', name: b.name || 'Anonym' }, reviewRating: { '@type': 'Rating', ratingValue: parseInt(b.sterne, 10), bestRating: 5, worstRating: 1 }, reviewBody: b.text || '' };
+      })
+    };
+    var sc = document.createElement('script'); sc.type = 'application/ld+json'; sc.id = 'reviewSchema';
+    sc.textContent = JSON.stringify(node); document.head.appendChild(sc);
+  }
+  function loadReviews() {
+    var el = document.getElementById('reviews-list');
+    if (!el) return;
+    fetch(API + '/api/bewertungen?org=' + ORG).then(function (r) { return r.json(); }).then(function (data) {
+      var list = (data && data.bewertungen) ? data.bewertungen : [];
+      if (!list.length) return; // Fallback: Sektion bleibt mit Instagram/Google-CTA sichtbar
+      el.innerHTML = list.slice(0, 12).map(reviewHTML).join('');
+      el.hidden = false;
+      injectReviewSchema(list);
+    }).catch(function () { /* still: kein Bruch, Fallback-CTA bleibt */ });
+  }
+
+  function init() { loadTermine(); wireForms(); wireWaitlist(); loadReviews(); }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
   else init();
 })();
