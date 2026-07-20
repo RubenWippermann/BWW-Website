@@ -271,7 +271,36 @@
     }).catch(function () { /* still: kein Bruch, Fallback-CTA bleibt */ });
   }
 
-  function init() { loadTermine(); wireForms(); wireWaitlist(); loadReviews(); }
+  /* ---------- Kurskarten anreichern: nächster Termin + Preis + Verfügbarkeit ---------- */
+  function enrichCourseCards() {
+    var cards = document.querySelectorAll('.course-card[data-art]');
+    if (!cards.length) return;
+    fetch(API + '/api/kurse?org=' + ORG + '&ab_datum=' + today()).then(function (r) { return r.json(); }).then(function (data) {
+      var all = (data && data.kurse) ? data.kurse : [];
+      var byArt = {};
+      all.forEach(function (k) { var a = String(k.kursart || ''); (byArt[a] = byArt[a] || []).push(k); });
+      Object.keys(byArt).forEach(function (a) { byArt[a].sort(function (x, y) { return String(x.datum || '').localeCompare(String(y.datum || '')); }); });
+      Array.prototype.forEach.call(cards, function (card) {
+        if (card.querySelector('.course-card-meta')) return;
+        var list = byArt[card.getAttribute('data-art')] || [];
+        var next = list.filter(function (k) { return !k.ausgebucht; })[0] || list[0];
+        var meta = document.createElement('div'); meta.className = 'course-card-meta';
+        if (next) {
+          var voll = !!next.ausgebucht;
+          var preis = (next.preis != null && next.preis !== '') ? esc(next.preis) + ' €' : '';
+          meta.innerHTML = '<span class="ccm-date">' + fmtRange(next) + '</span>' +
+            (preis ? '<span class="ccm-price">' + preis + '</span>' : '') +
+            '<span class="ccm-status ' + (voll ? 'is-full' : 'is-free') + '">' + (voll ? 'Warteliste' : 'Plätze frei') + '</span>';
+        } else {
+          meta.innerHTML = '<span class="ccm-inhouse">Inhouse jederzeit buchbar</span>';
+        }
+        var link = card.querySelector('.text-link');
+        if (link) card.insertBefore(meta, link); else card.appendChild(meta);
+      });
+    }).catch(function () { /* kein Bruch: Karten bleiben ohne Meta */ });
+  }
+
+  function init() { loadTermine(); wireForms(); wireWaitlist(); loadReviews(); enrichCourseCards(); }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
   else init();
 })();
