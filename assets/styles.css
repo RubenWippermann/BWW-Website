@@ -1340,3 +1340,21 @@ h3,.path-card h3,.feature-card h3,.course-card h3,.knowledge-card h3{font-weight
 #kbSearch:focus{outline:none;border-color:#2f7d5a;box-shadow:0 0 0 3px rgba(47,125,90,.15)}
 .kb-count{color:#5c6b63;font-size:.9rem;font-weight:700;white-space:nowrap}
 .kb-empty{color:#33463c;background:#f4f8f5;border:1px solid #e2ede7;border-radius:14px;padding:1.1rem 1.3rem;margin-top:.4rem}
+
+/* ===== Handy-Ansicht: konsistent zentrierte Intros + gleiche Ränder (≤560px) ===== */
+@media(max-width:560px){
+  /* Einheitliche Seitenabstände – kein springender linker Rand mehr */
+  main>section{padding-left:18px!important;padding-right:18px!important}
+  main>section.section-soft.split,main>section.section.dark{padding-left:18px!important;padding-right:18px!important}
+  /* Sektions-Intros site-weit einheitlich zentriert */
+  .section-head,.section-head>.eyebrow,.section-head>h2,.section-head>p{text-align:center!important;margin-left:auto!important;margin-right:auto!important}
+  /* Split-Sektionen: nur der Intro-Text zentriert – Häkchenlisten/Karten bleiben links */
+  main>section.split>div>.eyebrow,main>section.split>div>h2,main>section.split>div>p{text-align:center!important;margin-left:auto!important;margin-right:auto!important;border-left:none!important;padding-left:0!important}
+  /* Abschluss-CTA zentriert */
+  .home-final .final-cta,.home-final .final-cta>*{text-align:center!important;margin-left:auto!important;margin-right:auto!important}
+  /* Hero (Startseite + Unterseiten) zentriert */
+  .apple-hero .hero-copy>.eyebrow,.apple-hero .hero-copy>h1,.apple-hero .hero-copy>p,
+  .page-hero>div,.page-hero>div>.eyebrow,.page-hero>div>h1,.page-hero>div>h2,.page-hero>div>p{text-align:center!important;margin-left:auto!important;margin-right:auto!important}
+  /* Brotkrümel bleiben links (Konvention) */
+  .breadcrumbs,.page-hero .crumb{text-align:left!important}
+}
