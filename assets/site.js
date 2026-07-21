@@ -125,12 +125,13 @@ if(document.body)document.body.appendChild(b);})();
   function start(){
     var targets=document.querySelectorAll('main .section, main .section-soft');
     if(!targets.length)return;
+    if(location.hash && location.hash.length>1)return;   // Deep-Link (#anker): nichts ausblenden, Inhalt sofort sichtbar
     root.classList.add('reveal-on');
     var io=new IntersectionObserver(function(entries){
       entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('is-visible');io.unobserve(e.target);}});
     },{rootMargin:'0px 0px -8% 0px',threshold:0.04});
     targets.forEach(function(t){io.observe(t);});
-    setTimeout(function(){targets.forEach(function(t){t.classList.add('is-visible');});},3500); // Fallback: nie dauerhaft ausgeblendet
+    setTimeout(function(){targets.forEach(function(t){t.classList.add('is-visible');});},2000); // Fallback: nie dauerhaft ausgeblendet
   }
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start);else start();
 })();

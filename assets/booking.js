@@ -322,6 +322,9 @@
     'Sanitätshelfer-Ausbildung': 24, 'Lehrkräfte-Ausbildung (Themenbereich I & II)': 24,
     'Lehrkräfte-Fortbildung': 8
   };
+  // Uhrzeit-Dauer-Override in Zeitstunden für Formate, deren Zeitdauer von UE×45min abweicht (Feed/öffentliche Angabe maßgeblich)
+  var DUR_H_OVERRIDE = { 'Notfalltraining (Gesundheitswesen)': 4 };
+  function fmtDurMin(name) { if (DUR_H_OVERRIDE[name] != null) return DUR_H_OVERRIDE[name] * 60; var ue = UE_MAP[name]; if (ue == null) return 0; var m = ue * 45; if (ue >= 6) m += 45; return m; }
   function fmtHM(mins) { var h = Math.floor(mins / 60) % 24, m = mins % 60; return (h < 10 ? '0' : '') + h + ':' + (m < 10 ? '0' : '') + m; }
   function wireStartzeit() {
     var forms = document.querySelectorAll('form[data-api="inhouse-anfrage"]');
@@ -332,10 +335,9 @@
       function upd() {
         var v = timeEl.value;
         if (!v) { hint.textContent = ''; return; }
-        var checked = Array.prototype.filter.call(form.querySelectorAll('input[name="kursart"]:checked'), function (c) { return UE_MAP[c.value] != null; });
+        var checked = Array.prototype.filter.call(form.querySelectorAll('input[name="kursart"]:checked'), function (c) { return fmtDurMin(c.value) > 0; });
         if (!checked.length) { hint.textContent = 'Endzeit richtet sich nach dem gewählten Kursformat.'; return; }
-        var ue = Math.max.apply(null, checked.map(function (c) { return UE_MAP[c.value]; }));
-        var mins = ue * 45; if (ue >= 6) mins += 45;
+        var mins = Math.max.apply(null, checked.map(function (c) { return fmtDurMin(c.value); }));
         var multiDay = mins > 9 * 60;
         var daily = multiDay ? 8 * 60 : mins;
         var pp = v.split(':'); var start = (+pp[0]) * 60 + (+pp[1]);
