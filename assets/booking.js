@@ -129,6 +129,7 @@
         Array.prototype.forEach.call(form.querySelectorAll('[name]'), function (f) {
           var n = f.getAttribute('name');
           if (n === 'website' || n === 'consent') return; // Consent nur clientseitig erzwungen, nicht senden
+          if (n === 'newsletter') { payload.newsletter = f.checked; return; } // Boolean statt Array
           if (f.type === 'checkbox') {
             if (f.checked) { (payload[n] = payload[n] || []).push(f.value); }
           } else {
