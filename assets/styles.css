@@ -1500,6 +1500,7 @@ body.wl-open{overflow:hidden}
   .page-hero{grid-template-columns:minmax(0,1fr)!important}
   .page-hero>*{min-width:0}
   .page-hero .bww-ill,.page-hero img{max-width:100%}
+  .page-hero h1,.page-hero h2{overflow-wrap:break-word;hyphens:auto}
 }
 /* Lange URLs/E-Mails in Rechtstexten/Artikeln umbrechen (fixt AGB/Impressum-Overflow, harmlos sonst) */
 .legal-hero,.legal-card,.article-body,.result-panel{overflow-wrap:break-word}
