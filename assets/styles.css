@@ -1497,6 +1497,8 @@ body.wl-open{overflow:hidden}
   .privacy-note>*{min-width:0}
   .knowledge-grid{max-width:100%}
   .knowledge-card{min-width:0;max-width:100%;overflow-wrap:anywhere}
+  .page-hero>*{min-width:0}
+  .page-hero .bww-ill,.page-hero img{max-width:100%}
 }
 /* Lange URLs/E-Mails in Rechtstexten/Artikeln umbrechen (fixt AGB/Impressum-Overflow, harmlos sonst) */
 .legal-hero,.legal-card,.article-body,.result-panel{overflow-wrap:break-word}
