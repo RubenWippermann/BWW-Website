@@ -131,7 +131,7 @@
         Array.prototype.forEach.call(form.querySelectorAll('[name]'), function (f) {
           var n = f.getAttribute('name');
           if (n === 'website' || n === 'consent') return; // Consent nur clientseitig erzwungen, nicht senden
-          if (n === 'newsletter') { payload.newsletter = f.checked; return; } // Boolean statt Array
+          if (n === 'newsletter') return; // separat via POST /api/newsletter, nicht im Anfrage-Payload
           if (f.type === 'checkbox') {
             if (f.checked) { (payload[n] = payload[n] || []).push(f.value); }
           } else {
@@ -142,6 +142,12 @@
         var origTxt = btn ? btn.textContent : '';
         if (btn) { btn.disabled = true; btn.textContent = 'Wird gesendet …'; }
         if (status) { status.className = 'form-status'; status.textContent = ''; }
+        // Newsletter (Opt-out) separat an eigenen Endpoint, fire-and-forget
+        var nlEl = form.querySelector('input[name="newsletter"]');
+        if (nlEl && nlEl.checked) {
+          var nlMail = (form.querySelector('[name="email"]') || {}).value || '';
+          if (nlMail) { try { fetch(API + '/api/newsletter', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ org: ORG, email: nlMail, quelle: form.getAttribute('data-api'), website: '' }) }); } catch (e) {} }
+        }
         var httpStatus = 0;
         fetch(API + '/api/' + form.getAttribute('data-api'), {
           method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload)
@@ -305,7 +311,42 @@
     }).catch(function () { /* kein Bruch: Karten bleiben ohne Meta */ });
   }
 
-  function init() { loadTermine(); wireForms(); wireWaitlist(); loadReviews(); enrichCourseCards(); }
+  var UE_MAP = {
+    'Erste-Hilfe-Ausbildung': 9, 'Erste-Hilfe-Fortbildung': 9,
+    'Erste Hilfe am Kind (Baby/Kleinkind)': 4,
+    'Erste Hilfe für Bildungs- & Betreuungseinrichtungen': 8,
+    'Reanimation & AED-Training': 4, 'AED-Einweisung': 2,
+    'Brandschutzhelfer': 4, 'Betriebssanitäter Grundausbildung': 72,
+    'Betriebssanitäter Aufbaulehrgang': 40, 'Betriebssanitäter Fortbildung': 16,
+    'Notfalltraining (Gesundheitswesen)': 4, 'Schulsanitäter-Ausbildung': 16,
+    'Sanitätshelfer-Ausbildung': 24, 'Lehrkräfte-Ausbildung (Themenbereich I & II)': 24,
+    'Lehrkräfte-Fortbildung': 8
+  };
+  function fmtHM(mins) { var h = Math.floor(mins / 60) % 24, m = mins % 60; return (h < 10 ? '0' : '') + h + ':' + (m < 10 ? '0' : '') + m; }
+  function wireStartzeit() {
+    var forms = document.querySelectorAll('form[data-api="inhouse-anfrage"]');
+    Array.prototype.forEach.call(forms, function (form) {
+      var timeEl = form.querySelector('input[name="wunsch_startzeit"]');
+      var hint = form.querySelector('.startzeit-hint');
+      if (!timeEl || !hint) return;
+      function upd() {
+        var v = timeEl.value;
+        if (!v) { hint.textContent = ''; return; }
+        var checked = Array.prototype.filter.call(form.querySelectorAll('input[name="kursart"]:checked'), function (c) { return UE_MAP[c.value] != null; });
+        if (!checked.length) { hint.textContent = 'Endzeit richtet sich nach dem gewählten Kursformat.'; return; }
+        var ue = Math.max.apply(null, checked.map(function (c) { return UE_MAP[c.value]; }));
+        var mins = ue * 45; if (ue >= 6) mins += 45;
+        var multiDay = mins > 9 * 60;
+        var daily = multiDay ? 8 * 60 : mins;
+        var pp = v.split(':'); var start = (+pp[0]) * 60 + (+pp[1]);
+        hint.textContent = 'ca. ' + v + '–' + fmtHM(start + daily) + ' Uhr' + (multiDay ? ' · pro Tag (mehrtägig)' : '') + ' – Richtwert';
+      }
+      timeEl.addEventListener('change', upd); timeEl.addEventListener('input', upd);
+      Array.prototype.forEach.call(form.querySelectorAll('input[name="kursart"]'), function (c) { c.addEventListener('change', upd); });
+    });
+  }
+
+  function init() { loadTermine(); wireForms(); wireWaitlist(); loadReviews(); enrichCourseCards(); wireStartzeit(); }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
   else init();
 })();
