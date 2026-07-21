@@ -1497,6 +1497,7 @@ body.wl-open{overflow:hidden}
   .privacy-note>*{min-width:0}
   .knowledge-grid{max-width:100%}
   .knowledge-card{min-width:0;max-width:100%;overflow-wrap:anywhere}
+  .page-hero{grid-template-columns:minmax(0,1fr)!important}
   .page-hero>*{min-width:0}
   .page-hero .bww-ill,.page-hero img{max-width:100%}
 }
