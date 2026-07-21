@@ -38,7 +38,7 @@
     var burl = k.buchungs_url || '';
     if (burl.indexOf('org=') === -1) burl += (burl.indexOf('?') > -1 ? '&' : '?') + 'org=' + ORG;
     var voll = !!k.ausgebucht;
-    var zeit = k.uhrzeit ? esc(k.uhrzeit) + ' Uhr' : '';
+    var zeit = k.uhrzeit ? esc(k.uhrzeit) + (k.uhrzeit_ende ? '–' + esc(k.uhrzeit_ende) : '') + ' Uhr' : '';
     var preis = (k.preis != null && k.preis !== '') ? esc(k.preis) + ' €' : '';
     var inner =
       '<span class="termin-date"><b>' + fmtRange(k) + '</b>' + (zeit ? '<small>' + zeit + '</small>' : '') + '</span>' +
