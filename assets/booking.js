@@ -124,6 +124,8 @@
         var hp = form.querySelector('input[name="website"]');
         if (hp && hp.value) { if (status) status.textContent = 'Danke!'; return; }
         var payload = { org: ORG, website: '' };
+        // Lead-Quelle für die Software (Büro trennt Inhouse-Website-Leads von Buchungen)
+        if (form.getAttribute('data-api') === 'inhouse-anfrage') payload.quelle = 'inhouse-website';
         Array.prototype.forEach.call(form.querySelectorAll('[name]'), function (f) {
           var n = f.getAttribute('name');
           if (n === 'website' || n === 'consent') return; // Consent nur clientseitig erzwungen, nicht senden
