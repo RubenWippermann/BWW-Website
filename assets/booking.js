@@ -64,25 +64,27 @@
     });
     var artKeys = Object.keys(arten).sort(function (a, b) { return arten[a].localeCompare(arten[b]); });
     var stadtKeys = Object.keys(staedte).sort();
-    var showArt = artKeys.length > 1, showStadt = stadtKeys.length > 1;
+    var showArt = artKeys.length > 1, showStadt = stadtKeys.length > 1, hasBg = all.some(function (k) { return k.bg_uk_abrechenbar; });
     var bar = '';
-    if (showArt || showStadt) {
+    if (showArt || showStadt || hasBg) {
       bar = '<div class="termine-filter">' +
         (showArt ? '<select class="tf-art" aria-label="Nach Kursart filtern"><option value="">Alle Kursarten</option>' + artKeys.map(function (c) { return '<option value="' + esc(c) + '">' + esc(arten[c]) + '</option>'; }).join('') + '</select>' : '') +
         (showStadt ? '<select class="tf-stadt" aria-label="Nach Ort filtern"><option value="">Alle Orte</option>' + stadtKeys.map(function (s) { return '<option value="' + esc(s) + '">' + esc(s) + '</option>'; }).join('') + '</select>' : '') +
-        '<span class="tf-count" aria-live="polite"></span></div>';
+        (hasBg ? '<label class="tf-bg"><input type="checkbox" class="tf-bgchk"> Nur BG/UK-abrechenbar</label>' : '') + '<span class="tf-count" aria-live="polite"></span></div>';
     }
     el.innerHTML = bar + '<div class="termine-rows"></div>';
     var artSel = el.querySelector('.tf-art'), stadtSel = el.querySelector('.tf-stadt');
     var rowsEl = el.querySelector('.termine-rows'), countEl = el.querySelector('.tf-count');
     function apply() {
       var a = artSel ? artSel.value : '', s = stadtSel ? stadtSel.value : '';
-      var f = all.filter(function (k) { return (!a || k.kursart === a) && (!s || k.stadt === s); });
+      var bgChk = el.querySelector('.tf-bgchk'), bg = bgChk && bgChk.checked;
+      var f = all.filter(function (k) { return (!a || k.kursart === a) && (!s || k.stadt === s) && (!bg || k.bg_uk_abrechenbar); });
       rowsEl.innerHTML = f.length ? f.map(rowHTML).join('') : '<p class="termine-empty">Für diese Auswahl sind aktuell keine Termine frei. <a href="/inhouse-kurse/">Wunschtermin anfragen →</a></p>';
       if (countEl) countEl.textContent = f.length + (f.length === 1 ? ' Termin' : ' Termine');
     }
     if (artSel) artSel.addEventListener('change', apply);
     if (stadtSel) stadtSel.addEventListener('change', apply);
+    var bgChk0 = el.querySelector('.tf-bgchk'); if (bgChk0) bgChk0.addEventListener('change', apply);
     apply();
   }
 
