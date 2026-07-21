@@ -1456,3 +1456,6 @@ body.wl-open{overflow:hidden}
 
 /* Dozenten-Login-Hinweis unter zentrierter Ueberschrift ebenfalls zentrieren (Symmetrie) */
 .dozent-login-hint{text-align:center}
+
+/* Wissens-Hub Performance: offscreen-Karten ueberspringen Layout/Paint bis nah am Viewport */
+.knowledge-grid .knowledge-card{content-visibility:auto;contain-intrinsic-size:auto 320px}
