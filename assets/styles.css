@@ -1432,3 +1432,20 @@ body.wl-open{overflow:hidden}
 .dozent-login-hint a:hover{text-decoration:underline}
 
 .knowledge-card.is-hidden,.course-card.is-hidden{display:none!important}
+
+/* Nav-CTA einzeilig halten: enger Desktop-Bereich knapp über dem Hamburger-Breakpoint (>1120px) */
+@media(min-width:1121px) and (max-width:1400px){
+  .site-header{gap:14px}
+  .site-header .brand{min-width:0}
+  .site-header .brand small{max-width:210px}
+  .site-header nav{gap:13px;font-size:.74rem;flex-wrap:nowrap}
+  .site-header .nav-cta{padding:10px 13px}
+}
+
+/* Nachhaltigkeits-Sektion entzerren (war gequetscht): mehr Luft in der Eco-Highlight-Zeile */
+.section-soft.sustainability .eco-highlight{gap:1.5rem;row-gap:1.2rem;padding:1.8rem 2rem;max-width:1040px}
+.section-soft.sustainability .eco-highlight .eco-text{min-width:300px}
+.section-soft.sustainability .eco-highlight .btn{padding:12px 20px}
+@media(min-width:721px){
+  .section-soft.sustainability .eco-highlight .eco-text{flex:1 1 340px}
+}
