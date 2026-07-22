@@ -1437,7 +1437,7 @@ body.wl-open{overflow:hidden}
 @media(min-width:1121px) and (max-width:1400px){
   .site-header{gap:14px}
   .site-header .brand{min-width:0}
-  .site-header .brand small{max-width:210px}
+  .site-header .brand small{display:none}
   .site-header nav{gap:13px;font-size:.74rem;flex-wrap:nowrap}
   .site-header .nav-cta{padding:10px 13px}
 }
