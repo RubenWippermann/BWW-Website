@@ -1505,3 +1505,9 @@ body.wl-open{overflow:hidden}
 /* Lange URLs/E-Mails in Rechtstexten/Artikeln umbrechen (fixt AGB/Impressum-Overflow, harmlos sonst) */
 .legal-hero,.legal-card,.article-body,.result-panel{overflow-wrap:break-word}
 .legal-hero p,.legal-card p,.article-body p,.article-body li{overflow-wrap:break-word;word-break:break-word}
+
+/* Umfassender Mobile-Overflow-Schutz (praeventiv): lange dt. Komposita/URLs brechen ueberall um */
+@media(max-width:600px){
+  h1,h2,h3,h4{overflow-wrap:break-word;hyphens:auto}
+  main,.section,.section-soft,.section-head,.tool-card,.result-panel,.legal-card,.card,.path-card,.feature-card,.course-card,.knowledge-card{overflow-wrap:break-word}
+}
