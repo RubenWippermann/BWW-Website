@@ -568,7 +568,7 @@ body{
   filter:drop-shadow(0 12px 16px rgba(16,39,31,.08))!important;
 }
 .path-card span,.feature-card span,.course-card span,.knowledge-card span{
-  color:#2f7d5a!important;
+  color:#25704e!important;
   font-size:.78rem!important;
   font-weight:950!important;
   letter-spacing:.07em!important;
@@ -686,7 +686,7 @@ body{
   border:1px solid rgba(47,125,90,.14)!important;
 }
 .sticky-book span{color:#143429!important}
-.sticky-book a{background:#2f7d5a!important;color:#fff!important}
+.sticky-book a{background:#25704e!important;color:#fff!important}
 .site-footer{
   background:#10271f!important;
   border-top:1px solid rgba(255,255,255,.08)!important;
@@ -1036,7 +1036,7 @@ body{
   font-weight: 650;
 }
 .city-directory a:hover {
-  color: var(--bww-green, #2f7d5a);
+  color: var(--bww-green, #25704e);
 }
 
 /* Schwebender Credibility-Chip im Hero-Visual (oben links, spiegelt das Badge unten) */
@@ -1061,7 +1061,7 @@ body{
 .hero-video-card .hero-float::before{
   content:"";
   width:9px;height:9px;border-radius:50%;
-  background:#2f7d5a;
+  background:#25704e;
   box-shadow:0 0 0 4px rgba(47,125,90,.18);
 }
 @media(max-width:860px){
@@ -1238,7 +1238,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible,.btn:focus-visible,in
 .bww-form .checks input{width:20px;height:20px}
 .bww-form .form-actions{margin-top:1.4rem;display:flex;align-items:center;gap:1rem;flex-wrap:wrap}
 .bww-form .form-hint{font-size:.86rem;color:#5b6e64}
-.form-status{margin-top:.9rem;font-weight:700;color:#2f7d5a}
+.form-status{margin-top:.9rem;font-weight:700;color:#25704e}
 .form-status.is-error{color:#b3402f}
 .form-success{text-align:center;padding:1.5rem .5rem}
 .form-success-ic{display:inline-grid;place-items:center;width:60px;height:60px;border-radius:50%;background:var(--bww-mint,#e8f6eb);color:var(--bww-green,#25704e);font-size:1.8rem;font-weight:900;margin-bottom:.6rem}
@@ -1293,7 +1293,7 @@ input[type=checkbox],input[type=radio]{padding:0;min-height:0;box-sizing:border-
 .eco-hero-card.alt{background:linear-gradient(150deg,#e6f5ea,#cfeacf)}
 .eco-hero-card .eco-hero-emoji{font-size:4.6rem;line-height:1}
 .eco-hero-card b{font-size:1.7rem;color:var(--deep,#0d3027);margin-top:.4rem}
-.eco-hero-card small{font-size:1rem;color:var(--green,#2f6f55);font-weight:750}
+.eco-hero-card small{font-size:1rem;color:var(--green,#25704e);font-weight:750}
 
 /* === Lesbarkeit: Überschriften & Untertitel entspannen (Feedback Brillenträgerin) ===
    Ursache: sehr enges negatives Letter-Spacing (bis -.075em) + enge Zeilenhöhe (.88-.92)
@@ -1309,18 +1309,18 @@ h3,.path-card h3,.feature-card h3,.course-card h3,.knowledge-card h3{font-weight
 .hero-copy p{color:#33463c}
 
 /* Hero-Headline: Pointe in Markengrün (markant) */
-.hero-copy h1 .hl-green{color:#2f7d5a}
+.hero-copy h1 .hl-green{color:#25704e}
 
 /* ===== Dedizierte Kursseiten (/kurse/<format>/) ===== */
 .crumb{font-size:.82rem;color:#5c6b63;margin-bottom:.7rem}
-.crumb a{color:#2f7d5a;text-decoration:none}
+.crumb a{color:#25704e;text-decoration:none}
 .crumb a:hover{text-decoration:underline}
 .crumb span{color:#5c6b63}
 .course-detail{display:grid;grid-template-columns:1.6fr .9fr;gap:2.4rem;align-items:start}
 .course-detail-main h2{margin:.2rem 0 1rem}
 .course-inhalte{list-style:none;padding:0;margin:0;display:grid;gap:.7rem}
 .course-inhalte li{position:relative;padding-left:1.7rem;line-height:1.5;color:#2c3a33}
-.course-inhalte li::before{content:"";position:absolute;left:0;top:.5em;width:.55rem;height:.55rem;border-radius:50%;background:#2f7d5a}
+.course-inhalte li::before{content:"";position:absolute;left:0;top:.5em;width:.55rem;height:.55rem;border-radius:50%;background:#25704e}
 .course-facts{background:#f4f8f5;border:1px solid #e2ede7;border-radius:16px;padding:1.4rem 1.5rem;display:grid;gap:1rem;position:sticky;top:96px}
 .course-facts .fact{display:grid;gap:.2rem}
 .fact-k{font-size:.72rem;letter-spacing:.05em;text-transform:uppercase;color:#5c6b63;font-weight:700}
@@ -1328,16 +1328,16 @@ h3,.path-card h3,.feature-card h3,.course-card h3,.knowledge-card h3{font-weight
 .form-wrap{max-width:760px;margin:0 auto}
 .format-chips{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:.8rem}
 .format-chip{display:flex;flex-direction:column;gap:.15rem;padding:.85rem 1rem;border:1px solid #e2ede7;border-radius:14px;background:#fff;text-decoration:none;transition:border-color .15s,transform .15s}
-.format-chip:hover{border-color:#2f7d5a;transform:translateY(-2px)}
+.format-chip:hover{border-color:#25704e;transform:translateY(-2px)}
 .format-chip b{color:#20302a;font-size:.95rem;line-height:1.25}
 .format-chip span{color:#5c6b63;font-size:.78rem}
 @media(max-width:800px){.course-detail{grid-template-columns:1fr;gap:1.6rem}.course-facts{position:static}}
 
 /* ===== Wissens-Hub: Suche + aktiver Filter ===== */
-.filter-bar button.is-active{background:#2f7d5a;color:#fff;border-color:#2f7d5a}
+.filter-bar button.is-active{background:#25704e;color:#fff;border-color:#25704e}
 .kb-searchwrap{display:flex;align-items:center;gap:.9rem;flex-wrap:wrap;margin-bottom:1rem}
 #kbSearch{flex:1 1 320px;max-width:560px;border:1px solid var(--bww-line);border-radius:999px;padding:.85rem 1.3rem;font-size:1rem;font-family:inherit;background:#fff}
-#kbSearch:focus{outline:none;border-color:#2f7d5a;box-shadow:0 0 0 3px rgba(47,125,90,.15)}
+#kbSearch:focus{outline:none;border-color:#25704e;box-shadow:0 0 0 3px rgba(47,125,90,.15)}
 .kb-count{color:#5c6b63;font-size:.9rem;font-weight:700;white-space:nowrap}
 .kb-empty{color:#33463c;background:#f4f8f5;border:1px solid #e2ede7;border-radius:14px;padding:1.1rem 1.3rem;margin-top:.4rem}
 
@@ -1370,12 +1370,12 @@ h3,.path-card h3,.feature-card h3,.course-card h3,.knowledge-card h3{font-weight
 body.wl-open{overflow:hidden}
 .wl-box{position:relative;width:min(440px,100%);background:#fff;border-radius:22px;padding:1.9rem 1.7rem 1.6rem;box-shadow:0 24px 70px rgba(0,0,0,.28);max-height:90vh;overflow:auto}
 .wl-box h3{margin:.1rem 0 .3rem;font-size:1.4rem;color:#20302a}
-.wl-course{color:#2f7d5a;font-weight:700;margin:0 0 1.1rem;font-size:.98rem}
+.wl-course{color:#25704e;font-weight:700;margin:0 0 1.1rem;font-size:.98rem}
 .wl-close{position:absolute;top:.6rem;right:.8rem;width:38px;height:38px;border:none;background:#f1f5f2;border-radius:50%;font-size:1.4rem;line-height:1;color:#33463c;cursor:pointer}
 .wl-close:hover{background:#e2ede7}
 .wl-form label{display:block;font-weight:700;font-size:.9rem;color:#33463c;margin:.7rem 0 .25rem}
 .wl-form input[type=text],.wl-form input[name=name],.wl-form input[name=email]{width:100%;border:1px solid var(--bww-line);border-radius:12px;padding:.75rem .9rem;font:inherit;background:#fff}
-.wl-form input:focus{outline:none;border-color:#2f7d5a;box-shadow:0 0 0 3px rgba(47,125,90,.15)}
+.wl-form input:focus{outline:none;border-color:#25704e;box-shadow:0 0 0 3px rgba(47,125,90,.15)}
 .wl-consent{display:flex;gap:.6rem;align-items:flex-start;font-weight:400!important;margin-top:.9rem!important;font-size:.85rem;color:#4d665a}
 .wl-consent input{margin-top:.15rem;flex:0 0 auto}
 .wl-form>button[type=submit]{width:100%;margin-top:1.1rem}
@@ -1384,7 +1384,7 @@ body.wl-open{overflow:hidden}
 
 /* Kontaktseite: direkte Kontaktzeilen im Panel */
 .contact-lines{display:flex;flex-direction:column;gap:.5rem;margin:.2rem 0 1rem}
-.contact-lines a{color:#2f7d5a;text-decoration:none;font-weight:700}
+.contact-lines a{color:#25704e;text-decoration:none;font-weight:700}
 .contact-lines a:hover{text-decoration:underline}
 .contact-lines span{color:#4d665a}
 
@@ -1393,8 +1393,8 @@ body.wl-open{overflow:hidden}
 .review-card{background:#fff;border-radius:18px;padding:1.3rem 1.4rem;text-align:left;box-shadow:0 10px 28px rgba(0,0,0,.16)}
 .review-stars{color:#f5a623;font-size:1.05rem;letter-spacing:2px;margin-bottom:.5rem}
 .review-card blockquote{margin:0 0 .85rem;color:#2c3a33;line-height:1.55;font-size:.98rem;quotes:"\201E""\201C"}
-.review-card blockquote::before{content:open-quote;color:#2f7d5a}
-.review-card blockquote::after{content:close-quote;color:#2f7d5a}
+.review-card blockquote::before{content:open-quote;color:#25704e}
+.review-card blockquote::after{content:close-quote;color:#25704e}
 .review-card figcaption{display:flex;flex-direction:column;gap:.1rem}
 .review-card figcaption b{color:#20302a;font-size:.95rem}
 .review-card figcaption small{color:#5c6b63;font-size:.8rem}
@@ -1402,9 +1402,9 @@ body.wl-open{overflow:hidden}
 /* ===== Kurskarten: Live-Meta (nächster Termin, Preis, Verfügbarkeit) ===== */
 .course-card-meta{display:flex;flex-wrap:wrap;gap:.4rem .55rem;align-items:center;margin:.15rem 0 .7rem;font-size:.82rem;line-height:1.2}
 .ccm-date{font-weight:800;color:#20302a}
-.ccm-price{font-weight:800;color:#2f7d5a}
+.ccm-price{font-weight:800;color:#25704e}
 .ccm-status{font-weight:700;padding:.14rem .55rem;border-radius:999px;font-size:.72rem;letter-spacing:.01em}
-.ccm-status.is-free{background:#e3f3ea;color:#1f7a4d}
+.ccm-status.is-free{background:#e3f3ea;color:#1a6e44}
 .ccm-status.is-full{background:#f4e7e7;color:#a23b3b}
 .ccm-inhouse{font-weight:700;color:#5c6b63}
 
@@ -1423,12 +1423,12 @@ body.wl-open{overflow:hidden}
 @media(max-width:560px){.inhouse-cta{flex-direction:column;align-items:stretch;text-align:center}.inhouse-cta .ihc-text{text-align:center}.inhouse-cta .btn{width:100%}}
 
 /* QSEH-Siegel-Badge (belegbar) */
-.trust-badge--seal{background:#2f7d5a!important;border-color:#2f7d5a!important;color:#fff!important}
-.dark .trust-badge--seal{background:#2f7d5a!important;border-color:#2f7d5a!important;color:#fff!important}
+.trust-badge--seal{background:#25704e!important;border-color:#25704e!important;color:#fff!important}
+.dark .trust-badge--seal{background:#25704e!important;border-color:#25704e!important;color:#fff!important}
 
 /* Dozenten-Login-Hinweis */
 .dozent-login-hint{margin:0 0 1rem;font-size:.92rem;color:#4d665a}
-.dozent-login-hint a{color:#2f7d5a;font-weight:700;text-decoration:none}
+.dozent-login-hint a{color:#25704e;font-weight:700;text-decoration:none}
 .dozent-login-hint a:hover{text-decoration:underline}
 
 .knowledge-card.is-hidden,.course-card.is-hidden{display:none!important}
@@ -1475,13 +1475,13 @@ body.wl-open{overflow:hidden}
 
 /* BG/UK-abrechenbar-Filter in der Terminliste */
 .termine-filter .tf-bg{display:inline-flex;align-items:center;gap:7px;font-size:.9rem;color:#0d3025;font-weight:600;cursor:pointer;white-space:nowrap}
-.termine-filter .tf-bg input{width:auto;margin:0;accent-color:#2f7d5a}
+.termine-filter .tf-bg input{width:auto;margin:0;accent-color:#25704e}
 
 /* Wunsch-Startzeit -> Auto-Endzeit-Hinweis im Inhouse-Formular */
-.startzeit-hint{display:block;margin-top:5px;font-size:.82rem;color:#2f7d5a;font-weight:600;min-height:1em}
+.startzeit-hint{display:block;margin-top:5px;font-size:.82rem;color:#25704e;font-weight:600;min-height:1em}
 
 /* Anfrage-Status-Seite */
-.status-card{background:#fff;border:1px solid rgba(47,125,90,.18);border-left:5px solid var(--green,#2f7d5a);border-radius:18px;padding:20px 22px;margin-top:16px;box-shadow:0 14px 40px rgba(16,39,31,.07)}
+.status-card{background:#fff;border:1px solid rgba(47,125,90,.18);border-left:5px solid var(--green,#25704e);border-radius:18px;padding:20px 22px;margin-top:16px;box-shadow:0 14px 40px rgba(16,39,31,.07)}
 .status-card.status-miss{border-left-color:#c9761f;background:#fff9f2}
 .status-badge{display:inline-block;background:#e6f4ec;color:#1f6f55;font-weight:800;font-size:.78rem;text-transform:uppercase;letter-spacing:.05em;padding:5px 12px;border-radius:999px;margin-bottom:8px}
 .status-card h3{margin:.2em 0 .4em}
