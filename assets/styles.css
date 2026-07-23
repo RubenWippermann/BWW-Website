@@ -1580,3 +1580,8 @@ body.wl-open{overflow:hidden}
 .inhouse-grid a::after{content:"→";display:inline-block;margin-left:6px;font-weight:900;color:var(--bww-green,#25704e);transition:transform .25s ease}
 .inhouse-grid a:hover::after{transform:translateX(4px)}
 @media(prefers-reduced-motion:reduce){.inhouse-grid a,.inhouse-grid a::after{transition:none}.inhouse-grid a:hover{transform:none}}
+/* Sprunglink: Tastatur- und Screenreader-Nutzer überspringen die Navigation.
+   Unsichtbar bis Fokus (WCAG 2.4.1 Bypass Blocks). */
+.skip-link{position:absolute;left:-9999px;top:0;z-index:1000;background:var(--bww-green,#25704e);color:#fff;padding:12px 20px;border-radius:0 0 12px 0;font-weight:800;text-decoration:none}
+.skip-link:focus{left:0;outline:3px solid #fff;outline-offset:-6px}
+:where(main[tabindex="-1"]):focus{outline:none}
