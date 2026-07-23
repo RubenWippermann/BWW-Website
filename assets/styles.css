@@ -310,7 +310,7 @@ textarea{min-height:130px;resize:vertical}
 .site-footer{background:#09241d;color:#d7e7df;padding:62px clamp(18px,5vw,72px);display:grid;grid-template-columns:1.2fr repeat(3,1fr);gap:34px}
 .site-footer .footer-logo{background:#fff;border-radius:20px;padding:10px;width:180px;height:auto}
 .site-footer p,.site-footer a{color:#bdd0c6;font-size:.9rem;display:block;margin:.35rem 0}
-.site-footer h4{color:#fff;text-transform:uppercase;letter-spacing:.11em;font-size:.78rem}
+.site-footer h4,.site-footer h2{color:#fff;text-transform:uppercase;letter-spacing:.11em!important;font-size:.78rem!important;font-weight:700!important;line-height:1.6!important;margin:1.33em 0}
 .footer-social{display:flex!important;gap:12px;flex-wrap:wrap}
 .sticky-book{position:fixed;right:18px;bottom:18px;z-index:75;background:#fff;border:1px solid var(--line);box-shadow:0 24px 70px rgba(12,48,38,.18);border-radius:999px;padding:9px 10px 9px 16px;display:flex;gap:12px;align-items:center;font-size:.85rem;font-weight:900}
 .sticky-book a{background:var(--green);color:#fff;border-radius:999px;padding:9px 13px}
