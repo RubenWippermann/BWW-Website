@@ -348,7 +348,27 @@
     });
   }
 
-  function init() { loadTermine(); wireForms(); wireWaitlist(); loadReviews(); enrichCourseCards(); wireStartzeit(); }
+  /* ---------- Testimonials (freigegebene Kundenstimmen mit Logo) — Sektion bleibt verborgen, bis Daten da sind ---------- */
+  function testimonialHTML(t) {
+    var logo = t.logo_url ? '<img class="tm-logo" src="' + esc(t.logo_url) + '" alt="' + esc(t.firma || 'Kundenlogo') + '" loading="lazy" decoding="async">' : '';
+    var who = [t.person, t.rolle].filter(Boolean).map(esc).join(' · ');
+    return '<figure class="testimonial-card">' + logo +
+      '<blockquote>' + esc(t.text || '') + '</blockquote>' +
+      '<figcaption>' + (t.firma ? '<b>' + esc(t.firma) + '</b>' : '') + (who ? '<span>' + who + '</span>' : '') + '</figcaption></figure>';
+  }
+  function loadTestimonials() {
+    var el = document.getElementById('testimonials-list');
+    if (!el) return;
+    fetch(API + '/api/testimonials?org=' + ORG).then(function (r) { return r.json(); }).then(function (data) {
+      var list = (data && data.testimonials) ? data.testimonials : [];
+      if (!list.length) return;                       // keine Freigaben -> Sektion bleibt aus (nichts erfinden)
+      el.innerHTML = list.slice(0, 9).map(testimonialHTML).join('');
+      var sec = document.getElementById('testimonials');
+      if (sec) sec.hidden = false;
+    }).catch(function () { /* Endpoint noch nicht live -> Sektion bleibt aus */ });
+  }
+
+  function init() { loadTermine(); wireForms(); wireWaitlist(); loadReviews(); enrichCourseCards(); wireStartzeit(); loadTestimonials(); }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
   else init();
 })();

@@ -1511,3 +1511,15 @@ body.wl-open{overflow:hidden}
   h1,h2,h3,h4{overflow-wrap:break-word;hyphens:auto}
   main,.section,.section-soft,.section-head,.tool-card,.result-panel,.legal-card,.card,.path-card,.feature-card,.course-card,.knowledge-card{overflow-wrap:break-word}
 }
+
+/* Testimonials (Kundenstimmen mit Firmenlogo) – Sektion nur sichtbar, wenn freigegebene Daten da sind */
+.testimonials .testimonial-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.1rem;max-width:1150px;margin:1.6rem auto 0}
+.testimonial-card{background:#fff;border:1px solid rgba(37,112,78,.15);border-radius:22px;padding:1.5rem 1.6rem;box-shadow:0 14px 40px rgba(16,39,31,.07);display:flex;flex-direction:column;gap:.9rem;min-width:0;margin:0}
+.testimonial-card .tm-logo{height:38px;width:auto;max-width:160px;object-fit:contain;align-self:flex-start}
+.testimonial-card blockquote{margin:0;color:#243a31;font-size:1rem;line-height:1.55;overflow-wrap:break-word}
+.testimonial-card blockquote::before{content:"„";color:#25704e;font-size:1.7rem;line-height:0;vertical-align:-.25em;margin-right:.08em}
+.testimonial-card figcaption{margin-top:auto;display:flex;flex-direction:column;gap:2px}
+.testimonial-card figcaption b{color:#0d3025}
+.testimonial-card figcaption span{color:#5b6e64;font-size:.88rem}
+@media(max-width:900px){.testimonials .testimonial-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.testimonials .testimonial-grid{grid-template-columns:1fr}}
