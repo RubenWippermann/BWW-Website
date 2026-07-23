@@ -35,8 +35,13 @@ function calculateDguv(){
   // EMPFEHLUNG: damit die geforderte Zahl je Schicht/Bereich real anwesend ist
   const firstAidPlan=firstAid*shifts;
 
-  // PFLICHT: DGUV Vorschrift 1 § 27
-  const bsan=industry==='construction'?(employees>100?1:0):(employees>1500?1:0);
+  // PFLICHT: DGUV Vorschrift 1 § 27 - drei Faelle, nicht zwei.
+  // 'bedingt': 251-1500 Versicherte, wenn Art, Schwere und Zahl der Unfaelle
+  // den Einsatz von Sanitaetspersonal erfordern.
+  let bsan=0, bsanBedingt=false;
+  if(industry==='construction'){ bsan = employees>100 ? 1 : 0; }
+  else if(employees>1500){ bsan = 1; }
+  else if(employees>250){ bsanBedingt = true; }
 
   // RICHTWERT: ASR A2.2 – 5 % bei normaler Brandgefaehrdung
   const fire=employees>0?Math.max(1,Math.ceil(employees*0.05)):0;
@@ -53,7 +58,7 @@ function calculateDguv(){
     <div class="metric"><span>Betriebliche Ersthelfer</span>${tag('Pflicht','is-pflicht')}<b>${firstAid}</b><small>gesetzliches Minimum nach DGUV Vorschrift 1 § 26 – bis 20 anwesende Versicherte 1 Person, darüber ${industry==='admin'?'5':'10'} %</small></div>
     <div class="metric"><span>Ersthelfer einplanen</span>${tag('Empfehlung','is-tipp')}<b>${firstAidPlan}</b><small>damit die geforderte Zahl in jeder Schicht bzw. jedem getrennten Bereich wirklich anwesend ist – zusätzlich Reserve für Urlaub und Krankheit einplanen</small></div>
     <div class="metric"><span>Verbandkästen</span>${tag('Pflicht','is-pflicht')}<b class="is-text">${kastenText(kits)}</b><small>nach ASR A4.3 / DGUV Information 204-022, gestaffelt nach Betriebsart. Ein großer Kasten (DIN 13169) ist durch zwei kleine (DIN 13157) ersetzbar.</small></div>
-    <div class="metric"><span>Betriebssanitäter</span>${tag(bsan?'Pflicht':'Keine Pflicht','is-pflicht')}<b class="${bsan?'':'is-text'}">${bsan?bsan:'prüfen'}</b><small>${bsan?'erforderlich nach DGUV Vorschrift 1 § 27':'nach DGUV Vorschrift 1 § 27 nicht gefordert – Baustellen erst ab mehr als 100, sonstige Betriebsstätten ab mehr als 1500 Versicherten. Bei besonderen Gefahren kann dennoch Sanitätspersonal gefordert sein.'}</small></div>
+    <div class="metric"><span>Betriebssanitäter</span>${tag(bsan?'Pflicht':(bsanBedingt?'Bedingte Pflicht':'Keine Pflicht'),bsanBedingt?'is-richtwert':'is-pflicht')}<b class="${bsan?'':'is-text'}">${bsan?bsan:(bsanBedingt?'prüfen':'nein')}</b><small>${bsan?'erforderlich nach DGUV Vorschrift 1 § 27':(bsanBedingt?'§ 27 verlangt Sanitätspersonal auch bei 1500 oder weniger, aber mehr als 250 anwesenden Versicherten – <strong>wenn Art, Schwere und Zahl der Unfälle den Einsatz erfordern</strong>. Das ist anhand eures Unfallgeschehens zu beurteilen.':'nach DGUV Vorschrift 1 § 27 nicht gefordert – Baustellen ab mehr als 100, sonstige Betriebsstätten ab mehr als 1500 Versicherten, dazwischen ab mehr als 250 abhängig vom Unfallgeschehen.')}</small></div>
     <div class="metric"><span>Brandschutzhelfer</span>${tag('Richtwert','is-richtwert')}<b>${fire}</b><small>ASR A2.2: bei normaler Brandgefährdung sind in der Regel 5 % ausreichend – maßgeblich ist die Gefährdungsbeurteilung</small></div>
     <div class="metric"><span>Evakuierungshelfer</span>${tag('Richtwert','is-richtwert')}<b>${evac}</b><small>Orientierungswert, <strong>keine gesetzliche Quote</strong>. Die ASR A2.3 verlangt Räumungshelfer, nennt aber keine Prozentzahl – die konkrete Zahl folgt aus eurer Gefährdungsbeurteilung (Gebäudegröße, Fluchtwege, Schichtbetrieb, ortsunkundige Personen).</small></div>
     <div class="metric"><span>AED</span>${tag('Empfehlung','is-tipp')}<b class="is-text">${employees>=50||industry==='care'?'empfohlen':'prüfen'}</b><small>keine gesetzliche Pflicht – sinnvoll bei Publikumsverkehr, Alleinarbeit, weiten Wegen oder erhöhtem Risiko</small></div>
