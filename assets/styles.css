@@ -1551,3 +1551,7 @@ body.wl-open{overflow:hidden}
 .trust-badges{flex-wrap:wrap}
 .trust-badge{max-width:100%;white-space:normal;overflow-wrap:break-word;text-align:left}
 @media(max-width:600px){.trust-badge{font-size:.8rem;line-height:1.35}}
+
+/* Badge-Streifen unter dem Kursseiten-Hero */
+.badge-strip{padding:1.3rem clamp(18px,5vw,72px) 0}
+.badge-strip .trust-badges{margin-bottom:0}
