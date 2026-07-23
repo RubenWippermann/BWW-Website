@@ -371,6 +371,7 @@
 
   /* ---------- Feature-Flags (schalten Online-Zahlung scharf, ohne Deploy) ---------- */
   var FEATURES = {};
+  function featureOn(name) { var v = FEATURES && FEATURES[name]; return v === true || v === 'true'; }
   function loadFeatures() {
     return fetch(API + '/api/features?org=' + ORG).then(function (r) { return r.json(); })
       .then(function (f) { FEATURES = f || {}; }).catch(function () { FEATURES = {}; });
@@ -441,7 +442,7 @@
   }
   function wireBooking() {
     document.addEventListener('click', function (e) {
-      if (FEATURES.online_zahlung !== true) return;                 // gated -> normaler buchungs_url-Link greift
+      if (!featureOn('online_zahlung')) return;                 // gated -> normaler buchungs_url-Link greift
       var a = e.target && e.target.closest ? e.target.closest('.termin-row[data-termin-id]') : null;
       if (!a || !a.getAttribute('data-termin-id')) return;
       e.preventDefault();
