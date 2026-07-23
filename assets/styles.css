@@ -1538,3 +1538,11 @@ body.wl-open{overflow:hidden}
 .bk-box .fgrid{display:grid;grid-template-columns:1fr 1fr;gap:.6rem}
 .bk-note{margin:.7rem 0 0;font-size:.84rem;color:#5b6e64;line-height:1.45}
 @media(max-width:560px){.bk-box .fgrid{grid-template-columns:1fr}}
+
+/* Amtliche BG-Anerkennung (Kennziffer 8.2122) */
+.anerkennung-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.1rem;max-width:1120px;margin:1.6rem auto 0}
+.anerkennung-card{background:#fff;border:1px solid rgba(37,112,78,.16);border-left:5px solid #25704e;border-radius:20px;padding:1.4rem 1.5rem;box-shadow:0 14px 40px rgba(16,39,31,.06);min-width:0}
+.anerkennung-card h3{margin:0 0 .5rem;color:#0d3025;font-size:1.05rem}
+.anerkennung-card p{margin:0;color:#3f5248;font-size:.95rem;line-height:1.55;overflow-wrap:break-word}
+@media(max-width:900px){.anerkennung-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.anerkennung-grid{grid-template-columns:1fr}}
