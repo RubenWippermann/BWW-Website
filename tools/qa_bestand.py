@@ -108,11 +108,28 @@ def pruef_beschreibung(pfad, roh, text, attrs):
             zusatz = desc[len(titel):].strip(' :–-') if len(desc) > len(titel) else ''
             if len(zusatz) < 45:
                 treffer.append(('@description', 'trägt über den Titel hinaus kaum Information', desc[:110]))
-    # Einschraenkung muss den Snippet-Schnitt ueberleben
-    if len(desc) > 155:
-        schwanz = desc[155:]
-        if re.search(r'\bnicht\b|\bkein|\bnur\b|\bab\b|\bausgenommen\b|\bersetzt\b', schwanz, re.I):
-            treffer.append(('@description', 'Einschränkung erst nach Zeichen 155 (Snippet-Schnitt)', '…' + schwanz[:90]))
+    # Einschraenkung muss den Snippet-Schnitt ueberleben.
+    # Zwei Faelle, der zweite ist der gefaehrliche:
+    #   a) Einschraenkung beginnt erst NACH dem Schnitt -> unsichtbar
+    #   b) Einschraenkung wird MITTENDRIN zerschnitten -> unlesbarer Torso,
+    #      schlimmer als gar keine, weil sichtbar etwas fehlt
+    # Nur melden, wenn KEINE andere Einschraenkung vollstaendig sichtbar bleibt.
+    # ACHTUNG: Diese Regel ist bewusst breit und liefert Verdachtsfaelle, keine
+    # Befunde - am 2026-07-23 waren 10 von 12 Treffern harmlos (nur ein
+    # Folgewort brach ab). Jeder Treffer gehoert einzeln angesehen; NICHT
+    # pauschal auf eine Zeichenzahl trimmen.
+    GRENZE = 155
+    if len(desc) > GRENZE:
+        einschr = list(re.finditer(
+            r'\b(?:nicht|kein\w*|nur|ausgenommen|ersetzt|dagegen|ohne|sofern)\b[^.;–—]{0,80}', desc, re.I))
+        zerschnitten = [e for e in einschr if e.start() < GRENZE < e.end()]
+        nach_schnitt = [e for e in einschr if e.start() >= GRENZE]
+        ganz_sichtbar = [e for e in einschr if e.end() <= GRENZE]
+        if (zerschnitten or nach_schnitt) and not ganz_sichtbar:
+            e = (zerschnitten or nach_schnitt)[0]
+            treffer.append(('@description',
+                            'VERDACHT: Einschränkung überlebt den Snippet-Schnitt nicht – einzeln prüfen',
+                            f'sichtbar endet …{desc[max(0,GRENZE-40):GRENZE]}| weg: {desc[GRENZE:e.end()][:50]}'))
     return treffer
 
 
