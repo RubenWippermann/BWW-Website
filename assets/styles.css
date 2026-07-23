@@ -1523,3 +1523,12 @@ body.wl-open{overflow:hidden}
 .testimonial-card figcaption span{color:#5b6e64;font-size:.88rem}
 @media(max-width:900px){.testimonials .testimonial-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:600px){.testimonials .testimonial-grid{grid-template-columns:1fr}}
+
+/* Zertifikat-Duplikat: Gate-Hinweis + Preis-Zeile */
+.zd-gate{background:#fff8ec;border:1px solid #e8d4a8;border-left:5px solid #c9761f;border-radius:16px;padding:1rem 1.1rem;margin-bottom:1.1rem}
+.zd-gate b{display:block;color:#7a4a12;margin-bottom:.25rem}
+.zd-gate p{margin:0;color:#5c4a33;font-size:.92rem;line-height:1.5}
+.zd-price{display:flex;align-items:baseline;gap:.7rem;flex-wrap:wrap;background:#eaf7ef;border:1px solid rgba(37,112,78,.2);border-radius:14px;padding:.8rem 1rem;margin:.4rem 0 .2rem}
+.zd-price .zd-amount{font-size:1.35rem;font-weight:950;color:#25704e}
+.zd-price span:not(.zd-amount){color:#3f5248;font-size:.9rem}
+#zd-address{display:block}
