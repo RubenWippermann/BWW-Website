@@ -49,7 +49,8 @@
       return '<div class="termin-row is-full">' + inner +
         '<button type="button" class="termin-cta waitlist-toggle" data-termin="' + esc(k.id) + '" data-titel="' + esc(k.titel) + '" data-datum="' + esc(fmtRange(k)) + (k.stadt ? ' · ' + esc(k.stadt) : '') + '">Warteliste →</button></div>';
     }
-    return '<a class="termin-row" href="' + esc(burl) + '" target="_blank" rel="noopener">' + inner +
+    return '<a class="termin-row" href="' + esc(burl) + '" target="_blank" rel="noopener"' +
+      ' data-termin-id="' + esc(k.id || '') + '" data-titel="' + esc(cleanLabel(k.titel) || '') + '">' + inner +
       '<span class="termin-cta">Buchen →</span></a>';
   }
 
@@ -368,7 +369,87 @@
     }).catch(function () { /* Endpoint noch nicht live -> Sektion bleibt aus */ });
   }
 
-  function init() { loadTermine(); wireForms(); wireWaitlist(); loadReviews(); enrichCourseCards(); wireStartzeit(); loadTestimonials(); }
+  /* ---------- Feature-Flags (schalten Online-Zahlung scharf, ohne Deploy) ---------- */
+  var FEATURES = {};
+  function loadFeatures() {
+    return fetch(API + '/api/features?org=' + ORG).then(function (r) { return r.json(); })
+      .then(function (f) { FEATURES = f || {}; }).catch(function () { FEATURES = {}; });
+  }
+
+  /* ---------- Online-Buchung + Bezahlung (gated: nur aktiv, wenn FEATURES.online_zahlung) ---------- */
+  function ensureBookingModal() {
+    if (document.getElementById('bkModal')) return;
+    var o = document.createElement('div');
+    o.id = 'bkModal'; o.className = 'wl-overlay'; o.hidden = true;
+    o.innerHTML =
+      '<div class="wl-box bk-box" role="dialog" aria-modal="true" aria-labelledby="bkTitle">' +
+        '<button type="button" class="wl-close" aria-label="Schließen">×</button>' +
+        '<h3 id="bkTitle">Kurs buchen &amp; bezahlen</h3><p class="wl-course"></p>' +
+        '<form class="wl-form bk-form" novalidate>' +
+          '<label for="bk-vorname">Vorname *</label><input id="bk-vorname" name="vorname" autocomplete="given-name" required>' +
+          '<label for="bk-nachname">Nachname *</label><input id="bk-nachname" name="nachname" autocomplete="family-name" required>' +
+          '<label for="bk-mail">E-Mail *</label><input id="bk-mail" name="email" type="email" autocomplete="email" required>' +
+          '<label for="bk-firma">Firma (optional)</label><input id="bk-firma" name="firma" autocomplete="organization">' +
+          '<label for="bk-strasse">Rechnungsadresse *</label><input id="bk-strasse" name="strasse" autocomplete="street-address" placeholder="Straße &amp; Hausnummer" required>' +
+          '<div class="fgrid"><div><label for="bk-plz">PLZ *</label><input id="bk-plz" name="plz" autocomplete="postal-code" required></div>' +
+          '<div><label for="bk-ort">Ort *</label><input id="bk-ort" name="ort" autocomplete="address-level2" required></div></div>' +
+          '<div class="hp"><label>Bitte frei lassen<input name="website" tabindex="-1" autocomplete="off"></label></div>' +
+          '<label class="consent"><input type="checkbox" name="consent" required><span>Ich habe die <a href="/datenschutz/" target="_blank" rel="noopener">Datenschutzerklärung</a> und die <a href="/agb/" target="_blank" rel="noopener">AGB</a> gelesen und akzeptiere sie.</span></label>' +
+          '<button class="btn primary" type="submit">Weiter zur Zahlung</button>' +
+          '<p class="wl-status" role="status" aria-live="polite"></p>' +
+          '<p class="bk-note">Die Zahlung läuft über unseren Zahlungsdienstleister. Kartendaten werden nie auf dieser Website eingegeben.</p>' +
+        '</form></div>';
+    document.body.appendChild(o);
+    function close() { o.hidden = true; }
+    o.querySelector('.wl-close').addEventListener('click', close);
+    o.addEventListener('click', function (e) { if (e.target === o) close(); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
+    o.querySelector('form').addEventListener('submit', function (e) {
+      e.preventDefault();
+      var f = e.target, st = f.querySelector('.wl-status');
+      if (f.querySelector('[name="website"]').value) return;                 // Honeypot
+      if (!f.querySelector('[name="consent"]').checked) { st.textContent = 'Bitte Datenschutz und AGB bestätigen.'; return; }
+      var btn = f.querySelector('button[type="submit"]');
+      var payload = { org: ORG, termin: o.getAttribute('data-termin') || '', anzahl: 1, website: '',
+        teilnehmer: [{ vorname: f.vorname.value.trim(), nachname: f.nachname.value.trim(), email: f.email.value.trim() }],
+        rechnung: { firma: f.firma.value.trim(), strasse: f.strasse.value.trim(), plz: f.plz.value.trim(), ort: f.ort.value.trim(), email: f.email.value.trim() } };
+      st.textContent = 'Buchung wird geprüft …'; btn.disabled = true;
+      fetch(API + '/api/kurs-buchung', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) })
+        .then(function (r) { return r.json().catch(function () { return {}; }).then(function (j) { return { ok: r.ok, status: r.status, j: j }; }); })
+        .then(function (res) {
+          var d = res.j || {};
+          if (res.ok && d.checkout_url) { st.textContent = 'Weiterleitung zur sicheren Zahlung …'; window.location.href = d.checkout_url; return; }
+          btn.disabled = false;
+          var msg = { course_full: 'Dieser Termin ist leider ausgebucht. Setzt euch gern auf die Warteliste.',
+                      course_past: 'Dieser Termin liegt in der Vergangenheit. Bitte wählt einen aktuellen Termin.',
+                      invalid_email: 'Bitte prüft die E-Mail-Adresse.',
+                      already_booked: 'Für diese E-Mail liegt bereits eine Buchung zu diesem Termin vor.',
+                      invalid_input: 'Bitte prüft eure Eingaben.' }[d.error];
+          st.textContent = msg || 'Es ist ein Fehler aufgetreten. Bitte versucht es später erneut oder ruft uns an.';
+        })
+        .catch(function () { btn.disabled = false; st.textContent = 'Verbindung fehlgeschlagen. Bitte erneut versuchen.'; });
+    });
+  }
+  function openBookingModal(id, titel) {
+    ensureBookingModal();
+    var o = document.getElementById('bkModal');
+    o.setAttribute('data-termin', id || '');
+    o.querySelector('.wl-course').textContent = titel || '';
+    var s = o.querySelector('.wl-status'); if (s) s.textContent = '';
+    o.hidden = false;
+    var first = o.querySelector('input'); if (first) first.focus();
+  }
+  function wireBooking() {
+    document.addEventListener('click', function (e) {
+      if (FEATURES.online_zahlung !== true) return;                 // gated -> normaler buchungs_url-Link greift
+      var a = e.target && e.target.closest ? e.target.closest('.termin-row[data-termin-id]') : null;
+      if (!a || !a.getAttribute('data-termin-id')) return;
+      e.preventDefault();
+      openBookingModal(a.getAttribute('data-termin-id'), a.getAttribute('data-titel'));
+    });
+  }
+
+  function init() { loadTermine(); wireForms(); wireWaitlist(); loadReviews(); enrichCourseCards(); wireStartzeit(); loadTestimonials(); loadFeatures(); wireBooking(); }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
   else init();
 })();

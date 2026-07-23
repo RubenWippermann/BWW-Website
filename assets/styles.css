@@ -1532,3 +1532,9 @@ body.wl-open{overflow:hidden}
 .zd-price .zd-amount{font-size:1.35rem;font-weight:950;color:#25704e}
 .zd-price span:not(.zd-amount){color:#3f5248;font-size:.9rem}
 #zd-address{display:block}
+
+/* Buchungs-Modal (Online-Buchung + Bezahlung, gated) */
+.bk-box{max-width:520px}
+.bk-box .fgrid{display:grid;grid-template-columns:1fr 1fr;gap:.6rem}
+.bk-note{margin:.7rem 0 0;font-size:.84rem;color:#5b6e64;line-height:1.45}
+@media(max-width:560px){.bk-box .fgrid{grid-template-columns:1fr}}
