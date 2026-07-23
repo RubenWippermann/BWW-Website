@@ -1570,3 +1570,13 @@ body.wl-open{overflow:hidden}
 .metric,.metric b,.metric small,.metric span{min-width:0;overflow-wrap:break-word}
 @media(max-width:900px){.metric-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:600px){.metric-grid{grid-template-columns:minmax(0,1fr)}}
+/* Infokarten der Standortseiten sind jetzt Links. Sie muessen auch wie Links
+   wirken: Zeigerhand, Hover-Rueckmeldung, sichtbarer Tastaturfokus. */
+.inhouse-grid a{display:block;text-decoration:none;color:inherit;cursor:pointer;transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease}
+.inhouse-grid a:hover,.course-teaser-grid a:hover{transform:translateY(-4px);box-shadow:0 26px 70px rgba(16,39,31,.12);border-color:rgba(47,125,90,.32)}
+.inhouse-grid a:focus-visible,.course-teaser-grid a:focus-visible{outline:3px solid rgba(37,112,78,.6);outline-offset:3px}
+.inhouse-grid a h3{transition:color .2s ease}
+.inhouse-grid a:hover h3{color:var(--bww-green,#25704e)}
+.inhouse-grid a::after{content:"→";display:inline-block;margin-left:6px;font-weight:900;color:var(--bww-green,#25704e);transition:transform .25s ease}
+.inhouse-grid a:hover::after{transform:translateX(4px)}
+@media(prefers-reduced-motion:reduce){.inhouse-grid a,.inhouse-grid a::after{transition:none}.inhouse-grid a:hover{transform:none}}
