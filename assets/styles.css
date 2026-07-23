@@ -1555,3 +1555,11 @@ body.wl-open{overflow:hidden}
 /* Badge-Streifen unter dem Kursseiten-Hero */
 .badge-strip{padding:1.3rem clamp(18px,5vw,72px) 0}
 .badge-strip .trust-badges{margin-bottom:0}
+.metric{position:relative}
+.metric-tag{display:inline-block;font-style:normal;font-size:.63rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;padding:3px 9px;border-radius:999px;margin:0 0 8px}
+.metric-tag.is-pflicht{background:#e3f1e8;color:#1a6e44;border:1px solid #bcdcc8}
+.metric-tag.is-richtwert{background:#fdf1dd;color:#8a5a12;border:1px solid #efd7ac}
+.metric-tag.is-tipp{background:#e6eff7;color:#2b5478;border:1px solid #c2d6e6}
+.metric b.is-text{font-size:1.75rem;line-height:1.2;overflow-wrap:break-word;hyphens:auto}
+.calc-legend{grid-column:1/-1;margin:.4rem 0 0;font-size:.8rem;line-height:1.5;color:#5b6e64}
+@media(max-width:600px){.metric b.is-text{font-size:1.5rem}.metric-tag{font-size:.6rem}}

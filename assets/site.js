@@ -2,29 +2,64 @@
 function escapeHtml(s){return String(s||'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));}
 function asInt(id, fallback=0){const el=document.getElementById(id);const n=parseInt(el?.value||fallback,10);return Number.isFinite(n)?n:fallback;}
 
+function verbandkaesten(industry, employees){
+  // ASR A4.3 (Anhang) / DGUV Information 204-022. Ein grosser Kasten (DIN 13169)
+  // ist durch zwei kleine (DIN 13157) ersetzbar.
+  if(employees<=0) return {klein:0, gross:0};
+  const T={
+    admin:        {kleinBis:50, grossBis:300, je:300},  // Verwaltung/Handel
+    construction: {kleinBis:10, grossBis:50,  je:50 },  // Baustellen
+    other:        {kleinBis:20, grossBis:100, je:100},  // Herstellung/Verarbeitung
+    care:         {kleinBis:20, grossBis:100, je:100}
+  };
+  const t=T[industry]||T.other;
+  if(employees<=t.kleinBis) return {klein:1, gross:0};
+  if(employees<=t.grossBis) return {klein:0, gross:1};
+  return {klein:0, gross:1+Math.ceil((employees-t.grossBis)/t.je)};
+}
+
+function kastenText(k){
+  if(!k.klein && !k.gross) return '–';
+  if(k.klein) return k.klein===1?'1 kleiner':k.klein+' kleine';
+  return k.gross===1?'1 großer':k.gross+' große';
+}
+
 function calculateDguv(){
   const industry=document.getElementById('industry')?.value||'admin';
   const employees=Math.max(0,asInt('employees',0));
   const shifts=Math.max(1,asInt('shifts',1));
+
+  // PFLICHT: gesetzliches Minimum nach DGUV Vorschrift 1 § 26
   const factor=industry==='admin'?0.05:0.10;
-  let firstAid=employees<=0?0:(employees<=20?1:Math.ceil(employees*factor));
-  firstAid=Math.max(firstAid, employees>0?shifts:0);
-  let bsan=0;
-  if(industry==='construction') bsan=employees>100?1:0;
-  else bsan=employees>1500?1:0;
+  const firstAid=employees<=0?0:(employees<=20?1:Math.ceil(employees*factor));
+  // EMPFEHLUNG: damit die geforderte Zahl je Schicht/Bereich real anwesend ist
+  const firstAidPlan=firstAid*shifts;
+
+  // PFLICHT: DGUV Vorschrift 1 § 27
+  const bsan=industry==='construction'?(employees>100?1:0):(employees>1500?1:0);
+
+  // RICHTWERT: ASR A2.2 – 5 % bei normaler Brandgefaehrdung
   const fire=employees>0?Math.max(1,Math.ceil(employees*0.05)):0;
+  // RICHTWERT ohne feste Quote: ASR A2.3 nennt keinen Prozentsatz
   const evac=employees>0?Math.max(1,Math.ceil(employees*0.05)):0;
-  const kits=employees<=0?0:employees<=50?1:employees<=300?2:Math.ceil(employees/150);
+
+  // PFLICHT: ASR A4.3
+  const kits=verbandkaesten(industry, employees);
+
   const el=document.getElementById('calcResult');
   if(!el) return;
+  const tag=(t,k)=>`<em class="metric-tag ${k}">${t}</em>`;
   el.innerHTML=`
-    <div class="metric"><span>Betriebliche Ersthelfer</span><b>${firstAid}</b><small>inkl. Schichten/Abwesenheiten als praxisnahe Mindestplanung</small></div>
-    <div class="metric"><span>Brandschutzhelfer</span><b>${fire}</b><small>Orientierung ca. 5 %, abhängig von Gefährdungsbeurteilung</small></div>
-    <div class="metric"><span>Evakuierungshelfer</span><b>${evac}</b><small>für Räumung, Sammelstellen und Besucherströme einplanen</small></div>
-    <div class="metric"><span>Betriebssanitäter</span><b>${bsan?bsan:'prüfen'}</b><small>${bsan?'Pflicht/Bedarf genauer prüfen':'meist nicht erforderlich, wenn keine besonderen Gefahren vorliegen'}</small></div>
-    <div class="metric"><span>Verbandkästen</span><b>${kits}</b><small>Standorte müssen schnell erreichbar und regelmäßig geprüft sein</small></div>
-    <div class="metric"><span>AED</span><b>${employees>=50||industry==='care'?'empfohlen':'prüfen'}</b><small>besonders bei Publikumsverkehr, Alleinarbeit oder erhöhtem Risiko</small></div>`;
+    <div class="metric"><span>Betriebliche Ersthelfer</span>${tag('Pflicht','is-pflicht')}<b>${firstAid}</b><small>gesetzliches Minimum nach DGUV Vorschrift 1 § 26 – bis 20 anwesende Versicherte 1 Person, darüber ${industry==='admin'?'5':'10'} %</small></div>
+    <div class="metric"><span>Ersthelfer einplanen</span>${tag('Empfehlung','is-tipp')}<b>${firstAidPlan}</b><small>damit die geforderte Zahl in jeder Schicht bzw. jedem getrennten Bereich wirklich anwesend ist – zusätzlich Reserve für Urlaub und Krankheit einplanen</small></div>
+    <div class="metric"><span>Verbandkästen</span>${tag('Pflicht','is-pflicht')}<b class="is-text">${kastenText(kits)}</b><small>nach ASR A4.3 / DGUV Information 204-022, gestaffelt nach Betriebsart. Ein großer Kasten (DIN 13169) ist durch zwei kleine (DIN 13157) ersetzbar.</small></div>
+    <div class="metric"><span>Betriebssanitäter</span>${tag(bsan?'Pflicht':'Keine Pflicht','is-pflicht')}<b class="${bsan?'':'is-text'}">${bsan?bsan:'prüfen'}</b><small>${bsan?'erforderlich nach DGUV Vorschrift 1 § 27':'nach DGUV Vorschrift 1 § 27 nicht gefordert – Baustellen erst ab mehr als 100, sonstige Betriebsstätten ab mehr als 1500 Versicherten. Bei besonderen Gefahren kann dennoch Sanitätspersonal gefordert sein.'}</small></div>
+    <div class="metric"><span>Brandschutzhelfer</span>${tag('Richtwert','is-richtwert')}<b>${fire}</b><small>ASR A2.2: bei normaler Brandgefährdung sind in der Regel 5 % ausreichend – maßgeblich ist die Gefährdungsbeurteilung</small></div>
+    <div class="metric"><span>Evakuierungshelfer</span>${tag('Richtwert','is-richtwert')}<b>${evac}</b><small>Orientierungswert, <strong>keine gesetzliche Quote</strong>. Die ASR A2.3 verlangt Räumungshelfer, nennt aber keine Prozentzahl – die konkrete Zahl folgt aus eurer Gefährdungsbeurteilung (Gebäudegröße, Fluchtwege, Schichtbetrieb, ortsunkundige Personen).</small></div>
+    <div class="metric"><span>AED</span>${tag('Empfehlung','is-tipp')}<b class="is-text">${employees>=50||industry==='care'?'empfohlen':'prüfen'}</b><small>keine gesetzliche Pflicht – sinnvoll bei Publikumsverkehr, Alleinarbeit, weiten Wegen oder erhöhtem Risiko</small></div>
+    <p class="calc-legend"><strong>Pflicht</strong> = gesetzlich gefordert · <strong>Richtwert</strong> = normativer Orientierungswert, konkret aus der Gefährdungsbeurteilung · <strong>Empfehlung</strong> = unser Praxisrat. Rechtsgrundlagen: DGUV Vorschrift 1, ASR A2.2, ASR A2.3, ASR A4.3 / DGUV Information 204-022.</p>`;
 }
+
 
 const assistantAnswers={
   ersthelfer:['Wie viele Ersthelfer braucht mein Betrieb?','Bis 20 anwesende Versicherte mindestens eine Person. Danach wird je nach Branche häufig mit 5 % oder 10 % geplant. Schichten, Urlaube, Außenstellen und reale Erreichbarkeit zählen in der Praxis mit.','/dguv-rechner/'],
