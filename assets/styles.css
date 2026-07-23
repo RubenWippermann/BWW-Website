@@ -1563,3 +1563,10 @@ body.wl-open{overflow:hidden}
 .metric b.is-text{font-size:1.75rem;line-height:1.2;overflow-wrap:break-word;hyphens:auto}
 .calc-legend{grid-column:1/-1;margin:.4rem 0 0;font-size:.8rem;line-height:1.5;color:#5b6e64}
 @media(max-width:600px){.metric b.is-text{font-size:1.5rem}.metric-tag{font-size:.6rem}}
+/* Grid-Kinder haben min-width:auto und koennen lange Inhalte nicht schrumpfen
+   lassen -> Ueberstand ohne horizontales Scrollen. Praeventiv entschaerft. */
+.metric-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.metric-grid>*{min-width:0}
+.metric,.metric b,.metric small,.metric span{min-width:0;overflow-wrap:break-word}
+@media(max-width:900px){.metric-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.metric-grid{grid-template-columns:minmax(0,1fr)}}
