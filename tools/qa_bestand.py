@@ -146,11 +146,36 @@ def pruef_verweis_ohne_link(pfad, roh, text, attrs):
     return treffer
 
 
+def pruef_veraltete_norm(pfad, roh, text, attrs):
+    """Überholte Norm-Kürzel, die heute anders heißen.
+
+    Bewusst NUR eindeutige Kürzel, die als Zitat immer falsch sind. NICHT
+    '16 UE' (bei Betriebssanitäter-/Lehrkräfte-Fortbildung korrekt) und NICHT
+    'lebensrettende Sofortmaßnahmen' (allgemeiner Begriff, nicht der alte
+    Führerschein-Kursname) - beide waren am 2026-07-23 Fehlalarme.
+    """
+    UEBERHOLT = {
+        r'\bBGV\s*A1\b': 'BGV A1 → heute DGUV Vorschrift 1',
+        r'\bBGV\s*A8\b': 'BGV A8 → heute DGUV Vorschrift/ASR A1.3',
+        r'\bGUV-?V\s*A1\b': 'GUV-V A1 → heute DGUV Vorschrift 1',
+        r'\bBGR\s*\d': 'BGR → heute DGUV Regel',
+        r'\bBGI\s*\d': 'BGI → heute DGUV Information',
+        r'\bBGG\s*\d': 'BGG → heute DGUV Grundsatz',
+    }
+    treffer = []
+    for quelle, inhalt in [('text', text)] + [('@' + a, v) for a, v in attrs]:
+        for rx, hinweis in UEBERHOLT.items():
+            for m in re.finditer(rx, inhalt):
+                treffer.append((quelle, hinweis, inhalt[max(0, m.start() - 60):m.end() + 60]))
+    return treffer
+
+
 PRUEFUNGEN = [
     ('Richtwert als Pflicht formuliert', pruef_richtwert_als_pflicht),
     ('Normschwelle falsch beschriftet', pruef_schwellen),
     ('Beschreibung schwach oder abgeschnitten', pruef_beschreibung),
     ('Verweis ohne Link (Sackgasse)', pruef_verweis_ohne_link),
+    ('Überholte Normbezeichnung', pruef_veraltete_norm),
 ]
 
 
