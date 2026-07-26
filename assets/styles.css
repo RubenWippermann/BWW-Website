@@ -1615,3 +1615,9 @@ a.feature-card{text-decoration:none;color:inherit;cursor:pointer;transition:tran
 a.feature-card:hover{transform:translateY(-3px);box-shadow:0 22px 52px rgba(16,39,31,.11);border-color:rgba(37,112,78,.3)}
 a.feature-card:focus-visible{outline:3px solid rgba(37,112,78,.55);outline-offset:3px}
 @media(prefers-reduced-motion:reduce){a.feature-card{transition:none}a.feature-card:hover{transform:none}}
+/* Hero-Umbau: Vertrauens-Zeile (belegt, Platz für ISO) + Text-Link-CTA */
+.hero-trust{display:inline-flex;align-items:center;gap:.45rem;background:rgba(37,112,78,.1);color:var(--bww-green,#25704e);padding:.45rem .9rem;border-radius:999px;font-weight:800;font-size:.8rem;letter-spacing:.01em;text-transform:none;line-height:1.3;max-width:100%}
+.hero-actions{align-items:center;gap:1rem;flex-wrap:wrap}
+.hero-actions .btn-textlink{display:inline-flex;align-items:center;min-height:44px;padding:.55rem .3rem;color:var(--bww-green,#25704e);font-weight:750;font-size:1rem;text-decoration:none}
+.btn-textlink:hover{text-decoration:underline}
+.btn-textlink:focus-visible{outline:3px solid rgba(37,112,78,.5);outline-offset:2px;border-radius:8px}
