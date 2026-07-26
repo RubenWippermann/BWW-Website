@@ -1633,3 +1633,13 @@ body.menu-open .site-header nav .nav-group[open]>summary::after{transform:rotate
 body.menu-open .site-header nav .nav-group>summary:hover{background:#f0f7ef}
 body.menu-open .site-header nav .nav-group>summary.is-active{color:#25704e}
 body.menu-open .site-header nav .nav-group>a{display:block;width:100%;text-align:left;padding-left:26px!important}
+
+/* ===== Button-Spezifikation vereinheitlicht (2026-07-26) =====
+   EINE Spec: gleiches Padding -> gleiche Hoehe (behebt 58-vs-52-Sprung),
+   gleicher Radius, einheitliche Fokus-/Aktiv-/Deaktiviert-Zustaende.
+   Farbrollen (primary gefuellt / ghost outline / soft) unveraendert. */
+.btn,.nav-cta{min-height:48px!important}
+.btn{padding:13px 22px!important;border-radius:999px!important}
+.btn:focus-visible,.nav-cta:focus-visible{outline:3px solid rgba(37,112,78,.55);outline-offset:2px}
+.btn:active,.nav-cta:active{transform:translateY(0)}
+.btn:disabled,.btn[disabled],.btn[aria-disabled="true"]{opacity:.55;cursor:not-allowed;box-shadow:none;transform:none}
