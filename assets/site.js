@@ -175,3 +175,29 @@ if(document.body)document.body.appendChild(b);})();
   }
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start);else start();
 })();
+
+/* Mobile-Nav: flache Links in aufklappbare Gruppen (Progressive Enhancement).
+   Desktop bleibt via CSS (display:contents) flach; ohne JS bleibt das flache Menü. */
+(function(){
+  function groupNav(){
+    var nav=document.querySelector('.site-header nav');
+    if(!nav||nav.dataset.grouped)return;
+    var groups=[
+      {label:'Kursangebot',hrefs:['/kurse/','/inhouse-kurse/','/kurse/offene-kurse-worbis/','/standorte/']},
+      {label:'Service',hrefs:['/arbeitsschutz-check/','/wissen/','/dozent-werden/']}
+    ];
+    groups.forEach(function(g){
+      var links=[];
+      g.hrefs.forEach(function(h){var a=nav.querySelector('a[href="'+h+'"]');if(a)links.push(a);});
+      if(links.length<2)return;
+      var d=document.createElement('details');d.className='nav-group';
+      var sm=document.createElement('summary');sm.textContent=g.label;d.appendChild(sm);
+      nav.insertBefore(d,links[0]);
+      var active=false;
+      links.forEach(function(a){if(a.classList.contains('active'))active=true;d.appendChild(a);});
+      if(active){d.open=true;sm.classList.add('is-active');}
+    });
+    nav.dataset.grouped='1';
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',groupNav);else groupNav();
+})();

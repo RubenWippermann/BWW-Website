@@ -1621,3 +1621,15 @@ a.feature-card:focus-visible{outline:3px solid rgba(37,112,78,.55);outline-offse
 .hero-actions .btn-textlink{display:inline-flex;align-items:center;min-height:44px;padding:.55rem .3rem;color:var(--bww-green,#25704e);font-weight:750;font-size:1rem;text-decoration:none}
 .btn-textlink:hover{text-decoration:underline}
 .btn-textlink:focus-visible{outline:3px solid rgba(37,112,78,.5);outline-offset:2px;border-radius:8px}
+
+/* Nav-Gruppen: Desktop flach (unveraendert), Mobile aufklappbar */
+.site-header nav .nav-group{display:contents}
+.site-header nav .nav-group>summary{display:none}
+body.menu-open .site-header nav .nav-group{display:block;border-top:1px solid #eef2f0;margin-top:2px}
+body.menu-open .site-header nav .nav-group>summary{display:flex;align-items:center;justify-content:space-between;gap:.5rem;min-height:48px;padding:11px 12px;font-weight:750;color:#143429;cursor:pointer;list-style:none;border-radius:14px;text-align:left}
+body.menu-open .site-header nav .nav-group>summary::-webkit-details-marker{display:none}
+body.menu-open .site-header nav .nav-group>summary::after{content:"\2304";font-size:1.3em;line-height:1;opacity:.6;transition:transform .2s}
+body.menu-open .site-header nav .nav-group[open]>summary::after{transform:rotate(180deg)}
+body.menu-open .site-header nav .nav-group>summary:hover{background:#f0f7ef}
+body.menu-open .site-header nav .nav-group>summary.is-active{color:#25704e}
+body.menu-open .site-header nav .nav-group>a{display:block;width:100%;text-align:left;padding-left:26px!important}
