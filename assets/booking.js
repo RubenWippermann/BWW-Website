@@ -69,21 +69,28 @@
     var bar = '';
     if (showArt || showStadt || hasBg) {
       bar = '<div class="termine-filter">' +
-        (showArt ? '<select class="tf-art" aria-label="Nach Kursart filtern"><option value="">Alle Kursarten</option>' + artKeys.map(function (c) { return '<option value="' + esc(c) + '">' + esc(arten[c]) + '</option>'; }).join('') + '</select>' : '') +
+        (showArt ? '<div class="tf-arts" role="group" aria-label="Nach Kursart filtern"><button type="button" class="tf-chip is-active" data-art="">Alle Kursarten</button>' + artKeys.map(function (c) { return '<button type="button" class="tf-chip" data-art="' + esc(c) + '">' + esc(arten[c]) + '</button>'; }).join('') + '</div>' : '') +
         (showStadt ? '<select class="tf-stadt" aria-label="Nach Ort filtern"><option value="">Alle Orte</option>' + stadtKeys.map(function (s) { return '<option value="' + esc(s) + '">' + esc(s) + '</option>'; }).join('') + '</select>' : '') +
         (hasBg ? '<label class="tf-bg"><input type="checkbox" class="tf-bgchk"> Nur BG/UK-abrechenbar</label>' : '') + '<span class="tf-count" aria-live="polite"></span></div>';
     }
     el.innerHTML = bar + '<div class="termine-rows"></div>';
-    var artSel = el.querySelector('.tf-art'), stadtSel = el.querySelector('.tf-stadt');
+    var stadtSel = el.querySelector('.tf-stadt');
     var rowsEl = el.querySelector('.termine-rows'), countEl = el.querySelector('.tf-count');
+    function activeArt() { var b = el.querySelector('.tf-chip.is-active'); return b ? (b.getAttribute('data-art') || '') : ''; }
+    function setArt(code) {
+      var chips = el.querySelectorAll('.tf-chip'); var hit = null;
+      Array.prototype.forEach.call(chips, function (c) { c.classList.remove('is-active'); c.setAttribute('aria-pressed', 'false'); if ((c.getAttribute('data-art') || '') === code) hit = c; });
+      (hit || chips[0]).classList.add('is-active'); (hit || chips[0]).setAttribute('aria-pressed', 'true');
+    }
     function apply() {
-      var a = artSel ? artSel.value : '', s = stadtSel ? stadtSel.value : '';
+      var a = activeArt(), s = stadtSel ? stadtSel.value : '';
       var bgChk = el.querySelector('.tf-bgchk'), bg = bgChk && bgChk.checked;
       var f = all.filter(function (k) { return (!a || k.kursart === a) && (!s || k.stadt === s) && (!bg || k.bg_uk_abrechenbar); });
       rowsEl.innerHTML = f.length ? f.map(rowHTML).join('') : '<p class="termine-empty">Für diese Auswahl sind aktuell keine Termine frei. <a href="/inhouse-kurse/">Wunschtermin anfragen →</a></p>';
       if (countEl) countEl.textContent = f.length + (f.length === 1 ? ' Termin' : ' Termine');
     }
-    if (artSel) artSel.addEventListener('change', apply);
+    Array.prototype.forEach.call(el.querySelectorAll('.tf-chip'), function (chip) { chip.addEventListener('click', function () { setArt(chip.getAttribute('data-art') || ''); apply(); }); });
+    var m = location.search.match(/[?&]art=([^&]*)/); if (m) { setArt(decodeURIComponent(m[1])); }
     if (stadtSel) stadtSel.addEventListener('change', apply);
     var bgChk0 = el.querySelector('.tf-bgchk'); if (bgChk0) bgChk0.addEventListener('change', apply);
     apply();
