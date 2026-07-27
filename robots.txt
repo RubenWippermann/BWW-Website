@@ -1,3 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /agb-fassung/
+
 Sitemap: https://www.multiplikatorenstelle.de/sitemap.xml
