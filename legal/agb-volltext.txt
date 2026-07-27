@@ -57,8 +57,7 @@ Richtlinien der Qualitätssicherungsstelle Erste Hilfe der DGUV oder landesrecht
 3.1 Die Angebote des Anbieters auf dessen Webseiten, Katalogen oder Social-Media-Kanälen sind
 freibleibend und unverbindlich. Dies gilt auch, wenn dem Kunden Kataloge, technische Dokumentationen
 oder sonstige Produktbeschreibungen – auch in elektronischer Form – überlassen wurden.
-3.2 Bei einer Online-Buchung über die Systeme des Anbieters (oder angebundene Plattformen wie HiOrg-
-Server) gibt der Kunde durch das Anklicken des den Bestellvorgang abschließenden Buttons (z.B.
+3.2 Bei einer Online-Buchung über die Systeme des Anbieters (oder angebundene Plattformen wie der Kursverwaltungsserver software-wippermann.de) gibt der Kunde durch das Anklicken des den Bestellvorgang abschließenden Buttons (z.B.
 „Zahlungspflichtig buchen“, „Kaufen“) ein rechtlich bindendes Vertragsangebot bezüglich der im Warenkorb
 oder Buchungsformular ausgewählten Leistungen ab. Die Bestätigung des Eingangs der Buchung erfolgt
 automatisiert per E-Mail und stellt noch keine Annahme des Antrags dar.
