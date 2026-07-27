@@ -1644,3 +1644,15 @@ body.menu-open .site-header nav .nav-group>a{display:block;width:100%;text-align
 .btn:focus-visible,.nav-cta:focus-visible{outline:3px solid rgba(37,112,78,.55);outline-offset:2px}
 .btn:active,.nav-cta:active{transform:translateY(0)}
 .btn:disabled,.btn[disabled],.btn[aria-disabled="true"]{opacity:.55;cursor:not-allowed;box-shadow:none;transform:none}
+
+/* Träger-Finder: Website-Link + Kostenübernahme-Fußnote */
+.traeger-card{display:flex;flex-direction:column;gap:.35rem}
+a.traeger-link{margin-top:.5rem;align-self:flex-start;font-weight:750;color:var(--bww-green,#25704e);text-decoration:none;font-size:.9rem;min-height:32px;display:inline-flex;align-items:center}
+a.traeger-link:hover{text-decoration:underline}
+a.traeger-link:focus-visible{outline:3px solid rgba(37,112,78,.5);outline-offset:2px;border-radius:8px}
+.traeger-note{max-width:920px;margin:1.4rem auto 0;padding:1rem 1.2rem;background:#f2f7f4;border:1px solid #dcebe1;border-radius:16px;font-size:.94rem;line-height:1.5;color:#243b32}
+.traeger-note .traeger-stand{display:block;margin-top:.5rem;font-size:.82rem;color:#5b6e64}
+
+/* Mobiles Menü IMMER erreichbar: Container selbst scrollbar (iOS-Falle vermeiden).
+   Auch bei vielen/aufgeklappten Einträgen bleibt der unterste Punkt (CTA) erreichbar. */
+body.menu-open .site-header nav{max-height:calc(100vh - 96px);overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain}
