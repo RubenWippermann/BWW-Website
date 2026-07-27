@@ -26,6 +26,30 @@
     return fmtDate(k.datum) + ' – ' + fmtDate(k.datum_ende);
   }
 
+  function fmtBlocks(k) {
+    try {
+      var arr = (k.termine || []).map(function (x) { return x && x.datum; }).filter(Boolean);
+      var uniq = arr.filter(function (d, i) { return arr.indexOf(d) === i; }).sort();
+      if (uniq.length < 2) return fmtRange(k);
+      var blocks = [[uniq[0]]];
+      for (var i = 1; i < uniq.length; i++) {
+        var prev = new Date(uniq[i - 1] + 'T00:00:00'), cur = new Date(uniq[i] + 'T00:00:00');
+        if (Math.round((cur - prev) / 86400000) === 1) blocks[blocks.length - 1].push(uniq[i]);
+        else blocks.push([uniq[i]]);
+      }
+      if (blocks.length < 2) return fmtRange(k);
+      var y = uniq[0].split('-')[0];
+      var months = blocks.map(function (b) { return parseInt(b[0].split('-')[1], 10); });
+      var sameMonth = months.every(function (m) { return m === months[0]; });
+      var parts = blocks.map(function (b) {
+        var d1 = parseInt(b[0].split('-')[2], 10), d2 = parseInt(b[b.length - 1].split('-')[2], 10), mo = parseInt(b[0].split('-')[1], 10);
+        var span = (d1 === d2) ? (d1 + '.') : (d1 + '.–' + d2 + '.');
+        return sameMonth ? span : (span + ' ' + MONTHS[mo - 1]);
+      });
+      return parts.join(' + ') + (sameMonth ? ' ' + MONTHS[months[0] - 1] + ' ' + y : ' ' + y);
+    } catch (e) { return fmtRange(k); }
+  }
+
   /* ---------- Live-Termine ---------- */
   function cleanLabel(t) { return String(t == null ? '' : t).replace(/\s*\([^)]*\)/g, '').trim(); }
 
@@ -41,7 +65,7 @@
     var zeit = k.uhrzeit ? esc(k.uhrzeit) + (k.uhrzeit_ende ? '–' + esc(k.uhrzeit_ende) : '') + ' Uhr' : '';
     var preis = (k.preis != null && k.preis !== '') ? esc(k.preis) + ' €' : '';
     var inner =
-      '<span class="termin-date"><b>' + fmtRange(k) + '</b>' + (zeit ? '<small>' + zeit + '</small>' : '') + '</span>' +
+      '<span class="termin-date"><b>' + fmtBlocks(k) + '</b>' + (zeit ? '<small>' + zeit + '</small>' : '') + '</span>' +
       '<span class="termin-info"><b>' + esc(k.titel) + '</b><small>' + tags.filter(Boolean).map(esc).join(' · ') + '</small></span>' +
       '<span class="termin-meta"><b>' + preis + '</b><small>' + (voll ? 'Ausgebucht' : 'Plätze frei') + '</small></span>';
     if (voll) {
