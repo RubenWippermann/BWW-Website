@@ -1661,3 +1661,7 @@ body.menu-open .site-header nav{max-height:calc(100vh - 96px);overflow-y:auto;-w
 .traeger-actions{display:flex;flex-wrap:wrap;gap:.2rem .9rem;margin-top:auto;padding-top:.5rem}
 .traeger-actions a.traeger-link{margin-top:0}
 .traeger-hint{color:#6b7d73!important;font-size:.82rem!important;font-style:italic}
+
+/* Header-Fix ~≤1120px: Nav trug dort Dropdown-Karten-Styling, war aber ohne Burger-Klick
+   sichtbar (schwebende Karte über dem Hero). Jetzt konsequent Burger-Modus: Nav nur offen sichtbar. */
+@media(max-width:1120px){body:not(.menu-open) .site-header nav{display:none!important}}
