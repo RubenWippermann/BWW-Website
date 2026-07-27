@@ -1656,3 +1656,8 @@ a.traeger-link:focus-visible{outline:3px solid rgba(37,112,78,.5);outline-offset
 /* Mobiles Menü IMMER erreichbar: Container selbst scrollbar (iOS-Falle vermeiden).
    Auch bei vielen/aufgeklappten Einträgen bleibt der unterste Punkt (CTA) erreichbar. */
 body.menu-open .site-header nav{max-height:calc(100vh - 96px);overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain}
+
+/* Träger-Karte: Aktions-Links + Hinweis */
+.traeger-actions{display:flex;flex-wrap:wrap;gap:.2rem .9rem;margin-top:auto;padding-top:.5rem}
+.traeger-actions a.traeger-link{margin-top:0}
+.traeger-hint{color:#6b7d73!important;font-size:.82rem!important;font-style:italic}
