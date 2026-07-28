@@ -382,11 +382,15 @@
 
   /* ---------- Testimonials (freigegebene Kundenstimmen mit Logo) — Sektion bleibt verborgen, bis Daten da sind ---------- */
   function testimonialHTML(t) {
-    var logo = t.logo_url ? '<img class="tm-logo" src="' + esc(t.logo_url) + '" alt="' + esc(t.firma || 'Kundenlogo') + '" loading="lazy" decoding="async">' : '';
+    var logo = (t.logo_url || t.logo) ? '<img class="tm-logo" src="' + esc(t.logo_url || t.logo) + '" alt="' + esc(t.firma || 'Kundenlogo') + '" loading="lazy" decoding="async">' : '';
     var who = [t.person, t.rolle].filter(Boolean).map(esc).join(' · ');
+    var mon = ['Januar','Februar','März','April','Mai','Juni','Juli','August','September','Oktober','November','Dezember'];
+    var dm = /^(\d{4})-(\d{2})/.exec(t.datum || '');
+    var datum = dm ? '<time class="tm-date" datetime="' + esc(t.datum) + '">' + mon[parseInt(dm[2], 10) - 1] + ' ' + dm[1] + '</time>' : '';
+    var meta = [who, datum].filter(Boolean).join(' · ');
     return '<figure class="testimonial-card">' + logo +
       '<blockquote>' + esc(t.text || '') + '</blockquote>' +
-      '<figcaption>' + (t.firma ? '<b>' + esc(t.firma) + '</b>' : '') + (who ? '<span>' + who + '</span>' : '') + '</figcaption></figure>';
+      '<figcaption>' + (t.firma ? '<b>' + esc(t.firma) + '</b>' : '') + (meta ? '<span>' + meta + '</span>' : '') + '</figcaption></figure>';
   }
   function loadTestimonials() {
     var el = document.getElementById('testimonials-list');
