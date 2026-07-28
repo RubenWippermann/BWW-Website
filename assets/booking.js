@@ -346,7 +346,7 @@
   var UE_MAP = {
     'Erste-Hilfe-Ausbildung': 9, 'Erste-Hilfe-Fortbildung': 9,
     'Erste Hilfe am Kind (Baby/Kleinkind)': 4,
-    'Erste Hilfe für Bildungs- & Betreuungseinrichtungen': 8,
+    'Erste Hilfe für Bildungs- & Betreuungseinrichtungen': 7.5,
     'Reanimation & AED-Training': 4, 'AED-Einweisung': 2,
     'Brandschutzhelfer': 4, 'Betriebssanitäter Grundausbildung': 72,
     'Betriebssanitäter Aufbaulehrgang': 40, 'Betriebssanitäter Fortbildung': 16,
