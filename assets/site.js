@@ -176,18 +176,12 @@ if(document.body)document.body.appendChild(b);})();
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start);else start();
 })();
 
-/* Mobile-Nav: flache Links in aufklappbare Gruppen (Progressive Enhancement).
-   Desktop bleibt via CSS (display:contents) flach; ohne JS bleibt das flache Menü. */
+/* Nav-Gruppen: kompakte Dropdowns (Desktop) bzw. Akkordeon (Mobil), Progressive Enhancement.
+   Der flache 7-Link-Nav ist auf normalen Desktop-Breiten zu breit (Marken-Zeile frisst Platz) →
+   Links werden in <details class="nav-group"><summary>…</summary><div class="nav-group-panel">…</div></details>
+   gefasst. Summary ist IMMER sichtbar (WebKit-sicher; ein geschlossenes <details> blendet nur die
+   Panel-Kinder aus, nie das summary). Ohne JS bleibt das flache Menü. */
 (function(){
-  var MQ='(min-width: 1121px)';                                   // >1120 = Desktop-Nav (Burger ist ≤1120 aktiv)
-  function isDesktop(){try{return matchMedia(MQ).matches;}catch(e){return true;}}
-  /* Auf Desktop MÜSSEN die <details> offen sein: ein geschlossenes <details> blendet in WebKit/Safari
-     seine Nicht-<summary>-Kinder aus (display:contents hebt das NICHT auf) — sonst fehlt die Nav.
-     Auf Mobil bleibt das Akkordeon: geschlossen, nur die aktive Gruppe offen. */
-  function syncOpen(){
-    var d=isDesktop(),g=document.querySelectorAll('.site-header nav .nav-group');
-    for(var i=0;i<g.length;i++){g[i].open = d ? true : !!g[i].querySelector('a.active');}
-  }
   function groupNav(){
     var nav=document.querySelector('.site-header nav');
     if(!nav||nav.dataset.grouped)return;
@@ -201,12 +195,17 @@ if(document.body)document.body.appendChild(b);})();
       if(links.length<2)return;
       var d=document.createElement('details');d.className='nav-group';
       var sm=document.createElement('summary');sm.textContent=g.label;d.appendChild(sm);
+      var panel=document.createElement('div');panel.className='nav-group-panel';
       nav.insertBefore(d,links[0]);
-      links.forEach(function(a){if(a.classList.contains('active'))sm.classList.add('is-active');d.appendChild(a);});
+      links.forEach(function(a){if(a.classList.contains('active'))sm.classList.add('is-active');panel.appendChild(a);});
+      d.appendChild(panel);
     });
     nav.dataset.grouped='1';
-    syncOpen();                                                   // Startzustand je Viewport
-    try{matchMedia(MQ).addEventListener('change',syncOpen);}catch(e){try{matchMedia(MQ).addListener(syncOpen);}catch(e2){}}
+    // Klick außerhalb einer offenen Gruppe schließt sie (Desktop-Dropdown-Verhalten)
+    document.addEventListener('click',function(e){
+      var open=nav.querySelectorAll('.nav-group[open]');
+      for(var i=0;i<open.length;i++){if(!open[i].contains(e.target))open[i].open=false;}
+    });
   }
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',groupNav);else groupNav();
 })();
