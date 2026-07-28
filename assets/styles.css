@@ -1624,28 +1624,16 @@ a.feature-card:focus-visible{outline:3px solid rgba(37,112,78,.55);outline-offse
 .btn-textlink:focus-visible{outline:3px solid rgba(37,112,78,.5);outline-offset:2px;border-radius:8px}
 
 /* Nav-Gruppen: Desktop flach (unveraendert), Mobile aufklappbar */
-/* Nav-Gruppen: kompakte Dropdowns (Desktop) / Akkordeon (Mobil). Der flache 7-Link-Nav ist auf
-   normalen Desktop-Breiten zu breit (Marken-Zeile frisst Platz) -> Gruppen sparen Platz.
-   summary ist IMMER sichtbar (WebKit-sicher); nur das .nav-group-panel klappt auf. */
-.site-header nav .nav-group{position:relative;display:inline-flex;align-items:center}
-.site-header nav .nav-group>summary{display:inline-flex;align-items:center;gap:.3rem;cursor:pointer;list-style:none;padding:.6rem .64rem;border-radius:999px;color:#143429;font-size:.82rem;font-weight:750;letter-spacing:.04em;white-space:nowrap}
-.site-header nav .nav-group>summary::-webkit-details-marker{display:none}
-.site-header nav .nav-group>summary::after{content:"\2304";font-size:1.1em;line-height:.6;opacity:.6;transition:transform .2s}
-.site-header nav .nav-group[open]>summary{background:var(--bww-mint);color:var(--bww-green)}
-.site-header nav .nav-group[open]>summary::after{transform:rotate(180deg)}
-.site-header nav .nav-group>summary.is-active{color:var(--bww-green)}
-.site-header nav .nav-group-panel{position:absolute;top:calc(100% + 8px);left:0;min-width:220px;display:flex;flex-direction:column;gap:2px;background:#fff;border:1px solid var(--bww-line);border-radius:16px;padding:8px;box-shadow:0 18px 44px rgba(16,39,31,.16);z-index:60}
-.site-header nav .nav-group:not([open]) .nav-group-panel{display:none}
-.site-header nav .nav-group-panel a{white-space:nowrap;padding:.6rem .8rem;border-radius:12px;font-size:.9rem}
-body.menu-open .site-header nav .nav-group{position:static;display:block;width:100%;border-top:1px solid #eef2f0;margin-top:2px}
-body.menu-open .site-header nav .nav-group>summary{display:flex;justify-content:space-between;min-height:48px;padding:11px 12px;border-radius:14px;font-size:inherit;text-transform:none}
-body.menu-open .site-header nav .nav-group>summary::after{content:"\2304";transform:none}
-body.menu-open .site-header nav .nav-group[open]>summary{background:transparent;color:#25704e}
+.site-header nav .nav-group{display:contents}
+.site-header nav .nav-group>summary{display:none}
+body.menu-open .site-header nav .nav-group{display:block;border-top:1px solid #eef2f0;margin-top:2px}
+body.menu-open .site-header nav .nav-group>summary{display:flex;align-items:center;justify-content:space-between;gap:.5rem;min-height:48px;padding:11px 12px;font-weight:750;color:#143429;cursor:pointer;list-style:none;border-radius:14px;text-align:left}
+body.menu-open .site-header nav .nav-group>summary::-webkit-details-marker{display:none}
+body.menu-open .site-header nav .nav-group>summary::after{content:"\2304";font-size:1.3em;line-height:1;opacity:.6;transition:transform .2s}
 body.menu-open .site-header nav .nav-group[open]>summary::after{transform:rotate(180deg)}
 body.menu-open .site-header nav .nav-group>summary:hover{background:#f0f7ef}
-body.menu-open .site-header nav .nav-group-panel{position:static;min-width:0;display:flex;border:0;border-radius:0;box-shadow:none;padding:0;gap:0}
-body.menu-open .site-header nav .nav-group:not([open]) .nav-group-panel{display:none}
-body.menu-open .site-header nav .nav-group-panel a{display:block;width:100%;text-align:left;padding-left:26px!important}
+body.menu-open .site-header nav .nav-group>summary.is-active{color:#25704e}
+body.menu-open .site-header nav .nav-group>a{display:block;width:100%;text-align:left;padding-left:26px!important}
 
 /* ===== Button-Spezifikation vereinheitlicht (2026-07-26) =====
    EINE Spec: gleiches Padding -> gleiche Hoehe (behebt 58-vs-52-Sprung),
