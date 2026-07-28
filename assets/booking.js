@@ -391,6 +391,7 @@
   function loadTestimonials() {
     var el = document.getElementById('testimonials-list');
     if (!el) return;
+    if (!featureOn('testimonials')) return;           // Büro-Schalter: aus, bis erste Firmenstimme freigegeben ist
     fetch(API + '/api/testimonials?org=' + ORG).then(function (r) { return r.json(); }).then(function (data) {
       var list = (data && data.testimonials) ? data.testimonials : [];
       if (!list.length) return;                       // keine Freigaben -> Sektion bleibt aus (nichts erfinden)
@@ -481,7 +482,7 @@
     });
   }
 
-  function init() { loadTermine(); wireForms(); wireWaitlist(); loadReviews(); enrichCourseCards(); wireStartzeit(); loadTestimonials(); loadFeatures(); wireBooking(); }
+  function init() { loadTermine(); wireForms(); wireWaitlist(); loadReviews(); enrichCourseCards(); wireStartzeit(); loadFeatures().then(loadTestimonials); wireBooking(); }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
   else init();
 })();
