@@ -179,7 +179,7 @@ if(document.body)document.body.appendChild(b);})();
 /* Mobile-Nav: flache Links in aufklappbare Gruppen (Progressive Enhancement).
    Desktop bleibt via CSS (display:contents) flach; ohne JS bleibt das flache Menü. */
 (function(){
-  var MQ='(min-width: 1161px)';                                   // >1160 = Desktop-Nav (Burger ist ≤1160 aktiv)
+  var MQ='(min-width: 1201px)';                                   // >1200 = Desktop-Nav (Burger ist ≤1200 aktiv)
   function isDesktop(){try{return matchMedia(MQ).matches;}catch(e){return true;}}
   /* Auf Desktop MÜSSEN die <details> offen sein: ein geschlossenes <details> blendet in WebKit/Safari
      seine Nicht-<summary>-Kinder aus (display:contents hebt das NICHT auf) — sonst fehlt die Nav.
