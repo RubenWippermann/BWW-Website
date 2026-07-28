@@ -179,6 +179,15 @@ if(document.body)document.body.appendChild(b);})();
 /* Mobile-Nav: flache Links in aufklappbare Gruppen (Progressive Enhancement).
    Desktop bleibt via CSS (display:contents) flach; ohne JS bleibt das flache Menü. */
 (function(){
+  var MQ='(min-width: 1121px)';                                   // >1120 = Desktop-Nav (Burger ist ≤1120 aktiv)
+  function isDesktop(){try{return matchMedia(MQ).matches;}catch(e){return true;}}
+  /* Auf Desktop MÜSSEN die <details> offen sein: ein geschlossenes <details> blendet in WebKit/Safari
+     seine Nicht-<summary>-Kinder aus (display:contents hebt das NICHT auf) — sonst fehlt die Nav.
+     Auf Mobil bleibt das Akkordeon: geschlossen, nur die aktive Gruppe offen. */
+  function syncOpen(){
+    var d=isDesktop(),g=document.querySelectorAll('.site-header nav .nav-group');
+    for(var i=0;i<g.length;i++){g[i].open = d ? true : !!g[i].querySelector('a.active');}
+  }
   function groupNav(){
     var nav=document.querySelector('.site-header nav');
     if(!nav||nav.dataset.grouped)return;
@@ -193,11 +202,11 @@ if(document.body)document.body.appendChild(b);})();
       var d=document.createElement('details');d.className='nav-group';
       var sm=document.createElement('summary');sm.textContent=g.label;d.appendChild(sm);
       nav.insertBefore(d,links[0]);
-      var active=false;
-      links.forEach(function(a){if(a.classList.contains('active'))active=true;d.appendChild(a);});
-      if(active){d.open=true;sm.classList.add('is-active');}
+      links.forEach(function(a){if(a.classList.contains('active'))sm.classList.add('is-active');d.appendChild(a);});
     });
     nav.dataset.grouped='1';
+    syncOpen();                                                   // Startzustand je Viewport
+    try{matchMedia(MQ).addEventListener('change',syncOpen);}catch(e){try{matchMedia(MQ).addListener(syncOpen);}catch(e2){}}
   }
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',groupNav);else groupNav();
 })();
