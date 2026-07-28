@@ -348,7 +348,7 @@
     'Erste Hilfe am Kind (Baby/Kleinkind)': 4,
     'Erste-Hilfe-Schulung in Bildungs- und Pflegeeinrichtungen': 7.5,
     'Reanimation & AED-Training': 4, 'AED-Einweisung': 2,
-    'Brandschutzhelfer': 4, 'Betriebssanitäter Grundausbildung': 72,
+    'Brandschutzhelfer': 4, 'Evakuierungshelfer': 4, 'Betriebssanitäter Grundausbildung': 72,
     'Betriebssanitäter Aufbaulehrgang': 40, 'Betriebssanitäter Fortbildung': 16,
     'Notfalltraining (Gesundheitswesen)': 4, 'Schulsanitäter-Ausbildung': 16,
     'Sanitätshelfer-Ausbildung': 24, 'Lehrkräfte-Ausbildung (Themenbereich I & II)': 24,
