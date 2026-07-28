@@ -314,7 +314,7 @@ textarea{min-height:130px;resize:vertical}
 .footer-social{display:flex!important;gap:12px;flex-wrap:wrap}
 .sticky-book{position:fixed;right:18px;bottom:18px;z-index:75;background:#fff;border:1px solid var(--line);box-shadow:0 24px 70px rgba(12,48,38,.18);border-radius:999px;padding:9px 10px 9px 16px;display:flex;gap:12px;align-items:center;font-size:.85rem;font-weight:900}
 .sticky-book a{background:var(--green);color:#fff;border-radius:999px;padding:9px 13px}
-@media(max-width:1120px){
+@media(max-width:1160px){
   .site-header{align-items:flex-start}
   .site-header .menu-toggle{display:inline-flex}
   .site-header nav{display:none;position:absolute;left:14px;right:14px;top:82px;background:#fff;border:1px solid var(--line);border-radius:26px;box-shadow:var(--shadow);padding:18px;flex-direction:column;align-items:stretch;gap:0}
@@ -1434,13 +1434,14 @@ body.wl-open{overflow:hidden}
 .knowledge-card.is-hidden,.course-card.is-hidden{display:none!important}
 
 /* Nav-CTA einzeilig halten: enger Desktop-Bereich knapp über dem Hamburger-Breakpoint (>1120px) */
-@media(min-width:1121px) and (max-width:1400px){
+@media(min-width:1161px){
   .site-header{gap:14px}
   .site-header .brand{min-width:0}
-  .site-header .brand small{display:none!important}
   .site-header nav{gap:13px;font-size:.74rem;flex-wrap:nowrap}
   .site-header .nav-cta{padding:10px 13px}
 }
+/* Marken-Tagline erst ab 1420px (Koordinator): darunter frisst sie die Nav-Breite -> Umbruch-Band. */
+@media(min-width:861px) and (max-width:1419px){.site-header .brand small{display:none!important}}
 
 /* Nachhaltigkeits-Sektion entzerren (war gequetscht): mehr Luft in der Eco-Highlight-Zeile */
 .section-soft.sustainability .eco-highlight{gap:1.5rem;row-gap:1.2rem;padding:1.8rem 2rem;max-width:1040px}
@@ -1664,7 +1665,7 @@ body.menu-open .site-header nav{max-height:calc(100vh - 96px);overflow-y:auto;-w
 
 /* Header-Fix ~≤1120px: Nav trug dort Dropdown-Karten-Styling, war aber ohne Burger-Klick
    sichtbar (schwebende Karte über dem Hero). Jetzt konsequent Burger-Modus: Nav nur offen sichtbar. */
-@media(max-width:1120px){body:not(.menu-open) .site-header nav{display:none!important}}
+@media(max-width:1160px){body:not(.menu-open) .site-header nav{display:none!important}}
 
 /* Arbeitsschutz-Check: Ampel-Tags (Beleg-Transparenz Pflicht/Richtwert/Empfehlung) */
 .result-list .tag{display:inline-block;margin-left:.4rem;padding:.1rem .5rem;border-radius:999px;font-size:.72rem;font-weight:700;white-space:nowrap;vertical-align:middle}
