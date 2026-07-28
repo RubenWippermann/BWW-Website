@@ -1673,3 +1673,11 @@ body.menu-open .site-header nav{max-height:calc(100vh - 96px);overflow-y:auto;-w
 .result-list .tag.empf{background:#eef1f4;color:#4a5560}
 .result-list .tag a{color:inherit;text-decoration:underline}
 .result-list p{display:flex;flex-wrap:wrap;align-items:center;gap:.2rem}
+
+/* Regionalseiten (Muster): Einordnungs-Prosa + Städte-Chips */
+.prose{max-width:72ch;margin:0 auto}
+.prose h3{margin:1.5em 0 .35em;font-size:1.12rem;font-weight:800}
+.prose p{line-height:1.72;margin:.2em 0 1em}
+.region-cities{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:10px}
+.region-cities a{display:inline-flex;align-items:center;min-height:44px;padding:8px 18px;border:1px solid var(--line);border-radius:999px;background:#f7faf8;font-weight:800;font-size:.95rem;text-decoration:none;color:inherit;transition:background .15s,border-color .15s}
+.region-cities a:hover{background:var(--bww-mint);border-color:var(--bww-mint)}
