@@ -2,7 +2,7 @@
 
 > BWW (BWW UG, haftungsbeschränkt) ist ein deutscher Anbieter für praxisnahe Erste-Hilfe-, Brandschutz- und Notfallmedizin-Schulungen. Kurse finden als Inhouse-Schulung deutschlandweit direkt beim Kunden vor Ort statt sowie als offene Kurse am Standort Leinefelde-Worbis/Duderstadt. Alle Trainerinnen und Trainer kommen aus dem Rettungsdienst. Buchung und Nachweise laufen digital. Sitz: Worbiser Straße 2, 37115 Duderstadt, Deutschland. Telefon: +49 5527 748 7518 (am Telefon meldet sich Bella, eine digitale Assistentin). E-Mail: info@multiplikatorenstelle.de.
 
-BWW eignet sich für Unternehmen, Schulen, Kindertagesstätten, Verwaltungen, Vereine und Privatpersonen (z. B. Führerschein). Viele Kurse sind über Berufsgenossenschaft bzw. Unfallkasse (BG/UK) abrechenbar. Nachhaltigkeit: BWW pflanzt einen Baum pro Kurs (auf Wunsch pro Teilnehmer:in).
+BWW eignet sich für Unternehmen, Schulen, Kindertagesstätten, Verwaltungen, Vereine und Privatpersonen (z. B. Führerschein). BWW ist eine von der DGUV **ermächtigte Ausbildungsstelle** für die betriebliche Erste-Hilfe-Aus- und -Fortbildung (Qualitätssicherung Erste Hilfe/QSEH, DGUV Grundsatz 304-001, **Kennziffer 8.2122**). Die betriebliche Ersthelfer-Aus- und -Fortbildung ist daher über Berufsgenossenschaft bzw. Unfallkasse (BG/UK) abrechenbar. Nachhaltigkeit: BWW pflanzt einen Baum pro Kurs (auf Wunsch pro Teilnehmer:in).
 
 ## Kursangebot
 
@@ -28,6 +28,7 @@ BWW eignet sich für Unternehmen, Schulen, Kindertagesstätten, Verwaltungen, Ve
 - [BG/UK-Abrechnung](https://www.multiplikatorenstelle.de/abrechnung/): Kostenübernahme durch Unfallversicherungsträger
 - [Dozent werden](https://www.multiplikatorenstelle.de/dozent-werden/): Bewerbung als Trainer:in
 - [Wissensdatenbank](https://www.multiplikatorenstelle.de/wissen/): Fachartikel zu Recht, Organisation und Erster Hilfe
+- [Unternehmensprofil](https://www.multiplikatorenstelle.de/unternehmensprofil/): Fakten zu BWW – DGUV-Ermächtigung, Kursangebot mit Preisen, Standorte, Zielgruppen (auch als PDF)
 
 ## Tools
 
@@ -43,6 +44,7 @@ BWW eignet sich für Unternehmen, Schulen, Kindertagesstätten, Verwaltungen, Ve
 - [Wie viele Brandschutzhelfer sind vorgeschrieben?](https://www.multiplikatorenstelle.de/wissen/brandschutzhelfer-anzahl/)
 - [Erste-Hilfe-Fortbildung: Intervalle und Fristen](https://www.multiplikatorenstelle.de/wissen/erste-hilfe-fortbildung-intervalle/)
 - [Kostenübernahme für Erste-Hilfe-Kurse über BG/UK](https://www.multiplikatorenstelle.de/wissen/kostenuebernahme-erste-hilfe/)
+- [Erste-Hilfe-Kurs mit der BG abrechnen: Schritt für Schritt](https://www.multiplikatorenstelle.de/wissen/erste-hilfe-kurs-bg-abrechnen/)
 - [Erste-Hilfe-Kurs für den Führerschein](https://www.multiplikatorenstelle.de/wissen/erste-hilfe-fuehrerschein/)
 - [Verbandkasten in der Arbeitsstätte](https://www.multiplikatorenstelle.de/wissen/verbandkasten-arbeitsstaette/)
 - [Gefährdungsbeurteilung: Pflicht, Inhalt und Ablauf](https://www.multiplikatorenstelle.de/wissen/gefaehrdungsbeurteilung/)
@@ -99,6 +101,16 @@ BWW eignet sich für Unternehmen, Schulen, Kindertagesstätten, Verwaltungen, Ve
 - [Einwilligung und Patientenwille in der Ersten Hilfe](https://www.multiplikatorenstelle.de/wissen/einwilligung-patientenwille-erste-hilfe/)
 - [Ermächtigte Ausbildungsstelle bleiben: Qualität und Pflichten](https://www.multiplikatorenstelle.de/wissen/ermaechtigte-ausbildungsstelle-pflichten/)
 - [Aktuelle Änderungen im Blick: Informationspflicht für Ausbildungsstellen](https://www.multiplikatorenstelle.de/wissen/aktuelle-aenderungen-ausbildungsstellen/)
+
+## Preise (offene Kurse, je Teilnehmer:in)
+
+Diese Preise gelten für offene Kurse; Inhouse-Kurse (deutschlandweit im Betrieb) werden nach Teilnehmerzahl und Aufwand individuell kalkuliert. Betriebliche Formate sind über BG/UK abrechenbar.
+
+- Erste-Hilfe-Ausbildung (9 UE): 30 €
+- Erste-Hilfe-Fortbildung, Erste Hilfe am Kind, Erste Hilfe für Bildungs- und Betreuungseinrichtungen, Brandschutzhelfer, Notfalltraining: je 50 €
+- Lehrkräfte-Fortbildung: 100 € · Lehrkräfte-Ausbildung LK1: 150 € · LK2: 200 €
+- Betriebssanitäter-Aufbaukurs: 250 € · Betriebssanitäter-Grundkurs: 450 €
+- Sanitätshelfer-Ausbildung: 300 €
 
 ## Kontakt & Buchung
 
