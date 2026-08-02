@@ -1685,3 +1685,12 @@ body.menu-open .site-header nav{max-height:calc(100vh - 96px);overflow-y:auto;-w
 
 /* KI-Antwort-Struktur: direkte Antwort am Artikelanfang hervorheben */
 .answer-lead{background:#f2f9f3;border-left:4px solid var(--bww-green);border-radius:0 14px 14px 0;padding:14px 18px;margin:0 0 1.3em;font-size:1.05rem;line-height:1.65}
+
+/* Unternehmensprofil-Tabelle */
+.table-wrap{overflow-x:auto;margin:1em 0}
+.profile-table{width:100%;border-collapse:collapse;font-size:.95rem;min-width:520px}
+.profile-table th{background:var(--bww-green);color:#fff;text-align:left;padding:10px 12px;font-weight:800}
+.profile-table td{padding:9px 12px;border-bottom:1px solid var(--bww-line)}
+.profile-table tbody tr:nth-child(even){background:#f4faf5}
+.profile-table a{color:var(--bww-green);font-weight:700;text-decoration:none}
+.profile-table a:hover{text-decoration:underline}
