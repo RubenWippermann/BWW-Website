@@ -1682,3 +1682,6 @@ body.menu-open .site-header nav{max-height:calc(100vh - 96px);overflow-y:auto;-w
 .region-cities{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:10px}
 .region-cities a{display:inline-flex;align-items:center;min-height:44px;padding:8px 18px;border:1px solid var(--line);border-radius:999px;background:#f7faf8;font-weight:800;font-size:.95rem;text-decoration:none;color:inherit;transition:background .15s,border-color .15s}
 .region-cities a:hover{background:var(--bww-mint);border-color:var(--bww-mint)}
+
+/* KI-Antwort-Struktur: direkte Antwort am Artikelanfang hervorheben */
+.answer-lead{background:#f2f9f3;border-left:4px solid var(--bww-green);border-radius:0 14px 14px 0;padding:14px 18px;margin:0 0 1.3em;font-size:1.05rem;line-height:1.65}
