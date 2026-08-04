@@ -3,5 +3,6 @@ Allow: /
 Disallow: /agb-fassung/
 Disallow: /QUALITAETSNACHWEIS-BWW.md
 Disallow: /DNS-VERIFIKATIONSPLAN-DIENSTAG.md
+Disallow: /GOLIVE-ABSCHLUSS-BWW.md
 
 Sitemap: https://www.multiplikatorenstelle.de/sitemap.xml
