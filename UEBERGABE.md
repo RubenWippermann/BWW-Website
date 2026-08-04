@@ -35,14 +35,15 @@ function bgUk(k){ return !!(k && k.bg_uk_abrechenbar && BG_UK_ALLOW[k.kursart]);
 - **www ist einwandfrei** (Let's Encrypt) und trägt die ganze Seite (CNAME-Datei = www, Canonical = www).
 - **Fix vorbereitet, wartet auf Ruben (Di):** `STRATO-DIENSTAG-BWW.md` (3 A-Records ergänzen) + `HTTPS-FIX-ANLEITUNG-RUBEN.md` (GitHub-Haken danach). Null Ausfallzeit.
 
-## 5. resize_window-Falle (KORRIGIERTE Fassung)
-- **Es gibt KEINEN festen 508-px-Clamp** (frühere Behauptung war zu stark, von Worbis selbst widerrufen). 375 rendert echt.
-- Die echte Falle: `resize_window` **greift nicht, solange das Panel nicht gerendert ist** („The Browser pane is currently hidden") — **meldet aber trotzdem Erfolg**.
-- **Regel: nach jedem `resize_window` `innerWidth` gegenprüfen, bevor gemessen wird:**
+## 5. resize_window / innerWidth — richtig verstanden
+- **`innerWidth ≠ Zielbreite` ist das DIAGNOSEWERKZEUG, nicht das Hindernis.** Überlaufender Inhalt zieht `innerWidth` selbst mit hoch: ein 900-px-Element in einer 375-px-Seite lässt `innerWidth` von 375 auf 900 springen. Die **Differenz gibt die Größenordnung des Überlaufs**. (Reales Beispiel: ein 486-px-Select + Container-Padding = exakt die berüchtigten 508 px; nach dem Fix stand `innerWidth` wieder auf 375.)
+- Es gibt **keinen** festen 508-Clamp, und es ist auch nicht primär „Panel nicht gerendert" — **beide früheren Erklärungen waren falsch**. Ein nicht gerendertes Panel / Hintergrund-Tab kann *zusätzlich* verhindern, dass der Resize greift (meldet dann `innerWidth 0`); dieselbe Prüfung fängt beides ab.
+- **Regel: nach jedem `resize_window` `innerWidth` gegenprüfen** — aber als Befund lesen, nicht als Werkzeug-Verdacht:
   ```js
-  if (innerWidth !== 375) throw new Error('Viewport ist ' + innerWidth + ', nicht 375');
+  if (innerWidth !== 375) throw new Error('innerWidth=' + innerWidth + ' → hier läuft etwas über ODER Resize griff nicht');
   ```
-- Fallback, wenn der Viewport partout nicht umschaltet: Container per JS hart auf 375 px setzen, Elementränder gegen den Containerrand messen, `overflow-x:auto`-Vorfahren ausnehmen (sonst Fehlalarme bei absichtlich scrollenden Tabellen).
+- Fallback (nur wenn nötig): Container per JS hart auf 375 px, Elementränder gegen den Containerrand messen, `overflow-x:auto`-Vorfahren ausnehmen (sonst Fehlalarme bei absichtlich scrollenden Tabellen).
+- **Meta-Lehre (Worbis, teuer gelernt):** Vor einer neuen Werkzeug-Theorie erst im Gedächtnis nachsehen, ob das Phänomen schon beschrieben ist — die richtige Erklärung stand seit 23.07. dort; zwei erfundene Begründungen kosteten 3 Korrekturrunden über 5 Chats. Eine falsche Begründung führt vom Befund weg: wer das Tool verdächtigt, sucht nicht nach dem Überlauf.
 - BWW @375 ist überlaufsicher: `.tf-stadt`-Select trägt `max-width:100%` (kann Container mathematisch nicht überschreiten, rendert nur bei >1 Stadt), Überschriften `overflow-wrap:break-word;hyphens:auto`.
 
 ## 6. Live-CSS immer per curl über den HTML-Pfad prüfen, nicht lokal
