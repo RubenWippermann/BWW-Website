@@ -26,8 +26,9 @@ var BG_UK_ALLOW = { EHA:1, EHF:1, EHB:1 };
 function bgUk(k){ return !!(k && k.bg_uk_abrechenbar && BG_UK_ALLOW[k.kursart]); }
 ```
 - **Feed-Flag UND Allowlist** (subtraktiv): Wenn das Software-Feed bei einem EHA-Termin bewusst `false` setzt, respektiert der Guard das. Nur-Allowlist wäre falsch.
-- **EXACT-MATCH auf `kursart`, kein `startsWith`!** `"EHBK".startsWith("EHB")` ist `true` → EHBK (Erste Hilfe am Kind, Baby/Kleinkind) ist **nicht** DGUV-anerkannt, EHB (Bildungs-/Pflegeeinrichtungen) schon. `BG_UK_ALLOW["EHBK"]` = undefined → korrekt ausgeschlossen. Ein `startsWith` würde EHBK fälschlich einschließen.
-- Identische Semantik auf allen Schwestersites (EH Online `istBgUk`). Feed-Quellfix ist Software-Ressort; der Guard ist der Schutzwall.
+- **EXACT-MATCH auf `kursart`, kein `startsWith`!** Rein als Code-Sicherheit: `"EHBK".startsWith("EHB")` ist `true` — ein `startsWith` würde EHBK (Erste Hilfe am Kind, nicht DGUV-anerkannt) fälschlich einschließen. Der Objekt-Lookup `BG_UK_ALLOW["EHBK"]` = undefined schließt es korrekt aus. **Wichtig:** Das ist ein hypothetischer Code-Punkt, **kein** realer Datenvorfall — der Software-Chat hat auf der Produktionsdatenbank gemessen: **71 EHBK-Kurse, 0 mit falschem BG/UK-Flag**. EHBK war nie betroffen; nicht als vergangenen Fehler weiterschreiben.
+- **Echte Ursache (an der Quelle gefixt, `61feedaa`):** Die Software hat *keine* Negativ-Logik, alles läuft über eine Positivliste. Der Fehler war ein **klebendes BG-Flag beim Kursart-Wechsel** — Kurs als Erste-Hilfe anlegen (BG-Flag automatisch gesetzt) → auf z. B. Brandschutzhelfer umstellen → Titel/Zeiten/Preis wurden überschrieben, aber das BG-Flag mit dem **alten Wert verodert** und blieb stehen. Das erklärt, wie eine falsche Rechtsaussage auf mehreren Sites lief, obwohl Code und Formattabelle korrekt waren.
+- Identische Guard-Semantik auf allen Schwestersites (EH Online `istBgUk`). Quellfix ist erfolgt; der Client-Guard bleibt als **redundanter Schutzwall** für Rechtsaussagen sinnvoll.
 
 ## 4. DNS-Apex-Defekt (HTTPS) — Status & Ursache
 - `multiplikatorenstelle.de` (Apex) hatte nur **1 von 4** GitHub-A-Records → Apex-Zert wird nie ausgestellt (`CN=*.github.io`, Browser-Warnung), „Enforce HTTPS" gesperrt.
@@ -57,8 +58,11 @@ Nach CSS-Änderungen den **im HTML referenzierten** Stylesheet-Pfad ziehen (`cur
 - **Strato Di:** A-Records + SPF/DMARC (`STRATO-DIENSTAG-BWW.md`) — Ruben.
 - **GitHub:** Enforce HTTPS nach Apex-Zert (`HTTPS-FIX-ANLEITUNG-RUBEN.md`) — Ruben.
 - **GSC-Verifizierung** → erst danach Städteseiten-Konsolidierung datenbasiert — Ruben.
-- **Software-Feed** `/api/kurse` `bg_uk_abrechenbar` an der Quelle korrigieren (Guard ist nur Schutzwall) — Software.
-- **2 verwaiste, veraltete Legal-PDFs** `legal/AGB_BWW.pdf` + `legal/Datenschutz_BWW.pdf` (Stand Juni 2026, ohne Erfüllungsort; **nirgends verlinkt**). Live-Recht ist die HTML-AGB (August 2026). Entscheidung offen: neu erzeugen oder entfernen — bewusst nicht eigenmächtig gelöscht (Rechtsdokumente).
+- **Software-Feed** `/api/kurse` `bg_uk_abrechenbar` — Quellfix erfolgt (`61feedaa`, klebendes Flag beim Kursart-Wechsel); Client-Guard bleibt als Schutzwall — Software (erledigt, Beobachtung).
+
+## Erledigt in dieser Runde (Kontext, kein offener Punkt)
+- **2 verwaiste, veraltete Legal-PDFs** (AGB/Datenschutz, Stand Juni 2026, ohne Erfüllungsort, nirgends verlinkt) **aus dem Deploy genommen** (`git rm` aus `legal/`), aber **nicht gelöscht**: archiviert außerhalb des ausgelieferten Baums unter `Documents/Software PePa und BWW/archiv-legal-bww/` (mit „Stand-Juni-2026"-Dateinamen als Beleg der damals geltenden Fassung). Grund: eine per URL erreichbare alte AGB-Fassung ist im Streitfall angreifbar — es soll nur **eine** Fassung erreichbar sein (die HTML-AGB August 2026). Eine PDF-Fassung der aktuellen AGB würde bei Bedarf aus dem geltenden HTML erzeugt (kann dann nicht driften).
+- **Nebenartefakt-Audit** (PDFs/llms.txt/favicon/OG-Bilder) auf Fremdfirma/Kennziffer + Ligaturen: sauber (Details im Backlog).
 
 ## Referenzdokumente im Repo (robots-disallowed)
 `GOLIVE-ABSCHLUSS-BWW.md` · `QUALITAETSNACHWEIS-BWW.md` · `STRATO-DIENSTAG-BWW.md` · `HTTPS-FIX-ANLEITUNG-RUBEN.md` · `DNS-VERIFIKATIONSPLAN-DIENSTAG.md` (Detailhintergrund SPF/DMARC).
