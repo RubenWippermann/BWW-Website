@@ -2,6 +2,9 @@
 (function () {
   var API = 'https://software-wippermann.de';
   var ORG = 'bww';
+  /* Rechts-Guard: BG/UK-Erstattung NUR fuer betriebliche Erste-Hilfe-Aus-/Fortbildung (EHA/EHF/EHB), unabhaengig vom Feed-Flag (§23 Abs.2 SGB VII). Strenger als der Feed. */
+  var BG_UK_ALLOW = { EHA: 1, EHF: 1, EHB: 1 };
+  function bgUk(k){ return !!(k && BG_UK_ALLOW[k.kursart]); }
   var TEL = '+49 5527 748 7518';
   var MONTHS = ['Jan.', 'Feb.', 'März', 'Apr.', 'Mai', 'Juni', 'Juli', 'Aug.', 'Sep.', 'Okt.', 'Nov.', 'Dez.'];
 
@@ -56,7 +59,7 @@
   function rowHTML(k) {
     var tags = [k.stadt];
     if (k.fuehrerschein_geeignet) tags.push('Führerschein');
-    if (k.bg_uk_abrechenbar) tags.push('BG/UK abrechenbar');
+    if (bgUk(k)) tags.push('BG/UK abrechenbar');
     if (k.mehrtaegig) tags.push('mehrtägig');
     // org=bww nur anhängen, falls die API es nicht schon liefert (sonst Dublette)
     var burl = k.buchungs_url || '';
@@ -89,7 +92,7 @@
     });
     var artKeys = Object.keys(arten).sort(function (a, b) { return arten[a].localeCompare(arten[b]); });
     var stadtKeys = Object.keys(staedte).sort();
-    var showArt = artKeys.length > 1, showStadt = stadtKeys.length > 1, hasBg = all.some(function (k) { return k.bg_uk_abrechenbar; });
+    var showArt = artKeys.length > 1, showStadt = stadtKeys.length > 1, hasBg = all.some(function (k) { return bgUk(k); });
     var bar = '';
     if (showArt || showStadt || hasBg) {
       bar = '<div class="termine-filter">' +
@@ -109,7 +112,7 @@
     function apply() {
       var a = activeArt(), s = stadtSel ? stadtSel.value : '';
       var bgChk = el.querySelector('.tf-bgchk'), bg = bgChk && bgChk.checked;
-      var f = all.filter(function (k) { return (!a || k.kursart === a) && (!s || k.stadt === s) && (!bg || k.bg_uk_abrechenbar); });
+      var f = all.filter(function (k) { return (!a || k.kursart === a) && (!s || k.stadt === s) && (!bg || bgUk(k)); });
       rowsEl.innerHTML = f.length ? f.map(rowHTML).join('') : '<p class="termine-empty">Für diese Auswahl sind aktuell keine Termine frei. <a href="/inhouse-kurse/">Wunschtermin anfragen →</a></p>';
       if (countEl) countEl.textContent = f.length + (f.length === 1 ? ' Termin' : ' Termine');
     }

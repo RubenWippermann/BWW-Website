@@ -1283,7 +1283,8 @@ input[type=checkbox],input[type=radio]{padding:0;min-height:0;box-sizing:border-
 
 /* Termin-Filter (Kursart/Ort) auf der Kursseite */
 .termine-filter{display:flex;flex-wrap:wrap;align-items:center;gap:.6rem;margin-bottom:1rem}
-.termine-filter select{font:inherit;padding:.6rem .9rem;border:1px solid var(--bww-line,#d9e5dd);border-radius:12px;background:#fbfefc;color:#16321f;cursor:pointer;min-height:44px}
+.termine-filter .tf-stadt{max-width:100%;min-width:0;flex:1 1 150px}
+.termine-filter select{font:inherit;max-width:100%;min-width:0;padding:.6rem .9rem;border:1px solid var(--bww-line,#d9e5dd);border-radius:12px;background:#fbfefc;color:#16321f;cursor:pointer;min-height:44px}
 .termine-filter select:focus-visible{outline:3px solid rgba(47,125,90,.55);outline-offset:2px}
 .termine-filter .tf-count{margin-left:auto;font-weight:750;color:var(--bww-green,#25704e);font-size:.92rem}
 @media (max-width:520px){.termine-filter .tf-count{margin-left:0;width:100%}}
