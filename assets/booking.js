@@ -4,7 +4,7 @@
   var ORG = 'bww';
   /* Rechts-Guard: BG/UK-Erstattung NUR fuer betriebliche Erste-Hilfe-Aus-/Fortbildung (EHA/EHF/EHB), unabhaengig vom Feed-Flag (§23 Abs.2 SGB VII). Strenger als der Feed. */
   var BG_UK_ALLOW = { EHA: 1, EHF: 1, EHB: 1 };
-  function bgUk(k){ return !!(k && BG_UK_ALLOW[k.kursart]); }
+  function bgUk(k){ return !!(k && k.bg_uk_abrechenbar && BG_UK_ALLOW[k.kursart]); }
   var TEL = '+49 5527 748 7518';
   var MONTHS = ['Jan.', 'Feb.', 'März', 'Apr.', 'Mai', 'Juni', 'Juli', 'Aug.', 'Sep.', 'Okt.', 'Nov.', 'Dez.'];
 
