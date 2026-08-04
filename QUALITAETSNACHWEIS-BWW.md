@@ -19,8 +19,8 @@
 | 8 | Schema.org Article-Daten | datePublished/dateModified | fehlten auf allen 188 | aus git-Historie ergänzt | ✅ 188/188 | `10856af` |
 | 9 | GeoCoordinates | lokale Suche | nur Startseite | Worbis/Leinefelde/Duderstadt ergänzt | ✅ grün | `f80c14c` |
 | 10 | Social Meta (og/twitter) | og:*, twitter:*, og:type | 35× og:type falsch, 87× twitter:title/desc fehlten | korrigiert/ergänzt | ✅ grün | `266a7c9` |
-| 11 | WCAG 2.1 AA | Tastatur, Alt, Kontrast, ARIA, Headings, Labels, Skip-Link | 0 Verstöße (Kontrast 5,8–15,8:1) | – | ✅ grün | (Bestand) |
-| 12 | Core Web Vitals | LCP/CLS/INP/Assets/Font/Nav | Hero-Bild lazy (LCP), Font nicht preloaded | 311 Seiten fetchpriority, Font+Hero-Preload | ✅ grün | `1bca86c` |
+| 11 | WCAG 2.1 AA | Tastatur, Alt, Kontrast, ARIA, Headings, Labels, Skip-Link | CTA-Gradient heller Stop #79bd65 = Weiß 2,26:1 (via EH-Online-Cross-Check; im Erst-Audit nur dunkler Stop gemessen) | hellen Stop → #2f7d5a (5,0:1) | ✅ grün, alle Text/BG ≥4,5:1 | `2e881db` |
+| 12 | Core Web Vitals | LCP/CLS/INP/Assets/Font/Nav | Hero-Bild lazy (LCP), Font nicht preloaded; termine-list ohne Höhen-Reserve (CLS, via EH-Online-Cross-Check) | 311 Seiten fetchpriority, Font+Hero-Preload; termine-list min-height:360px | ✅ grün | `1bca86c`,`2e881db` |
 | 13 | Nav-Überlauf 1041–1189 | 1041/1100/1150/1189/1201 px | 0 Overflow (kein Worbis-Bug) | – | ✅ grün | (Bestand) |
 | 14 | Buchungsflow | Termine, Formular, Validierung, Konsens | – (Prod-sicher getestet, kein POST) | – | ✅ grün, 42 Live-Termine, DS/AGB-Abstufung | (Bestand) |
 | 15 | Kontaktformular | Felder, Validierung, Honeypot | – | – | ✅ grün | (Bestand) |
