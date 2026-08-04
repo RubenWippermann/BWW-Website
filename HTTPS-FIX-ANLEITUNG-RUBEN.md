@@ -1,3 +1,8 @@
+> ## 🟢 ERLEDIGT — dieses Dokument ist historisch (Stand 04.08. abends)
+> HTTPS ist geschlossen: „Enforce HTTPS" ist an, `http://www` **und** der Apex leiten auf `https://www` um, HSTS ist aktiv, das Apex-Zertifikat (`CN=www.multiplikatorenstelle.de`) ist gültig bis 02.11.2026. **Die Diagnose unten („Apex braucht alle 4 A-Records") war zu pessimistisch und ist widerlegt** — der Apex hat weiterhin nur 1/4 A-Records und ist trotzdem grün; es genügte der Enforce-HTTPS-Haken. Text unten nur noch als Verlaufsbeleg.
+
+---
+
 # HTTPS-Fix multiplikatorenstelle.de — Anleitung für Ruben
 
 **Stand der Messung:** 2026-08-04, 12:30 Uhr · **Für:** spätabends, wenig Zeit

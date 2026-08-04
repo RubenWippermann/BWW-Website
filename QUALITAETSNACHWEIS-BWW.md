@@ -39,7 +39,7 @@
 
 | Punkt | Status | Verantwortlich | Wann |
 |-------|--------|----------------|------|
-| **HTTPS-Enforce / Apex-Zertifikat** | Apex `multiplikatorenstelle.de` liefert `CN=*.github.io`; „Enforce HTTPS" aus. www ist einwandfrei (Let's Encrypt, gültig bis 13.10.2026). Canonical/Traffic läuft über **www** (korrekt). | Ruben (GitHub → Settings → Pages: Custom Domain entfernen+neu setzen, dann Enforce HTTPS) | offen |
+| **HTTPS-Enforce / Apex-Zertifikat** | 🟢 **erledigt (04.08. abends verifiziert):** Enforce HTTPS an, Apex+www → 301 https://www, HSTS aktiv, Apex-Zert `CN=www…` bis 02.11.2026. These „braucht alle 4 A-Records" widerlegt — 1/4 genügte + Enforce-Haken. | – | ✅ |
 | **SPF / DMARC** | Records vorbereitet (nur multiplikatorenstelle.de): SPF `v=spf1 include:_spf.strato.com ~all`, DMARC `p=quarantine`+rua. DKIM (strato-dkim-0002/0003) bereits aktiv. | Ruben (Strato) | ab Di 05.08. |
 | **Google Search Console** | Verifizierung ausstehend → Städteseiten-Konsolidierung datenbasiert erst danach. | Ruben | offen |
 | **Nick-Backend endgültig abschalten** | Domain liefert 404 (geparkt). Falls separates Backend existiert: final durch Software/Nick bestätigen. | Software/Nick | offen |

@@ -15,6 +15,9 @@ BWW ist eine **UG (haftungsbeschränkt)** → das Impressum sagt korrekt **„Ge
 - Die 82 Standortseiten sind **Inhouse-Einzugsgebiet**, keine Niederlassungen (§ 13 HGB). Adresse überall = Sitz Duderstadt (Worbiser Str. 2).
 - Wer „Standort Kassel" o.ä. als eigene Niederlassung darstellt, erzeugt eine Falschangabe. Framing bleibt: „Wir kommen zu Ihnen."
 
+### 2b. Impressumspflicht = § 5 DDG, nicht mehr § 5 TMG
+Impressum-H1 hieß „Angaben gemäß **§ 5 TMG**" → korrigiert auf **§ 5 DDG** (Digitale-Dienste-Gesetz, löste seit Mai 2024 das TMG als Impressumsgrundlage ab). Das war mein Fund; er wurde an EH Online / Duderstadt / Worbis weitergegeben und dort ebenfalls geprüft. Wenn irgendwo wieder „§ 5 TMG" auftaucht: veraltet, auf DDG ändern. Alle übrigen §-Verweise site-weit sind verifiziert korrekt (§ 26 DGUV V1 ohne Absatz, DGUV 304-001, ASR A2.2, §§ SGB VII, § 19 FeV — Details im Backlog `66b53e1`).
+
 ## 3. BG/UK-Abrechenbarkeit — nur Erste-Hilfe-Aus-/Fortbildung, exact-match im Code
 **Fachlich:** Über BG/UK (Berufsgenossenschaft/Unfallkasse) abrechenbar sind **nur** die betriebliche **Erste-Hilfe-Aus- und -Fortbildung** (§ 23 Abs. 2 SGB VII, ermächtigte Stelle 8.2122). **Nicht** Brandschutzhelfer, Betriebssanitäter, Evakuierungshelfer, Lehrkräfte, Sanitätshelfer — die trägt der Arbeitgeber (steuerlich absetzbar).
 - Diese Fehlerklasse steckte an mehreren Stellen und wurde site-weit korrigiert: Kursseiten-Faktenboxen, `unternehmensprofil/index.html` **und das verlinkte `media/bww-unternehmensprofil.pdf`** (mit ReportLab neu erzeugt, Generator: `scratchpad/gen_profil_pdf.py`).
@@ -30,10 +33,11 @@ function bgUk(k){ return !!(k && k.bg_uk_abrechenbar && BG_UK_ALLOW[k.kursart]);
 - **Echte Ursache (an der Quelle gefixt, `61feedaa`):** Die Software hat *keine* Negativ-Logik, alles läuft über eine Positivliste. Der Fehler war ein **klebendes BG-Flag beim Kursart-Wechsel** — Kurs als Erste-Hilfe anlegen (BG-Flag automatisch gesetzt) → auf z. B. Brandschutzhelfer umstellen → Titel/Zeiten/Preis wurden überschrieben, aber das BG-Flag mit dem **alten Wert verodert** und blieb stehen. Das erklärt, wie eine falsche Rechtsaussage auf mehreren Sites lief, obwohl Code und Formattabelle korrekt waren.
 - Identische Guard-Semantik auf allen Schwestersites (EH Online `istBgUk`). Quellfix ist erfolgt; der Client-Guard bleibt als **redundanter Schutzwall** für Rechtsaussagen sinnvoll.
 
-## 4. DNS-Apex-Defekt (HTTPS) — Status & Ursache
-- `multiplikatorenstelle.de` (Apex) hatte nur **1 von 4** GitHub-A-Records → Apex-Zert wird nie ausgestellt (`CN=*.github.io`, Browser-Warnung), „Enforce HTTPS" gesperrt.
-- **www ist einwandfrei** (Let's Encrypt) und trägt die ganze Seite (CNAME-Datei = www, Canonical = www).
-- **Fix vorbereitet, wartet auf Ruben (Di):** `STRATO-DIENSTAG-BWW.md` (3 A-Records ergänzen) + `HTTPS-FIX-ANLEITUNG-RUBEN.md` (GitHub-Haken danach). Null Ausfallzeit.
+## 4. HTTPS — 🟢 GESCHLOSSEN (04.08. abends verifiziert)
+- `http://www` **und** `http://multiplikatorenstelle.de` (Apex) → **301 → https://www**; **HSTS aktiv** (`Strict-Transport-Security: max-age=31556952`). „Enforce HTTPS" ist AN.
+- Apex-Zertifikat jetzt `CN=www.multiplikatorenstelle.de` (war `*.github.io`), gültig bis 02.11.2026 — `https://multiplikatorenstelle.de` **ohne Zertfehler**.
+- ⚠️ **WIDERLEGT — bitte nicht weitertragen:** Meine frühere These „der Apex braucht alle 4 GitHub-A-Records, sonst wird das Zert nie ausgestellt / der Apex ist unrettbar" war **zu pessimistisch**. Fakt: Der Apex hat **weiterhin nur 1 von 4** A-Records (`185.199.108.153`) und ist **trotzdem grün** — es genügte, den „Enforce HTTPS"-Haken zu setzen, dann stellte GitHub das Zert aus. Die 4 A-Records sind GitHub-Best-Practice (Redundanz/Ausfallsicherheit), waren hier aber **kein** Blocker.
+- Verifikation jederzeit: `curl -sI https://www.multiplikatorenstelle.de | grep -i strict-transport` (muss eine Zeile liefern).
 
 ## 5. resize_window / innerWidth — richtig verstanden
 - **`innerWidth ≠ Zielbreite` ist das DIAGNOSEWERKZEUG, nicht das Hindernis.** Überlaufender Inhalt zieht `innerWidth` selbst mit hoch: ein 900-px-Element in einer 375-px-Seite lässt `innerWidth` von 375 auf 900 springen. Die **Differenz gibt die Größenordnung des Überlaufs**. (Reales Beispiel: ein 486-px-Select + Container-Padding = exakt die berüchtigten 508 px; nach dem Fix stand `innerWidth` wieder auf 375.)
@@ -56,9 +60,9 @@ Nach CSS-Änderungen den **im HTML referenzierten** Stylesheet-Pfad ziehen (`cur
 ---
 
 ## Offene Punkte (extern, nicht Website-Chat)
-- **Strato Di:** A-Records + SPF/DMARC (`STRATO-DIENSTAG-BWW.md`) — Ruben.
-- **GitHub:** Enforce HTTPS nach Apex-Zert (`HTTPS-FIX-ANLEITUNG-RUBEN.md`) — Ruben.
+- **Strato Di — Rubens EINZIGER verbleibender Punkt:** nur noch **SPF + DMARC** (`STRATO-DIENSTAG-BWW.md`, Schritt B). Die A-Records/HTTPS darin sind erledigt/optional.
 - **GSC-Verifizierung** → erst danach Städteseiten-Konsolidierung datenbasiert — Ruben.
+- **HTTPS: 🟢 erledigt** (Enforce HTTPS an, Apex+www→HTTPS, HSTS aktiv; verifiziert 04.08. abends). `HTTPS-FIX-ANLEITUNG-RUBEN.md` ist damit historisch.
 - **Software-Feed** `/api/kurse` `bg_uk_abrechenbar` — Quellfix erfolgt (`61feedaa`, klebendes Flag beim Kursart-Wechsel); Client-Guard bleibt als Schutzwall — Software (erledigt, Beobachtung).
 
 ## Erledigt in dieser Runde (Kontext, kein offener Punkt)

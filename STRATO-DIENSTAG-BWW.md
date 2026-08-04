@@ -2,9 +2,11 @@
 
 **Alles in derselben Strato-Oberfläche** (DNS-Verwaltung von `multiplikatorenstelle.de`), in einer Sitzung, in dieser Reihenfolge. Nur `multiplikatorenstelle.de` (nicht bildungswerkwippermann.de — nicht registriert). **Keine Ausfallzeit**: Die Website läuft über `www.` durchgehend weiter.
 
-Zwei Ziele in einem Rutsch:
-- **A** = HTTPS-Reparatur am Apex (3 fehlende A-Records)
-- **B** = E-Mail-Sicherheit (SPF + DMARC)
+> **🟢 UPDATE 04.08. abends: HTTPS ist bereits erledigt** (Enforce HTTPS an, Apex + www leiten auf HTTPS um, HSTS aktiv). **Schritt A (die 3 A-Records) ist damit NICHT mehr nötig** — nur noch optionale GitHub-Redundanz, kein Muss. **Dienstag bleibt real nur Schritt B: SPF + DMARC.** Schritt A unten nur noch als „nice to have" belassen.
+
+Ziele:
+- **A** = ~~HTTPS-Reparatur am Apex~~ → **erledigt, entfällt** (nur optionale Redundanz)
+- **B** = E-Mail-Sicherheit (SPF + DMARC) ← **das ist der Dienstag-Punkt**
 
 ---
 
@@ -23,7 +25,7 @@ Bei Strato: **Weiterleitung** `dmarc@multiplikatorenstelle.de` → `info@multipl
 
 ---
 
-## Schritt A — 3 A-Records für HTTPS ergänzen (nur hinzufügen, nichts löschen)
+## Schritt A — (OPTIONAL, HTTPS läuft schon) 3 A-Records für Redundanz
 Am Ende müssen **vier** A-Records für den Apex da sein (`.108` existiert schon):
 
 | Typ | Host / Name | Wert |
