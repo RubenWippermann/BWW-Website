@@ -4,6 +4,7 @@ Disallow: /agb-fassung/
 Disallow: /QUALITAETSNACHWEIS-BWW.md
 Disallow: /DNS-VERIFIKATIONSPLAN-DIENSTAG.md
 Disallow: /GOLIVE-ABSCHLUSS-BWW.md
+Disallow: /HTTPS-FIX-ANLEITUNG-RUBEN.md
 
 
 # KI-/Antwortmaschinen-Crawler ausdrücklich willkommen (GEO)

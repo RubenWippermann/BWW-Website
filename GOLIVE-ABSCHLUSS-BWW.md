@@ -38,7 +38,7 @@
 | Punkt | Status | Verantwortlich | Wann |
 |-------|--------|----------------|------|
 | **SPF + DMARC setzen** | 2 Records fertig vorbereitet; Anleitung `DNS-VERIFIKATIONSPLAN-DIENSTAG.md`. SPF `v=spf1 include:_spf.strato.com ~all`; DMARC `p=quarantine`+rua. DKIM (strato-dkim-0002/0003) bereits aktiv. | **Ruben** (Strato) | **Di 05.08.** |
-| **HTTPS-Enforce / Apex-Zert** | Apex `multiplikatorenstelle.de` liefert `CN=*.github.io`, „Enforce HTTPS" aus. **www** ist einwandfrei (Let's Encrypt bis 13.10.2026) → Traffic/Canonical laufen über www. | **Ruben** (GitHub → Settings → Pages: Custom Domain entfernen+neu setzen, dann Enforce HTTPS) | offen |
+| **HTTPS-Enforce / Apex-Zert** | **Wurzel = DNS, nicht nur Enforce:** Apex hat nur **1 von 4** GitHub-A-Records (`.108`; `.109/.110/.111` fehlen) → GitHub stellt Apex-Zert nie aus (`CN=*.github.io`), Enforce-Haken oft gesperrt. **www** einwandfrei (Let's Encrypt bis 13.10.2026) → Traffic/Canonical über www, keine Ausfallzeit beim Fix. **Anleitung: `HTTPS-FIX-ANLEITUNG-RUBEN.md`** (Strato: 3 A-Records ergänzen → warten → GitHub Enforce HTTPS). | **Ruben** (Strato Di + GitHub) | offen |
 | **Google Search Console** | Verifizierung ausstehend → Städteseiten-Konsolidierung erst danach datenbasiert. | **Ruben** | offen |
 | **Nick-Backend endgültig abschalten** | `bww.kurse-verwalten.de` liefert HTTP/2 404 (DNS→GitHub-Pages-IP ohne CNAME = geparkt/tot, nimmt keine Buchungen). Falls separates Backend existiert: final bestätigen. | **Software/Nick** | offen |
 | **git-Ref-Housekeeping** | Korrupte lokale Ref `refs/remotes/origin/gh-pages 2` (macOS-Duplikat) im Worktree `bww-website-github`. Pushes funktionieren; .git-Hygiene bereinigen (Ref löschen + gc). | Housekeeping | offen |
