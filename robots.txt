@@ -2,5 +2,6 @@ User-agent: *
 Allow: /
 Disallow: /agb-fassung/
 Disallow: /QUALITAETSNACHWEIS-BWW.md
+Disallow: /DNS-VERIFIKATIONSPLAN-DIENSTAG.md
 
 Sitemap: https://www.multiplikatorenstelle.de/sitemap.xml
