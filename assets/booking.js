@@ -57,7 +57,7 @@
   function cleanLabel(t) { return String(t == null ? '' : t).replace(/\s*\([^)]*\)/g, '').trim(); }
 
   function rowHTML(k) {
-    var tags = [k.stadt];
+    var tags = [];
     if (k.fuehrerschein_geeignet) tags.push('Führerschein');
     if (bgUk(k)) tags.push('BG/UK abrechenbar');
     if (k.mehrtaegig) tags.push('mehrtägig');
@@ -67,9 +67,10 @@
     var voll = !!k.ausgebucht;
     var zeit = k.uhrzeit ? esc(k.uhrzeit) + (k.uhrzeit_ende ? '–' + esc(k.uhrzeit_ende) : '') + ' Uhr' : '';
     var preis = (k.preis != null && k.preis !== '') ? esc(k.preis) + ' €' : '';
+    var ort = (k.adresse || k.stadt || '');                                   // Feed-Adresse, Fallback auf Stadt
     var inner =
       '<span class="termin-date"><b>' + fmtBlocks(k) + '</b>' + (zeit ? '<small>' + zeit + '</small>' : '') + '</span>' +
-      '<span class="termin-info"><b>' + esc(k.titel) + '</b><small>' + tags.filter(Boolean).map(esc).join(' · ') + '</small></span>' +
+      '<span class="termin-info"><b>' + esc(k.titel) + '</b><small>' + tags.filter(Boolean).map(esc).join(' · ') + '</small>' + (ort ? '<small class="termin-ort" style="display:block;margin-top:.15rem">📍 ' + esc(ort) + '</small>' : '') + '</span>' +
       '<span class="termin-meta"><b>' + preis + '</b><small>' + (voll ? 'Ausgebucht' : 'Plätze frei') + '</small></span>';
     if (voll) {
       // Ausgebucht: echte Warteliste (POST /api/warteliste), kein Link zur Buchung
