@@ -33,6 +33,12 @@ function bgUk(k){ return !!(k && k.bg_uk_abrechenbar && BG_UK_ALLOW[k.kursart]);
 - **Echte Ursache (an der Quelle gefixt, `61feedaa`):** Die Software hat *keine* Negativ-Logik, alles läuft über eine Positivliste. Der Fehler war ein **klebendes BG-Flag beim Kursart-Wechsel** — Kurs als Erste-Hilfe anlegen (BG-Flag automatisch gesetzt) → auf z. B. Brandschutzhelfer umstellen → Titel/Zeiten/Preis wurden überschrieben, aber das BG-Flag mit dem **alten Wert verodert** und blieb stehen. Das erklärt, wie eine falsche Rechtsaussage auf mehreren Sites lief, obwohl Code und Formattabelle korrekt waren.
 - Identische Guard-Semantik auf allen Schwestersites (EH Online `istBgUk`). Quellfix ist erfolgt; der Client-Guard bleibt als **redundanter Schutzwall** für Rechtsaussagen sinnvoll.
 
+### 3b. booking.js entscheidet „voll" NUR aus `k.ausgebucht` (Wissen, keine Aufgabe)
+`rowHTML` setzt `var voll = !!k.ausgebucht;` — **`plaetze_gesamt`/`plaetze_frei` werden für die Buchbarkeit NICHT geprüft.** Wer hier etwas ändert, muss das wissen:
+- **Phantom-Kurs** (`plaetze_gesamt = 0`, `public=1` = Datenfehler) erscheint je nach Feed-Flag als „Ausgebucht"+Warteliste oder „Plätze frei"+fehlschlagende Buchung. Gehört **ausgeblendet** (`plaetze_gesamt===0`).
+- **Echt ausgebucht** (`plaetze_gesamt>0 & plaetze_frei=0`) soll **bleiben** (Warteliste ist gewollt).
+- **Merkregel:** ein Buchbarkeits-Filter zielt auf `plaetze_gesamt`, NIE auf `plaetze_frei` (sonst blendet man die Warteliste/Nachfrage aus = Eigentor). Fix gehört primär in Feed/Quelle (Software: `plaetze_gesamt=0` ausschließen wie `public=0`), nicht in einen Client-Guard ohne akuten Fall.
+
 ## 4. HTTPS — 🟢 GESCHLOSSEN (04.08. abends verifiziert)
 - `http://www` **und** `http://multiplikatorenstelle.de` (Apex) → **301 → https://www**; **HSTS aktiv** (`Strict-Transport-Security: max-age=31556952`). „Enforce HTTPS" ist AN.
 - Apex-Zertifikat jetzt `CN=www.multiplikatorenstelle.de` (war `*.github.io`), gültig bis 02.11.2026 — `https://multiplikatorenstelle.de` **ohne Zertfehler**.
