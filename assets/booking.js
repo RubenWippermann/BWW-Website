@@ -2,6 +2,7 @@
 (function () {
   var API = 'https://software-wippermann.de';
   var ORG = 'bww';
+  var QUELLE = 'multiplikatorenstelle';   // Herkunft (Schema: Domain ohne Endung) — an jede Buchung/Anfrage anhängen, NIE org ersetzen
   /* Rechts-Guard: BG/UK-Erstattung NUR fuer betriebliche Erste-Hilfe-Aus-/Fortbildung (EHA/EHF/EHB), unabhaengig vom Feed-Flag (§23 Abs.2 SGB VII). Strenger als der Feed. */
   var BG_UK_ALLOW = { EHA: 1, EHF: 1, EHB: 1 };
   function bgUk(k){ return !!(k && k.bg_uk_abrechenbar && BG_UK_ALLOW[k.kursart]); }
@@ -64,6 +65,7 @@
     // org=bww nur anhängen, falls die API es nicht schon liefert (sonst Dublette)
     var burl = k.buchungs_url || '';
     if (burl.indexOf('org=') === -1) burl += (burl.indexOf('?') > -1 ? '&' : '?') + 'org=' + ORG;
+    if (burl.indexOf('quelle=') === -1) burl += (burl.indexOf('?') > -1 ? '&' : '?') + 'quelle=' + QUELLE;  // Herkunft anhängen, org bleibt unangetastet
     var voll = !!k.ausgebucht;
     var zeit = k.uhrzeit ? esc(k.uhrzeit) + (k.uhrzeit_ende ? '–' + esc(k.uhrzeit_ende) : '') + ' Uhr' : '';
     var preis = (k.preis != null && k.preis !== '') ? esc(k.preis) + ' €' : '';
@@ -163,7 +165,7 @@
         if (hp && hp.value) { if (status) status.textContent = 'Danke!'; return; }
         var payload = { org: ORG, website: '' };
         // Lead-Quelle für die Software (Büro trennt Inhouse-Website-Leads von Buchungen)
-        if (form.getAttribute('data-api') === 'inhouse-anfrage') payload.quelle = 'inhouse-website';
+        if (form.getAttribute('data-api') === 'inhouse-anfrage') payload.quelle = QUELLE;   // Seiten-Herkunft, NICHT der generische Formularname (kollidierte mit PePa + Server-Default)
         Array.prototype.forEach.call(form.querySelectorAll('[name]'), function (f) {
           var n = f.getAttribute('name');
           if (n === 'website' || n === 'consent') return; // Consent nur clientseitig erzwungen, nicht senden
@@ -182,7 +184,7 @@
         var nlEl = form.querySelector('input[name="newsletter"]');
         if (nlEl && nlEl.checked) {
           var nlMail = (form.querySelector('[name="email"]') || {}).value || '';
-          if (nlMail) { try { fetch(API + '/api/newsletter', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ org: ORG, email: nlMail, quelle: form.getAttribute('data-api'), website: '' }) }); } catch (e) {} }
+          if (nlMail) { try { fetch(API + '/api/newsletter', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ org: ORG, email: nlMail, quelle: QUELLE, website: '' }) }); } catch (e) {} }
         }
         var httpStatus = 0;
         fetch(API + '/api/' + form.getAttribute('data-api'), {
@@ -248,7 +250,7 @@
       var httpStatus = 0;
       fetch(API + '/api/warteliste', {
         method: 'POST', headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ org: ORG, termin: o.dataset.termin || '', name: name, email: email, website: '' })
+        body: JSON.stringify({ org: ORG, quelle: QUELLE, termin: o.dataset.termin || '', name: name, email: email, website: '' })
       }).then(function (r) { httpStatus = r.status; return r.json().catch(function () { return {}; }); }).then(function (res) {
         if (res && res.ok) {
           form.innerHTML = '<div class="form-success"><span class="form-success-ic">✓</span><h3>Du stehst auf der Warteliste!</h3><p>Wir melden uns, sobald ein Platz frei wird.' + (res.ticket_id ? ' Vorgang: <b>' + esc(res.ticket_id) + '</b>.' : '') + '</p></div>';
@@ -451,7 +453,7 @@
       if (f.querySelector('[name="website"]').value) return;                 // Honeypot
       if (!f.querySelector('[name="consent"]').checked) { st.textContent = 'Bitte Datenschutz und AGB bestätigen.'; return; }
       var btn = f.querySelector('button[type="submit"]');
-      var payload = { org: ORG, termin: o.getAttribute('data-termin') || '', anzahl: 1, website: '',
+      var payload = { org: ORG, quelle: QUELLE, termin: o.getAttribute('data-termin') || '', anzahl: 1, website: '',
         teilnehmer: [{ vorname: f.vorname.value.trim(), nachname: f.nachname.value.trim(), email: f.email.value.trim() }],
         rechnung: { firma: f.firma.value.trim(), strasse: f.strasse.value.trim(), plz: f.plz.value.trim(), ort: f.ort.value.trim(), email: f.email.value.trim() } };
       st.textContent = 'Buchung wird geprüft …'; btn.disabled = true;
