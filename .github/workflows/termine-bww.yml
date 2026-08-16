@@ -1,0 +1,55 @@
+# BWW Termin-Rebuild — täglicher CI-Lauf.
+# Liegt auf `main` (Default-Branch, nur von dort laufen geplante Workflows). Diese Datei liest/schreibt
+# KEINEN Code der Next.js-App im selben Branch — sie backt nur Termine in die statische gh-pages-Seite.
+# EIN Repo -> eingebauter GITHUB_TOKEN mit contents:write reicht; KEIN Secret, KEIN Token-Ablauf.
+name: BWW Termine aktualisieren
+
+on:
+  schedule:
+    - cron: "20 4 * * *"          # 04:20 UTC = 06:20 CEST, vor dem Bürotag
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:                        # löst den ERSTEN Lauf aus + zeigt, ob Actions an ist
+      - "tools/gen_event_jsonld.py"
+      - ".github/workflows/termine-bww.yml"
+
+permissions:
+  contents: write                 # GITHUB_TOKEN darf gh-pages im EIGENEN Repo pushen
+
+concurrency:
+  group: bww-termine
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Tooling auschecken (main)
+        uses: actions/checkout@v4          # default = main: enthält tools/gen_event_jsonld.py
+
+      - name: Live-Content auschecken (gh-pages)
+        uses: actions/checkout@v4
+        with:
+          ref: gh-pages
+          path: site                        # das, was ausgeliefert wird; persist-credentials -> Push möglich
+
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+
+      # FRISCHE-GUARD sitzt IM Generator, VOR dem Schreiben: toter/leerer Feed -> exit 3
+      # -> dieser Step failt -> Deploy-Step läuft nicht -> kein Push (letzter guter Stand bleibt).
+      # Solange PRERENDER=False strippt der Generator nur (No-op) und schreibt keinen Stempel;
+      # der Actions-Verlauf ist dann der Frischenachweis (kein Heartbeat nötig).
+      - name: Termine backen
+        run: python3 tools/gen_event_jsonld.py site/kurse/offene-kurse-worbis/index.html --write --stamp site/termine-stand.txt
+
+      - name: Deploy nach gh-pages (nur bei Änderung)
+        run: |
+          cd site
+          git config user.name  "BWW Termin-Automatik"
+          git config user.email "actions@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then echo "unveraendert — kein Push"; exit 0; fi
+          git commit -m "Termine automatisch aktualisiert ($(date -u +%F))"
+          git push origin HEAD:gh-pages
