@@ -11,8 +11,8 @@ Constraints (mit Software-Ressort vereinbart 2026-08-10):
   * stabile `id` als Schluessel
 Läuft VOR `git push ...:gh-pages`. Reine Standardbibliothek (kein npm/pip).
 """
-import json, re, sys, urllib.request
-from datetime import datetime
+import json, re, sys, os, hashlib, urllib.request
+from datetime import datetime, date
 from zoneinfo import ZoneInfo
 
 FEED = "https://software-wippermann.de/api/kurse?org=bww&mit_abgesagten=1"
@@ -98,7 +98,20 @@ def build_graph():
     today = datetime.now(TZ).date()
     upcoming = [k for k in kurse if not is_past(k, today)]        # Vergangenheit build-seitig raus
     events = [to_event(k, organizer) for k in upcoming]
-    return {"@context": "https://schema.org", "@graph": events}, len(events)
+    # Fingerabdruck ueber den ROHEN Feed (VOR dem Vergangenheits-Filter): die gefilterte Liste
+    # verliert taeglich Vergangenes und meldete darum ewig 'frisch'. Feldliste = was ein gesunder
+    # Feed real aendert; deckungsgleich mit erstehilfe-duderstadt.de, damit Stempel vergleichbar.
+    fp = fingerabdruck(kurse)
+    spaetester = max((k.get("datum", "") for k in upcoming), default="")
+    return {"@context": "https://schema.org", "@graph": events}, len(events), fp, spaetester
+
+def fingerabdruck(roh_kurse):
+    kanon = json.dumps(
+        sorted([[t.get("id"), t.get("datum"), t.get("uhrzeit"), t.get("uhrzeit_ende"),
+                 t.get("preis"), t.get("eventStatus"), t.get("plaetze_gesamt"), t.get("ausgebucht")]
+                for t in roh_kurse], key=lambda r: str(r[0])),
+        ensure_ascii=False, sort_keys=True)
+    return hashlib.sha1(kanon.encode("utf-8")).hexdigest()[:12]
 
 def inject(html, block):
     payload = f'{START}\n<script type="application/ld+json">\n{block}\n</script>\n{END}'
@@ -135,7 +148,7 @@ def main():
     # Exit-Code 3 = "Feed tot/leer, Bau abgebrochen". BEWUSST NICHT 2 — im Termin-Verbund ist
     # 2 = "nicht messbar" (Prüfskript), das darf nicht mit "Feed weg" (Bau) kollidieren.
     try:
-        graph, n = build_graph()
+        graph, n, fp, spaetester = build_graph()
     except Exception as e:
         sys.stderr.write(f"[ABBRUCH] Feed nicht abrufbar ({e}) — kein Schreiben, letzter Stand bleibt.\n")
         sys.exit(3)
@@ -163,14 +176,38 @@ def main():
         sys.stderr.write(f"[DRY-RUN {target}: {n} Events, kein Schreiben]\n")
 
     # Extern prüfbarer Frischestempel (nur bei nachweislich frischem Feed geschrieben).
-    # Format = gemeinsamer Wächter-Kontrakt aller Seiten: <iso-mit-Zone>\t<anzahl> (eine Zeile).
-    # tab-separiert, damit termine_check.py (Monitore-Chat) es site-übergreifend parst.
+    # Zeile 1 = gemeinsamer Wächter-Kontrakt: <iso-mit-Zone>\t<anzahl> (Monitore parst NUR die).
+    # Danach additive #-Kommentarzeilen (u.a. Frozen-Detection, Mechanik von erstehilfe-duderstadt.de).
     if "--stamp" in args:
         sp = args[args.index("--stamp") + 1]
         ts = datetime.now(TZ).isoformat(timespec="seconds")
+        today_iso = date.today().isoformat()
+        # Carry-forward: alten Stempel lesen; wenn Fingerabdruck gleich -> altes 'seit'-Datum halten,
+        # sonst heute. Kein externer State: der Wert reist IM Stempel mit (Repo-Checkout liefert ihn).
+        alt_fp = alt_seit = None
+        try:
+            alt = open(sp, encoding="utf-8").read()
+            m1 = re.search(r"# fingerabdruck=(\w+)", alt)
+            m2 = re.search(r"# fingerabdruck_seit=(\d{4}-\d{2}-\d{2})", alt)
+            alt_fp = m1.group(1) if m1 else None
+            alt_seit = m2.group(1) if m2 else None
+        except OSError:
+            pass
+        seit = alt_seit if (alt_fp == fp and alt_seit) else today_iso
+        unv_tage = (date.fromisoformat(today_iso) - date.fromisoformat(seit)).days
+        lines = [f"{ts}\t{n}",
+                 "# startdate_ausgezeichnet=ja",
+                 f"# fingerabdruck={fp}",
+                 f"# fingerabdruck_seit={seit}",
+                 f"# unveraendert_seit_tagen={unv_tage}",
+                 f"# spaetester_termin={spaetester}"]
         with open(sp, "w", encoding="utf-8") as f:
-            f.write(f"{ts}\t{n}\n")
-        sys.stderr.write(f"[Stempel: {sp} @ {ts}, {n} Events]\n")
+            f.write("\n".join(lines) + "\n")
+        # Frozen-Warnung: ab 10 Tagen unveraendert WARNEN, aber NICHT blockieren (fremder Fehler
+        # darf den Deploy nicht kippen). Dead/leer bleibt exit 3; eingefroren ist nur eine Warnung.
+        if unv_tage >= 10:
+            print(f"::warning::Feed unveraendert seit {unv_tage} Tagen (Fingerabdruck {fp} seit {seit}) — moeglicherweise eingefroren, Neubauen hilft nicht.")
+        sys.stderr.write(f"[Stempel: {sp} @ {ts}, {n} Events, fp={fp}, unveraendert_seit_tagen={unv_tage}]\n")
 
 if __name__ == "__main__":
     main()
