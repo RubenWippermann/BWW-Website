@@ -55,7 +55,8 @@
   }
 
   /* ---------- Live-Termine ---------- */
-  function cleanLabel(t) { return String(t == null ? '' : t).replace(/\s*\([^)]*\)/g, '').trim(); }
+  function anzeigeTitel(t) { var s = String(t == null ? '' : t); var r = s.split(/\s+[\u00b7\u2022]\s+/)[0].trim(); return r || s; }
+function cleanLabel(t) { return anzeigeTitel(t).replace(/\s*\([^)]*\)/g, '').trim(); }
 
   function rowHTML(k) {
     var tags = [];
@@ -72,12 +73,12 @@
     var ort = (k.adresse || k.stadt || '');                                   // Feed-Adresse, Fallback auf Stadt
     var inner =
       '<span class="termin-date"><b>' + fmtBlocks(k) + '</b>' + (zeit ? '<small>' + zeit + '</small>' : '') + '</span>' +
-      '<span class="termin-info"><b>' + esc(k.titel) + '</b><small>' + tags.filter(Boolean).map(esc).join(' · ') + '</small>' + (ort ? '<small class="termin-ort" style="display:block;margin-top:.15rem">📍 ' + esc(ort) + '</small>' : '') + '</span>' +
+      '<span class="termin-info"><b>' + esc(anzeigeTitel(k.titel)) + '</b><small>' + tags.filter(Boolean).map(esc).join(' · ') + '</small>' + (ort ? '<small class="termin-ort" style="display:block;margin-top:.15rem">📍 ' + esc(ort) + '</small>' : '') + '</span>' +
       '<span class="termin-meta"><b>' + preis + '</b><small>' + (voll ? 'Ausgebucht' : 'Plätze frei') + '</small></span>';
     if (voll) {
       // Ausgebucht: echte Warteliste (POST /api/warteliste), kein Link zur Buchung
       return '<div class="termin-row is-full">' + inner +
-        '<button type="button" class="termin-cta waitlist-toggle" data-termin="' + esc(k.id) + '" data-titel="' + esc(k.titel) + '" data-datum="' + esc(fmtRange(k)) + (k.stadt ? ' · ' + esc(k.stadt) : '') + '">Warteliste →</button></div>';
+        '<button type="button" class="termin-cta waitlist-toggle" data-termin="' + esc(k.id) + '" data-titel="' + esc(anzeigeTitel(k.titel)) + '" data-datum="' + esc(fmtRange(k)) + (k.stadt ? ' · ' + esc(k.stadt) : '') + '">Warteliste →</button></div>';
     }
     return '<a class="termin-row" href="' + esc(burl) + '" target="_blank" rel="noopener"' +
       ' data-termin-id="' + esc(k.id || '') + '" data-titel="' + esc(cleanLabel(k.titel) || '') + '">' + inner +
