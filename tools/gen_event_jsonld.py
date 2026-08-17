@@ -65,11 +65,18 @@ def is_past(k, today):
     except Exception:
         return False  # unparsbar -> lieber behalten als still schlucken
 
+def anzeige_titel(t):
+    # Anzeige-Guard (gemeinsam mit erstehilfe-duderstadt.de): der interne Auftraggeber-Trenner
+    # ' · ' (Leerzeichen-Mittelpunkt-Leerzeichen) haengt den Kundennamen an -> im OEFFENTLICHEN
+    # Titel abschneiden. NUR Anzeige: id/buchungs_url/Bewegungs-Hash bleiben roh. Klammern/en-dash bleiben.
+    s = str("" if t is None else t)
+    return re.split(r"\s+[·•]\s+", s, 1)[0].strip() or s
+
 def to_event(k, organizer):
     ev = {
         "@type": "EducationEvent",
         "@id": f"https://www.multiplikatorenstelle.de/kurse/offene-kurse-worbis/#{k['id']}",
-        "name": k["titel"],
+        "name": anzeige_titel(k["titel"]),
         "startDate": iso(k.get("datum"), k.get("uhrzeit")),
         "endDate": iso(k.get("datum_ende") or k.get("datum"), k.get("uhrzeit_ende")),
         "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
