@@ -166,7 +166,7 @@ function cleanLabel(t) { return anzeigeTitel(t).replace(/\s*\([^)]*\)/g, '').tri
         if (hp && hp.value) { if (status) status.textContent = 'Danke!'; return; }
         var payload = { org: ORG, website: '' };
         // Lead-Quelle für die Software (Büro trennt Inhouse-Website-Leads von Buchungen)
-        if (form.getAttribute('data-api') === 'inhouse-anfrage') payload.quelle = QUELLE;   // Seiten-Herkunft, NICHT der generische Formularname (kollidierte mit PePa + Server-Default)
+        if (form.getAttribute('data-api') === 'inhouse-anfrage') payload.quelle = QUELLE;   // Seiten-Herkunft, NICHT der generische Formularname (kollidierte mit einem anderen Absender + Server-Default)
         Array.prototype.forEach.call(form.querySelectorAll('[name]'), function (f) {
           var n = f.getAttribute('name');
           if (n === 'website' || n === 'consent') return; // Consent nur clientseitig erzwungen, nicht senden
