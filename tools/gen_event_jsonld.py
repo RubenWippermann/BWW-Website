@@ -98,20 +98,25 @@ def build_graph():
     today = datetime.now(TZ).date()
     upcoming = [k for k in kurse if not is_past(k, today)]        # Vergangenheit build-seitig raus
     events = [to_event(k, organizer) for k in upcoming]
-    # Fingerabdruck ueber den ROHEN Feed (VOR dem Vergangenheits-Filter): die gefilterte Liste
-    # verliert taeglich Vergangenes und meldete darum ewig 'frisch'. Feldliste = was ein gesunder
-    # Feed real aendert; deckungsgleich mit erstehilfe-duderstadt.de, damit Stempel vergleichbar.
-    fp = fingerabdruck(kurse)
+    # Bewegungs-Erkennung je Termin-ID (NICHT Voll-Hash). Grund (gemessen 2026-08-17): mein Feed
+    # ist serverseitig zukunftsgefiltert (ab_datum=2020 liefert keine Vergangenheit) -> ein Hash
+    # ueber die ganze Antwort kippt taeglich, sobald ein Kurs vorbeizieht, und meldete NIE
+    # 'eingefroren'. Korrektur von erstehilfe-duderstadt.de: Feldhash je kuenftigem Termin, Key=id.
+    # NEU oder GEAENDERT = Bewegung; reines WEGFALLEN (Zeitablauf) zaehlt NICHT. plaetze_frei NICHT
+    # im Hash (eine Buchung darf die Uhr nicht zuruecksetzen).
+    hashes = term_hashes(upcoming)
     spaetester = max((k.get("datum", "") for k in upcoming), default="")
-    return {"@context": "https://schema.org", "@graph": events}, len(events), fp, spaetester
+    return {"@context": "https://schema.org", "@graph": events}, len(events), hashes, spaetester
 
-def fingerabdruck(roh_kurse):
-    kanon = json.dumps(
-        sorted([[t.get("id"), t.get("datum"), t.get("uhrzeit"), t.get("uhrzeit_ende"),
-                 t.get("preis"), t.get("eventStatus"), t.get("plaetze_gesamt"), t.get("ausgebucht")]
-                for t in roh_kurse], key=lambda r: str(r[0])),
-        ensure_ascii=False, sort_keys=True)
-    return hashlib.sha1(kanon.encode("utf-8")).hexdigest()[:12]
+def term_hashes(kuenftige):
+    h = {}
+    for t in kuenftige:
+        felder = [t.get("datum"), t.get("datum_ende"), t.get("uhrzeit"), t.get("uhrzeit_ende"),
+                  t.get("preis"), t.get("eventStatus"), t.get("plaetze_gesamt"),
+                  t.get("ausgebucht"), t.get("kursart"), t.get("stadt")]  # id=Key, plaetze_frei NICHT
+        h[str(t.get("id"))] = hashlib.sha1(
+            json.dumps(felder, ensure_ascii=False).encode("utf-8")).hexdigest()[:12]
+    return h
 
 def inject(html, block):
     payload = f'{START}\n<script type="application/ld+json">\n{block}\n</script>\n{END}'
@@ -135,10 +140,12 @@ def main():
             with open(target, "w", encoding="utf-8") as f:
                 f.write(strip(html))
             if "--stamp" in args:
-                import os
                 sp = args[args.index("--stamp") + 1]
                 if os.path.exists(sp):
                     os.remove(sp)
+                state_path = os.path.join(os.path.dirname(sp) or ".", "termine-bewegung.json")
+                if os.path.exists(state_path):
+                    os.remove(state_path)
             sys.stderr.write("[PRERENDER=False] Auszeichnung entfernt, Stempel gelöscht. Termine bleiben live per JS.\n")
         else:
             sys.stderr.write("[PRERENDER=False] Prerender abgeschaltet — nichts zu tun.\n")
@@ -148,7 +155,7 @@ def main():
     # Exit-Code 3 = "Feed tot/leer, Bau abgebrochen". BEWUSST NICHT 2 — im Termin-Verbund ist
     # 2 = "nicht messbar" (Prüfskript), das darf nicht mit "Feed weg" (Bau) kollidieren.
     try:
-        graph, n, fp, spaetester = build_graph()
+        graph, n, hashes, spaetester = build_graph()
     except Exception as e:
         sys.stderr.write(f"[ABBRUCH] Feed nicht abrufbar ({e}) — kein Schreiben, letzter Stand bleibt.\n")
         sys.exit(3)
@@ -182,32 +189,37 @@ def main():
         sp = args[args.index("--stamp") + 1]
         ts = datetime.now(TZ).isoformat(timespec="seconds")
         today_iso = date.today().isoformat()
-        # Carry-forward: alten Stempel lesen; wenn Fingerabdruck gleich -> altes 'seit'-Datum halten,
-        # sonst heute. Kein externer State: der Wert reist IM Stempel mit (Repo-Checkout liefert ihn).
-        alt_fp = alt_seit = None
+        # Bewegungs-State neben dem Stempel (termine-bewegung.json), im Repo versioniert. Kein
+        # externer Speicher: der Repo-Checkout liefert den letzten Stand. Landet auf gh-pages
+        # (nicht auf dem Trigger-Branch main) -> kein Selbst-Ausloesen des Workflows.
+        state_path = os.path.join(os.path.dirname(sp) or ".", "termine-bewegung.json")
+        alt = {}
         try:
-            alt = open(sp, encoding="utf-8").read()
-            m1 = re.search(r"# fingerabdruck=(\w+)", alt)
-            m2 = re.search(r"# fingerabdruck_seit=(\d{4}-\d{2}-\d{2})", alt)
-            alt_fp = m1.group(1) if m1 else None
-            alt_seit = m2.group(1) if m2 else None
-        except OSError:
+            alt = json.load(open(state_path, encoding="utf-8"))
+        except (OSError, ValueError):
             pass
-        seit = alt_seit if (alt_fp == fp and alt_seit) else today_iso
-        unv_tage = (date.fromisoformat(today_iso) - date.fromisoformat(seit)).days
+        alt_hashes = alt.get("hashes", {}) if isinstance(alt, dict) else {}
+        # BEWEGUNG = mind. eine id NEU oder GEAENDERT. Reines Wegfallen (id war da, jetzt weg)
+        # zaehlt NICHT -> Zeitablauf, keine Redaktion. Erst-Lauf (kein State) = Bewegung heute.
+        bewegt = (not alt_hashes) or any(nid not in alt_hashes or hashes[nid] != alt_hashes[nid]
+                                         for nid in hashes)
+        bewegung_zuletzt = today_iso if bewegt else alt.get("bewegung_zuletzt", today_iso)
+        unv_tage = (date.fromisoformat(today_iso) - date.fromisoformat(bewegung_zuletzt)).days
+        with open(state_path, "w", encoding="utf-8") as f:
+            json.dump({"bewegung_zuletzt": bewegung_zuletzt, "hashes": hashes}, f,
+                      ensure_ascii=False, sort_keys=True)
         lines = [f"{ts}\t{n}",
                  "# startdate_ausgezeichnet=ja",
-                 f"# fingerabdruck={fp}",
-                 f"# fingerabdruck_seit={seit}",
+                 f"# bewegung_zuletzt={bewegung_zuletzt}",
                  f"# unveraendert_seit_tagen={unv_tage}",
                  f"# spaetester_termin={spaetester}"]
         with open(sp, "w", encoding="utf-8") as f:
             f.write("\n".join(lines) + "\n")
-        # Frozen-Warnung: ab 10 Tagen unveraendert WARNEN, aber NICHT blockieren (fremder Fehler
+        # Frozen-Warnung: ab 10 Tagen ohne Termin-Bewegung WARNEN, NICHT blockieren (fremder Fehler
         # darf den Deploy nicht kippen). Dead/leer bleibt exit 3; eingefroren ist nur eine Warnung.
         if unv_tage >= 10:
-            print(f"::warning::Feed unveraendert seit {unv_tage} Tagen (Fingerabdruck {fp} seit {seit}) — moeglicherweise eingefroren, Neubauen hilft nicht.")
-        sys.stderr.write(f"[Stempel: {sp} @ {ts}, {n} Events, fp={fp}, unveraendert_seit_tagen={unv_tage}]\n")
+            print(f"::warning::Termine seit {unv_tage} Tagen ohne Bewegung (letzte am {bewegung_zuletzt}) — moeglicherweise eingefrorener Feed, Neubauen hilft nicht.")
+        sys.stderr.write(f"[Stempel: {sp} @ {ts}, {n} Events, bewegung_zuletzt={bewegung_zuletzt}, unveraendert_seit_tagen={unv_tage}]\n")
 
 if __name__ == "__main__":
     main()
