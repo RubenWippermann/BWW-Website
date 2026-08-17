@@ -1695,3 +1695,6 @@ body.menu-open .site-header nav{max-height:calc(100vh - 96px);overflow-y:auto;-w
 .profile-table tbody tr:nth-child(even){background:#f4faf5}
 .profile-table a{color:var(--bww-green);font-weight:700;text-decoration:none}
 .profile-table a:hover{text-decoration:underline}
+
+/* Hero-WIE-Notiz kompakt (2026-08-17): kleiner, gedämpft, nicht so groß wie der Subtext */
+.hero-copy .hero-note{font-size:.9rem!important;line-height:1.4;font-weight:600;color:#2f5233;opacity:.85;margin:.5rem 0 0;letter-spacing:.01em}
