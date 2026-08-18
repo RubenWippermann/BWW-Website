@@ -15,7 +15,7 @@ import json, re, sys, os, hashlib, urllib.request
 from datetime import datetime, date
 from zoneinfo import ZoneInfo
 
-FEED = "https://software-wippermann.de/api/kurse?org=bww&mit_abgesagten=1"
+FEED = os.environ.get("BWW_FEED") or "https://software-wippermann.de/api/kurse?org=bww&mit_abgesagten=1"
 TZ = ZoneInfo("Europe/Berlin")
 # Veranstalter: PRIMÄR aus dem Feld feed["veranstalter"] lesen (autoritativ, mandantenspezifisch).
 # Ist es leer/null, Rückfall NICHT auf einen erfundenen Kurznamen ("BWW Deutschland"), sondern auf
@@ -40,7 +40,18 @@ END = "<!-- BWW-FEED-EVENTS:END -->"
 #         Besucher sehen Termine weiter live per JS. Verhindert veraltete Snapshots an Google,
 #         solange KEIN täglicher Cron scharf ist.
 # Wieder True setzen, ERST wenn der tägliche Rebuild läuft und den Stempel frisch hält.
-PRERENDER = False
+# Default AUS. Aktivierung ohne Code-Edit moeglich: Umgebungsvariable BWW_PRERENDER=1 (z. B. im
+# Workflow), sobald "CI gruen" belegt ist. Kein env -> False (bleibt aus).
+_pr = os.environ.get("BWW_PRERENDER")
+PRERENDER = (_pr.strip().lower() in ("1", "true", "yes", "on")) if _pr is not None else False
+
+# FRISCHEWACHE-Schwelle (Koordinator 2026-08-18): steht der Feed tot/leer da und ist der GEBACKENE
+# Block AElter als N_DAYS, wird er GESTRIPPT (fail-closed) statt behalten — ein veraltetes startDate
+# ist schlimmer als keines (bewirbt einen abgesagten Kurs weiter). N=2: taeglicher Lauf, zwei
+# verpasste Laeufe = kaputt; eine Absage steht so hoechstens 2 Tage als gueltiger Termin.
+# Bei NICHT messbarem Alter (generated_at fehlt/unlesbar) wird ebenfalls gestrippt: nie "frisch"
+# behaupten, was nicht belegbar ist.
+N_DAYS = 2
 
 def iso(datum, uhrzeit):
     """'2026-08-11','09:00' -> '2026-08-11T09:00:00+02:00' (DST-korrekt via Europe/Berlin)."""
@@ -125,15 +136,64 @@ def term_hashes(kuenftige):
             json.dumps(felder, ensure_ascii=False).encode("utf-8")).hexdigest()[:12]
     return h
 
-def inject(html, block):
-    payload = f'{START}\n<script type="application/ld+json">\n{block}\n</script>\n{END}'
+def inject(html, block, generated_at):
+    # generated_at als parsebarer Kommentar IM Block (nicht im START-Marker — der bleibt fix, sonst
+    # findet der strip-Regex den alten Block nicht mehr). Frischewache liest ihn zurueck.
+    payload = (f'{START}\n<!-- generated_at: {generated_at} -->\n'
+               f'<script type="application/ld+json">\n{block}\n</script>\n{END}')
     if START in html and END in html:
         return re.sub(re.escape(START) + r".*?" + re.escape(END), lambda _: payload, html, flags=re.S)
     return html.replace("</body>", payload + "\n</body>", 1)
 
 def strip(html):
-    """Entfernt den Auszeichnungs-Block wieder (Prerender aus)."""
+    """Entfernt den Auszeichnungs-Block wieder (Prerender aus / fail-closed)."""
     return re.sub(r"\n?" + re.escape(START) + r".*?" + re.escape(END) + r"\n?", "\n", html, flags=re.S)
+
+_GEN_AT_RE = re.compile(r"<!--\s*generated_at:\s*([0-9T:+\-]+)\s*-->")
+def existing_bake_generated_at(html):
+    """Alter-Quelle des vorhandenen Blocks: datetime, 'no_block' (keiner da),
+    oder None (Block da, aber generated_at fehlt/unlesbar -> NICHT messbar)."""
+    m = re.search(re.escape(START) + r"(.*?)" + re.escape(END), html, flags=re.S)
+    if not m:
+        return "no_block"
+    gm = _GEN_AT_RE.search(m.group(1))
+    if not gm:
+        return None
+    try:
+        return datetime.fromisoformat(gm.group(1))
+    except ValueError:
+        return None
+
+def _fail_closed(args, reason, n_days):
+    """PRERENDER=True + Feed tot/leer: fail-closed. Gebackenen Block NUR behalten, wenn beweisbar
+    < n_days alt; sonst (>= n_days ODER Alter nicht messbar) STRIPPEN, exit 0, damit der Deploy den
+    Strip pusht (kein veraltetes startDate an Suchmaschinen). Kein Ziel/kein --write -> nur exit 3."""
+    now = datetime.now(TZ)
+    target = args[0] if args and not args[0].startswith("--") else None
+    if not target or "--write" not in args:
+        sys.stderr.write(f"[ABBRUCH] {reason} — kein Ziel/kein --write, nichts geschrieben.\n"); sys.exit(3)
+    with open(target, encoding="utf-8") as f:
+        html = f.read()
+    ga = existing_bake_generated_at(html)
+    if ga == "no_block":
+        sys.stderr.write(f"[ABBRUCH] {reason} — kein gebackener Block vorhanden, nichts stale, letzter Stand bleibt.\n"); sys.exit(3)
+    if isinstance(ga, datetime):
+        age = (now - ga).total_seconds() / 86400.0
+        if age < n_days:
+            sys.stderr.write(f"[ABBRUCH] {reason} — Block {age:.2f}d alt (< {n_days}d), bleibt (letzter guter Stand).\n"); sys.exit(3)
+        grund = f"Block {age:.2f}d alt (>= {n_days}d)"
+    else:
+        grund = "generated_at fehlt/unlesbar (Alter nicht messbar)"
+    with open(target, "w", encoding="utf-8") as f:
+        f.write(strip(html))
+    if "--stamp" in args:
+        sp = args[args.index("--stamp") + 1]
+        for p in (sp, os.path.join(os.path.dirname(sp) or ".", "termine-bewegung.json")):
+            if os.path.exists(p):
+                os.remove(p)
+    print(f"::warning::Frischewache fail-closed: {reason}; {grund} -> gebackener Block GESTRIPPT (kein veraltetes startDate an Suchmaschinen).")
+    sys.stderr.write(f"[FAIL-CLOSED] {reason}; {grund} -> Block entfernt, Stempel geloescht; exit 0 -> Deploy pusht den Strip.\n")
+    sys.exit(0)
 
 def main():
     args = sys.argv[1:]
@@ -161,14 +221,14 @@ def main():
     # Exit!=0, damit der Deploy-Schritt den letzten guten Stand stehen lässt (nie leer pushen).
     # Exit-Code 3 = "Feed tot/leer, Bau abgebrochen". BEWUSST NICHT 2 — im Termin-Verbund ist
     # 2 = "nicht messbar" (Prüfskript), das darf nicht mit "Feed weg" (Bau) kollidieren.
+    # FRISCHEWACHE: toter/leerer Feed -> NICHT einfach "letzten Stand behalten" (fail-open), sondern
+    # den vorhandenen Block strippen, wenn er nicht beweisbar frisch (< N_DAYS) ist (fail-closed).
     try:
         graph, n, hashes, spaetester = build_graph()
     except Exception as e:
-        sys.stderr.write(f"[ABBRUCH] Feed nicht abrufbar ({e}) — kein Schreiben, letzter Stand bleibt.\n")
-        sys.exit(3)
+        _fail_closed(args, f"Feed nicht abrufbar ({e})", N_DAYS)
     if n == 0:
-        sys.stderr.write("[ABBRUCH] Feed lieferte 0 Kurse — kein Schreiben, letzter Stand bleibt.\n")
-        sys.exit(3)
+        _fail_closed(args, "Feed lieferte 0 Kurse", N_DAYS)
 
     block = json.dumps(graph, ensure_ascii=False, indent=1)
     target = args[0] if args else None
@@ -179,7 +239,8 @@ def main():
 
     with open(target, encoding="utf-8") as f:
         html = f.read()
-    out = inject(html, block)
+    gen_at = datetime.now(TZ).isoformat(timespec="seconds")   # (①) Block traegt seinen Erzeugungszeitpunkt
+    out = inject(html, block, gen_at)
     write = "--write" in args
     if write:
         with open(target, "w", encoding="utf-8") as f:
