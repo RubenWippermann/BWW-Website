@@ -438,6 +438,7 @@ function cleanLabel(t) { return anzeigeTitel(t).replace(/\s*\([^)]*\)/g, '').tri
           '<div class="fgrid"><div><label for="bk-plz">PLZ *</label><input id="bk-plz" name="plz" autocomplete="postal-code" required></div>' +
           '<div><label for="bk-ort">Ort *</label><input id="bk-ort" name="ort" autocomplete="address-level2" required></div></div>' +
           '<div class="hp"><label>Bitte frei lassen<input name="website" tabindex="-1" autocomplete="off"></label></div>' +
+          '<p class="bk-storno-hint">Stornierung 13–7 Tage vor Kursbeginn: 50 % der Kursgebühr. Ab 6 Tagen vorher oder bei Nichterscheinen: 100 %. Details in den <a href="/agb/" target="_blank" rel="noopener">AGB</a>.</p>' +
           '<label class="consent"><input type="checkbox" name="consent" required><span>Ich habe die <a href="/datenschutz/" target="_blank" rel="noopener">Datenschutzerklärung</a> und die <a href="/agb/" target="_blank" rel="noopener">AGB</a> gelesen und akzeptiere sie.</span></label>' +
           '<button class="btn primary" type="submit">Weiter zur Zahlung</button>' +
           '<p class="wl-status" role="status" aria-live="polite"></p>' +
