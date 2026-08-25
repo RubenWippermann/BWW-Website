@@ -898,7 +898,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible,.btn:focus-visible,in
 .breadcrumbs{max-width:1180px;margin:0 auto;padding:1.05rem clamp(22px,5vw,76px) 0;font-size:.9rem;color:#5b6e64;text-transform:none;letter-spacing:normal;font-weight:600}
 .breadcrumbs a{color:#5b6e64;text-decoration:none}
 .breadcrumbs a:hover{color:var(--bww-green,#25704e);text-decoration:underline}
-.breadcrumbs .sep{margin:0 .5rem;color:#b6c4bc}
+.breadcrumbs .sep{margin:0 .5rem;color:#5b6e64}
 .breadcrumbs .current{color:#123328;font-weight:700}
 
 /* Breadcrumb auf dunklem Standorte-Hero: helle Farben + an H1 ausgerichtet */
@@ -914,7 +914,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible,.btn:focus-visible,in
   .brand small{font-size:.82rem}
   .site-header{gap:1rem}
   .site-header nav{gap:.15rem}
-  .site-header nav a{padding:.6rem .62rem;font-size:.94rem}
+  .site-header nav a{padding:.75rem .62rem;font-size:.94rem}
   .site-header nav a.nav-cta{padding:.72rem 1rem;margin-left:.35rem}
 }
 
