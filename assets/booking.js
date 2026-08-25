@@ -155,6 +155,26 @@ function cleanLabel(t) { return anzeigeTitel(t).replace(/\s*\([^)]*\)/g, '').tri
   }
 
   /* ---------- Formulare (Inhouse, Dozent, Kurs-Buchung) ---------- */
+  function successHTML(ticketId) {
+    return '<div class="form-success"><span class="form-success-ic">✓</span><h3>Danke – wir haben eure Anfrage erhalten!</h3><p>Wir melden uns zeitnah persönlich bei euch.' + (ticketId ? ' Vorgangsnummer: <b>' + esc(ticketId) + '</b>.' : '') + '</p></div>';
+  }
+  // Client-seitiger Dublettenschutz, unabhängig vom Server: verhindert, dass derselbe
+  // Formularinhalt (auch nach Neuladen der Seite) einen zweiten Vorgang erzeugt.
+  var SENT_PREFIX = 'bww_sent_';
+  var SENT_TTL_MS = 24 * 60 * 60 * 1000;
+  function sentKey(apiName, payload) { return SENT_PREFIX + apiName + '_' + JSON.stringify(payload); }
+  function readSent(key) {
+    try {
+      var raw = localStorage.getItem(key);
+      if (!raw) return null;
+      var cached = JSON.parse(raw);
+      if (Date.now() - cached.t > SENT_TTL_MS) return null;
+      return cached;
+    } catch (e) { return null; }
+  }
+  function writeSent(key, ticketId) {
+    try { localStorage.setItem(key, JSON.stringify({ t: Date.now(), ticket_id: ticketId || '' })); } catch (e) {}
+  }
   function wireForms() {
     var forms = document.querySelectorAll('form[data-api]');
     Array.prototype.forEach.call(forms, function (form) {
@@ -177,6 +197,9 @@ function cleanLabel(t) { return anzeigeTitel(t).replace(/\s*\([^)]*\)/g, '').tri
             payload[n] = f.value;
           }
         });
+        var dupKey = sentKey(form.getAttribute('data-api'), payload);
+        var already = readSent(dupKey);
+        if (already) { form.innerHTML = successHTML(already.ticket_id); return; }
         var btn = form.querySelector('button[type="submit"]');
         var origTxt = btn ? btn.textContent : '';
         if (btn) { btn.disabled = true; btn.textContent = 'Wird gesendet …'; }
@@ -192,7 +215,8 @@ function cleanLabel(t) { return anzeigeTitel(t).replace(/\s*\([^)]*\)/g, '').tri
           method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload)
         }).then(function (r) { httpStatus = r.status; return r.json().catch(function () { return {}; }); }).then(function (res) {
           if (res && res.ok) {
-            form.innerHTML = '<div class="form-success"><span class="form-success-ic">✓</span><h3>Danke – wir haben eure Anfrage erhalten!</h3><p>Wir melden uns zeitnah persönlich bei euch.' + (res.ticket_id ? ' Vorgangsnummer: <b>' + esc(res.ticket_id) + '</b>.' : '') + '</p></div>';
+            writeSent(dupKey, res.ticket_id);
+            form.innerHTML = successHTML(res.ticket_id);
             return;
           }
           var msg;
