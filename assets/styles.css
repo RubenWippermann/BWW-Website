@@ -96,13 +96,6 @@ button,input,select,textarea{font:inherit}
 .topbar{background:var(--deep-2);color:#dcebe3;font-size:.78rem}
 .topbar .shell{display:flex;justify-content:space-between;gap:20px;padding:9px 0}
 .topbar a{margin-left:18px}
-.site-header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.95);border-bottom:1px solid var(--line);backdrop-filter:blur(14px)}
-.nav{display:flex;align-items:center;justify-content:space-between;min-height:82px}
-.brand img{width:178px;height:auto}
-.nav-links{display:flex;align-items:center;gap:24px;font-size:.78rem;font-weight:900;text-transform:uppercase;letter-spacing:.06em}
-.nav-links a{padding:28px 0;position:relative}
-.nav-links a:not(.nav-cta):after{content:"";position:absolute;left:0;bottom:22px;width:0;height:2px;background:var(--mint);transition:.2s}
-.nav-links a:hover:after{width:100%}
 .nav-cta,.btn{background:var(--green);color:#fff;padding:12px 18px;border-radius:999px;font-weight:900;display:inline-flex;gap:10px;align-items:center;justify-content:center;border:0;cursor:pointer}
 .nav-cta{background:var(--deep);padding:11px 16px}
 .menu-toggle{display:none;background:#eef6ef;border:1px solid var(--line);border-radius:999px;padding:10px 13px;font-weight:900;color:var(--deep)}
@@ -202,13 +195,7 @@ textarea{min-height:130px;resize:vertical}
 @media(max-width:940px){
   .topbar{display:none}
   .shell{width:min(100% - 28px,720px)}
-  .nav{min-height:74px}
-  .brand img{width:152px}
   .menu-toggle{display:inline-flex}
-  .nav-links{position:absolute;left:14px;right:14px;top:78px;background:#fff;border:1px solid var(--line);box-shadow:var(--shadow);border-radius:28px;padding:18px;display:none;flex-direction:column;align-items:stretch;gap:0}
-  .nav-links.open{display:flex}
-  .nav-links a{padding:13px 10px}
-  .nav-links a:after{display:none}
   .nav-cta{text-align:center;margin-top:8px}
   .hero{min-height:660px;align-items:center}
   .hero:after{background:linear-gradient(180deg,rgba(7,34,26,.86),rgba(7,34,26,.62))}
@@ -234,7 +221,6 @@ textarea{min-height:130px;resize:vertical}
 }
 
 /* BWW 2026 premium relaunch layer */
-.site-header{position:sticky;top:0;z-index:90;background:rgba(255,255,255,.92);border-bottom:1px solid var(--line);backdrop-filter:blur(18px);display:flex;align-items:center;justify-content:space-between;gap:22px;padding:14px clamp(16px,4vw,58px)}
 .site-header .brand{display:flex;align-items:center;gap:13px;min-width:260px}
 .site-header .brand img{width:78px;height:54px;object-fit:contain}
 .site-header .brand b{display:block;color:var(--deep);font-size:1.08rem;line-height:1}
