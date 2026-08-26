@@ -463,6 +463,7 @@ function cleanLabel(t) { return anzeigeTitel(t).replace(/\s*\([^)]*\)/g, '').tri
           '<div class="hp"><label>Bitte frei lassen<input name="website" tabindex="-1" autocomplete="off"></label></div>' +
           '<p class="bk-storno-hint">Stornierung 13–7 Tage vor Kursbeginn: 50 % der Kursgebühr. Ab 6 Tagen vorher oder bei Nichterscheinen: 100 %. Details in den <a href="/agb/" target="_blank" rel="noopener">AGB</a>.</p>' +
           '<label class="consent"><input type="checkbox" name="consent" required><span>Ich habe die <a href="/datenschutz/" target="_blank" rel="noopener">Datenschutzerklärung</a> und die <a href="/agb/" target="_blank" rel="noopener">AGB</a> gelesen und akzeptiere sie.</span></label>' +
+          '<label class="consent"><input type="checkbox" name="widerruf_verzicht" required><span>Ich wünsche ausdrücklich, dass mit der Ausführung der gebuchten Leistung bereits vor Ablauf der Widerrufsfrist begonnen wird, und weiß, dass ich dadurch nach vollständiger Vertragserfüllung mein <a href="/widerruf/" target="_blank" rel="noopener">Widerrufsrecht</a> verliere.</span></label>' +
           '<button class="btn primary" type="submit">Weiter zur Zahlung</button>' +
           '<p class="wl-status" role="status" aria-live="polite"></p>' +
           '<p class="bk-note">Die Zahlung läuft über unseren Zahlungsdienstleister. Kartendaten werden nie auf dieser Website eingegeben.</p>' +
@@ -477,6 +478,7 @@ function cleanLabel(t) { return anzeigeTitel(t).replace(/\s*\([^)]*\)/g, '').tri
       var f = e.target, st = f.querySelector('.wl-status');
       if (f.querySelector('[name="website"]').value) return;
       if (!f.querySelector('[name="consent"]').checked) { st.textContent = 'Bitte Datenschutz und AGB bestätigen.'; return; }
+      if (!f.querySelector('[name="widerruf_verzicht"]').checked) { st.textContent = 'Bitte den vorzeitigen Leistungsbeginn bestätigen.'; return; }
       var btn = f.querySelector('button[type="submit"]');
       var payload = { org: ORG, quelle: QUELLE, termin: o.getAttribute('data-termin') || '', anzahl: 1, website: '',
         teilnehmer: [{ vorname: f.vorname.value.trim(), nachname: f.nachname.value.trim(), email: f.email.value.trim() }],
