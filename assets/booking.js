@@ -181,7 +181,6 @@ function cleanLabel(t) { return anzeigeTitel(t).replace(/\s*\([^)]*\)/g, '').tri
       form.addEventListener('submit', function (e) {
         e.preventDefault();
         var status = form.querySelector('.form-status');
-        // Honeypot: ausgefülltes "website"-Feld => stiller Abbruch (Bot)
         var hp = form.querySelector('input[name="website"]');
         if (hp && hp.value) { if (status) status.textContent = 'Danke!'; return; }
         var payload = { org: ORG, website: '' };
@@ -476,7 +475,7 @@ function cleanLabel(t) { return anzeigeTitel(t).replace(/\s*\([^)]*\)/g, '').tri
     o.querySelector('form').addEventListener('submit', function (e) {
       e.preventDefault();
       var f = e.target, st = f.querySelector('.wl-status');
-      if (f.querySelector('[name="website"]').value) return;                 // Honeypot
+      if (f.querySelector('[name="website"]').value) return;
       if (!f.querySelector('[name="consent"]').checked) { st.textContent = 'Bitte Datenschutz und AGB bestätigen.'; return; }
       var btn = f.querySelector('button[type="submit"]');
       var payload = { org: ORG, quelle: QUELLE, termin: o.getAttribute('data-termin') || '', anzahl: 1, website: '',
