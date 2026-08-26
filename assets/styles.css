@@ -959,7 +959,6 @@ a:focus-visible,button:focus-visible,summary:focus-visible,.btn:focus-visible,in
 .hero-visual{position:relative;z-index:2;align-self:center}
 .hero-ill-wrap{position:relative;border-radius:36px;background:radial-gradient(circle at 30% 18%,#ffffff,#e7f4ea 72%);border:1px solid rgba(47,125,90,.15);box-shadow:0 34px 90px rgba(16,39,31,.16);padding:clamp(22px,3vw,42px);aspect-ratio:1/.9;display:grid;place-items:center}
 .hero-ill{width:100%;height:100%;object-fit:contain;display:block;filter:drop-shadow(0 16px 22px rgba(24,70,54,.12))}
-@media(max-width:860px){}
 
 /* ============ Live-Termine (API) ============ */
 .termine-list{max-width:1000px;margin:0 auto;display:grid;gap:.7rem;min-height:360px}
