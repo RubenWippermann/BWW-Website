@@ -1,6 +1,5 @@
 User-agent: *
 Allow: /
-Disallow: /agb-fassung/
 Disallow: /QUALITAETSNACHWEIS-BWW.md
 Disallow: /DNS-VERIFIKATIONSPLAN-DIENSTAG.md
 Disallow: /GOLIVE-ABSCHLUSS-BWW.md
