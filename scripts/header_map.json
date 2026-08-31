@@ -1,0 +1,1282 @@
+{
+ "/": {
+  "active": null,
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/404.html": {
+  "active": null,
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/abrechnung/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/agb/": {
+  "active": null,
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/anfrage-status/": {
+  "active": "/arbeitsschutz-check/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/arbeitsschutz-check/": {
+  "active": "/arbeitsschutz-check/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/assistent/": {
+  "active": null,
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/brandschutz/": {
+  "active": null,
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/danke/": {
+  "active": null,
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/datenschutz/": {
+  "active": null,
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/dguv-rechner/": {
+  "active": "/arbeitsschutz-check/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/dozent-werden/": {
+  "active": "/dozent-werden/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/gefahrstoff-rechner/": {
+  "active": "/arbeitsschutz-check/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/impressum/": {
+  "active": null,
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/inhouse-kurse/": {
+  "active": "/inhouse-kurse/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/kontakt/": {
+  "active": null,
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/kurse/": {
+  "active": "/kurse/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/kurse/aed-einweisung/": {
+  "active": "/kurse/",
+  "cta": "#anfrage"
+ },
+ "/kurse/betriebssanitaeter-aufbau/": {
+  "active": "/kurse/",
+  "cta": "#anfrage"
+ },
+ "/kurse/betriebssanitaeter-fortbildung/": {
+  "active": "/kurse/",
+  "cta": "#anfrage"
+ },
+ "/kurse/betriebssanitaeter-grundkurs/": {
+  "active": "/kurse/",
+  "cta": "#anfrage"
+ },
+ "/kurse/brandschutzhelfer/": {
+  "active": "/kurse/",
+  "cta": "#anfrage"
+ },
+ "/kurse/erste-hilfe-ausbildung/": {
+  "active": "/kurse/",
+  "cta": "#anfrage"
+ },
+ "/kurse/erste-hilfe-baby-kind/": {
+  "active": "/kurse/",
+  "cta": "#anfrage"
+ },
+ "/kurse/erste-hilfe-bildungseinrichtungen/": {
+  "active": "/kurse/",
+  "cta": "#anfrage"
+ },
+ "/kurse/erste-hilfe-fortbildung/": {
+  "active": "/kurse/",
+  "cta": "#anfrage"
+ },
+ "/kurse/evakuierungshelfer/": {
+  "active": "/kurse/",
+  "cta": "#anfrage"
+ },
+ "/kurse/lehrkraefte-ausbildung-lk1/": {
+  "active": "/kurse/",
+  "cta": "#anfrage"
+ },
+ "/kurse/lehrkraefte-ausbildung-lk2/": {
+  "active": "/kurse/",
+  "cta": "#anfrage"
+ },
+ "/kurse/lehrkraefte-ausbildung-sanitaetsdienst/": {
+  "active": "/kurse/",
+  "cta": "#anfrage"
+ },
+ "/kurse/lehrkraefte-fortbildung/": {
+  "active": "/kurse/",
+  "cta": "#anfrage"
+ },
+ "/kurse/notfalltraining/": {
+  "active": "/kurse/",
+  "cta": "#anfrage"
+ },
+ "/kurse/offene-kurse-worbis/": {
+  "active": "/kurse/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/kurse/sanitaetshelfer-ausbildung/": {
+  "active": "/kurse/",
+  "cta": "#anfrage"
+ },
+ "/kurse/schulsanitaetsdienst/": {
+  "active": "/kurse/",
+  "cta": "#anfrage"
+ },
+ "/mein-bereich/": {
+  "active": null,
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/nachhaltigkeit/": {
+  "active": null,
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/notfallspiel/": {
+  "active": "/arbeitsschutz-check/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/notruf-simulator/": {
+  "active": "/arbeitsschutz-check/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/shop/": {
+  "active": null,
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/shop/medizinische-designs/": {
+  "active": null,
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/shop/solidarische-designs/": {
+  "active": null,
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/standorte/": {
+  "active": "/standorte/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/standorte/erste-hilfe-kurs-aachen/": {
+  "active": "/standorte/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/standorte/erste-hilfe-kurs-augsburg/": {
+  "active": "/standorte/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/standorte/erste-hilfe-kurs-bad-lauterberg/": {
+  "active": "/standorte/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/standorte/erste-hilfe-kurs-bayern/": {
+  "active": "/standorte/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/standorte/erste-hilfe-kurs-berlin/": {
+  "active": "/standorte/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/standorte/erste-hilfe-kurs-bielefeld/": {
+  "active": "/standorte/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/standorte/erste-hilfe-kurs-bochum/": {
+  "active": "/standorte/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/standorte/erste-hilfe-kurs-bonn/": {
+  "active": "/standorte/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/standorte/erste-hilfe-kurs-braunschweig/": {
+  "active": "/standorte/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/standorte/erste-hilfe-kurs-bremen/": {
+  "active": "/standorte/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/standorte/erste-hilfe-kurs-chemnitz/": {
+  "active": "/standorte/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/standorte/erste-hilfe-kurs-darmstadt/": {
+  "active": "/standorte/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/standorte/erste-hilfe-kurs-dortmund/": {
+  "active": "/standorte/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/standorte/erste-hilfe-kurs-dresden/": {
+  "active": "/standorte/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/standorte/erste-hilfe-kurs-duderstadt/": {
+  "active": "/standorte/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/standorte/erste-hilfe-kurs-duesseldorf/": {
+  "active": "/standorte/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/standorte/erste-hilfe-kurs-duisburg/": {
+  "active": "/standorte/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/standorte/erste-hilfe-kurs-einbeck/": {
+  "active": "/standorte/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/standorte/erste-hilfe-kurs-eisenach/": {
+  "active": "/standorte/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/standorte/erste-hilfe-kurs-erfurt/": {
+  "active": "/standorte/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/standorte/erste-hilfe-kurs-eschwege/": {
+  "active": "/standorte/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/standorte/erste-hilfe-kurs-essen/": {
+  "active": "/standorte/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/standorte/erste-hilfe-kurs-frankfurt-am-main/": {
+  "active": "/standorte/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/standorte/erste-hilfe-kurs-freiburg/": {
+  "active": "/standorte/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/standorte/erste-hilfe-kurs-fulda/": {
+  "active": "/standorte/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/standorte/erste-hilfe-kurs-gelsenkirchen/": {
+  "active": "/standorte/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/standorte/erste-hilfe-kurs-gera/": {
+  "active": "/standorte/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/standorte/erste-hilfe-kurs-giessen/": {
+  "active": "/standorte/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/standorte/erste-hilfe-kurs-goettingen/": {
+  "active": "/standorte/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/standorte/erste-hilfe-kurs-goslar/": {
+  "active": "/standorte/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/standorte/erste-hilfe-kurs-hagen/": {
+  "active": "/standorte/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/standorte/erste-hilfe-kurs-halle/": {
+  "active": "/standorte/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/standorte/erste-hilfe-kurs-hamburg/": {
+  "active": "/standorte/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/standorte/erste-hilfe-kurs-hamm/": {
+  "active": "/standorte/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/standorte/erste-hilfe-kurs-hannover/": {
+  "active": "/standorte/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/standorte/erste-hilfe-kurs-heidelberg/": {
+  "active": "/standorte/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/standorte/erste-hilfe-kurs-heilbad-heiligenstadt/": {
+  "active": "/standorte/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/standorte/erste-hilfe-kurs-hessen/": {
+  "active": "/standorte/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/standorte/erste-hilfe-kurs-hildesheim/": {
+  "active": "/standorte/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/standorte/erste-hilfe-kurs-jena/": {
+  "active": "/standorte/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/standorte/erste-hilfe-kurs-karlsruhe/": {
+  "active": "/standorte/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/standorte/erste-hilfe-kurs-kassel/": {
+  "active": "/standorte/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/standorte/erste-hilfe-kurs-kiel/": {
+  "active": "/standorte/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/standorte/erste-hilfe-kurs-koblenz/": {
+  "active": "/standorte/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/standorte/erste-hilfe-kurs-koeln/": {
+  "active": "/standorte/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/standorte/erste-hilfe-kurs-krefeld/": {
+  "active": "/standorte/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/standorte/erste-hilfe-kurs-leinefelde-worbis/": {
+  "active": "/standorte/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/standorte/erste-hilfe-kurs-leipzig/": {
+  "active": "/standorte/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/standorte/erste-hilfe-kurs-leverkusen/": {
+  "active": "/standorte/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/standorte/erste-hilfe-kurs-ludwigshafen/": {
+  "active": "/standorte/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/standorte/erste-hilfe-kurs-luebeck/": {
+  "active": "/standorte/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/standorte/erste-hilfe-kurs-magdeburg/": {
+  "active": "/standorte/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/standorte/erste-hilfe-kurs-mainz/": {
+  "active": "/standorte/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/standorte/erste-hilfe-kurs-mannheim/": {
+  "active": "/standorte/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/standorte/erste-hilfe-kurs-marburg/": {
+  "active": "/standorte/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/standorte/erste-hilfe-kurs-moenchengladbach/": {
+  "active": "/standorte/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/standorte/erste-hilfe-kurs-muehlhausen/": {
+  "active": "/standorte/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/standorte/erste-hilfe-kurs-muenchen/": {
+  "active": "/standorte/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/standorte/erste-hilfe-kurs-muenster/": {
+  "active": "/standorte/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/standorte/erste-hilfe-kurs-nordhausen/": {
+  "active": "/standorte/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/standorte/erste-hilfe-kurs-nordrhein-westfalen/": {
+  "active": "/standorte/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/standorte/erste-hilfe-kurs-northeim/": {
+  "active": "/standorte/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/standorte/erste-hilfe-kurs-nuernberg/": {
+  "active": "/standorte/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/standorte/erste-hilfe-kurs-oberhausen/": {
+  "active": "/standorte/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/standorte/erste-hilfe-kurs-oldenburg/": {
+  "active": "/standorte/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/standorte/erste-hilfe-kurs-osnabrueck/": {
+  "active": "/standorte/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/standorte/erste-hilfe-kurs-osterode-am-harz/": {
+  "active": "/standorte/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/standorte/erste-hilfe-kurs-paderborn/": {
+  "active": "/standorte/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/standorte/erste-hilfe-kurs-potsdam/": {
+  "active": "/standorte/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/standorte/erste-hilfe-kurs-regensburg/": {
+  "active": "/standorte/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/standorte/erste-hilfe-kurs-rostock/": {
+  "active": "/standorte/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/standorte/erste-hilfe-kurs-saarbruecken/": {
+  "active": "/standorte/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/standorte/erste-hilfe-kurs-salzgitter/": {
+  "active": "/standorte/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/standorte/erste-hilfe-kurs-siegen/": {
+  "active": "/standorte/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/standorte/erste-hilfe-kurs-sondershausen/": {
+  "active": "/standorte/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/standorte/erste-hilfe-kurs-stuttgart/": {
+  "active": "/standorte/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/standorte/erste-hilfe-kurs-weimar/": {
+  "active": "/standorte/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/standorte/erste-hilfe-kurs-wernigerode/": {
+  "active": "/standorte/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/standorte/erste-hilfe-kurs-wiesbaden/": {
+  "active": "/standorte/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/standorte/erste-hilfe-kurs-wolfsburg/": {
+  "active": "/standorte/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/standorte/erste-hilfe-kurs-wuerzburg/": {
+  "active": "/standorte/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/standorte/erste-hilfe-kurs-wuppertal/": {
+  "active": "/standorte/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/unfall-dokumentation/": {
+  "active": "/arbeitsschutz-check/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/unternehmen/": {
+  "active": null,
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/unternehmensprofil/": {
+  "active": null,
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/widerruf/": {
+  "active": null,
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/absturzsicherung-hoehenarbeit/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/adrenalin-autoinjektor-anwenden/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/aed-anschaffen/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/aed-im-betrieb/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/aktuelle-aenderungen-ausbildungsstellen/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/alleinarbeit-gefaehrliche-arbeiten/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/arbeiten-enge-raeume-behaelter/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/arbeitgeberpflichten-haftung/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/arbeitsmedizinische-vorsorge/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/arbeitsschutz-grundlagen/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/arbeitsschutzausschuss-asa/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/arbeitsschutzgesetz-arbschg/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/arbeitsschutzmanagement-ams/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/arbeitsstaettenverordnung/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/arbeitsunfall-dokumentation/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/arbeitsunfall-homeoffice/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/arbeitsunfall-wegeunfall/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/arbeitszeit-pausen-ruhezeiten/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/baustellenverordnung-sigeko/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/berufskrankheit-anerkennung/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/betrieblicher-ersthelfer-aufgaben/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/betriebliches-eingliederungsmanagement-bem/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/betriebliches-gesundheitsmanagement-bgm/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/betriebsanweisung-gefahrstoffe/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/betriebsarzt-aufgaben/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/betriebssanitaeter-ausbildung/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/betriebssanitaeter-pflicht/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/betriebssicherheitsverordnung/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/bildschirmarbeit-gesund/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/biostoffe-infektionsschutz-arbeitsplatz/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/brandschutzbeauftragter/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/brandschutzhelfer-anzahl/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/brandschutzhelfer-ausbildung/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/brandschutzordnung/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/datenschutz-gesundheitsdaten-betrieb/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/dguv-vorschrift-1-grundsaetze-praevention/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/dguv-vorschrift-2-betreuung/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/durchgangsarzt-d-arzt-verfahren/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/einwilligung-patientenwille-erste-hilfe/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/ermaechtigte-ausbildungsstelle-pflichten/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/erste-hilfe-alkohol-drogennotfall/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/erste-hilfe-allergie-anaphylaxie/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/erste-hilfe-am-kind/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/erste-hilfe-amputationsverletzung/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/erste-hilfe-asthma-atemnot/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/erste-hilfe-augenverletzung/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/erste-hilfe-ausbildungsstelle-gruenden/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/erste-hilfe-aushang/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/erste-hilfe-aussendienst-mobile-beschaeftigte/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/erste-hilfe-baustelle/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/erste-hilfe-beauftragter/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/erste-hilfe-bewusstlosigkeit/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/erste-hilfe-co-vergiftung/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/erste-hilfe-ertrinken/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/erste-hilfe-fieberkrampf-kind/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/erste-hilfe-fortbildung-intervalle/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/erste-hilfe-fremdsprachige-beschaeftigte/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/erste-hilfe-fuehrerschein/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/erste-hilfe-grundausbildung-oder-fortbildung/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/erste-hilfe-hitzenotfaelle/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/erste-hilfe-hyperventilation/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/erste-hilfe-insektenstich/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/erste-hilfe-kita-pflicht/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/erste-hilfe-knochenbruch-verstauchung/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/erste-hilfe-knopfzelle-verschluckt/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/erste-hilfe-kopfverletzung-gehirnerschuetterung/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/erste-hilfe-krampfanfall/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/erste-hilfe-kurs-bg-abrechnen/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/erste-hilfe-kurs-gueltigkeit/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/erste-hilfe-kurs-inhalte/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/erste-hilfe-kurs-kosten-betrieb/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/erste-hilfe-kurs-studium/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/erste-hilfe-leiharbeit-fremdfirmen/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/erste-hilfe-material-pruefen-verfallsdaten/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/erste-hilfe-nasenbluten/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/erste-hilfe-notfall-schwangerschaft/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/erste-hilfe-ohnmacht-synkope/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/erste-hilfe-pflanzen-pilzvergiftung/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/erste-hilfe-pseudokrupp/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/erste-hilfe-rauchgasvergiftung/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/erste-hilfe-raum/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/erste-hilfe-schlaganfall-fast/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/erste-hilfe-schock/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/erste-hilfe-schule-schulleitung/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/erste-hilfe-sportverein/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/erste-hilfe-sportverletzung-pech/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/erste-hilfe-starke-blutung-tourniquet/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/erste-hilfe-steckende-fremdkoerper/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/erste-hilfe-strassenverkehr/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/erste-hilfe-stromunfall/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/erste-hilfe-teilnahmebescheinigung/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/erste-hilfe-tierbiss/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/erste-hilfe-ueberzuckerung-hyperglykaemie/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/erste-hilfe-unterkuehlung-erfrierung/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/erste-hilfe-unterzuckerung-diabetes/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/erste-hilfe-veraetzung-haut/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/erste-hilfe-verbrennungen/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/erste-hilfe-vergiftung/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/erste-hilfe-verschlucken-kind-saeugling/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/erste-hilfe-verschlucken/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/erste-hilfe-wirbelsaeule-hws/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/erste-hilfe-wunden-blutungen/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/erste-hilfe-zahnunfall/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/erste-hilfe-zeckenbiss/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/ersthelfer-anzahl-dguv/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/ersthelfer-ausbildung-organisieren/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/ersthelfer-freistellung-lohnfortzahlung/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/ersthelfer-oder-betriebssanitaeter/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/ersthelfer-pflicht-haftung/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/ersthelfer-schichtbetrieb-nachtschicht/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/evakuierungshelfer/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/explosionsschutz-atex-grundlagen/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/fachkraft-arbeitssicherheit/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/fahrzeuge-rettungsdienst/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/feuerloescher-arten-anwendung/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/first-responder-helfer-vor-ort/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/fluchtwege-notausgaenge/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/flurfoerderzeuge-stapler-sicherheit/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/fremdfirmen-koordination/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/gefaehrdungsbeurteilung-psychische-belastung/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/gefaehrdungsbeurteilung/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/gefahrgut-adr-transport/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/gefahrgutbeauftragter/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/gefahrstoff-kennzeichnung-ghs/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/gefahrstoffe-haushalt/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/gefahrstoffe-lagerung-trgs510/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/gesundheitsschutz-gesundheitsuntersuchungen/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/hautschutz-arbeitsplatz/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/heben-tragen-ergonomie/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/heissarbeiten-erlaubnisschein/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/herzinfarkt-schlaganfall-erkennen/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/hitze-am-arbeitsplatz/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/homeoffice-arbeitsschutz/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/impfangebot-arbeitgeber-biostoffe/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/infektionsschutzgesetz-meldepflicht/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/inhouse-erste-hilfe-schulung-ablauf/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/jugendarbeitsschutz/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/kosten-rettungsdienst-krankenwagen/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/kostenuebernahme-erste-hilfe/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/ladungssicherung-transport/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/laerm-am-arbeitsplatz/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/lehrkraefte-erste-hilfe/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/lehrkraefte-fortbildung-16-ue/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/leiharbeit-zeitarbeit-arbeitsschutz/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/leitern-tritte-sicher/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/luftrettung-rettungshubschrauber/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/meldeeinrichtungen-notfallmeldung-betrieb/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/mutterschutz-arbeitsplatz/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/nachtarbeit-schichtarbeit/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/notdusche-augendusche-betrieb/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/notfalldaten-notfallpass-handy/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/notfallmanagement-arztpraxis/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/notfallmanagement-betrieb/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/notfallsanitaeter-notsang/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/notfalltraining-gesundheitswesen/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/notfalltraining-pflegeeinrichtung/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/notruf-112/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/persoenliche-schutzausruestung-psa/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/pflichtenuebertragung-arbeitsschutz/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/pruefung-arbeitsmittel-dguv-v3/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/psychische-erste-hilfe/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/qualifikationen-rettungsdienst/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/reanimation-kind-saeugling/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/reanimation/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/rechtsgrundlagen-erste-hilfe-stgb/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/rettungsgasse-bilden/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/rettungskette/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/rettungsleitstelle-112/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/schulsanitaetsdienst/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/schulungsraum-inhouse-erste-hilfe/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/schweigepflicht-erste-hilfe/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/sicherheitsbeauftragter/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/sicherheitsdatenblatt-lesen/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/sicherheitskennzeichnung-asr-a13/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/sonnenschutz-uv-arbeitsplatz/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/stabile-seitenlage/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/stufenweise-wiedereingliederung/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/telenotarzt/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/tetanus-impfschutz-verletzung/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/unfallanzeige-berufsgenossenschaft/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/unterweisung-arbeitsschutz/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/verbandbuch-dokumentationspflicht/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/verbandkasten-arbeitsstaette/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/vitalzeichen-pruefen/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/was-ist-katastrophenschutz/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/was-ist-manv/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/was-ist-sanitaetsdienst/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/zustaendige-berufsgenossenschaft-finden/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/zertifikat-duplikat/": {
+  "active": "/arbeitsschutz-check/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/zertifikat-pruefen/": {
+  "active": "/arbeitsschutz-check/",
+  "cta": "/inhouse-kurse/#anfrage"
+ }
+}
