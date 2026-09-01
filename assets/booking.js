@@ -519,7 +519,9 @@ function cleanLabel(t) { return anzeigeTitel(t).replace(/\s*\([^)]*\)/g, '').tri
                       course_past: 'Dieser Termin liegt in der Vergangenheit. Bitte wählt einen aktuellen Termin.',
                       invalid_email: 'Bitte prüft die E-Mail-Adresse.',
                       already_booked: 'Für diese E-Mail liegt bereits eine Buchung zu diesem Termin vor.',
-                      invalid_input: 'Bitte prüft eure Eingaben.' }[d.error];
+                      invalid_input: 'Bitte prüft eure Eingaben.',
+                      too_many_requests: 'Zu viele Anfragen in kurzer Zeit. Bitte in etwa einer Stunde erneut versuchen – oder ruft uns an: ' + TEL + '.' }[d.error];
+          if (!msg && res.status === 429) msg = 'Zu viele Anfragen in kurzer Zeit. Bitte in etwa einer Stunde erneut versuchen – oder ruft uns an: ' + TEL + '.';
           st.textContent = msg || 'Es ist ein Fehler aufgetreten. Bitte versucht es später erneut oder ruft uns an.';
         })
         .catch(function () { btn.disabled = false; st.textContent = 'Verbindung fehlgeschlagen. Bitte erneut versuchen.'; });
