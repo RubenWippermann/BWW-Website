@@ -250,7 +250,7 @@ function cleanLabel(t) { return anzeigeTitel(t).replace(/\s*\([^)]*\)/g, '').tri
           '<label for="wl-name">Name *</label><input id="wl-name" name="name" required>' +
           '<label for="wl-mail">E-Mail *</label><input id="wl-mail" name="email" type="email" required>' +
           '<label class="wl-consent"><input type="checkbox" name="consent" required><span>Ich habe die <a href="/datenschutz/" target="_blank" rel="noopener">Datenschutzerklärung</a> gelesen und stimme der Verarbeitung meiner Daten zu.</span></label>' +
-          '<div class="hp"><label>Bitte frei lassen<input name="website" tabindex="-1" autocomplete="off"></label></div>' +
+          '<div class="hp"><label>Bitte frei lassen<input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true"></label></div>' +
           '<button type="submit" class="btn primary">Eintragen</button>' +
           '<p class="wl-status" role="status"></p>' +
         '</form>' +
@@ -460,7 +460,7 @@ function cleanLabel(t) { return anzeigeTitel(t).replace(/\s*\([^)]*\)/g, '').tri
           '<label for="bk-strasse">Rechnungsadresse *</label><input id="bk-strasse" name="strasse" autocomplete="street-address" placeholder="Straße &amp; Hausnummer" required>' +
           '<div class="fgrid"><div><label for="bk-plz">PLZ *</label><input id="bk-plz" name="plz" autocomplete="postal-code" required inputmode="numeric" pattern="[0-9]*"></div>' +
           '<div><label for="bk-ort">Ort *</label><input id="bk-ort" name="ort" autocomplete="address-level2" required></div></div>' +
-          '<div class="hp"><label>Bitte frei lassen<input name="website" tabindex="-1" autocomplete="off"></label></div>' +
+          '<div class="hp"><label>Bitte frei lassen<input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true"></label></div>' +
           '<p class="bk-storno-hint">Stornierung 13–7 Tage vor Kursbeginn: 50 % der Kursgebühr. Ab 6 Tagen vorher oder bei Nichterscheinen: 100 %. Details in den <a href="/agb/" target="_blank" rel="noopener">AGB</a>.</p>' +
           '<label class="consent"><input type="checkbox" name="consent" required><span>Ich habe die <a href="/datenschutz/" target="_blank" rel="noopener">Datenschutzerklärung</a> und die <a href="/agb/" target="_blank" rel="noopener">AGB</a> gelesen und akzeptiere sie.</span></label>' +
           '<label class="consent"><input type="checkbox" name="widerruf_verzicht" required><span>Ich wünsche ausdrücklich, dass mit der Ausführung der gebuchten Leistung bereits vor Ablauf der Widerrufsfrist begonnen wird, und weiß, dass ich dadurch nach vollständiger Vertragserfüllung mein <a href="/widerruf/" target="_blank" rel="noopener">Widerrufsrecht</a> verliere.</span></label>' +
