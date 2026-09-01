@@ -285,6 +285,13 @@ function cleanLabel(t) { return anzeigeTitel(t).replace(/\s*\([^)]*\)/g, '').tri
       var email = form.querySelector('input[name="email"]').value.trim();
       var consent = form.querySelector('input[name="consent"]').checked;
       if (!name || !email || !consent) { status.className = 'wl-status is-error'; status.textContent = 'Bitte Name, E-Mail und Einwilligung ausfüllen.'; return; }
+      var wlPayload = { termin: o.dataset.termin || '', name: name, email: email };
+      var wlDupKey = sentKey('warteliste', wlPayload);
+      var wlAlready = readSent(wlDupKey);
+      if (wlAlready) {
+        form.innerHTML = '<div class="form-success"><span class="form-success-ic">✓</span><h3>Du stehst schon auf der Warteliste!</h3><p>Wir melden uns, sobald ein Platz frei wird.' + (wlAlready.ticket_id ? ' Vorgang: <b>' + esc(wlAlready.ticket_id) + '</b>.' : '') + '</p></div>';
+        return;
+      }
       var btn = form.querySelector('button[type="submit"]'); var orig = btn.textContent;
       btn.disabled = true; btn.textContent = 'Wird gesendet …'; status.textContent = ''; status.className = 'wl-status';
       var httpStatus = 0;
@@ -293,6 +300,7 @@ function cleanLabel(t) { return anzeigeTitel(t).replace(/\s*\([^)]*\)/g, '').tri
         body: JSON.stringify({ org: ORG, quelle: QUELLE, termin: o.dataset.termin || '', name: name, email: email, website: '' })
       }).then(function (r) { httpStatus = r.status; return r.json().catch(function () { return {}; }); }).then(function (res) {
         if (res && res.ok) {
+          writeSent(wlDupKey, res.ticket_id);
           form.innerHTML = '<div class="form-success"><span class="form-success-ic">✓</span><h3>Du stehst auf der Warteliste!</h3><p>Wir melden uns, sobald ein Platz frei wird.' + (res.ticket_id ? ' Vorgang: <b>' + esc(res.ticket_id) + '</b>.' : '') + '</p></div>';
           return;
         }
