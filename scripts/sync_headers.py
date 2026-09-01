@@ -27,11 +27,11 @@ def build_header(active_href, cta_href):
     parts = ['<header class="site-header"><a class="brand" href="/">'
              '<img src="/media/bww-logo-transparent.webp" alt="BWW Logo">'
              '<span><small>Multiplikatorenstelle & Rettungsdienstbildungsstelle</small></span></a>'
-             '<button class="menu-toggle" aria-label="Menü öffnen" aria-expanded="false" '
+             '<button class="menu-toggle" aria-label="Menü öffnen" aria-expanded="false" aria-controls="site-nav" '
              'onclick="var o=document.body.classList.toggle(\'menu-open\');'
              'this.setAttribute(\'aria-expanded\',o);'
              'this.setAttribute(\'aria-label\',o?\'Menü schließen\':\'Menü öffnen\')">'
-             '☰</button><nav>']
+             '☰</button><nav id="site-nav">']
     for href, label in NAV_LINKS:
         cls = 'active' if href == active_href else ''
         parts.append(f'<a class="{cls}" href="{href}">{label}</a>')
