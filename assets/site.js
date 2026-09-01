@@ -1,4 +1,17 @@
 
+// Mobil-Menü per Escape schliessen — der Öffnen/Schliessen-Knopf selbst ist über
+// den Klick (inline onclick im HTML, siehe Header) erreichbar, aber ein Tastatur-
+// Mensch, der das geöffnete Menü verlassen will, musste bisher komplett durch alle
+// Nav-Links zurücktabben. Beide bestehenden Modals (Warteliste, Formular-Erfolg)
+// haben diesen Escape-Handler längst — dem Menü fehlte er als einzigem Overlay.
+document.addEventListener('keydown', function (e) {
+  if (e.key === 'Escape' && document.body.classList.contains('menu-open')) {
+    document.body.classList.remove('menu-open');
+    var btn = document.querySelector('.menu-toggle');
+    if (btn) { btn.setAttribute('aria-expanded', 'false'); btn.setAttribute('aria-label', 'Menü öffnen'); btn.focus(); }
+  }
+});
+
 function escapeHtml(s){return String(s||'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));}
 function asInt(id, fallback=0){const el=document.getElementById(id);const n=parseInt(el?.value||fallback,10);return Number.isFinite(n)?n:fallback;}
 

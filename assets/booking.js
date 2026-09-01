@@ -256,10 +256,26 @@ function cleanLabel(t) { return anzeigeTitel(t).replace(/\s*\([^)]*\)/g, '').tri
         '</form>' +
       '</div>';
     document.body.appendChild(o);
-    function close() { o.hidden = true; document.body.classList.remove('wl-open'); }
+    // Fokus-Falle + Fokus-Rückgabe: Tab konnte bisher aus dem Modal HERAUS auf die
+    // Seite dahinter springen (role="dialog" allein kapselt den Fokus nicht), und
+    // beim Schliessen ging der Fokus einfach verloren, statt zum auslösenden
+    // "Warteliste"-Knopf zurückzukehren — für Tastatur-Menschen fehlte die Orientierung.
+    document.addEventListener('keydown', function (e) {
+      if (o.hidden) return;
+      if (e.key === 'Escape') { close(); return; }
+      if (e.key !== 'Tab') return;
+      var focusable = o.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+      if (!focusable.length) return;
+      var first = focusable[0], last = focusable[focusable.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    });
+    function close() {
+      o.hidden = true; document.body.classList.remove('wl-open');
+      if (o.__opener && o.__opener.focus) o.__opener.focus();
+    }
     o.querySelector('.wl-close').addEventListener('click', close);
     o.addEventListener('click', function (e) { if (e.target === o) close(); });
-    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !o.hidden) close(); });
     o.querySelector('.wl-form').addEventListener('submit', function (e) {
       e.preventDefault();
       var form = e.target, status = form.querySelector('.wl-status');
@@ -302,6 +318,7 @@ function cleanLabel(t) { return anzeigeTitel(t).replace(/\s*\([^)]*\)/g, '').tri
       o.querySelector('.wl-course').textContent = (t.getAttribute('data-titel') || '') + (t.getAttribute('data-datum') ? ' – ' + t.getAttribute('data-datum') : '');
       // Formular zurücksetzen (falls zuvor abgeschickt)
       var f = o.querySelector('.wl-form'); if (f && f.querySelector('.form-success')) { o.remove(); ensureWaitlistModal(); o = document.getElementById('wlModal'); o.dataset.termin = t.getAttribute('data-termin') || ''; o.querySelector('.wl-course').textContent = (t.getAttribute('data-titel') || '') + (t.getAttribute('data-datum') ? ' – ' + t.getAttribute('data-datum') : ''); }
+      o.__opener = t;
       o.hidden = false; document.body.classList.add('wl-open');
       var ni = o.querySelector('input[name="name"]'); if (ni) ni.focus();
     });
