@@ -1,0 +1,5 @@
+2026-09-05T15:38:37+02:00	32
+# startdate_ausgezeichnet=ja
+# bewegung_zuletzt=2026-09-05
+# unveraendert_seit_tagen=0
+# spaetester_termin=2026-12-20
