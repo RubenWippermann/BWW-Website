@@ -39,9 +39,11 @@ jobs:
 
       # FRISCHE-GUARD sitzt IM Generator, VOR dem Schreiben: toter/leerer Feed -> exit 3
       # -> dieser Step failt -> Deploy-Step läuft nicht -> kein Push (letzter guter Stand bleibt).
-      # Solange PRERENDER=False strippt der Generator nur (No-op) und schreibt keinen Stempel;
-      # der Actions-Verlauf ist dann der Frischenachweis (kein Heartbeat nötig).
+      # PRERENDER=True (Rubens Freigabe 2026-09-05: CI-Weg-Nachweis erfüllt, 25 gruene
+      # Scheduled-Laeufe seit 16.08.) -> Generator baut jetzt echt, Stempel wird geschrieben.
       - name: Termine backen
+        env:
+          BWW_PRERENDER: "1"
         run: python3 tools/gen_event_jsonld.py site/kurse/offene-kurse-worbis/index.html --write --stamp site/termine-stand.txt
 
       - name: Deploy nach gh-pages (nur bei Änderung)
