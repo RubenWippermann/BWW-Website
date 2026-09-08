@@ -532,6 +532,13 @@ body{
 }
 @media(max-width:860px){
   html{scroll-padding-top:76px}
+  /* Fund 06.09. (Audit, elementFromPoint bestätigt): der fixe .sticky-book-
+     Balken (bottom:18px, Höhe ~64px) überdeckt bei 768px schon beim Laden der
+     Seite ohne jedes Scrollen die obere Trust-Badge-Zeile ("BG-anerkannte
+     ermächtigte Stelle · Kennziffer 8.2122") — kein Scroll-Vorbeiziehen,
+     sondern der Ruhezustand beim Landen auf /kurse/. Bei 375px reicht der
+     Abstand (dort kein Fund), deshalb NUR hier ergänzt. */
+  .trust-badges{margin-top:5.5rem!important}
   .site-header{min-height:72px!important;padding:10px 14px!important}
   .site-header .brand img{width:92px!important;height:48px!important}
   .site-header .brand small{display:block!important;font-size:.64rem!important;max-width:190px!important}
