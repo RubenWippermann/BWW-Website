@@ -1014,7 +1014,13 @@ a:focus-visible,button:focus-visible,summary:focus-visible,.btn:focus-visible,in
 .privacy-note{position:fixed;left:14px;bottom:14px;z-index:70;max-width:340px;display:flex;align-items:center;gap:.8rem;background:#fff;border:1px solid var(--bww-line,#d9e5dd);box-shadow:0 18px 44px rgba(16,39,31,.16);border-radius:16px;padding:.75rem .9rem;font-size:.86rem;color:#3f5238}
 .privacy-note a{color:var(--bww-green,#25704e);font-weight:800}
 .privacy-note button{flex:0 0 auto;border:0;background:var(--bww-green,#25704e);color:#fff;font-weight:800;border-radius:999px;padding:.5rem .9rem;cursor:pointer;font-size:.84rem}
-@media(max-width:560px){.privacy-note{left:10px;right:10px;bottom:84px;max-width:none}}
+/* Fund 08.09. (statischer Sweep, Design-Chat): bei 320px wächst .sticky-book durch
+   umbrechenden Text auf ~86px Höhe, der bisherige 84px-Abstand reichte dann nicht
+   mehr — .privacy-note (Cookie-Hinweis) überlappte den Buchungs-Balken um ~20px,
+   live per getBoundingClientRect gemessen. 130px statt 84px lässt auch bei
+   weiterem Textwachstum Luft, ohne bei 375/768px sichtbar mehr Platz zu kosten
+   (dort ist .sticky-book ohnehin kürzer). */
+@media(max-width:560px){.privacy-note{left:10px;right:10px;bottom:130px;max-width:none}}
 
 /* Nachhaltigkeit – Highlight-Band */
 .eco-highlight{display:flex;align-items:center;gap:1.2rem;flex-wrap:wrap;max-width:1000px;margin:1.6rem auto 0;background:linear-gradient(135deg,#eafaee,#ffffff);border:1px solid #cfe9d3;border-left:5px solid var(--bww-green,#25704e);border-radius:22px;padding:1.3rem 1.6rem;box-shadow:0 16px 44px rgba(16,39,31,.07)}
