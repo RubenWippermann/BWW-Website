@@ -41,10 +41,24 @@ jobs:
       # -> dieser Step failt -> Deploy-Step läuft nicht -> kein Push (letzter guter Stand bleibt).
       # PRERENDER=True (Rubens Freigabe 2026-09-05: CI-Weg-Nachweis erfüllt, 25 gruene
       # Scheduled-Laeufe seit 16.08.) -> Generator baut jetzt echt, Stempel wird geschrieben.
-      - name: Termine backen
+      - name: Termine backen (Worbis-Buchungsseite, mit Frischestempel)
         env:
           BWW_PRERENDER: "1"
         run: python3 tools/gen_event_jsonld.py site/kurse/offene-kurse-worbis/index.html --write --stamp site/termine-stand.txt
+
+      # Scope-Erweiterung (Rubens Freigabe 2026-09-15): dieselbe Auszeichnung zusaetzlich in
+      # Startseite + Kursuebersicht backen, dort zeigt der Live-Terminkalender im Roh-HTML
+      # bisher nur "Termine werden geladen..." (KI-/Crawler-unsichtbar). Kein eigener Stempel
+      # noetig, der Worbis-Lauf druebter deckt die Frischewache fuer den ganzen Job ab.
+      - name: Termine backen (Startseite)
+        env:
+          BWW_PRERENDER: "1"
+        run: python3 tools/gen_event_jsonld.py site/index.html --write
+
+      - name: Termine backen (Kursuebersicht)
+        env:
+          BWW_PRERENDER: "1"
+        run: python3 tools/gen_event_jsonld.py site/kurse/index.html --write
 
       - name: Deploy nach gh-pages (nur bei Änderung)
         run: |
