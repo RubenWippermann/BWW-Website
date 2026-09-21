@@ -183,6 +183,19 @@ function cleanLabel(t) { return anzeigeTitel(t).replace(/\s*\([^)]*\)/g, '').tri
         var status = form.querySelector('.form-status');
         var hp = form.querySelector('input[name="website"]');
         if (hp && hp.value) { if (status) status.textContent = 'Danke!'; return; }
+        if (form.getAttribute('data-api') === 'inhouse-anfrage') {
+          // Pflichtangaben für ein vollständiges Angebot: Kursart (Checkbox-Gruppe, nativ nicht erzwingbar) und keine reinen Leerzeichen
+          var fehlt = null;
+          if (!form.querySelector('input[name="kursart"]:checked')) fehlt = { el: form.querySelector('input[name="kursart"]'), msg: 'Bitte mindestens eine Kursart auswählen.' };
+          Array.prototype.forEach.call(form.querySelectorAll('input[required]:not([type="checkbox"])'), function (r) {
+            if (!fehlt && !String(r.value).trim()) fehlt = { el: r, msg: 'Bitte alle mit * markierten Felder ausfüllen.' };
+          });
+          if (fehlt) {
+            if (status) { status.className = 'form-status is-error'; status.textContent = fehlt.msg; }
+            if (fehlt.el && fehlt.el.focus) fehlt.el.focus();
+            return;
+          }
+        }
         var payload = { org: ORG, website: '' };
         // Lead-Quelle für die Software (Büro trennt Inhouse-Website-Leads von Buchungen)
         if (form.getAttribute('data-api') === 'inhouse-anfrage') payload.quelle = QUELLE;   // Seiten-Herkunft, NICHT der generische Formularname (kollidierte mit einem anderen Absender + Server-Default)
