@@ -49,6 +49,10 @@ BWW eignet sich für Unternehmen, Schulen, Kindertagesstätten, Verwaltungen, Ve
 
 ## Wissensartikel
 
+- [AED anwenden: Schritt für Schritt nach den ERC/GRC-Leitlinien](https://www.multiplikatorenstelle.de/wissen/aed-anwenden-schritt-fuer-schritt/)
+- [Chemikalienunfall im Betrieb: Notfallmaßnahmen nach § 13 GefStoffV](https://www.multiplikatorenstelle.de/wissen/chemikalienunfall-notfallmassnahmen-gefstoffv/)
+- [Erste-Hilfe-Bescheinigung verloren: So kommt ihr an ein Duplikat](https://www.multiplikatorenstelle.de/wissen/erste-hilfe-bescheinigung-verloren-duplikat/)
+- [Erste-Hilfe-Kurs online: Wird er anerkannt?](https://www.multiplikatorenstelle.de/wissen/erste-hilfe-kurs-online-anerkannt/)
 - [Wie viele Ersthelfer schreibt die DGUV vor?](https://www.multiplikatorenstelle.de/wissen/ersthelfer-anzahl-dguv/)
 - [Wann braucht ein Betrieb Betriebssanitäter?](https://www.multiplikatorenstelle.de/wissen/betriebssanitaeter-pflicht/)
 - [Wie viele Brandschutzhelfer sind vorgeschrieben?](https://www.multiplikatorenstelle.de/wissen/brandschutzhelfer-anzahl/)
@@ -67,6 +71,7 @@ BWW eignet sich für Unternehmen, Schulen, Kindertagesstätten, Verwaltungen, Ve
 - [Erste-Hilfe-Kurs fürs Studium: Medizin, Lehramt & Co.](https://www.multiplikatorenstelle.de/wissen/erste-hilfe-kurs-studium/)
 - [Ersthelfer oder Betriebssanitäter – der Unterschied](https://www.multiplikatorenstelle.de/wissen/ersthelfer-oder-betriebssanitaeter/)
 - [Erste-Hilfe-Kurs für den Führerschein](https://www.multiplikatorenstelle.de/wissen/erste-hilfe-fuehrerschein/)
+- [Nadelstichverletzung: Pflichten des Arbeitgebers nach TRBA 250](https://www.multiplikatorenstelle.de/wissen/nadelstichverletzung-trba-250/)
 - [Verbandkasten in der Arbeitsstätte](https://www.multiplikatorenstelle.de/wissen/verbandkasten-arbeitsstaette/)
 - [Gefährdungsbeurteilung: Pflicht, Inhalt und Ablauf](https://www.multiplikatorenstelle.de/wissen/gefaehrdungsbeurteilung/)
 - [Sicherheitsbeauftragte: Pflicht, Anzahl und Aufgaben](https://www.multiplikatorenstelle.de/wissen/sicherheitsbeauftragter/)

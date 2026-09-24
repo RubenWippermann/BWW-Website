@@ -1278,5 +1278,25 @@
  "/zertifikat-pruefen/": {
   "active": "/arbeitsschutz-check/",
   "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/erste-hilfe-kurs-online-anerkannt/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/nadelstichverletzung-trba-250/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/aed-anwenden-schritt-fuer-schritt/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/erste-hilfe-bescheinigung-verloren-duplikat/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/wissen/chemikalienunfall-notfallmassnahmen-gefstoffv/": {
+  "active": "/wissen/",
+  "cta": "/inhouse-kurse/#anfrage"
  }
 }
