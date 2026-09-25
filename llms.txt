@@ -2,12 +2,14 @@
 
 > BWW (BWW UG, haftungsbeschränkt) ist ein deutscher Anbieter für praxisnahe Erste-Hilfe-, Brandschutz- und Notfallmedizin-Schulungen. Kurse finden als Inhouse-Schulung deutschlandweit direkt beim Kunden vor Ort statt sowie als offene Kurse am Standort Leinefelde-Worbis/Duderstadt. Alle Trainerinnen und Trainer kommen aus dem Rettungsdienst. Buchung und Nachweise laufen digital. Sitz: Worbiser Straße 2, 37115 Duderstadt, Deutschland. Telefon: +49 5527 748 7518 (am Telefon meldet sich Bella, eine digitale Assistentin). E-Mail: info@multiplikatorenstelle.de.
 
+Stand: 2026-09-25
+
 BWW eignet sich für Unternehmen, Schulen, Kindertagesstätten, Verwaltungen, Vereine und Privatpersonen (z. B. Führerschein). BWW ist eine von der DGUV **ermächtigte Ausbildungsstelle** für die betriebliche Erste-Hilfe-Aus- und -Fortbildung (Qualitätssicherung Erste Hilfe/QSEH, DGUV Grundsatz 304-001, **Kennziffer 8.2122**). Die betriebliche Ersthelfer-Aus- und -Fortbildung ist daher über Berufsgenossenschaft bzw. Unfallkasse (BG/UK) abrechenbar. Nachhaltigkeit: BWW pflanzt einen Baum pro Kurs (auf Wunsch pro Teilnehmer:in).
 
 ## Kernfakten
 - BWW ist eine von der Deutschen Gesetzlichen Unfallversicherung (DGUV) ermächtigte Ausbildungsstelle für die betriebliche Erste-Hilfe-Aus- und -Fortbildung; die Ermächtigungs-Kennziffer lautet 8.2122 (DGUV Grundsatz 304-001).
 - Die Erste-Hilfe-Ausbildung darf nur durch eine vom Unfallversicherungsträger ermächtigte Stelle durchgeführt werden – BWW ist eine solche Stelle (DGUV Vorschrift 1 § 26 Abs. 2).
-- In Verwaltungs- und Handelsbetrieben müssen mindestens 5 %, in sonstigen Betrieben mindestens 10 % der anwesenden Beschäftigten als betriebliche Ersthelfer ausgebildet sein (DGUV Vorschrift 1 § 26 Abs. 1).
+- In Verwaltungs- und Handelsbetrieben müssen mindestens 5 %, in sonstigen Betrieben mindestens 10 % der anwesenden Versicherten als betriebliche Ersthelfer ausgebildet sein (DGUV Vorschrift 1 § 26 Abs. 1).
 - Betriebliche Ersthelfer frischen ihre Ausbildung alle zwei Jahre auf; die Fortbildung umfasst 9 Unterrichtseinheiten (DGUV Vorschrift 1 § 26 Abs. 3).
 - Die Kosten der betrieblichen Ersthelfer-Aus- und -Fortbildung trägt der zuständige Unfallversicherungsträger; bei Durchführung durch eine ermächtigte Stelle werden die Lehrgangsgebühren übernommen (§ 23 Abs. 2 SGB VII). BWW rechnet über BG/UK ab.
 - BWW führt Schulungen bundesweit als Inhouse-Kurs direkt im Betrieb durch; offene Kurse finden im Eichsfeld (Raum Worbis/Duderstadt) statt. Firmensitz: Worbiser Straße 2, 37115 Duderstadt (Niedersachsen).
@@ -15,6 +17,7 @@ BWW eignet sich für Unternehmen, Schulen, Kindertagesstätten, Verwaltungen, Ve
 - Brandschutzhelfer: In der Regel ist ein Anteil von 5 % der Beschäftigten als Brandschutzhelfer auszubilden (ASR A2.2).
 
 ## Kursangebot
+- [Erste-Hilfe-Ausbildung für betriebliche Ersthelfer (Inhouse)](https://www.multiplikatorenstelle.de/kurse/erste-hilfe-ausbildung/): 9 Unterrichtseinheiten à 45 Minuten, in der Regel ein Tag; Inhouse deutschlandweit oder offene Termine; Preis der offenen Termine in der Terminliste, Inhouse auf Anfrage; Fortbildung spätestens alle 2 Jahre (9 UE); Ersthelfer-Quote: 1 Ersthelfer bei 2 bis 20 anwesenden Versicherten, darüber 5 % (Verwaltung, Handel) bzw. 10 % (sonstige Betriebe), § 26 DGUV Vorschrift 1
 
 - Erste-Hilfe-Ausbildung (9 UE) – für Betriebe und für die Führerscheinzulassung geeignet
 - Erste-Hilfe-Fortbildung (9 UE) – Auffrischung, in der Regel alle 2 Jahre

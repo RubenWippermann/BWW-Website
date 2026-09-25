@@ -1690,3 +1690,23 @@ main small,.result-panel small,.card small{color:var(--ad-ink-3)!important}
   html:root:root:root body main .score-pills span{background:var(--ad-bg-2)!important;color:var(--ad-ink-2)!important;border:1px solid var(--ad-hair)}
   html:root:root:root body main .section-soft{background-color:var(--ad-bg-2)!important}
 }
+
+/* Kursseite: Faktenblock, Ablauf in 3 Schritten, einklappbare Formularteile (Variablen der Design-Schicht) */
+.fact-section{padding-top:clamp(20px,3vw,40px);padding-bottom:clamp(8px,2vw,24px)}
+.fact-block{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.25rem 2rem;align-items:start;padding:1.4rem 1.6rem;background:var(--ad-bg-2);border-radius:20px}
+.fact-block>div{display:grid;gap:.15rem;align-content:start}
+.fact-block dt{font-size:.8125rem;font-weight:600;color:var(--ad-accent);margin:0}
+.fact-block dd{margin:0;font-size:.9375rem;line-height:1.45;color:var(--ad-ink-2)}
+.fact-source{max-width:1080px;margin:.75rem auto 0;font-size:.875rem;color:var(--ad-ink-3)}
+.fact-source a,.article-body .fact-source a{color:var(--ad-accent)}
+.process-steps.steps-3{grid-template-columns:repeat(3,1fr);max-width:1080px;margin-bottom:2rem}
+@media(max-width:760px){.process-steps.steps-3{grid-template-columns:1fr}}
+.form-more{margin:.5rem 0 1rem;border:1px solid var(--ad-hair);border-radius:12px;padding:.25rem 1rem;background:var(--ad-card)}
+.form-more>summary{cursor:pointer;font-weight:500;color:var(--ad-accent);min-height:44px;display:flex;align-items:center}
+.form-more[open]>summary{margin-bottom:.5rem}
+@media (prefers-color-scheme: dark){
+  html:root:root:root body main .fact-block{background:var(--ad-card)!important}
+  html:root:root:root body main .fact-block dt,html:root:root:root body main .form-more>summary{color:var(--ad-accent)!important}
+  html:root:root:root body main .fact-block dd{color:var(--ad-ink-2)!important}
+  html:root:root:root body main .form-more{background:var(--ad-card)!important;border-color:var(--ad-hair)!important}
+}
