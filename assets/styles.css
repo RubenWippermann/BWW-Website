@@ -1596,3 +1596,4 @@ main .section.dark .btn.ghost{color:var(--green)!important;background:transparen
 .page-inner .breadcrumbs a:hover{color:var(--green)!important}
 main small,.result-panel small,.card small{color:var(--ad-ink-3)!important}
 @media(max-width:620px){.crumb a,.page-hero .crumb a{display:inline-block;padding:.8rem .15rem;min-width:44px}}
+@media(max-width:900px){.hero.apple-hero .hero-copy *,.hero.apple-hero .proof-strip *{text-align:left!important}.hero.apple-hero .hero-actions{justify-content:flex-start!important}.hero.apple-hero .eyebrow,.hero.apple-hero .hero-badge{justify-content:flex-start!important;text-align:left!important}}
