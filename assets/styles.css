@@ -1561,7 +1561,7 @@ a.feature-card:hover,a.knowledge-card:hover,.course-card:hover,.path-card:hover{
 @media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 /* --- Apple-Design-Schicht, Nachbesserung: Reste der alten Gestaltung --- */
 body{background:var(--ad-bg)!important}
-h1,h2,h3,h4{hyphens:manual!important;-webkit-hyphens:manual!important;text-wrap:balance}
+h1,h2,h3,h4{hyphens:auto!important;-webkit-hyphens:auto!important;overflow-wrap:break-word;text-wrap:balance}
 .section h2,.section-head h2,.article-body h2,.knowledge-grid h2,.center h2,.section .split h2{color:var(--ad-ink)!important;font-weight:600!important;letter-spacing:-.02em!important;font-size:clamp(1.625rem,3.2vw,2.5rem)!important;line-height:1.12!important}
 .article-body h2{font-size:1.625rem!important;line-height:1.2!important}
 .section h3,.article-body h3{color:var(--ad-ink)!important;font-weight:600!important}
