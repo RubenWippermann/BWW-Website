@@ -1,12 +1,5 @@
 User-agent: *
 Allow: /
-Disallow: /QUALITAETSNACHWEIS-BWW.md
-Disallow: /DNS-VERIFIKATIONSPLAN-DIENSTAG.md
-Disallow: /GOLIVE-ABSCHLUSS-BWW.md
-Disallow: /HTTPS-FIX-ANLEITUNG-RUBEN.md
-Disallow: /STRATO-DIENSTAG-BWW.md
-Disallow: /UEBERGABE.md
-
 
 # KI-/Antwortmaschinen-Crawler ausdrücklich willkommen (GEO)
 User-agent: GPTBot
