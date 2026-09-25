@@ -1470,7 +1470,9 @@ body.menu-open .site-header nav{max-height:calc(100vh - 96px);overflow-y:auto;-w
    ===================================================================== */
 :root{
   --ad-ink:#1d1d1f; --ad-ink-2:#424245; --ad-ink-3:#65656a;
-  --ad-bg:#fff; --ad-bg-2:#f5f5f7; --ad-line:#d2d2d7; --ad-hair:#e8e8ed;
+  --ad-bg:#fff; --ad-bg-2:#f5f5f7; --ad-card:#fff; --ad-line:#d2d2d7; --ad-hair:#e8e8ed;
+  --ad-accent:#25704e; --ad-accent-hover:#1c5a3e; --ad-glass:rgba(255,255,255,.82); --ad-glass-2:rgba(255,255,255,.92);
+  --ad-shadow:rgba(0,0,0,.08); --ad-on-green:#fff; --ad-btn-hover:#1c5a3e; color-scheme:light;
   --ink:var(--ad-ink); --muted:var(--ad-ink-3); --line:var(--ad-line); --cream:var(--ad-bg-2); --paper:var(--ad-bg);
   --bww-ink:var(--ad-ink); --bww-muted:var(--ad-ink-3); --bww-line:var(--ad-hair); --bww-mint:var(--ad-bg-2);
   --bww-shadow:0 4px 24px rgba(0,0,0,.06); --bww-radius:20px; --shadow:0 4px 24px rgba(0,0,0,.06);
@@ -1482,24 +1484,24 @@ h1,h2,h3,h4{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display",Inter,
 h1,.hero-copy h1,.page-hero h1,.hero.apple-hero h1{font-size:clamp(2.125rem,4.6vw,3.5rem)!important;line-height:1.08!important;letter-spacing:-.022em!important;font-weight:600!important;margin-bottom:1.25rem!important;max-width:22ch}
 h2,.section-head h2{font-size:clamp(1.625rem,3.2vw,2.5rem);line-height:1.12;letter-spacing:-.02em;font-weight:600;margin-bottom:1rem}
 h3{font-size:1.25rem;line-height:1.25;letter-spacing:-.01em;font-weight:600}
-h1 em,h2 em{font-family:inherit;font-style:normal;font-weight:inherit;color:var(--green)}
+h1 em,h2 em{font-family:inherit;font-style:normal;font-weight:inherit;color:var(--ad-accent)}
 .hero-copy p,.section-head p,.page-hero p{font-size:clamp(1.0625rem,1.5vw,1.3125rem);line-height:1.45;color:var(--ad-ink-2);max-width:40em}
 .section-head p{color:var(--ad-ink-3)}
-.eyebrow,.page-hero .eyebrow,.hero .eyebrow,.final-cta .eyebrow.light{font-size:.8125rem!important;font-weight:600!important;letter-spacing:.01em!important;text-transform:none!important;color:var(--green)!important;background:none!important;border:0!important;padding:0!important;box-shadow:none!important}
+.eyebrow,.page-hero .eyebrow,.hero .eyebrow,.final-cta .eyebrow.light{font-size:.8125rem!important;font-weight:600!important;letter-spacing:.01em!important;text-transform:none!important;color:var(--ad-accent)!important;background:none!important;border:0!important;padding:0!important;box-shadow:none!important}
 /* Navigation */
-.site-header{background:rgba(255,255,255,.82);backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--ad-hair)}
+.site-header{background:var(--ad-glass);backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--ad-hair)}
 .site-header nav a{font-size:.9375rem!important;font-weight:500!important;text-transform:none!important;letter-spacing:0!important;color:var(--ad-ink)}
-.site-header nav a.active,.site-header nav a:hover{color:var(--green)}
+.site-header nav a.active,.site-header nav a:hover{color:var(--ad-accent)}
 .nav-cta{background:var(--green)!important;color:#fff!important}
 .menu-toggle{min-width:44px;min-height:44px;background:var(--ad-bg-2)!important}
 /* Buttons: flach, klare Hierarchie, Ziele >= 44 px */
 .btn,.nav-cta,.sticky-book a{font-weight:600!important;letter-spacing:0!important;min-height:44px;padding:.75rem 1.4rem;box-shadow:none!important;transition:background-color .2s ease,border-color .2s ease}
 .btn.primary,.btn:not(.ghost):not(.secondary){background:var(--green)!important;color:#fff!important;box-shadow:none!important}
-.btn.primary:hover,.nav-cta:hover{background:#1c5a3e!important}
-.btn.ghost,.btn.secondary{background:transparent!important;color:var(--green)!important;border:1px solid var(--ad-line)!important}
+.btn.primary:hover,.nav-cta:hover{background:var(--ad-btn-hover)!important}
+.btn.ghost,.btn.secondary{background:transparent!important;color:var(--ad-accent)!important;border:1px solid var(--ad-line)!important}
 .btn.ghost:hover,.btn.secondary:hover{background:var(--ad-bg-2)!important}
-.btn-textlink,.c-link{font-weight:500;color:var(--green)}
-a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--green);outline-offset:3px}
+.btn-textlink,.c-link{font-weight:500;color:var(--ad-accent)}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--ad-accent);outline-offset:3px}
 /* Weißraum und Flächen */
 .section{padding-top:clamp(56px,8vw,104px);padding-bottom:clamp(56px,8vw,104px)}
 .section.compact{padding-top:clamp(32px,4vw,56px);padding-bottom:clamp(32px,4vw,56px)}
@@ -1518,19 +1520,19 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .final-cta h2,.final-cta .final-note,.final-cta p{color:var(--ad-ink)!important}
 .final-cta p{color:var(--ad-ink-2)!important}
 .final-cta .final-note{color:var(--ad-ink-3)!important}
-.final-cta a:not(.btn){color:var(--green)!important}
-.final-cta .btn.ghost{background:transparent!important;color:var(--green)!important}
+.final-cta a:not(.btn){color:var(--ad-accent)!important}
+.final-cta .btn.ghost{background:transparent!important;color:var(--ad-accent)!important}
 .site-footer{background:var(--ad-bg-2)!important;color:var(--ad-ink-3)!important;border-top:1px solid var(--ad-line);padding-top:clamp(40px,5vw,64px);padding-bottom:clamp(40px,5vw,64px)}
 .site-footer .footer-logo{background:none;padding:0;border-radius:0;width:140px}
 .site-footer p,.site-footer span,.site-footer .footer-social a{color:var(--ad-ink-3)!important}
 .site-footer a{color:var(--ad-ink-2)!important;font-weight:400!important;font-size:.875rem}
-.site-footer a:hover{color:var(--green)!important;text-decoration:underline}
+.site-footer a:hover{color:var(--ad-accent)!important;text-decoration:underline}
 .site-footer h2{font-size:.8125rem!important;font-weight:600!important;letter-spacing:0!important;text-transform:none!important;color:var(--ad-ink)!important;margin-bottom:.75rem}
 /* Karten: Haarlinie statt Schatten, ruhige Radien */
-.path-card,.feature-card,.course-card,.knowledge-card,.tool-card,.result-panel,.legal-card,.sim-card,.game-card,.card,.sustain-card,.anerkennung-card,.proof-strip>*{background:#fff!important;border:1px solid var(--ad-hair)!important;border-radius:20px!important;box-shadow:none!important}
-a.feature-card:hover,a.knowledge-card:hover,.course-card:hover,.path-card:hover{box-shadow:0 4px 24px rgba(0,0,0,.08)!important;border-color:var(--ad-line)!important;transform:none!important}
-.knowledge-card span,.feature-card span,.course-card span{color:var(--green);font-weight:600;font-size:.8125rem}
-.section-soft .card,.section-soft .feature-card,.section-soft .anerkennung-card{background:#fff!important}
+.path-card,.feature-card,.course-card,.knowledge-card,.tool-card,.result-panel,.legal-card,.sim-card,.game-card,.card,.sustain-card,.anerkennung-card,.proof-strip>*{background:var(--ad-card)!important;border:1px solid var(--ad-hair)!important;border-radius:20px!important;box-shadow:none!important}
+a.feature-card:hover,a.knowledge-card:hover,.course-card:hover,.path-card:hover{box-shadow:0 4px 24px var(--ad-shadow)!important;border-color:var(--ad-line)!important;transform:none!important}
+.knowledge-card span,.feature-card span,.course-card span{color:var(--ad-accent);font-weight:600;font-size:.8125rem}
+.section-soft .card,.section-soft .feature-card,.section-soft .anerkennung-card{background:var(--ad-card)!important}
 /* Artikel */
 .article-body{max-width:680px!important}
 .article-body h2{font-size:1.625rem!important;line-height:1.2;font-weight:600;margin-top:2.75rem!important}
@@ -1538,18 +1540,18 @@ a.feature-card:hover,a.knowledge-card:hover,.course-card:hover,.path-card:hover{
 .article-body p,.article-body li{color:var(--ad-ink-2);line-height:1.6}
 .key-facts,.article-note{background:var(--ad-bg-2)!important;border:0!important;border-radius:16px!important;color:var(--ad-ink)!important;padding:1.25rem 1.5rem!important}
 .key-facts h2{color:var(--ad-ink)!important;font-size:1rem!important;margin-top:0!important}
-.article-related a{color:var(--green);font-weight:500}
+.article-related a{color:var(--ad-accent);font-weight:500}
 .article-sources{color:var(--ad-ink-3);font-size:.875rem}
 .breadcrumbs,.breadcrumbs a{color:var(--ad-ink-3)}
 .breadcrumbs .current{color:var(--ad-ink)}
 /* Formulare */
 .bww-form label{font-weight:500;color:var(--ad-ink)}
-.bww-form input,.bww-form select,.bww-form textarea{border:1px solid var(--ad-line);border-radius:12px;background:#fff;min-height:44px}
-.bww-form input:focus,.bww-form select:focus,.bww-form textarea:focus{border-color:var(--green);box-shadow:0 0 0 3px rgba(37,112,78,.18);outline:0}
+.bww-form input,.bww-form select,.bww-form textarea{border:1px solid var(--ad-line);border-radius:12px;background:var(--ad-card);min-height:44px}
+.bww-form input:focus,.bww-form select:focus,.bww-form textarea:focus{border-color:var(--ad-accent);box-shadow:0 0 0 3px rgba(37,112,78,.18);outline:0}
 .form-hint,.form-status{color:var(--ad-ink-3)}
 /* Schwebende Buttonleiste: leichtes Material */
-.sticky-book{background:rgba(255,255,255,.92)!important;backdrop-filter:saturate(180%) blur(20px);box-shadow:0 2px 16px rgba(0,0,0,.12)!important;border:1px solid var(--ad-hair)!important;font-weight:600!important}
-.sticky-book a.sb-alt{background:transparent!important;color:var(--green)!important;border:1px solid var(--ad-line)}
+.sticky-book{background:var(--ad-glass-2)!important;backdrop-filter:saturate(180%) blur(20px);box-shadow:0 2px 16px rgba(0,0,0,.12)!important;border:1px solid var(--ad-hair)!important;font-weight:600!important}
+.sticky-book a.sb-alt{background:transparent!important;color:var(--ad-accent)!important;border:1px solid var(--ad-line)}
 @media(max-width:620px){
   .section{padding-left:20px;padding-right:20px}
   .page-hero,.hero.apple-hero{padding-left:20px!important;padding-right:20px!important}
@@ -1558,12 +1560,12 @@ a.feature-card:hover,a.knowledge-card:hover,.course-card:hover,.path-card:hover{
 }
 @media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 /* --- Apple-Design-Schicht, Nachbesserung: Reste der alten Gestaltung --- */
-body{background:#fff!important}
+body{background:var(--ad-bg)!important}
 h1,h2,h3,h4{hyphens:manual!important;-webkit-hyphens:manual!important;text-wrap:balance}
 .section h2,.section-head h2,.article-body h2,.knowledge-grid h2,.center h2,.section .split h2{color:var(--ad-ink)!important;font-weight:600!important;letter-spacing:-.02em!important;font-size:clamp(1.625rem,3.2vw,2.5rem)!important;line-height:1.12!important}
 .article-body h2{font-size:1.625rem!important;line-height:1.2!important}
 .section h3,.article-body h3{color:var(--ad-ink)!important;font-weight:600!important}
-.eyebrow,.section .eyebrow,.section-head .eyebrow,.center .eyebrow,.split .eyebrow,.hero-copy .eyebrow{background:none!important;border:0!important;padding:0!important;box-shadow:none!important;text-transform:none!important;letter-spacing:.01em!important;font-weight:600!important;font-size:.8125rem!important;color:var(--green)!important;display:block;margin-bottom:.75rem!important}
+.eyebrow,.section .eyebrow,.section-head .eyebrow,.center .eyebrow,.split .eyebrow,.hero-copy .eyebrow{background:none!important;border:0!important;padding:0!important;box-shadow:none!important;text-transform:none!important;letter-spacing:.01em!important;font-weight:600!important;font-size:.8125rem!important;color:var(--ad-accent)!important;display:block;margin-bottom:.75rem!important}
 .site-header .nav-cta,.nav-cta,.hero-actions .btn,.btn.ghost,.btn.secondary,.form-actions .btn{box-shadow:none!important;filter:none!important}
 .page-hero,.page-hero .hero-actions{text-align:left!important;justify-content:flex-start!important}
 .page-hero>div{justify-items:start}
@@ -1579,8 +1581,8 @@ h1,h2,h3,h4{hyphens:manual!important;-webkit-hyphens:manual!important;text-wrap:
 /* dunkle Alt-Sektion (Instagram/Bewertungen) auf neutral, Text folgt */
 main .section.dark h2,main .section.dark .section-head h2,main .section.dark h3{color:var(--ad-ink)!important}
 main .section.dark p,main .section.dark .section-head p{color:var(--ad-ink-2)!important}
-main .section.dark .eyebrow{color:var(--green)!important}
-main .section.dark .btn.ghost{color:var(--green)!important;background:transparent!important;border:1px solid var(--ad-line)!important}
+main .section.dark .eyebrow{color:var(--ad-accent)!important}
+main .section.dark .btn.ghost{color:var(--ad-accent)!important;background:transparent!important;border:1px solid var(--ad-line)!important}
 /* Breadcrumbs: Tippfläche auf Mobilgeräten */
 @media(max-width:620px){.breadcrumbs a{display:inline-block;padding:.65rem .15rem}}
 .privacy-note button{min-height:44px;min-width:44px;font-weight:600;border-radius:980px}
@@ -1593,7 +1595,94 @@ main .section.dark .btn.ghost{color:var(--green)!important;background:transparen
 .page-inner .breadcrumbs,.page-inner .breadcrumbs a{color:var(--ad-ink-3)!important}
 .page-inner .breadcrumbs .sep{color:var(--ad-ink-3)!important}
 .page-inner .breadcrumbs .current{color:var(--ad-ink)!important}
-.page-inner .breadcrumbs a:hover{color:var(--green)!important}
+.page-inner .breadcrumbs a:hover{color:var(--ad-accent)!important}
 main small,.result-panel small,.card small{color:var(--ad-ink-3)!important}
 @media(max-width:620px){.crumb a,.page-hero .crumb a{display:inline-block;padding:.8rem .15rem;min-width:44px}}
 @media(max-width:900px){.hero.apple-hero .hero-copy *,.hero.apple-hero .proof-strip *{text-align:left!important}.hero.apple-hero .hero-actions{justify-content:flex-start!important}.hero.apple-hero .eyebrow,.hero.apple-hero .hero-badge{justify-content:flex-start!important;text-align:left!important}}
+
+/* =====================================================================
+   Dunkelmodus (25.09.2026): folgt der Systemeinstellung, nur Variablen.
+   Text #f5f5f7/#d1d1d6/#a1a1a6 >= 6,6:1 auf allen Flächen, Akzent #4fb883 >= 6,9:1,
+   Button-Grün #25704e bleibt Hintergrund mit weißer Schrift (6,0:1).
+   ===================================================================== */
+@media (prefers-color-scheme: dark){
+  :root{
+    --ad-ink:#f5f5f7; --ad-ink-2:#d1d1d6; --ad-ink-3:#a1a1a6;
+    --ad-bg:#000; --ad-bg-2:#111113; --ad-card:#1c1c1e; --ad-line:#48484a; --ad-hair:#2c2c2e;
+    --ad-accent:#4fb883; --ad-accent-hover:#7dd6a8; --ad-btn-hover:#2a7c56; --ad-glass:rgba(0,0,0,.72); --ad-glass-2:rgba(28,28,30,.92);
+    --ad-shadow:rgba(0,0,0,.5); color-scheme:dark;
+    --ink:var(--ad-ink); --muted:var(--ad-ink-3); --line:var(--ad-line); --cream:var(--ad-bg-2); --paper:var(--ad-bg);
+    --bww-ink:var(--ad-ink); --bww-muted:var(--ad-ink-3); --bww-line:var(--ad-hair); --bww-mint:var(--ad-bg-2);
+    --bww-shadow:0 4px 24px rgba(0,0,0,.5); --shadow:0 4px 24px rgba(0,0,0,.5);
+  }
+  /* Logo ist dunkelgrün: auf hellem Träger belassen */
+  html:root:root:root body .site-header .brand img,.site-footer .footer-logo{background:#fff;border-radius:10px;padding:2px 6px;box-sizing:content-box}
+  .site-footer .footer-logo{width:124px}
+  img.bww-ill{filter:brightness(.92)}
+  /* Alt-CSS enthält feste Dunkelgrün-Töne für Text und weiße Flächen: hier gezielt auf die Variablen gelegt */
+  html:root:root:root body main :is(p,li,small,label,td,th,dd,dt,span,em,div){color:var(--ad-ink-2)!important}
+  html:root:root:root body main :is(h1,h2,h3,h4,h5,b,strong,summary){color:var(--ad-ink)!important}
+  html:root:root:root body .site-header nav :is(a,summary),.menu-toggle{color:var(--ad-ink)!important}
+  html:root:root:root body .site-header nav a.active,.site-header nav a:hover{color:var(--ad-accent)!important;background:var(--ad-bg-2)}
+  html:root:root:root body .menu-toggle{background:var(--ad-bg-2)!important}
+  html:root:root:root body main :is(.eyebrow,.termin-cta,.btn-textlink,.tf-count,.c-link,.article-related a,.knowledge-card>span,.course-card>span,.feature-card>span,.path-card>span,.proof-strip b),
+  html:root:root:root body main a:not(.btn):not(.nav-cta):not(.knowledge-card):not(.course-card):not(.feature-card):not(.path-card):not(.termin-row){color:var(--ad-accent)!important}
+  html:root:root:root body main :is(.termin-date small,.termin-info small,.termin-meta small,.termin-ort,.kb-count,.sep,.breadcrumbs,.breadcrumbs a,.hero-note){color:var(--ad-ink-3)!important}
+  html:root:root:root body main :is(.knowledge-card,.course-card,.feature-card,.path-card,.termin-row,.anerkennung-card,.sustain-card,.tool-card,.result-panel,.legal-card,.process-steps li,.testimonial-grid>*,.reviews-list>*),
+  html:root:root:root body main :is(.filter-bar button,.tf-chip,.termine-filter select,.termine-filter .tf-bg,.kb-searchwrap input){background:var(--ad-card)!important;border-color:var(--ad-hair)!important}
+  html:root:root:root body main .termin-row{border-color:var(--ad-hair)!important}
+  html:root:root:root body main .checks,main .checks label{background:transparent!important}
+  html:root:root:root body main .bww-form :is(input,select,textarea){background:var(--ad-bg-2)!important;color:var(--ad-ink)!important;border-color:var(--ad-line)!important}
+  html:root:root:root body main .bww-form label,main .bww-form legend{color:var(--ad-ink)!important}
+  html:root:root:root body main :is(.filter-bar button,.tf-chip){color:var(--ad-ink-2)!important}
+  html:root:root:root body main :is(.filter-bar button,.tf-chip).is-active,main :is(.filter-bar button,.tf-chip)[aria-pressed="true"]{background:var(--green)!important;color:#fff!important}
+  html:root:root:root body main .btn.primary,main .btn:not(.ghost):not(.secondary){color:#fff!important}
+  html:root:root:root body main .btn.ghost,main .btn.secondary{color:var(--ad-accent)!important}
+  html:root:root:root body .proof-strip>*{background:var(--ad-card)!important}
+  html:root:root:root body .key-facts,.article-note{background:var(--ad-bg-2)!important}
+  html:root:root:root body .final-cta,.section-soft,.section.dark{background:var(--ad-bg-2)!important}
+  .site-footer,.site-footer a,.site-footer p,.site-footer span{background:var(--ad-bg-2)}
+  /* Runde 2: Header, Menü, Formularfläche, FAQ, Kurs-Metadaten */
+  html:root:root:root body .site-header{background:var(--ad-glass)!important;border-bottom-color:var(--ad-hair)!important}
+  html:root:root:root body body.menu-open .site-header nav,.site-header nav{background:transparent}
+  html:root:root:root body body.menu-open .site-header nav{background:var(--ad-card)!important;border-color:var(--ad-hair)!important}
+  html:root:root:root body body.menu-open .site-header nav .nav-group{border-top-color:var(--ad-hair)!important}
+  html:root:root:root body body.menu-open .site-header nav .nav-group>summary{color:var(--ad-ink)!important}
+  html:root:root:root body body.menu-open .site-header nav .nav-group>summary:hover{background:var(--ad-bg-2)!important}
+  html:root:root:root body main :is(.bww-form,.faq-list details,.faq-list>*,.process-steps li,.testimonials .card){background:var(--ad-card)!important;border-color:var(--ad-hair)!important}
+  html:root:root:root body main :is(.text-link,.ccm-date,.ccm-price,.ccm-inhouse,.course-card a.text-link){color:var(--ad-accent)!important;background:var(--ad-bg-2)!important}
+  html:root:root:root body main :is(.ccm-date,.ccm-price,.ccm-inhouse){background:transparent!important}
+  html:root:root:root body main .proof-strip>*{background:var(--ad-card)!important}
+  html:root:root:root body .privacy-note{background:var(--ad-glass-2)!important;color:var(--ad-ink)!important}
+  html:root:root:root body .privacy-note :is(span,a,b){color:var(--ad-ink)!important}
+  html:root:root:root body .privacy-note a{color:var(--ad-accent)!important}
+  /* Runde 3 */
+  html:root:root:root body main :is(.trust-badge,.tool-tile,.tool-tile>*){background:var(--ad-card)!important;border-color:var(--ad-hair)!important}
+  html:root:root:root body main .tool-tile h3{color:var(--ad-ink)!important}
+  html:root:root:root body main :is(.trust-badge,.tool-tile p,.tool-tile .tool-emoji){color:var(--ad-ink-2)!important}
+  html:root:root:root body main .tool-tile .tool-go{color:var(--ad-accent)!important}
+  html:root:root:root body main .tool-tile>*{background:transparent!important}
+  /* Runde 4 */
+  html:root:root:root body main :is(.ccm-status,.check-grid>*,.check-grid p){background:var(--ad-bg-2)!important;color:var(--ad-accent)!important}
+  html:root:root:root body main .check-grid p{color:var(--ad-ink-2)!important;background:transparent!important}
+  html:root:root:root body main :is(.btn.ghost,.btn.secondary,.hero-actions .btn:not(.primary)){background:transparent!important;border-color:var(--ad-line)!important}
+  html:root:root:root body main .eyebrow,html:root:root:root body .final-cta .eyebrow{background:transparent!important;box-shadow:none!important}
+  html:root:root:root body main :is(.section,.section.compact){background-color:var(--ad-bg)!important}
+  /* Runde 5: übrige helle Flächen (Formulare, Rechtstext, Rechner, Simulator, Tabellen) */
+  html:root:root:root body main :is(input,select,textarea){background:var(--ad-bg-2)!important;color:var(--ad-ink)!important;border-color:var(--ad-line)!important}
+  html:root:root:root body main :is(article.legal-text,.legal-text pre,.chat-log,.course-facts,.format-chip,.metric-tag,tr){background:var(--ad-card)!important;color:var(--ad-ink-2)!important;border-color:var(--ad-hair)!important}
+  html:root:root:root body main :is(.course-facts *,.chat-log *,.legal-text *){color:var(--ad-ink-2)!important;background:transparent!important}
+  html:root:root:root body main :is(.legal-text a,.chat-log a,.course-facts a){color:var(--ad-accent)!important}
+  html:root:root:root body main :is(.legal-text b,.legal-text strong,.chat-log b,.fact-k){color:var(--ad-ink)!important}
+  html:root:root:root body main :is(.crumb,.crumb a){color:var(--ad-ink-3)!important}
+  html:root:root:root body main :is(thead th,table th){background:var(--green)!important;color:#fff!important}
+  html:root:root:root body main :is(.q-row,.check-q,.question,.fragen li,.checkliste li,label){background-color:transparent}
+  html:root:root:root body main .form-wrap{background:transparent!important;border-color:transparent!important}
+  /* Runde 6: Sticky-Balken (Text auf Glas), Punkte-Pillen im Simulator */
+  html:root:root:root body .sticky-book :is(a,span,b){color:var(--ad-ink)!important}
+  html:root:root:root body .sticky-book a:not(.sb-alt){background:var(--green)!important}
+  html:root:root:root body .sticky-book a:not(.sb-alt) :is(span,b){color:#fff!important}
+  html:root:root:root body .sticky-book a.sb-alt,html:root:root:root body .sticky-book a.sb-alt span{color:var(--ad-accent)!important}
+  html:root:root:root body main .score-pills span{background:var(--ad-bg-2)!important;color:var(--ad-ink-2)!important;border:1px solid var(--ad-hair)}
+  html:root:root:root body main .section-soft{background-color:var(--ad-bg-2)!important}
+}
