@@ -1618,7 +1618,7 @@ main small,.result-panel small,.card small{color:var(--ad-ink-3)!important}
   /* Logo ist dunkelgrün: auf hellem Träger belassen */
   html:root:root:root body .site-header .brand img,.site-footer .footer-logo{background:#fff;border-radius:10px;padding:2px 6px;box-sizing:content-box}
   .site-footer .footer-logo{width:124px}
-  img.bww-ill{filter:brightness(.92)}
+  img.bww-ill{filter:brightness(.82) contrast(1.05)}
   /* Alt-CSS enthält feste Dunkelgrün-Töne für Text und weiße Flächen: hier gezielt auf die Variablen gelegt */
   html:root:root:root body main :is(p,li,small,label,td,th,dd,dt,span,em,div){color:var(--ad-ink-2)!important}
   html:root:root:root body main :is(h1,h2,h3,h4,h5,b,strong,summary){color:var(--ad-ink)!important}
@@ -1678,6 +1678,10 @@ main small,.result-panel small,.card small{color:var(--ad-ink-3)!important}
   html:root:root:root body main :is(thead th,table th){background:var(--green)!important;color:#fff!important}
   html:root:root:root body main :is(.q-row,.check-q,.question,.fragen li,.checkliste li,label){background-color:transparent}
   html:root:root:root body main .form-wrap{background:transparent!important;border-color:transparent!important}
+  /* Runde 5b: helle Verlaufskarten des Alt-CSS */
+  html:root:root:root body main :is(.eco-highlight,.inhouse-cta,.eco-hero-card,.eco-card,.sustain-card,.ihc-text,.split-card){background:var(--ad-card)!important;background-image:none!important;border-color:var(--ad-hair)!important}
+  html:root:root:root body main .step-no{color:#fff!important}
+  html:root:root:root body :is(main .section-soft,main .section-soft.split,main .section.dark,main .final-cta,main .hero,main .page-hero,.site-footer){background-image:none!important}
   /* Runde 6: Sticky-Balken (Text auf Glas), Punkte-Pillen im Simulator */
   html:root:root:root body .sticky-book :is(a,span,b){color:var(--ad-ink)!important}
   html:root:root:root body .sticky-book a:not(.sb-alt){background:var(--green)!important}
