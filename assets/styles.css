@@ -1461,3 +1461,138 @@ body.menu-open .site-header nav{max-height:calc(100vh - 96px);overflow-y:auto;-w
 
 /* Hero-WIE-Notiz kompakt (2026-08-17): kleiner, gedämpft, nicht so groß wie der Subtext */
 .hero-copy .hero-note{font-size:.9rem!important;line-height:1.4;font-weight:600;color:#2f5233;opacity:.85;margin:.5rem 0 0;letter-spacing:.01em}
+
+/* =====================================================================
+   BWW – Apple-Design-Schicht (25.09.2026)
+   Ruhige Typografie, viel Weißraum, klare Hierarchie. Neutrale Flächen,
+   das BWW-Grün #25704e nur als Akzent (Links, Primärbutton, Eyebrow).
+   Kontrast: Text #1d1d1f/#424245 auf Weiß >= 10:1, Sekundärtext #6e6e73 >= 4,6:1.
+   ===================================================================== */
+:root{
+  --ad-ink:#1d1d1f; --ad-ink-2:#424245; --ad-ink-3:#65656a;
+  --ad-bg:#fff; --ad-bg-2:#f5f5f7; --ad-line:#d2d2d7; --ad-hair:#e8e8ed;
+  --ink:var(--ad-ink); --muted:var(--ad-ink-3); --line:var(--ad-line); --cream:var(--ad-bg-2); --paper:var(--ad-bg);
+  --bww-ink:var(--ad-ink); --bww-muted:var(--ad-ink-3); --bww-line:var(--ad-hair); --bww-mint:var(--ad-bg-2);
+  --bww-shadow:0 4px 24px rgba(0,0,0,.06); --bww-radius:20px; --shadow:0 4px 24px rgba(0,0,0,.06);
+}
+html{-webkit-text-size-adjust:100%}
+body{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text",Inter,ui-sans-serif,system-ui,"Segoe UI",Roboto,Arial,sans-serif;font-size:1.0625rem;line-height:1.47;color:var(--ad-ink);background:var(--ad-bg);-webkit-font-smoothing:antialiased}
+p{color:var(--ad-ink-2)}
+h1,h2,h3,h4{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display",Inter,ui-sans-serif,system-ui,"Segoe UI",Roboto,Arial,sans-serif;color:var(--ad-ink);font-weight:600}
+h1,.hero-copy h1,.page-hero h1,.hero.apple-hero h1{font-size:clamp(2.125rem,4.6vw,3.5rem)!important;line-height:1.08!important;letter-spacing:-.022em!important;font-weight:600!important;margin-bottom:1.25rem!important;max-width:22ch}
+h2,.section-head h2{font-size:clamp(1.625rem,3.2vw,2.5rem);line-height:1.12;letter-spacing:-.02em;font-weight:600;margin-bottom:1rem}
+h3{font-size:1.25rem;line-height:1.25;letter-spacing:-.01em;font-weight:600}
+h1 em,h2 em{font-family:inherit;font-style:normal;font-weight:inherit;color:var(--green)}
+.hero-copy p,.section-head p,.page-hero p{font-size:clamp(1.0625rem,1.5vw,1.3125rem);line-height:1.45;color:var(--ad-ink-2);max-width:40em}
+.section-head p{color:var(--ad-ink-3)}
+.eyebrow,.page-hero .eyebrow,.hero .eyebrow,.final-cta .eyebrow.light{font-size:.8125rem!important;font-weight:600!important;letter-spacing:.01em!important;text-transform:none!important;color:var(--green)!important;background:none!important;border:0!important;padding:0!important;box-shadow:none!important}
+/* Navigation */
+.site-header{background:rgba(255,255,255,.82);backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--ad-hair)}
+.site-header nav a{font-size:.9375rem!important;font-weight:500!important;text-transform:none!important;letter-spacing:0!important;color:var(--ad-ink)}
+.site-header nav a.active,.site-header nav a:hover{color:var(--green)}
+.nav-cta{background:var(--green)!important;color:#fff!important}
+.menu-toggle{min-width:44px;min-height:44px;background:var(--ad-bg-2)!important}
+/* Buttons: flach, klare Hierarchie, Ziele >= 44 px */
+.btn,.nav-cta,.sticky-book a{font-weight:600!important;letter-spacing:0!important;min-height:44px;padding:.75rem 1.4rem;box-shadow:none!important;transition:background-color .2s ease,border-color .2s ease}
+.btn.primary,.btn:not(.ghost):not(.secondary){background:var(--green)!important;color:#fff!important;box-shadow:none!important}
+.btn.primary:hover,.nav-cta:hover{background:#1c5a3e!important}
+.btn.ghost,.btn.secondary{background:transparent!important;color:var(--green)!important;border:1px solid var(--ad-line)!important}
+.btn.ghost:hover,.btn.secondary:hover{background:var(--ad-bg-2)!important}
+.btn-textlink,.c-link{font-weight:500;color:var(--green)}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--green);outline-offset:3px}
+/* Weißraum und Flächen */
+.section{padding-top:clamp(56px,8vw,104px);padding-bottom:clamp(56px,8vw,104px)}
+.section.compact{padding-top:clamp(32px,4vw,56px);padding-bottom:clamp(32px,4vw,56px)}
+.section-soft,.section.section-soft{background:var(--ad-bg-2)!important}
+.section-head{margin-bottom:clamp(28px,4vw,48px)}
+.page-hero,.hero.apple-hero{background:var(--ad-bg)!important;color:var(--ad-ink)!important;padding-top:clamp(40px,6vw,88px)!important;padding-bottom:clamp(40px,6vw,88px)!important;min-height:0!important}
+.page-hero .hero-actions{margin:1.75rem 0 0}
+.page-hero>.bww-ill,.hero-ill-wrap,.hero-visual .bww-ill{background:var(--ad-bg-2)!important;border-radius:24px!important;box-shadow:none!important;border:0!important}
+.hero.apple-hero:before,.hero.apple-hero:after,.page-hero:before,.page-hero:after{background:none!important;display:none!important}
+.hero.apple-hero h1,.page-hero h1,.hero-copy h1{color:var(--ad-ink)!important}
+.page-hero h1{max-width:26ch}
+.section.dark,.section.section.dark{background:var(--ad-bg-2)!important;color:var(--ad-ink)!important;border-radius:28px!important;box-shadow:none!important}
+.section.dark h2,.section.dark h3,.section.dark p,.section.dark .eyebrow{color:var(--ad-ink)!important}
+.section.dark p{color:var(--ad-ink-2)!important}
+.final-cta{background:var(--ad-bg-2)!important;color:var(--ad-ink)!important;border-radius:28px;box-shadow:none!important}
+.final-cta h2,.final-cta .final-note,.final-cta p{color:var(--ad-ink)!important}
+.final-cta p{color:var(--ad-ink-2)!important}
+.final-cta .final-note{color:var(--ad-ink-3)!important}
+.final-cta a:not(.btn){color:var(--green)!important}
+.final-cta .btn.ghost{background:transparent!important;color:var(--green)!important}
+.site-footer{background:var(--ad-bg-2)!important;color:var(--ad-ink-3)!important;border-top:1px solid var(--ad-line);padding-top:clamp(40px,5vw,64px);padding-bottom:clamp(40px,5vw,64px)}
+.site-footer .footer-logo{background:none;padding:0;border-radius:0;width:140px}
+.site-footer p,.site-footer span,.site-footer .footer-social a{color:var(--ad-ink-3)!important}
+.site-footer a{color:var(--ad-ink-2)!important;font-weight:400!important;font-size:.875rem}
+.site-footer a:hover{color:var(--green)!important;text-decoration:underline}
+.site-footer h2{font-size:.8125rem!important;font-weight:600!important;letter-spacing:0!important;text-transform:none!important;color:var(--ad-ink)!important;margin-bottom:.75rem}
+/* Karten: Haarlinie statt Schatten, ruhige Radien */
+.path-card,.feature-card,.course-card,.knowledge-card,.tool-card,.result-panel,.legal-card,.sim-card,.game-card,.card,.sustain-card,.anerkennung-card,.proof-strip>*{background:#fff!important;border:1px solid var(--ad-hair)!important;border-radius:20px!important;box-shadow:none!important}
+a.feature-card:hover,a.knowledge-card:hover,.course-card:hover,.path-card:hover{box-shadow:0 4px 24px rgba(0,0,0,.08)!important;border-color:var(--ad-line)!important;transform:none!important}
+.knowledge-card span,.feature-card span,.course-card span{color:var(--green);font-weight:600;font-size:.8125rem}
+.section-soft .card,.section-soft .feature-card,.section-soft .anerkennung-card{background:#fff!important}
+/* Artikel */
+.article-body{max-width:680px!important}
+.article-body h2{font-size:1.625rem!important;line-height:1.2;font-weight:600;margin-top:2.75rem!important}
+.article-body h3{margin-top:1.75rem}
+.article-body p,.article-body li{color:var(--ad-ink-2);line-height:1.6}
+.key-facts,.article-note{background:var(--ad-bg-2)!important;border:0!important;border-radius:16px!important;color:var(--ad-ink)!important;padding:1.25rem 1.5rem!important}
+.key-facts h2{color:var(--ad-ink)!important;font-size:1rem!important;margin-top:0!important}
+.article-related a{color:var(--green);font-weight:500}
+.article-sources{color:var(--ad-ink-3);font-size:.875rem}
+.breadcrumbs,.breadcrumbs a{color:var(--ad-ink-3)}
+.breadcrumbs .current{color:var(--ad-ink)}
+/* Formulare */
+.bww-form label{font-weight:500;color:var(--ad-ink)}
+.bww-form input,.bww-form select,.bww-form textarea{border:1px solid var(--ad-line);border-radius:12px;background:#fff;min-height:44px}
+.bww-form input:focus,.bww-form select:focus,.bww-form textarea:focus{border-color:var(--green);box-shadow:0 0 0 3px rgba(37,112,78,.18);outline:0}
+.form-hint,.form-status{color:var(--ad-ink-3)}
+/* Schwebende Buttonleiste: leichtes Material */
+.sticky-book{background:rgba(255,255,255,.92)!important;backdrop-filter:saturate(180%) blur(20px);box-shadow:0 2px 16px rgba(0,0,0,.12)!important;border:1px solid var(--ad-hair)!important;font-weight:600!important}
+.sticky-book a.sb-alt{background:transparent!important;color:var(--green)!important;border:1px solid var(--ad-line)}
+@media(max-width:620px){
+  .section{padding-left:20px;padding-right:20px}
+  .page-hero,.hero.apple-hero{padding-left:20px!important;padding-right:20px!important}
+  .btn{width:auto}
+  .hero-actions{gap:10px}
+}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+/* --- Apple-Design-Schicht, Nachbesserung: Reste der alten Gestaltung --- */
+body{background:#fff!important}
+h1,h2,h3,h4{hyphens:manual!important;-webkit-hyphens:manual!important;text-wrap:balance}
+.section h2,.section-head h2,.article-body h2,.knowledge-grid h2,.center h2,.section .split h2{color:var(--ad-ink)!important;font-weight:600!important;letter-spacing:-.02em!important;font-size:clamp(1.625rem,3.2vw,2.5rem)!important;line-height:1.12!important}
+.article-body h2{font-size:1.625rem!important;line-height:1.2!important}
+.section h3,.article-body h3{color:var(--ad-ink)!important;font-weight:600!important}
+.eyebrow,.section .eyebrow,.section-head .eyebrow,.center .eyebrow,.split .eyebrow,.hero-copy .eyebrow{background:none!important;border:0!important;padding:0!important;box-shadow:none!important;text-transform:none!important;letter-spacing:.01em!important;font-weight:600!important;font-size:.8125rem!important;color:var(--green)!important;display:block;margin-bottom:.75rem!important}
+.site-header .nav-cta,.nav-cta,.hero-actions .btn,.btn.ghost,.btn.secondary,.form-actions .btn{box-shadow:none!important;filter:none!important}
+.page-hero,.page-hero .hero-actions{text-align:left!important;justify-content:flex-start!important}
+.page-hero>div{justify-items:start}
+.hero-actions .btn,.form-actions .btn{width:auto!important;flex:0 0 auto}
+.hero-actions{justify-content:flex-start}
+.section-head{text-align:left}
+.center,.section-head.center{text-align:center}
+.trust-badges span,.proof-strip span{font-weight:500}
+.knowledge-card h3,.feature-card h3,.course-card h3{font-size:1.125rem}
+.knowledge-card p,.feature-card p,.course-card p{color:var(--ad-ink-3);font-size:.9375rem}
+.site-footer b,.site-footer strong,.site-footer .footer-bella b{color:var(--ad-ink)!important}
+.final-cta .btn,.final-cta .btn.ghost,.final-cta .btn.primary{box-shadow:none!important;filter:none!important}
+/* dunkle Alt-Sektion (Instagram/Bewertungen) auf neutral, Text folgt */
+main .section.dark h2,main .section.dark .section-head h2,main .section.dark h3{color:var(--ad-ink)!important}
+main .section.dark p,main .section.dark .section-head p{color:var(--ad-ink-2)!important}
+main .section.dark .eyebrow{color:var(--green)!important}
+main .section.dark .btn.ghost{color:var(--green)!important;background:transparent!important;border:1px solid var(--ad-line)!important}
+/* Breadcrumbs: Tippfläche auf Mobilgeräten */
+@media(max-width:620px){.breadcrumbs a{display:inline-block;padding:.65rem .15rem}}
+.privacy-note button{min-height:44px;min-width:44px;font-weight:600;border-radius:980px}
+.privacy-note{box-shadow:0 2px 16px rgba(0,0,0,.12)!important;border:1px solid var(--ad-hair)!important;border-radius:16px!important}
+@media(max-width:620px){.breadcrumbs a{padding:.8rem .15rem}}
+@media(max-width:620px){.breadcrumbs a{min-width:44px}}
+@media(max-width:900px){.hero.apple-hero .hero-copy,.hero.apple-hero .hero-actions,.hero.apple-hero .proof-strip{text-align:left!important;justify-content:flex-start!important}}
+
+/* Standort-Kopfzeile: Breadcrumbs auf hellem Grund */
+.page-inner .breadcrumbs,.page-inner .breadcrumbs a{color:var(--ad-ink-3)!important}
+.page-inner .breadcrumbs .sep{color:var(--ad-ink-3)!important}
+.page-inner .breadcrumbs .current{color:var(--ad-ink)!important}
+.page-inner .breadcrumbs a:hover{color:var(--green)!important}
+main small,.result-panel small,.card small{color:var(--ad-ink-3)!important}
+@media(max-width:620px){.crumb a,.page-hero .crumb a{display:inline-block;padding:.8rem .15rem;min-width:44px}}
