@@ -1322,5 +1322,13 @@
  "/wissen/erste-hilfe-bildungseinrichtungen-dguv-anforderungen/": {
   "active": "/wissen/",
   "cta": "/inhouse-kurse/#anfrage"
+ },
+ "/fuer-schulen/": {
+  "active": null,
+  "cta": "#anfrage"
+ },
+ "/fuer-behoerden/": {
+  "active": null,
+  "cta": "#anfrage"
  }
 }

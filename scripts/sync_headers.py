@@ -11,15 +11,12 @@ import re, glob, json, sys
 MAP_PATH = __file__.rsplit('/', 1)[0] + '/header_map.json'
 mapping = json.load(open(MAP_PATH, encoding='utf-8'))
 
+# 26.09.2026: Hauptnavigation auf 5 Punkte + 1 CTA (Offene Kurse, Standorte, Dozent werden, Shop stehen im Footer)
 NAV_LINKS = [
     ('/kurse/', 'Kurse'),
     ('/inhouse-kurse/', 'Inhouse'),
-    ('/kurse/offene-kurse-worbis/', 'Offene Kurse'),
-    ('/standorte/', 'Standorte'),
     ('/arbeitsschutz-check/', 'Tools'),
     ('/wissen/', 'Wissen'),
-    ('/dozent-werden/', 'Dozent werden'),
-    ('/shop/', 'Shop'),
     ('https://software-wippermann.de/mein-bereich?org=bww', 'Login'),
 ]
 
@@ -31,7 +28,7 @@ def build_header(active_href, cta_href):
              'onclick="var o=document.body.classList.toggle(\'menu-open\');'
              'this.setAttribute(\'aria-expanded\',o);'
              'this.setAttribute(\'aria-label\',o?\'Menü schließen\':\'Menü öffnen\')">'
-             '☰</button><nav id="site-nav">']
+             '<svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button><nav id="site-nav">']
     for href, label in NAV_LINKS:
         cls = 'active' if href == active_href else ''
         parts.append(f'<a class="{cls}" href="{href}">{label}</a>')

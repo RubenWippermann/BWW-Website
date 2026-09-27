@@ -73,7 +73,7 @@ function cleanLabel(t) { return anzeigeTitel(t).replace(/\s*\([^)]*\)/g, '').tri
     var ort = (k.adresse || k.stadt || '');                                   // Feed-Adresse, Fallback auf Stadt
     var inner =
       '<span class="termin-date"><b>' + fmtBlocks(k) + '</b>' + (zeit ? '<small>' + zeit + '</small>' : '') + '</span>' +
-      '<span class="termin-info"><b>' + esc(anzeigeTitel(k.titel)) + '</b><small>' + tags.filter(Boolean).map(esc).join(' · ') + '</small>' + (ort ? '<small class="termin-ort" style="display:block;margin-top:.15rem">📍 ' + esc(ort) + '</small>' : '') + '</span>' +
+      '<span class="termin-info"><b>' + esc(anzeigeTitel(k.titel)) + '</b><small>' + tags.filter(Boolean).map(esc).join(' · ') + '</small>' + (ort ? '<small class="termin-ort" style="display:block;margin-top:.15rem"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg> ' + esc(ort) + '</small>' : '') + '</span>' +
       '<span class="termin-meta"><b>' + preis + '</b><small>' + (voll ? 'Ausgebucht' : 'Plätze frei') + '</small></span>';
     if (voll) {
       // Ausgebucht: echte Warteliste (POST /api/warteliste), kein Link zur Buchung
@@ -354,22 +354,6 @@ function cleanLabel(t) { return anzeigeTitel(t).replace(/\s*\([^)]*\)/g, '').tri
       '<blockquote>' + esc(b.text || '') + '</blockquote>' +
       '<figcaption><b>' + esc(b.name || 'Anonym') + '</b>' + (meta ? '<small>' + meta + '</small>' : '') + '</figcaption></figure>';
   }
-  function injectReviewSchema(list) {
-    var rated = list.filter(function (b) { return parseInt(b.sterne, 10) > 0; });
-    if (!rated.length) return;
-    var sum = rated.reduce(function (a, b) { return a + (parseInt(b.sterne, 10) || 0); }, 0);
-    var avg = Math.round((sum / rated.length) * 10) / 10;
-    var node = {
-      '@context': 'https://schema.org', '@type': 'EducationalOrganization', '@id': 'https://www.multiplikatorenstelle.de/#organization',
-      name: 'BWW UG (haftungsbeschränkt)', url: 'https://www.multiplikatorenstelle.de/',
-      aggregateRating: { '@type': 'AggregateRating', ratingValue: avg, reviewCount: rated.length, bestRating: 5, worstRating: 1 },
-      review: rated.slice(0, 8).map(function (b) {
-        return { '@type': 'Review', author: { '@type': 'Person', name: b.name || 'Anonym' }, reviewRating: { '@type': 'Rating', ratingValue: parseInt(b.sterne, 10), bestRating: 5, worstRating: 1 }, reviewBody: b.text || '' };
-      })
-    };
-    var sc = document.createElement('script'); sc.type = 'application/ld+json'; sc.id = 'reviewSchema';
-    sc.textContent = JSON.stringify(node); document.head.appendChild(sc);
-  }
   function loadReviews() {
     var el = document.getElementById('reviews-list');
     if (!el) return;
@@ -378,7 +362,6 @@ function cleanLabel(t) { return anzeigeTitel(t).replace(/\s*\([^)]*\)/g, '').tri
       if (!list.length) return; // Fallback: Sektion bleibt mit Instagram/Google-CTA sichtbar
       el.innerHTML = list.slice(0, 12).map(reviewHTML).join('');
       el.hidden = false;
-      injectReviewSchema(list);
     }).catch(function () { /* still: kein Bruch, Fallback-CTA bleibt */ });
   }
 
