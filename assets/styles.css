@@ -1710,3 +1710,8 @@ main small,.result-panel small,.card small{color:var(--ad-ink-3)!important}
   html:root:root:root body main .fact-block dd{color:var(--ad-ink-2)!important}
   html:root:root:root body main .form-more{background:var(--ad-card)!important;border-color:var(--ad-hair)!important}
 }
+
+/* WM-3 Nachbesserung 27.09.: Fußzeilenlinks auf Mindest-Tippfläche 44 px */
+.site-footer a{min-height:44px;display:inline-flex;align-items:center}
+.site-footer .footer-contact a{min-height:44px;display:flex;align-items:center}
+.site-footer .footer-social a{min-height:44px}
