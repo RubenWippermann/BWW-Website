@@ -1715,4 +1715,4 @@ main small,.result-panel small,.card small{color:var(--ad-ink-3)!important}
 /* WM-3 Nachbesserung 27.09.: Fußzeilenlinks auf Mindest-Tippfläche 44 px */
 .site-footer a{min-height:44px;display:flex;align-items:center}
 .site-footer .footer-contact a{min-height:44px;display:flex;align-items:center}
-.site-footer .footer-social a{min-height:44px}
+.site-footer .footer-social a{min-height:44px;display:inline-flex}
