@@ -1716,3 +1716,8 @@ main small,.result-panel small,.card small{color:var(--ad-ink-3)!important}
 .site-footer a{min-height:44px;display:flex;align-items:center}
 .site-footer .footer-contact a{min-height:44px;display:flex;align-items:center}
 .site-footer .footer-social a{min-height:44px}
+
+/* Design-Audit 29.09.: .split (z.B. arbeitsschutz-check/) überlief bei ≤860px
+   horizontal (Grid-Item-Kinder ohne min-width:0 zwingen 1fr-Spur über die
+   Containerbreite hinaus, klassisches CSS-Grid-Min-Content-Problem). */
+@media(max-width:860px){.split,.split *{min-width:0}}
