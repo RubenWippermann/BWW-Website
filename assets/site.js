@@ -163,11 +163,21 @@ function applyKnowledgeFilter(){var si=document.getElementById('kbSearch');var q
 
 document.addEventListener('DOMContentLoaded',()=>{if(document.getElementById('calcResult'))calculateDguv();initCompliance();renderGame();renderNotruf();if(document.querySelector('.filter-bar')){try{var _q=new URLSearchParams(location.search).get('q');var _si=document.getElementById('kbSearch');if(_q&&_si)_si.value=_q;}catch(e){}filterKnowledge('all');}});
 
-/* Dezenter Datenschutz-Hinweis (keine Tracking-Cookies; merkt Dismiss via localStorage) */
+/* Dezenter Datenschutz-Hinweis (keine Tracking-Cookies; merkt Dismiss via localStorage).
+   DESIGN-NACHTAUDIT-5 (29.09.): fest positioniert (.privacy-note, styles.css) — bei
+   Kursseiten mit langem Hero-Text rutscht der zweite Hero-Button (.hero-actions .btn.ghost)
+   auf schmalen Screens (≤560px) noch in den ersten Bildschirm und wird vom Hinweis
+   überlappt. Die Position selbst NICHT angefasst (mehrfach vorsichtig nachjustiert,
+   deckt bereits den Sticky-Bar-Fall bottom:130px ab — ein weiterer Zahlendreh riskiert,
+   den gelösten Fall wieder aufzureißen). Stattdessen: der Hinweis ist rein informativ
+   (keine Cookie-EINWILLIGUNG nötig, die Seite setzt ohnehin keine Tracking-Cookies) und
+   verschwindet jetzt von selbst nach 8 Sekunden, statt dauerhaft im Weg zu stehen — ohne
+   `localStorage`-Vermerk, damit er beim nächsten Besuch wieder kurz erscheint. */
 (function(){try{if(localStorage.getItem('bww-privacy-ok'))return;}catch(e){}
 var b=document.createElement('div');b.className='privacy-note';
 b.innerHTML='<span>Diese Website nutzt <b>keine Tracking-Cookies</b>. Mehr in der <a href="/datenschutz/">Datenschutzerklärung</a>.</span><button type="button">Verstanden</button>';
-b.querySelector('button').addEventListener('click',function(){b.remove();try{localStorage.setItem('bww-privacy-ok','1');}catch(e){}});
+var auto=setTimeout(function(){b.remove();},8000);
+b.querySelector('button').addEventListener('click',function(){clearTimeout(auto);b.remove();try{localStorage.setItem('bww-privacy-ok','1');}catch(e){}});
 if(document.body)document.body.appendChild(b);})();
 
 /* Dezente Scroll-Reveals (progressive Enhancement, respektiert reduce-motion, Sicherheits-Fallback) */
