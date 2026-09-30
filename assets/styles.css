@@ -530,6 +530,11 @@ body{
 @media(max-width:1060px){
   .hero.apple-hero{grid-template-columns:1fr!important;min-height:auto!important}
   .pathway-grid.five{grid-template-columns:repeat(5,280px)!important}
+  /* Fund 30.09. (SW11, elementFromPoint bestätigt bei 1024px Desktop): derselbe
+     .sticky-book-Überdeckungsfehler wie am 06.09. bei 768px (siehe unten), aber
+     breiter als angenommen — .sticky-book ist bei JEDER Breite position:fixed,
+     nicht nur ≤860px. Gleicher Fix, nur der Geltungsbereich bis 1060px erweitert. */
+  .trust-badges{margin-top:5.5rem!important}
 }
 @media(max-width:860px){
   html{scroll-padding-top:76px}
