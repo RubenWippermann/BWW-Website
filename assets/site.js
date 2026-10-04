@@ -233,3 +233,6 @@ if(document.body)document.body.appendChild(b);})();
   }
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',groupNav);else groupNav();
 })();
+
+/* Buchungsleiste auf Tablet/kleinem Desktop erst nach etwas Scrollen zeigen (überdeckt sonst beim Laden Inhalte, SW3/SW5 04.10.) */
+(function(){function f(){document.body.classList.toggle('sb-scrolled',(window.scrollY||0)>240);}window.addEventListener('scroll',f,{passive:true});f();})();
