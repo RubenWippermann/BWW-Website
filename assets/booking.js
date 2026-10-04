@@ -87,6 +87,16 @@ function cleanLabel(t) { return anzeigeTitel(t).replace(/\s*\([^)]*\)/g, '').tri
 
   var EMPTY_MSG = '<p class="termine-empty">Aktuell sind hier keine offenen Termine gelistet. Fragt gern einen Wunschtermin oder <a href="/inhouse-kurse/">Inhouse-Kurs</a> an.</p>';
 
+  var KAT_REIHE = ['Erste Hilfe', 'Betriebssanitäter', 'Lehrkräfte', 'Brandschutz & Evakuierung', 'Weitere Kurse'];
+  function kategorie(code) {
+    var c = String(code || '').toUpperCase();
+    if (/^EH/.test(c)) return 'Erste Hilfe';
+    if (/^BS/.test(c)) return 'Betriebssanitäter';
+    if (/^LK/.test(c)) return 'Lehrkräfte';
+    if (/^(BH|EV)/.test(c)) return 'Brandschutz & Evakuierung';
+    return 'Weitere Kurse';
+  }
+
   function renderWithFilter(el, all) {
     // eindeutige Kursarten (Code -> lesbares Label aus dem Titel) und Städte
     var arten = {}, staedte = {};
@@ -97,31 +107,35 @@ function cleanLabel(t) { return anzeigeTitel(t).replace(/\s*\([^)]*\)/g, '').tri
     var artKeys = Object.keys(arten).sort(function (a, b) { return arten[a].localeCompare(arten[b]); });
     var stadtKeys = Object.keys(staedte).sort();
     var showArt = artKeys.length > 1, showStadt = stadtKeys.length > 1, hasBg = all.some(function (k) { return bgUk(k); });
+    // Kursarten nach Kategorie gruppiert (neue Formate ordnen sich über den Code-Präfix selbst ein)
+    var katOrder = [], katArts = {};
+    artKeys.forEach(function (c) { var g = kategorie(c); if (!katArts[g]) { katArts[g] = []; katOrder.push(g); } katArts[g].push(c); });
+    katOrder.sort(function (a, b) { return KAT_REIHE.indexOf(a) - KAT_REIHE.indexOf(b); });
+    var artOpts = katOrder.map(function (g) {
+      var codes = katArts[g];
+      return '<optgroup label="' + esc(g) + '">' + (codes.length > 1 ? '<option value="k:' + esc(g) + '">Alle: ' + esc(g) + '</option>' : '') +
+        codes.map(function (c) { return '<option value="' + esc(c) + '">' + esc(arten[c]) + '</option>'; }).join('') + '</optgroup>';
+    }).join('');
     var bar = '';
     if (showArt || showStadt || hasBg) {
-      bar = '<div class="termine-filter">' +
-        (showArt ? '<div class="tf-arts" role="group" aria-label="Nach Kursart filtern"><button type="button" class="tf-chip is-active" data-art="">Alle Kursarten</button>' + artKeys.map(function (c) { return '<button type="button" class="tf-chip" data-art="' + esc(c) + '">' + esc(arten[c]) + '</button>'; }).join('') + '</div>' : '') +
-        (showStadt ? '<select class="tf-stadt" aria-label="Nach Ort filtern"><option value="">Alle Orte</option>' + stadtKeys.map(function (s) { return '<option value="' + esc(s) + '">' + esc(s) + '</option>'; }).join('') + '</select>' : '') +
+      bar = '<div class="termine-filter tf-v2">' +
+        (showArt ? '<select class="tf-art' + (showStadt ? '' : ' tf-full') + '" aria-label="Nach Kursart filtern"><option value="">Alle Kursarten</option>' + artOpts + '</select>' : '') +
+        (showStadt ? '<select class="tf-stadt' + (showArt ? '' : ' tf-full') + '" aria-label="Nach Ort filtern"><option value="">Alle Orte</option>' + stadtKeys.map(function (s) { return '<option value="' + esc(s) + '">' + esc(s) + '</option>'; }).join('') + '</select>' : '') +
         (hasBg ? '<label class="tf-bg"><input type="checkbox" class="tf-bgchk"> Nur BG/UK-abrechenbar</label>' : '') + '<span class="tf-count" aria-live="polite"></span></div>';
     }
     el.innerHTML = bar + '<div class="termine-rows"></div>';
-    var stadtSel = el.querySelector('.tf-stadt');
+    var stadtSel = el.querySelector('.tf-stadt'), artSel = el.querySelector('.tf-art');
     var rowsEl = el.querySelector('.termine-rows'), countEl = el.querySelector('.tf-count');
-    function activeArt() { var b = el.querySelector('.tf-chip.is-active'); return b ? (b.getAttribute('data-art') || '') : ''; }
-    function setArt(code) {
-      var chips = el.querySelectorAll('.tf-chip'); var hit = null;
-      Array.prototype.forEach.call(chips, function (c) { c.classList.remove('is-active'); c.setAttribute('aria-pressed', 'false'); if ((c.getAttribute('data-art') || '') === code) hit = c; });
-      (hit || chips[0]).classList.add('is-active'); (hit || chips[0]).setAttribute('aria-pressed', 'true');
-    }
+    function passtArt(k, a) { return !a || (a.indexOf('k:') === 0 ? kategorie(k.kursart) === a.slice(2) : k.kursart === a); }
     function apply() {
-      var a = activeArt(), s = stadtSel ? stadtSel.value : '';
+      var a = artSel ? artSel.value : '', s = stadtSel ? stadtSel.value : '';
       var bgChk = el.querySelector('.tf-bgchk'), bg = bgChk && bgChk.checked;
-      var f = all.filter(function (k) { return (!a || k.kursart === a) && (!s || k.stadt === s) && (!bg || bgUk(k)); });
+      var f = all.filter(function (k) { return passtArt(k, a) && (!s || k.stadt === s) && (!bg || bgUk(k)); });
       rowsEl.innerHTML = f.length ? f.map(rowHTML).join('') : '<p class="termine-empty">Für diese Auswahl sind aktuell keine Termine frei. <a href="/inhouse-kurse/">Wunschtermin anfragen →</a></p>';
       if (countEl) countEl.textContent = f.length + (f.length === 1 ? ' Termin' : ' Termine');
     }
-    Array.prototype.forEach.call(el.querySelectorAll('.tf-chip'), function (chip) { chip.addEventListener('click', function () { setArt(chip.getAttribute('data-art') || ''); apply(); }); });
-    var m = location.search.match(/[?&]art=([^&]*)/); if (m) { setArt(decodeURIComponent(m[1])); }
+    if (artSel) artSel.addEventListener('change', apply);
+    var m = location.search.match(/[?&]art=([^&]*)/); if (m && artSel) { var v = decodeURIComponent(m[1]); if (artSel.querySelector('option[value="' + v.replace(/"/g, '') + '"]')) artSel.value = v; }
     if (stadtSel) stadtSel.addEventListener('change', apply);
     var bgChk0 = el.querySelector('.tf-bgchk'); if (bgChk0) bgChk0.addEventListener('change', apply);
     apply();
@@ -464,85 +478,13 @@ function cleanLabel(t) { return anzeigeTitel(t).replace(/\s*\([^)]*\)/g, '').tri
       .then(function (f) { FEATURES = f || {}; }).catch(function () { FEATURES = {}; });
   }
 
-  /* ---------- Online-Buchung + Bezahlung (gated: nur aktiv, wenn FEATURES.online_zahlung) ---------- */
-  function ensureBookingModal() {
-    if (document.getElementById('bkModal')) return;
-    var o = document.createElement('div');
-    o.id = 'bkModal'; o.className = 'wl-overlay'; o.hidden = true;
-    o.innerHTML =
-      '<div class="wl-box bk-box" role="dialog" aria-modal="true" aria-labelledby="bkTitle">' +
-        '<button type="button" class="wl-close" aria-label="Schließen">×</button>' +
-        '<h3 id="bkTitle">Kurs buchen &amp; bezahlen</h3><p class="wl-course"></p>' +
-        '<form class="wl-form bk-form" novalidate>' +
-          '<label for="bk-vorname">Vorname *</label><input id="bk-vorname" name="vorname" autocomplete="given-name" required>' +
-          '<label for="bk-nachname">Nachname *</label><input id="bk-nachname" name="nachname" autocomplete="family-name" required>' +
-          '<label for="bk-mail">E-Mail *</label><input id="bk-mail" name="email" type="email" autocomplete="email" required>' +
-          '<label for="bk-firma">Firma (optional)</label><input id="bk-firma" name="firma" autocomplete="organization">' +
-          '<label for="bk-strasse">Rechnungsadresse *</label><input id="bk-strasse" name="strasse" autocomplete="street-address" placeholder="Straße &amp; Hausnummer" required>' +
-          '<div class="fgrid"><div><label for="bk-plz">PLZ *</label><input id="bk-plz" name="plz" autocomplete="postal-code" required inputmode="numeric" pattern="[0-9]{5}"></div>' +
-          '<div><label for="bk-ort">Ort *</label><input id="bk-ort" name="ort" autocomplete="address-level2" required></div></div>' +
-          '<div class="hp"><label>Bitte frei lassen<input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true"></label></div>' +
-          '<p class="bk-storno-hint">Stornierung 13–7 Tage vor Kursbeginn: 50 % der Kursgebühr. Ab 6 Tagen vorher oder bei Nichterscheinen: 100 %. Details in den <a href="/agb/" target="_blank" rel="noopener">AGB</a>.</p>' +
-          '<label class="consent"><input type="checkbox" name="consent" required><span>Ich habe die <a href="/datenschutz/" target="_blank" rel="noopener">Datenschutzerklärung</a> und die <a href="/agb/" target="_blank" rel="noopener">AGB</a> gelesen und akzeptiere sie.</span></label>' +
-          '<label class="consent"><input type="checkbox" name="widerruf_verzicht" required><span>Ich wünsche ausdrücklich, dass mit der Ausführung der gebuchten Leistung bereits vor Ablauf der Widerrufsfrist begonnen wird, und weiß, dass ich dadurch nach vollständiger Vertragserfüllung mein <a href="/widerruf/" target="_blank" rel="noopener">Widerrufsrecht</a> verliere.</span></label>' +
-          '<button class="btn primary" type="submit">Weiter zur Zahlung</button>' +
-          '<p class="wl-status" role="status" aria-live="polite"></p>' +
-          '<p class="bk-note">Die Zahlung läuft über unseren Zahlungsdienstleister. Kartendaten werden nie auf dieser Website eingegeben.</p>' +
-        '</form></div>';
-    document.body.appendChild(o);
-    function close() { o.hidden = true; }
-    o.querySelector('.wl-close').addEventListener('click', close);
-    o.addEventListener('click', function (e) { if (e.target === o) close(); });
-    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
-    o.querySelector('form').addEventListener('submit', function (e) {
-      e.preventDefault();
-      var f = e.target, st = f.querySelector('.wl-status');
-      if (f.querySelector('[name="website"]').value) return;
-      if (!f.querySelector('[name="consent"]').checked) { st.textContent = 'Bitte Datenschutz und AGB bestätigen.'; return; }
-      if (!f.querySelector('[name="widerruf_verzicht"]').checked) { st.textContent = 'Bitte den vorzeitigen Leistungsbeginn bestätigen.'; return; }
-      var btn = f.querySelector('button[type="submit"]');
-      var payload = { org: ORG, quelle: QUELLE, termin: o.getAttribute('data-termin') || '', anzahl: 1, website: '',
-        teilnehmer: [{ vorname: f.vorname.value.trim(), nachname: f.nachname.value.trim(), email: f.email.value.trim() }],
-        rechnung: { firma: f.firma.value.trim(), strasse: f.strasse.value.trim(), plz: f.plz.value.trim(), ort: f.ort.value.trim(), email: f.email.value.trim() } };
-      st.textContent = 'Buchung wird geprüft …'; btn.disabled = true;
-      fetch(API + '/api/kurs-buchung', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) })
-        .then(function (r) { return r.json().catch(function () { return {}; }).then(function (j) { return { ok: r.ok, status: r.status, j: j }; }); })
-        .then(function (res) {
-          var d = res.j || {};
-          if (res.ok && d.checkout_url) { st.textContent = 'Weiterleitung zur sicheren Zahlung …'; window.location.href = d.checkout_url; return; }
-          btn.disabled = false;
-          var msg = { course_full: 'Dieser Termin ist leider ausgebucht. Setzt euch gern auf die Warteliste.',
-                      course_past: 'Dieser Termin liegt in der Vergangenheit. Bitte wählt einen aktuellen Termin.',
-                      invalid_email: 'Bitte prüft die E-Mail-Adresse.',
-                      already_booked: 'Für diese E-Mail liegt bereits eine Buchung zu diesem Termin vor.',
-                      invalid_input: 'Bitte prüft eure Eingaben.',
-                      too_many_requests: 'Zu viele Anfragen in kurzer Zeit. Bitte in etwa einer Stunde erneut versuchen – oder ruft uns an: ' + TEL + '.' }[d.error];
-          if (!msg && res.status === 429) msg = 'Zu viele Anfragen in kurzer Zeit. Bitte in etwa einer Stunde erneut versuchen – oder ruft uns an: ' + TEL + '.';
-          st.textContent = msg || 'Es ist ein Fehler aufgetreten. Bitte versucht es später erneut oder ruft uns an.';
-        })
-        .catch(function () { btn.disabled = false; st.textContent = 'Verbindung fehlgeschlagen. Bitte erneut versuchen.'; });
-    });
-  }
-  function openBookingModal(id, titel) {
-    ensureBookingModal();
-    var o = document.getElementById('bkModal');
-    o.setAttribute('data-termin', id || '');
-    o.querySelector('.wl-course').textContent = titel || '';
-    var s = o.querySelector('.wl-status'); if (s) s.textContent = '';
-    o.hidden = false;
-    var first = o.querySelector('input'); if (first) first.focus();
-  }
-  function wireBooking() {
-    document.addEventListener('click', function (e) {
-      if (!featureOn('online_zahlung')) return;                 // gated -> normaler buchungs_url-Link greift
-      var a = e.target && e.target.closest ? e.target.closest('.termin-row[data-termin-id]') : null;
-      if (!a || !a.getAttribute('data-termin-id')) return;
-      e.preventDefault();
-      openBookingModal(a.getAttribute('data-termin-id'), a.getAttribute('data-titel'));
-    });
-  }
+  /* Online-Buchung: Der Klick auf "Buchen" führt auf die Buchungsseite der Kurssoftware
+     (buchungs_url, /buchen). Das frühere Modal "Kurs buchen & bezahlen" schickte name/email
+     nur verschachtelt (teilnehmer[]) und ohne datenschutz_akzeptiert/agb_akzeptiert/geburtsdatum
+     an /api/kurs-buchung — der Server lehnt das immer ab (invalid_input, feld=email). /buchen
+     nutzt denselben Endpunkt vollständig und kennt Zahlerart, Absage und Ausbuchung. */
 
-  function init() { loadTermine(); wireForms(); wireWaitlist(); loadReviews(); enrichCourseCards(); wireStartzeit(); loadFeatures().then(loadTestimonials); wireBooking(); }
+  function init() { loadTermine(); wireForms(); wireWaitlist(); loadReviews(); enrichCourseCards(); wireStartzeit(); loadFeatures().then(loadTestimonials); }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
   else init();
 })();
