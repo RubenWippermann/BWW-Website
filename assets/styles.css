@@ -1740,3 +1740,12 @@ main small,.result-panel small,.card small{color:var(--ad-ink-3)!important}
   html:root:root:root body:not(.sb-scrolled) .sticky-book{opacity:0;visibility:hidden;transition:opacity .2s}
   html:root:root:root body.sb-scrolled .sticky-book{opacity:1;visibility:visible;transition:opacity .2s}
 }
+
+/* Hero-Einstieg: gestaffelt, nur opacity/transform, endet immer sichtbar; reduced-motion aus (globale Regel oben) */
+@media (prefers-reduced-motion: no-preference){
+  .hero.apple-hero .hero-copy > *{animation:bwwHeroEin .6s cubic-bezier(.2,.7,.2,1) both}
+  .hero.apple-hero .hero-copy > *:nth-child(2){animation-delay:.08s}
+  .hero.apple-hero .hero-copy > *:nth-child(3){animation-delay:.16s}
+  .hero.apple-hero .hero-copy > *:nth-child(4){animation-delay:.24s}
+}
+@keyframes bwwHeroEin{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
