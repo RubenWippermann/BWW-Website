@@ -1726,3 +1726,13 @@ main small,.result-panel small,.card small{color:var(--ad-ink-3)!important}
    horizontal (Grid-Item-Kinder ohne min-width:0 zwingen 1fr-Spur über die
    Containerbreite hinaus, klassisches CSS-Grid-Min-Content-Problem). */
 @media(max-width:860px){.split,.split *{min-width:0}}
+
+/* Design-Audit 04.10. (SW3/SW5-Befunde): .sticky-book lag bei 561-860px über die
+   volle Breite (left/right:12px) und überdeckte Trust-Badges UND das "Buchen"-Pill
+   der Kurskarten (elementFromPoint = .sticky-book). Ein fester margin-top kann das
+   nicht lösen (die Leiste folgt der Viewport-HÖHE). Strukturell: ab 561px kompakt
+   rechts (wie auf Desktop), Container klick-durchlässig, nur die Knöpfe fangen Klicks. */
+@media(min-width:561px) and (max-width:1060px){
+  html:root:root:root body .sticky-book{left:auto!important;right:12px!important;width:auto!important;justify-content:flex-end!important;pointer-events:none}
+  html:root:root:root body .sticky-book a,html:root:root:root body .sticky-book button{pointer-events:auto}
+}
