@@ -1736,3 +1736,7 @@ main small,.result-panel small,.card small{color:var(--ad-ink-3)!important}
   html:root:root:root body .sticky-book{left:auto!important;right:12px!important;width:auto!important;justify-content:flex-end!important;pointer-events:none}
   html:root:root:root body .sticky-book a,html:root:root:root body .sticky-book button{pointer-events:auto}
 }
+@media(min-width:561px) and (max-width:1060px){
+  html:root:root:root body:not(.sb-scrolled) .sticky-book{opacity:0;visibility:hidden;transition:opacity .2s}
+  html:root:root:root body.sb-scrolled .sticky-book{opacity:1;visibility:visible;transition:opacity .2s}
+}
