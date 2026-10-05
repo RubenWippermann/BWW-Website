@@ -1839,3 +1839,10 @@ html:root:root:root body.sb-in-list .sticky-book{opacity:0!important;visibility:
   html.a3-ready img.a3-img{transition:opacity 250ms ease-out}
   html.a3-ready img.a3-img:not(.a3-loaded){opacity:0}
 }
+
+/* a3-Abstand: einheitlicher Abstand zwischen Kaesten (Variable --a3-gap), gap am Container */
+:root{--a3-gap:12px}
+@media(min-width:768px){:root{--a3-gap:16px}}
+@media(min-width:1100px){:root{--a3-gap:20px}}
+html:root :is(.termine-list,.faq-list,.check-grid,.checks,.format-chips,.proof-strip,.termine-rows,.social-strip){gap:var(--a3-gap)!important}
+html:root .termine-rows{display:grid}
