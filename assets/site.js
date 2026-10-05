@@ -236,3 +236,10 @@ if(document.body)document.body.appendChild(b);})();
 
 /* Buchungsleiste auf Tablet/kleinem Desktop erst nach etwas Scrollen zeigen (überdeckt sonst beim Laden Inhalte, SW3/SW5 04.10.) */
 (function(){function f(){document.body.classList.toggle('sb-scrolled',(window.scrollY||0)>240);}window.addEventListener('scroll',f,{passive:true});f();})();
+/* Schwebende Leiste "Freie Termine / Inhouse anfragen" ausblenden, solange die Terminliste
+   im Bild ist — sonst liegt sie auf dem "Buchen"-Pill der gerade unten stehenden Karte. */
+(function(){
+  var l=document.getElementById('live-termine');
+  if(!l||!('IntersectionObserver' in window))return;
+  new IntersectionObserver(function(e){document.body.classList.toggle('sb-in-list',e[0].isIntersecting);}).observe(l);
+})();
