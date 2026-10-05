@@ -1,0 +1,98 @@
+/* Effekt-Ebene (FX) - BWW / multiplikatorenstelle.de
+   Motiv: Natur und Wachstum ("1 Baum pro Kurs"). Nur transform/opacity/clip-path/filter.
+   Alles hinter prefers-reduced-motion: no-preference; ohne JS bleibt die Seite unveraendert.
+   Gruen nur als Akzent, keine gruenen Grossflaechen. Wird NACH styles.css geladen. */
+
+@media (prefers-reduced-motion: no-preference) {
+
+  /* Seitenuebergaenge (Chrome/Safari: weiche Ueberblendung) */
+  @view-transition { navigation: auto; }
+  ::view-transition-old(root) { animation: fx-page-out 200ms cubic-bezier(.4,0,1,1) both; }
+  ::view-transition-new(root) { animation: fx-page-in 420ms cubic-bezier(.16,1,.3,1) both; }
+  @keyframes fx-page-out { to { opacity: 0; transform: translateY(-6px); } }
+  @keyframes fx-page-in { from { opacity: 0; transform: translateY(14px); } }
+
+  /* Lese-Fortschritt: wachsender Trieb */
+  .fx-progress { position: fixed; top: 0; left: 0; right: 0; height: 3px; z-index: 100; pointer-events: none;
+    background: linear-gradient(90deg, #25704e, #5fa566 55%, #8bcf73); transform-origin: 0 50%; transform: scaleX(0);
+    box-shadow: 0 0 10px rgba(95,165,102,.6); }
+
+  /* Hero: Aurora, Lichtkegel, Ranke, Buchstaben-Auftritt */
+  .fx-hero { isolation: isolate; }
+  .fx-aurora { position: absolute; inset: 0; overflow: hidden; pointer-events: none; z-index: -1; }
+  .fx-blob { position: absolute; border-radius: 50%; filter: blur(60px); will-change: transform; }
+  .fx-blob.b1 { width: 46vmax; height: 46vmax; left: -12%; top: -30%; background: rgba(121,189,101,.30); animation: fx-b1 22s ease-in-out infinite alternate; }
+  .fx-blob.b2 { width: 38vmax; height: 38vmax; right: -10%; top: 6%; background: rgba(47,125,90,.20); animation: fx-b2 27s ease-in-out infinite alternate; }
+  .fx-blob.b3 { width: 30vmax; height: 30vmax; left: 30%; bottom: -34%; background: rgba(190,232,150,.34); animation: fx-b3 31s ease-in-out infinite alternate; }
+  .page-hero.fx-hero .fx-blob.b1 { background: rgba(95,165,102,.30); }
+  .page-hero.fx-hero .fx-blob.b2 { background: rgba(139,207,115,.22); }
+  .page-hero.fx-hero .fx-blob.b3 { background: rgba(47,125,90,.40); }
+  @keyframes fx-b1 { to { transform: translate3d(14%, 18%, 0) scale(1.15); } }
+  @keyframes fx-b2 { to { transform: translate3d(-16%, 14%, 0) scale(.9); } }
+  @keyframes fx-b3 { to { transform: translate3d(-22%, -16%, 0) scale(1.2); } }
+
+  .fx-spot { position: absolute; inset: 0; pointer-events: none; opacity: 0; transition: opacity 500ms ease;
+    background: radial-gradient(480px circle at var(--sx, 60%) var(--sy, 40%), rgba(139,207,115,.34), rgba(139,207,115,0) 62%); }
+  .page-hero.fx-hero .fx-spot { background: radial-gradient(480px circle at var(--sx, 60%) var(--sy, 40%), rgba(139,207,115,.30), rgba(139,207,115,0) 62%); mix-blend-mode: screen; }
+  .fx-hero.fx-hot .fx-spot { opacity: 1; }
+
+  .fx-vine { position: absolute; left: 0; top: -34px; width: min(230px, 52vw); height: 30px; overflow: visible; pointer-events: none; color: #25704e; }
+  .page-hero .fx-vine { color: #8bcf73; }
+  .fx-vine .stem { fill: none; stroke: currentColor; stroke-width: 2.2; stroke-linecap: round; stroke-dasharray: 260; stroke-dashoffset: 260;
+    animation: fx-draw 2.4s cubic-bezier(.5,0,.2,1) .4s forwards; }
+  .fx-vine .leaf { fill: currentColor; opacity: 0; transform-box: fill-box; transform-origin: 0% 100%; transform: scale(0) rotate(-30deg);
+    animation: fx-leaf 700ms cubic-bezier(.3,1.5,.5,1) forwards, fx-sway 5s ease-in-out infinite alternate; animation-delay: calc(900ms + var(--k) * 260ms), calc(2200ms + var(--k) * 260ms); }
+  @keyframes fx-draw { to { stroke-dashoffset: 0; } }
+  @keyframes fx-leaf { to { opacity: .9; transform: scale(1) rotate(0deg); } }
+  @keyframes fx-sway { from { transform: scale(1) rotate(-4deg); } to { transform: scale(1) rotate(5deg); } }
+
+  .fx-word { display: inline-block; white-space: nowrap; }
+  .fx-ch { display: inline-block; opacity: 0; transform: translate3d(0, .5em, 0) rotate(4deg); filter: blur(8px);
+    animation: fx-ch-in 800ms cubic-bezier(.16,1,.3,1) forwards; animation-delay: calc(100ms + var(--i) * 28ms); }
+  @keyframes fx-ch-in { to { opacity: 1; transform: none; filter: blur(0); } }
+  .fx-hero :is(.eyebrow, .hero-note, .hero-actions, .proof-strip, h1 ~ p) { opacity: 0; transform: translate3d(0, 16px, 0);
+    animation: fx-up 800ms cubic-bezier(.16,1,.3,1) forwards; animation-delay: 80ms; }
+  .fx-hero h1 ~ p { animation-delay: 650ms; }
+  .fx-hero .hero-note { animation-delay: 800ms; }
+  .fx-hero .hero-actions { animation-delay: 900ms; }
+  .fx-hero .proof-strip { animation-delay: 1050ms; }
+  @keyframes fx-up { to { opacity: 1; transform: none; } }
+  .fx-hero .hero-ill-wrap { animation: fx-float 9s ease-in-out infinite alternate; }
+  @keyframes fx-float { to { transform: translate3d(0, -9px, 0) rotate(.35deg); } }
+
+  /* Abschnittskopf: Trieb-Linie waechst (ohne Layout-Aenderung, liegt im Abschnitts-Abstand) */
+  .section-head { position: relative; }
+  .section-head::before { content: ""; position: absolute; left: 0; top: -14px; width: 56px; height: 3px; border-radius: 3px;
+    background: linear-gradient(90deg, #25704e, #8bcf73); transform: scaleX(0); transform-origin: 0 50%;
+    transition: transform 900ms cubic-bezier(.16,1,.3,1) 150ms; pointer-events: none; }
+  .section-head.fx-c::before { left: calc(50% - 28px); transform-origin: 50% 50%; }
+  .section-head.is-in::before { transform: scaleX(1); }
+
+  /* Karten: Einzug gestaffelt, 3D-Neigung mit Lichtreflex (nur Maus/Trackpad) */
+  .fx-pre { opacity: 0; transform: translate3d(0, 26px, 0) scale(.98); }
+  .fx-pre.fx-in { opacity: 1; transform: none; transition: opacity 700ms ease var(--d, 0ms), transform 900ms cubic-bezier(.16,1,.3,1) var(--d, 0ms); }
+  .fx-tilt { position: relative; }
+  .fx-tilt.fx-tilt-on { transform: perspective(900px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)) translateY(-5px) scale(1.01) !important;
+    transition: transform 90ms ease-out, box-shadow 250ms ease !important; box-shadow: 0 26px 56px -18px rgba(16,60,40,.34) !important; }
+  .fx-glare { position: absolute; inset: 0; border-radius: inherit; pointer-events: none; opacity: 0; transition: opacity 250ms ease; z-index: 3;
+    background: radial-gradient(320px circle at var(--gx, 50%) var(--gy, 0%), rgba(255,255,255,.55), rgba(255,255,255,0) 60%); mix-blend-mode: soft-light; }
+  .fx-tilt-on > .fx-glare { opacity: 1; }
+
+  /* Primaere Buttons: magnetisch + Lichtreflex (Groesse bleibt unveraendert) */
+  .fx-mag { position: relative; overflow: hidden; translate: var(--bx, 0px) var(--by, 0px); transition: translate 200ms cubic-bezier(.2,.8,.2,1); }
+  .fx-mag::after { content: ""; position: absolute; inset: 0; pointer-events: none; transform: translateX(-130%) skewX(-18deg);
+    background: linear-gradient(100deg, transparent 30%, rgba(255,255,255,.4) 50%, transparent 70%); }
+  .fx-mag:hover::after { transform: translateX(130%) skewX(-18deg); transition: transform 720ms cubic-bezier(.2,.7,.2,1); }
+
+  /* Wachstum: Symbole keimen, Mini-Wald waechst im Nachhaltigkeits-Hinweis */
+  .fx-sprout svg { opacity: 0; transform: scale(.25) rotate(-22deg); transform-origin: 50% 100%; }
+  .fx-sprout.is-in svg { opacity: 1; transform: none; transition: opacity 500ms ease var(--d, 0ms), transform 900ms cubic-bezier(.3,1.6,.5,1) var(--d, 0ms); }
+  .fx-forest { position: absolute; right: 18px; bottom: 0; width: 104px; height: 40px; pointer-events: none; opacity: .3; color: #25704e; }
+  .fx-forest .tree { fill: currentColor; transform-box: fill-box; transform-origin: 50% 100%; transform: scaleY(0); }
+  .fx-forest.is-in .tree { transform: scaleY(1); transition: transform 1000ms cubic-bezier(.3,1.4,.5,1) calc(var(--k) * 200ms); }
+}
+
+/* Touch-Geraete: keine Maus-Effekte */
+@media (hover: none), (pointer: coarse) {
+  .fx-spot, .fx-glare { display: none !important; }
+}
