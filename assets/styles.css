@@ -1782,3 +1782,7 @@ html:root:root:root body.sb-in-list .sticky-book{opacity:0!important;visibility:
   .hero.apple-hero .hero-copy > *:nth-child(4){animation-delay:.24s}
 }
 @keyframes bwwHeroEin{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+
+/* Symmetrie (05.10.2026): gleich breite Knöpfe je Reihe, keine Waisen-Karte im 2-Spalten-Raster */
+@media(min-width:521px){.hero-actions{display:grid!important;grid-auto-flow:column;grid-auto-columns:1fr;justify-content:start}}
+@media(min-width:601px) and (max-width:900px){.anerkennung-grid>.anerkennung-card:last-child:nth-child(odd){grid-column:1/-1}}
