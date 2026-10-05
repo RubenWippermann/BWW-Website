@@ -1786,3 +1786,37 @@ html:root:root:root body.sb-in-list .sticky-book{opacity:0!important;visibility:
 /* Symmetrie (05.10.2026): gleich breite Knöpfe je Reihe, keine Waisen-Karte im 2-Spalten-Raster */
 @media(min-width:521px){.hero-actions{display:grid!important;grid-auto-flow:column;grid-auto-columns:1fr;justify-content:start}}
 @media(min-width:601px) and (max-width:900px){.anerkennung-grid>.anerkennung-card:last-child:nth-child(odd){grid-column:1/-1}}
+
+/* anim2 (05.10.2026): einheitliche, dezente Bewegung. Nur opacity/transform. Standardzustand = sichtbar (ohne JS, ohne Scroll-Timeline-Support, bei reduced-motion). */
+@media (prefers-reduced-motion: no-preference){
+  @keyframes a2-in{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+  @keyframes a2-scroll{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+
+  /* 1) Eintritt gestaffelt: Karten ohne JS-Staffelung (fx.js staffelt Pfad-/Feature-/Nachhaltigkeitskarten) per Scroll-Timeline; Chrome/Safari, sonst bleibt alles statisch sichtbar */
+  @supports (animation-timeline: view()){
+    html:root main :is(.course-card,.tool-tile,.anerkennung-card){animation:a2-scroll 1ms linear backwards;animation-timeline:view();animation-range:entry 0% entry 38%}
+    html:root main :is(.course-card,.tool-tile,.anerkennung-card):nth-child(4n+2){animation-range:entry 4% entry 42%}
+    html:root main :is(.course-card,.tool-tile,.anerkennung-card):nth-child(4n+3){animation-range:entry 8% entry 46%}
+    html:root main :is(.course-card,.tool-tile,.anerkennung-card):nth-child(4n+4){animation-range:entry 12% entry 50%}
+  }
+  /* vorhandene JS-Staffelung (fx.js) angleichen: 60 ms je Stufe (3 Stufen), 450/550 ms */
+  html:root .fx-pre.fx-in{transition:opacity 450ms ease calc(var(--d,0ms)*.75),transform 550ms cubic-bezier(.16,1,.3,1) calc(var(--d,0ms)*.75)}
+
+  /* 3) Hover-Lift einheitlich: -3px, 200 ms ease-out, nur transform */
+  html:root :is(.path-card,.feature-card,.course-card,.knowledge-card,.tool-tile,.sustain-card,.format-chip,.inhouse-grid a,.termin-row){transition:transform 200ms ease-out!important}
+  @media (hover:hover){
+    html:root :is(.path-card,.feature-card,.course-card,.knowledge-card,.tool-tile,.format-chip,.inhouse-grid a,.termin-row:not(.is-full)):hover,
+    html:root a.feature-card:hover,html:root a.knowledge-card:hover{transform:translateY(-3px)!important}
+    /* fx.js-Neigung auf dieselbe Hover-Form zurueckfuehren (kein zweiter Effekt) */
+    html:root .fx-tilt.fx-tilt-on{transform:translateY(-3px)!important;transition:transform 200ms ease-out!important;box-shadow:0 4px 24px var(--ad-shadow,rgba(12,48,38,.08))!important}
+    html:root .fx-tilt>.fx-glare{display:none!important}
+  }
+
+  /* 4) Wechsel: Terminliste (Neuaufbau bei Filter), Aufklappen */
+  .termine-rows>*,.termine-empty{animation:a2-in 220ms ease-out backwards}
+  .termine-rows>:nth-child(2){animation-delay:60ms}.termine-rows>:nth-child(3){animation-delay:120ms}.termine-rows>:nth-child(4){animation-delay:180ms}.termine-rows>:nth-child(5){animation-delay:240ms}.termine-rows>:nth-child(n+6){animation-delay:300ms}
+  .faq-list details[open]>:not(summary){animation:a2-in 200ms ease-out backwards}
+}
+@media (prefers-reduced-motion: reduce){
+  html:root :is(.path-card,.feature-card,.course-card,.knowledge-card,.tool-tile,.sustain-card,.format-chip,.inhouse-grid a,.termin-row):hover{transform:none!important}
+}

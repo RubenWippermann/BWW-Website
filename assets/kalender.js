@@ -105,7 +105,7 @@
     this.detail = this.el.querySelector('.kal-detail');
     this.el.addEventListener('click', function (e) {
       var f = e.target.closest('[data-filter]');
-      if (f) { self.filter = f.getAttribute('data-filter'); self.einsortieren(); self.filterZeichnen(); self.gewaehlt = null; self.zeichne(0); return; }
+      if (f) { self.filter = f.getAttribute('data-filter'); self.einsortieren(); self.filterZeichnen(); self.gewaehlt = null; self.zeichne(2); return; }
       var nav = e.target.closest('[data-nav]');
       if (nav) { self.navigiere(+nav.getAttribute('data-nav')); return; }
       var tag = e.target.closest('[data-tag]');
@@ -240,7 +240,7 @@
     } else {
       html = this.raster(y, m, anz, erster) + leer;
     }
-    this.body.innerHTML = '<div class="kal-blatt' + (richtung ? (richtung > 0 ? ' kal-rein-r' : ' kal-rein-l') : '') + '">' + html + '</div>';
+    this.body.innerHTML = '<div class="kal-blatt' + (richtung === 2 ? ' kal-auf' : richtung ? (richtung > 0 ? ' kal-rein-r' : ' kal-rein-l') : '') + '">' + html + '</div>';
     if (!this.mobil()) {
       if (this.gewaehlt) this.zeigeDetail(this.gewaehlt, false); else this.detail.hidden = true;
     }
