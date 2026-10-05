@@ -178,7 +178,7 @@ textarea{min-height:130px;resize:vertical}
 .proof-strip span{background:rgba(255,255,255,.72);border:1px solid var(--line);border-radius:20px;padding:14px;color:#61726a;font-size:.86rem;box-shadow:0 18px 40px rgba(12,48,38,.06)}
 .proof-strip b{display:block;color:var(--deep)}
 .animated-reanimation .patient{width:68%;left:8%;bottom:8%;opacity:.42;transform:rotate(-5deg)}
-.animated-reanimation .helper{width:70%;right:-8%;bottom:6%;animation:bwwPulse 1.35s infinite ease-in-out;transform-origin:58% 70%}
+.animated-reanimation .helper{width:70%;right:-8%;bottom:6%;transform-origin:58% 70%}
 .animated-reanimation .beat{position:absolute;background:#fff;color:var(--deep);border-radius:999px;padding:8px 13px;font-size:.74rem;font-weight:950;text-transform:uppercase;letter-spacing:.08em;box-shadow:0 12px 30px rgba(0,0,0,.16)}.beat2{right:42px;top:88px}.beat3{left:42%;bottom:24px}
 @keyframes bwwPulse{0%,100%{transform:translateY(0) rotate(-1deg) scale(1)}45%{transform:translateY(12px) rotate(1deg) scale(.985)}}
 .compact{padding-top:80px}
@@ -1808,7 +1808,7 @@ html:root:root:root body.sb-in-list .sticky-book{opacity:0!important;visibility:
     html:root :is(.path-card,.feature-card,.course-card,.knowledge-card,.tool-tile,.format-chip,.inhouse-grid a,.termin-row:not(.is-full)):hover,
     html:root a.feature-card:hover,html:root a.knowledge-card:hover{transform:translateY(-3px)!important}
     /* fx.js-Neigung auf dieselbe Hover-Form zurueckfuehren (kein zweiter Effekt) */
-    html:root .fx-tilt.fx-tilt-on{transform:translateY(-3px)!important;transition:transform 200ms ease-out!important;box-shadow:0 4px 24px var(--ad-shadow,rgba(12,48,38,.08))!important}
+    html:root .fx-tilt.fx-tilt-on{transform:translateY(-3px)!important;transition:transform 200ms ease-out!important}
     html:root .fx-tilt>.fx-glare{display:none!important}
   }
 
