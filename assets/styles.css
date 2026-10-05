@@ -1774,3 +1774,11 @@ html:root:root:root body.sb-in-list .sticky-book{opacity:0!important;visibility:
 .termine-filter.tf-v2 .tf-full{grid-column:1/-1}
 @media(max-width:520px){.termine-filter.tf-v2 .tf-count{width:auto}}
 @media(min-width:861px){.termine-filter.tf-v2{grid-template-columns:minmax(0,1.4fr) minmax(0,1fr) auto auto}.termine-filter.tf-v2 select{grid-column:auto}.termine-filter.tf-v2 .tf-full{grid-column:span 2}}
+/* Hero-Einstieg: gestaffelt, nur opacity/transform, endet immer sichtbar; reduced-motion aus (globale Regel oben) */
+@media (prefers-reduced-motion: no-preference){
+  .hero.apple-hero .hero-copy > *{animation:bwwHeroEin .6s cubic-bezier(.2,.7,.2,1) both}
+  .hero.apple-hero .hero-copy > *:nth-child(2){animation-delay:.08s}
+  .hero.apple-hero .hero-copy > *:nth-child(3){animation-delay:.16s}
+  .hero.apple-hero .hero-copy > *:nth-child(4){animation-delay:.24s}
+}
+@keyframes bwwHeroEin{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
