@@ -243,3 +243,22 @@ if(document.body)document.body.appendChild(b);})();
   if(!l||!('IntersectionObserver' in window))return;
   new IntersectionObserver(function(e){document.body.classList.toggle('sb-in-list',e[0].isIntersecting);}).observe(l);
 })();
+
+/* anim3: Bilder unterhalb des ersten Bildschirms blenden nach dem Laden ein; ohne JS/bei reduced-motion unveraendert sichtbar */
+(function(){
+  var r=document.documentElement;
+  try{if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;}catch(e){return;}
+  function go(){
+    var vh=window.innerHeight,sk='.hero,.page-hero,.carousel,.course-carousel,[class*=slider],[class*=logo],.brand,header,footer',
+        imgs=[].filter.call(document.querySelectorAll('main img[loading="lazy"][width][height]'),function(i){
+          return !i.closest(sk)&&!(i.complete&&i.naturalWidth)&&i.getBoundingClientRect().top>vh;});
+    imgs.forEach(function(i){
+      i.classList.add('a3-img');
+      var f=function(){i.classList.add('a3-loaded');};
+      i.addEventListener('load',f);i.addEventListener('error',f);
+    });
+    r.classList.add('a3-ready');
+    setTimeout(function(){imgs.forEach(function(i){i.classList.add('a3-loaded');});},3000);
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',go);else go();
+})();

@@ -1794,10 +1794,10 @@ html:root:root:root body.sb-in-list .sticky-book{opacity:0!important;visibility:
 
   /* 1) Eintritt gestaffelt: Karten ohne JS-Staffelung (fx.js staffelt Pfad-/Feature-/Nachhaltigkeitskarten) per Scroll-Timeline; Chrome/Safari, sonst bleibt alles statisch sichtbar */
   @supports (animation-timeline: view()){
-    html:root main :is(.course-card,.tool-tile,.anerkennung-card){animation:a2-scroll 1ms linear backwards;animation-timeline:view();animation-range:entry 0% entry 38%}
-    html:root main :is(.course-card,.tool-tile,.anerkennung-card):nth-child(4n+2){animation-range:entry 4% entry 42%}
-    html:root main :is(.course-card,.tool-tile,.anerkennung-card):nth-child(4n+3){animation-range:entry 8% entry 46%}
-    html:root main :is(.course-card,.tool-tile,.anerkennung-card):nth-child(4n+4){animation-range:entry 12% entry 50%}
+    html.a3-ready main :is(.course-card,.tool-tile,.anerkennung-card){animation:a2-scroll 1ms linear backwards;animation-timeline:view();animation-range:entry 0% entry 38%}
+    html.a3-ready main :is(.course-card,.tool-tile,.anerkennung-card):nth-child(4n+2){animation-range:entry 4% entry 42%}
+    html.a3-ready main :is(.course-card,.tool-tile,.anerkennung-card):nth-child(4n+3){animation-range:entry 8% entry 46%}
+    html.a3-ready main :is(.course-card,.tool-tile,.anerkennung-card):nth-child(4n+4){animation-range:entry 12% entry 50%}
   }
   /* vorhandene JS-Staffelung (fx.js) angleichen: 60 ms je Stufe (3 Stufen), 450/550 ms */
   html:root .fx-pre.fx-in{transition:opacity 450ms ease calc(var(--d,0ms)*.75),transform 550ms cubic-bezier(.16,1,.3,1) calc(var(--d,0ms)*.75)}
@@ -1813,10 +1813,29 @@ html:root:root:root body.sb-in-list .sticky-book{opacity:0!important;visibility:
   }
 
   /* 4) Wechsel: Terminliste (Neuaufbau bei Filter), Aufklappen */
-  .termine-rows>*,.termine-empty{animation:a2-in 220ms ease-out backwards}
+  .termine-rows>*,.termine-empty{animation:a3-row 220ms ease-out backwards}
   .termine-rows>:nth-child(2){animation-delay:60ms}.termine-rows>:nth-child(3){animation-delay:120ms}.termine-rows>:nth-child(4){animation-delay:180ms}.termine-rows>:nth-child(5){animation-delay:240ms}.termine-rows>:nth-child(n+6){animation-delay:300ms}
   .faq-list details[open]>:not(summary){animation:a2-in 200ms ease-out backwards}
 }
 @media (prefers-reduced-motion: reduce){
   html:root :is(.path-card,.feature-card,.course-card,.knowledge-card,.tool-tile,.sustain-card,.format-chip,.inhouse-grid a,.termin-row):hover{transform:none!important}
+}
+
+/* anim3 (05.10.2026): Hero-Einstieg <= 600 ms einmalig, Buchen-Knoepfe einheitlich, Bilder-Fade (Skript site.js setzt html.a3-ready; ohne JS alles sichtbar) */
+:is(.btn.primary,.sticky-book a,.text-link,.termin-cta,a.termin-row,.termine-filter select):focus-visible{outline:2px solid var(--ad-accent,#25704e)!important;outline-offset:2px!important}
+@media (prefers-reduced-motion: no-preference){
+  @keyframes a3-row{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  html:root .hero.apple-hero .hero-copy>*{animation-duration:.34s;animation-fill-mode:backwards;animation-timing-function:ease-out}
+  html:root .fx-ch{animation-duration:360ms;animation-delay:0ms}
+  html:root .fx-hero :is(.eyebrow,.hero-note,.hero-actions,.proof-strip,h1~p){animation-duration:360ms}
+  html:root .fx-hero .eyebrow{animation-delay:0ms}
+  html:root .fx-hero h1~p{animation-delay:80ms}
+  html:root .fx-hero .hero-note{animation-delay:120ms}
+  html:root .fx-hero .hero-actions{animation-delay:160ms}
+  html:root .fx-hero .proof-strip{animation-delay:200ms}
+  html:root :is(.btn.primary,.sticky-book a,.text-link,.termin-cta){transition:transform 150ms ease-out!important;translate:none!important}
+  @media (hover:hover){html:root :is(.btn.primary,.sticky-book a,.text-link,.termin-cta):hover{transform:translateY(-1px)!important}}
+  html:root :is(.btn.primary,.sticky-book a,.text-link,.termin-cta):active{transform:none!important}
+  html.a3-ready img.a3-img{transition:opacity 250ms ease-out}
+  html.a3-ready img.a3-img:not(.a3-loaded){opacity:0}
 }
