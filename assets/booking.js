@@ -87,12 +87,18 @@ function cleanLabel(t) { return anzeigeTitel(t).replace(/\s*\([^)]*\)/g, '').tri
 
   var EMPTY_MSG = '<p class="termine-empty">Aktuell sind hier keine offenen Termine gelistet. Fragt gern einen Wunschtermin oder <a href="/inhouse-kurse/">Inhouse-Kurs</a> an.</p>';
 
-  var KAT_REIHE = ['Erste Hilfe', 'Betriebssanitäter', 'Lehrkräfte', 'Brandschutz & Evakuierung', 'Weitere Kurse'];
+  // Feste Namen je Kursart (Label nicht aus dem Titel des ersten Kurses, sonst heißt die ganze LKF-Option wie eine Variante)
+  var ART_NAMEN = {
+    LKF: 'Lehrkräfte-Fortbildung', LKFK: 'Lehrkräfte-Fortbildung, Schwerpunkt Kindernotfälle',
+    LBEH: 'Lehrbeauftragter Erste Hilfe', LBEHF: 'Lehrbeauftragten-Fortbildung',
+    LKBSQ: 'Ausbildung Lehrkraft betrieblicher Sanitätsdienst', LKBSAS: 'Arbeitsschutzschulung Lehrkraft Betriebssanitätsdienst'
+  };
+  var KAT_REIHE = ['Erste Hilfe', 'Betriebssanitäter', 'Lehrkräfte & Ausbilder', 'Brandschutz & Evakuierung', 'Weitere Kurse'];
   function kategorie(code) {
     var c = String(code || '').toUpperCase();
     if (/^EH/.test(c)) return 'Erste Hilfe';
     if (/^BS/.test(c)) return 'Betriebssanitäter';
-    if (/^LK/.test(c)) return 'Lehrkräfte';
+    if (/^(LK|LB)/.test(c)) return 'Lehrkräfte & Ausbilder';
     if (/^(BH|EV)/.test(c)) return 'Brandschutz & Evakuierung';
     return 'Weitere Kurse';
   }
@@ -101,7 +107,7 @@ function cleanLabel(t) { return anzeigeTitel(t).replace(/\s*\([^)]*\)/g, '').tri
     // eindeutige Kursarten (Code -> lesbares Label aus dem Titel) und Städte
     var arten = {}, staedte = {};
     all.forEach(function (k) {
-      if (k.kursart && !arten[k.kursart]) arten[k.kursart] = cleanLabel(k.titel);
+      if (k.kursart && !arten[k.kursart]) arten[k.kursart] = ART_NAMEN[String(k.kursart).toUpperCase()] || cleanLabel(k.titel);
       if (k.stadt) staedte[k.stadt] = 1;
     });
     var artKeys = Object.keys(arten).sort(function (a, b) { return arten[a].localeCompare(arten[b]); });
@@ -390,7 +396,9 @@ function cleanLabel(t) { return anzeigeTitel(t).replace(/\s*\([^)]*\)/g, '').tri
       Object.keys(byArt).forEach(function (a) { byArt[a].sort(function (x, y) { return String(x.datum || '').localeCompare(String(y.datum || '')); }); });
       Array.prototype.forEach.call(cards, function (card) {
         if (card.querySelector('.course-card-meta')) return;
-        var list = byArt[card.getAttribute('data-art')] || [];
+        var list = [];
+        card.getAttribute('data-art').split(',').forEach(function (key) { list = list.concat(byArt[key.trim()] || []); });
+        list.sort(function (x, y) { return String(x.datum || '').localeCompare(String(y.datum || '')); });
         var next = list.filter(function (k) { return !k.ausgebucht; })[0] || list[0];
         var meta = document.createElement('div'); meta.className = 'course-card-meta';
         if (next) {
