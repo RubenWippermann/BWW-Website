@@ -1847,4 +1847,4 @@ html:root :is(.termine-list,.faq-list,.check-grid,.checks,.format-chips,.proof-s
 html:root .termine-rows{display:grid}
 /* Abstand Vertrauenszeile zur H1 (lag mobil fast auf der Überschrift) */
 html:root .hero-copy .hero-trust{margin-bottom:1.1rem!important}
-html:root .section h2.kal-titel{-webkit-hyphens:manual;hyphens:manual;overflow-wrap:normal}
+html:root .section h2.kal-titel{-webkit-hyphens:manual!important;hyphens:manual!important;overflow-wrap:normal}
