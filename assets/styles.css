@@ -1041,8 +1041,8 @@ a:focus-visible,button:focus-visible,summary:focus-visible,.btn:focus-visible,in
 .termin-row.is-full .termin-cta{color:#7a7a7a}
 
 /* Scroll-Reveals — nur aktiv, wenn JS die Klasse setzt (sonst voll sichtbar) */
-html.reveal-on main .section,html.reveal-on main .section-soft{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease;will-change:opacity,transform}
-html.reveal-on main .section.is-visible,html.reveal-on main .section-soft.is-visible{opacity:1;transform:none}
+html.reveal-on main .section,html.reveal-on main .section-soft{transform:translateY(18px);transition:transform .7s ease}
+html.reveal-on main .section.is-visible,html.reveal-on main .section-soft.is-visible{transform:none}
 @media (prefers-reduced-motion:reduce){html.reveal-on main .section,html.reveal-on main .section-soft{opacity:1!important;transform:none!important;transition:none!important}}
 
 /* Fix: Checkboxen/Radios dürfen NICHT Textfeld-Stile (Padding/Höhe) erben — global + je Formular */
@@ -1774,6 +1774,7 @@ html:root:root:root body.sb-in-list .sticky-book{opacity:0!important;visibility:
 .termine-filter.tf-v2 .tf-full{grid-column:1/-1}
 @media(max-width:520px){.termine-filter.tf-v2 .tf-count{width:auto}}
 @media(min-width:861px){.termine-filter.tf-v2{grid-template-columns:minmax(0,1.4fr) minmax(0,1fr) auto auto}.termine-filter.tf-v2 select{grid-column:auto}.termine-filter.tf-v2 .tf-full{grid-column:span 2}}
+/* Inhalt nie per opacity:0 verstecken: steht die Animationsuhr (iOS-Safari, Hintergrund-Tab), bliebe er sonst unsichtbar. Nur transform. */
 /* Hero-Einstieg: gestaffelt, nur opacity/transform, endet immer sichtbar; reduced-motion aus (globale Regel oben) */
 @media (prefers-reduced-motion: no-preference){
   .hero.apple-hero .hero-copy > *{animation:bwwHeroEin .6s cubic-bezier(.2,.7,.2,1) both}
@@ -1781,7 +1782,7 @@ html:root:root:root body.sb-in-list .sticky-book{opacity:0!important;visibility:
   .hero.apple-hero .hero-copy > *:nth-child(3){animation-delay:.16s}
   .hero.apple-hero .hero-copy > *:nth-child(4){animation-delay:.24s}
 }
-@keyframes bwwHeroEin{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@keyframes bwwHeroEin{from{transform:translateY(10px)}to{transform:none}}
 
 /* Symmetrie (05.10.2026): gleich breite Knöpfe je Reihe, keine Waisen-Karte im 2-Spalten-Raster */
 @media(min-width:521px){.hero-actions{display:grid!important;grid-auto-flow:column;grid-auto-columns:1fr;justify-content:start}}
@@ -1789,8 +1790,8 @@ html:root:root:root body.sb-in-list .sticky-book{opacity:0!important;visibility:
 
 /* anim2 (05.10.2026): einheitliche, dezente Bewegung. Nur opacity/transform. Standardzustand = sichtbar (ohne JS, ohne Scroll-Timeline-Support, bei reduced-motion). */
 @media (prefers-reduced-motion: no-preference){
-  @keyframes a2-in{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
-  @keyframes a2-scroll{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+  @keyframes a2-in{from{transform:translateY(10px)}to{transform:none}}
+  @keyframes a2-scroll{from{transform:translateY(18px)}to{transform:none}}
 
   /* 1) Eintritt gestaffelt: Karten ohne JS-Staffelung (fx.js staffelt Pfad-/Feature-/Nachhaltigkeitskarten) per Scroll-Timeline; Chrome/Safari, sonst bleibt alles statisch sichtbar */
   @supports (animation-timeline: view()){
@@ -1824,7 +1825,7 @@ html:root:root:root body.sb-in-list .sticky-book{opacity:0!important;visibility:
 /* anim3 (05.10.2026): Hero-Einstieg <= 600 ms einmalig, Buchen-Knoepfe einheitlich, Bilder-Fade (Skript site.js setzt html.a3-ready; ohne JS alles sichtbar) */
 :is(.btn.primary,.sticky-book a,.text-link,.termin-cta,a.termin-row,.termine-filter select):focus-visible{outline:2px solid var(--ad-accent,#25704e)!important;outline-offset:2px!important}
 @media (prefers-reduced-motion: no-preference){
-  @keyframes a3-row{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  @keyframes a3-row{from{transform:translateY(6px)}to{transform:none}}
   html:root .hero.apple-hero .hero-copy>*{animation-duration:.34s;animation-fill-mode:backwards;animation-timing-function:ease-out}
   html:root .fx-ch{animation-duration:360ms;animation-delay:0ms}
   html:root .fx-hero :is(.eyebrow,.hero-note,.hero-actions,.proof-strip,h1~p){animation-duration:360ms}
@@ -1836,8 +1837,6 @@ html:root:root:root body.sb-in-list .sticky-book{opacity:0!important;visibility:
   html:root :is(.btn.primary,.sticky-book a,.text-link,.termin-cta){transition:transform 150ms ease-out!important;translate:none!important}
   @media (hover:hover){html:root :is(.btn.primary,.sticky-book a,.text-link,.termin-cta):hover{transform:translateY(-1px)!important}}
   html:root :is(.btn.primary,.sticky-book a,.text-link,.termin-cta):active{transform:none!important}
-  html.a3-ready img.a3-img{transition:opacity 250ms ease-out}
-  html.a3-ready img.a3-img:not(.a3-loaded){opacity:0}
 }
 
 /* a3-Abstand: einheitlicher Abstand zwischen Kaesten (Variable --a3-gap), gap am Container */
