@@ -1,5 +1,5 @@
-2026-10-05T13:32:12+02:00	101
+2026-10-06T13:18:20+02:00	100
 # startdate_ausgezeichnet=ja
-# bewegung_zuletzt=2026-10-05
+# bewegung_zuletzt=2026-10-06
 # unveraendert_seit_tagen=0
 # spaetester_termin=2027-12-19
