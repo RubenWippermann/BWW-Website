@@ -74,7 +74,7 @@ function cleanLabel(t) { return anzeigeTitel(t).replace(/\s*\([^)]*\)/g, '').tri
     var inner =
       '<span class="termin-date"><b>' + fmtBlocks(k) + '</b>' + (zeit ? '<small>' + zeit + '</small>' : '') + '</span>' +
       '<span class="termin-info"><b>' + esc(anzeigeTitel(k.titel)) + '</b><small>' + tags.filter(Boolean).map(esc).join(' · ') + '</small>' + (ort ? '<small class="termin-ort" style="display:block;margin-top:.15rem"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg> ' + esc(ort) + '</small>' : '') + '</span>' +
-      '<span class="termin-meta"><b>' + preis + '</b><small>' + (voll ? 'Ausgebucht' : 'Plätze frei') + '</small></span>';
+      '<span class="termin-meta"><b>' + preis + '</b><small>' + (voll ? 'Ausgebucht' : 'Termin ansehen / buchen') + '</small></span>';
     if (voll) {
       // Ausgebucht: echte Warteliste (POST /api/warteliste), kein Link zur Buchung
       return '<div class="termin-row is-full">' + inner +
@@ -406,7 +406,7 @@ function cleanLabel(t) { return anzeigeTitel(t).replace(/\s*\([^)]*\)/g, '').tri
           var preis = (next.preis != null && next.preis !== '') ? esc(next.preis) + ' €' : '';
           meta.innerHTML = '<span class="ccm-date">' + fmtRange(next) + '</span>' +
             (preis ? '<span class="ccm-price">' + preis + '</span>' : '') +
-            '<span class="ccm-status ' + (voll ? 'is-full' : 'is-free') + '">' + (voll ? 'Warteliste' : 'Plätze frei') + '</span>';
+            '<span class="ccm-status ' + (voll ? 'is-full' : 'is-free') + '">' + (voll ? 'Warteliste' : 'Termin ansehen / buchen') + '</span>';
         } else {
           meta.innerHTML = '<span class="ccm-inhouse">Inhouse jederzeit buchbar</span>';
         }
