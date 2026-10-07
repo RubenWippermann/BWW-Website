@@ -1848,3 +1848,8 @@ html:root .termine-rows{display:grid}
 /* Abstand Vertrauenszeile zur H1 (lag mobil fast auf der Überschrift) */
 html:root .hero-copy .hero-trust{margin-bottom:1.1rem!important}
 html:root .section h2.kal-titel{-webkit-hyphens:manual!important;hyphens:manual!important;overflow-wrap:normal}
+/* Kontrast 07.10.: AA 4,5:1 fuer Eyebrow/Brotkrumen auf Mint-Hero und ausgebuchte Terminzeilen (Dimmung per Flaeche statt opacity) */
+html:root:root .page-hero .eyebrow{color:#1f6044!important}
+html:root:root:root:root body main .page-hero .crumb{color:#4a5a52!important}
+html:root:root:root:root body main .page-hero .crumb a{color:#1f6044!important}
+.termin-row.is-full{opacity:1;background:#f1f5f3}
