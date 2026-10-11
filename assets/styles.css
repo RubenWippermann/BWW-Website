@@ -560,6 +560,21 @@ body{
   .course-carousel .course-card{min-height:470px!important}
   .sticky-book{left:12px!important;right:12px!important;justify-content:space-between!important}
 }
+@media(max-width:860px){
+  /* Fund 46 (Leitstelle, Klicktest 11./12.10., 375/390px): ARTICLE.course-card und
+     IMG.bww-ill "ragen über den rechten Rand" — gemessen (getBoundingClientRect,
+     scrollWidth) ist das kein Seitenüberlauf (document.scrollWidth == innerWidth,
+     Leitstelle-Nachmessung 12.10. an 10 Live-Seiten: Überlauf 0): .course-carousel
+     ist ein funktionierender horizontaler Scroll-Snap-Carousel (overflow-x:auto,
+     scroll-snap-type:x mandatory, kein Touch-Blocker). Das Problem ist rein optisch:
+     die zweite Karte wird am rechten Viewport-Rand hart abgeschnitten, ohne jeden
+     Hinweis, dass mehr folgt — das sieht aus wie ein Layout-Fehler. Fade statt
+     hartem Schnitt macht das Scrollen sichtbar, ohne Breite/Grid anzufassen. */
+  .course-carousel{
+    -webkit-mask-image:linear-gradient(to right,#000 0,#000 calc(100% - 28px),transparent 100%)!important;
+    mask-image:linear-gradient(to right,#000 0,#000 calc(100% - 28px),transparent 100%)!important;
+  }
+}
 @media(max-width:520px){
   .site-header .brand small{display:none!important}
   .hero-actions{display:grid!important}
