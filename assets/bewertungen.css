@@ -1,0 +1,10 @@
+/* Stimmen unserer Teilnehmenden (Block bleibt verborgen, solange keine Bewertungen geladen sind) */
+.stimmen[hidden]{display:none!important}
+.stimmen-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.1rem;max-width:1150px;margin:1.6rem auto 0}
+.stimme{margin:0;background:#fff;border:1px solid rgba(37,112,78,.15);border-radius:22px;padding:1.4rem 1.5rem;display:flex;flex-direction:column;gap:.7rem;box-shadow:0 14px 40px rgba(16,39,31,.07)}
+.stimme-sterne{color:#a06a00;letter-spacing:.12em;font-size:1.05rem}
+.stimme blockquote{margin:0;color:#243a31;line-height:1.55;overflow-wrap:break-word}
+.stimme blockquote p{margin:0}
+.stimme figcaption{font-weight:600;color:#10271f;font-size:.95rem;margin-top:auto}
+.stimmen .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+@media(max-width:900px){.stimmen-grid{grid-template-columns:1fr}}

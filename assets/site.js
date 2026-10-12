@@ -176,9 +176,12 @@ document.addEventListener('DOMContentLoaded',()=>{if(document.getElementById('ca
 (function(){try{if(localStorage.getItem('bww-privacy-ok'))return;}catch(e){}
 var b=document.createElement('div');b.className='privacy-note';
 b.innerHTML='<span>Diese Website nutzt <b>keine Tracking-Cookies</b>. Mehr in der <a href="/datenschutz/">Datenschutzerklärung</a>.</span><button type="button">Verstanden</button>';
-var auto=setTimeout(function(){b.remove();},8000);
-b.querySelector('button').addEventListener('click',function(){clearTimeout(auto);b.remove();try{localStorage.setItem('bww-privacy-ok','1');}catch(e){}});
-if(document.body)document.body.appendChild(b);})();
+var bd=document.body,ro=null,auto=null;
+function pad(){var r=b.getBoundingClientRect();bd.style.paddingBottom=Math.max(0,Math.ceil(window.innerHeight-r.top))+'px';}
+function gone(){clearTimeout(auto);if(ro)ro.disconnect();window.removeEventListener('resize',pad);bd.style.paddingBottom='';b.remove();}
+function arm(){auto=setTimeout(function(){if(b.contains(document.activeElement)){arm();return;}gone();},8000);}
+b.querySelector('button').addEventListener('click',function(){gone();try{localStorage.setItem('bww-privacy-ok','1');}catch(e){}});
+if(bd){bd.insertBefore(b,bd.firstChild);pad();if(window.ResizeObserver){ro=new ResizeObserver(pad);ro.observe(b);}window.addEventListener('resize',pad);arm();}})();
 
 /* Dezente Scroll-Reveals (progressive Enhancement, respektiert reduce-motion, Sicherheits-Fallback) */
 (function(){
