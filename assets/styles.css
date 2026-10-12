@@ -1054,6 +1054,8 @@ a:focus-visible,button:focus-visible,summary:focus-visible,.btn:focus-visible,in
 
 .termin-row.is-full{opacity:.62}
 .termin-row.is-full .termin-cta{color:#666}
+.termin-hospitieren{display:block;margin:-.5rem 0 .9rem;font-size:.85rem;color:var(--bww-green,#25704e);text-decoration:none}
+.termin-hospitieren:hover{text-decoration:underline}
 
 /* Scroll-Reveals — nur aktiv, wenn JS die Klasse setzt (sonst voll sichtbar) */
 html.reveal-on main .section,html.reveal-on main .section-soft{transform:translateY(18px);transition:transform .7s ease}

@@ -75,14 +75,19 @@ function cleanLabel(t) { return anzeigeTitel(t).replace(/\s*\([^)]*\)/g, '').tri
       '<span class="termin-date"><b>' + fmtBlocks(k) + '</b>' + (zeit ? '<small>' + zeit + '</small>' : '') + '</span>' +
       '<span class="termin-info"><b>' + esc(anzeigeTitel(k.titel)) + '</b><small>' + tags.filter(Boolean).map(esc).join(' · ') + '</small>' + (ort ? '<small class="termin-ort" style="display:block;margin-top:.15rem"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg> ' + esc(ort) + '</small>' : '') + '</span>' +
       '<span class="termin-meta"><b>' + preis + '</b><small>' + (voll ? 'Ausgebucht' : 'Termin ansehen / buchen') + '</small></span>';
+    // Hospitation: eigenes Feld im Feed, noch nicht im Software-Deploy — fehlt es, erscheint
+    // hier nichts (kein Rückfall, kein geratener Link), bis der Software-Branch live ist.
+    var hosp = (k.hospitation_moeglich === true && k.hospitation_url)
+      ? '<a class="termin-hospitieren" href="' + esc(k.hospitation_url) + '" target="_blank" rel="noopener">Hospitieren (z. B. für angehende Ausbilder:innen) →</a>'
+      : '';
     if (voll) {
       // Ausgebucht: echte Warteliste (POST /api/warteliste), kein Link zur Buchung
       return '<div class="termin-row is-full">' + inner +
-        '<button type="button" class="termin-cta waitlist-toggle" data-termin="' + esc(k.id) + '" data-titel="' + esc(anzeigeTitel(k.titel)) + '" data-datum="' + esc(fmtRange(k)) + (k.stadt ? ' · ' + esc(k.stadt) : '') + '">Warteliste →</button></div>';
+        '<button type="button" class="termin-cta waitlist-toggle" data-termin="' + esc(k.id) + '" data-titel="' + esc(anzeigeTitel(k.titel)) + '" data-datum="' + esc(fmtRange(k)) + (k.stadt ? ' · ' + esc(k.stadt) : '') + '">Warteliste →</button></div>' + hosp;
     }
     return '<a class="termin-row" href="' + esc(burl) + '" target="_blank" rel="noopener"' +
       ' data-termin-id="' + esc(k.id || '') + '" data-titel="' + esc(cleanLabel(k.titel) || '') + '">' + inner +
-      '<span class="termin-cta">Buchen →</span></a>';
+      '<span class="termin-cta">Buchen →</span></a>' + hosp;
   }
 
   var EMPTY_MSG = '<p class="termine-empty">Aktuell sind hier keine offenen Termine gelistet. Fragt gern einen Wunschtermin oder <a href="/inhouse-kurse/">Inhouse-Kurs</a> an.</p>';
