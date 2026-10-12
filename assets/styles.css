@@ -94,7 +94,7 @@ button,input,select,textarea{font:inherit}
 .menu-toggle{display:none;background:#eef6ef;border:1px solid var(--line);border-radius:999px;padding:10px 13px;font-weight:900;color:var(--deep)}
 .hero{position:relative;min-height:780px;color:#fff;display:grid;align-items:end;overflow:hidden;background:var(--deep)}.hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .hero:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(7,34,26,.94),rgba(7,34,26,.66) 46%,rgba(7,34,26,.14))}
-.eyebrow{margin:0 0 14px;text-transform:uppercase;color:var(--green);font-size:.74rem;font-weight:950;letter-spacing:.16em}
+.eyebrow{margin:0 0 14px;text-transform:uppercase;color:var(--green);font-size:.75rem;font-weight:950;letter-spacing:.16em}
 .eyebrow.light{color:#b8eda4}
 h1,h2,h3,p{margin-top:0}
 h1{max-width:930px;font-size:clamp(3.15rem,8.4vw,8.4rem);line-height:.9;letter-spacing:-.06em;margin-bottom:28px}
@@ -166,7 +166,7 @@ textarea{min-height:130px;resize:vertical}
 .site-header .brand{display:flex;align-items:center;gap:13px;min-width:260px}
 .site-header .brand img{width:78px;height:54px;object-fit:contain}
 .site-header .brand b{display:block;color:var(--deep);font-size:1.08rem;line-height:1}
-.site-header .brand small{display:block;color:var(--muted);font-size:.68rem;line-height:1.25;max-width:250px}
+.site-header .brand small{display:block;color:var(--muted);font-size:.75rem;line-height:1.25;max-width:250px}
 .site-header nav{display:flex;align-items:center;gap:18px;font-weight:900;font-size:.78rem;text-transform:uppercase;letter-spacing:.06em}
 .site-header nav a{color:var(--deep);white-space:nowrap}
 .site-header nav a.active{color:var(--green)}
@@ -179,7 +179,7 @@ textarea{min-height:130px;resize:vertical}
 .proof-strip b{display:block;color:var(--deep)}
 .animated-reanimation .patient{width:68%;left:8%;bottom:8%;opacity:.42;transform:rotate(-5deg)}
 .animated-reanimation .helper{width:70%;right:-8%;bottom:6%;transform-origin:58% 70%}
-.animated-reanimation .beat{position:absolute;background:#fff;color:var(--deep);border-radius:999px;padding:8px 13px;font-size:.74rem;font-weight:950;text-transform:uppercase;letter-spacing:.08em;box-shadow:0 12px 30px rgba(0,0,0,.16)}.beat2{right:42px;top:88px}.beat3{left:42%;bottom:24px}
+.animated-reanimation .beat{position:absolute;background:#fff;color:var(--deep);border-radius:999px;padding:8px 13px;font-size:.75rem;font-weight:950;text-transform:uppercase;letter-spacing:.08em;box-shadow:0 12px 30px rgba(0,0,0,.16)}.beat2{right:42px;top:88px}.beat3{left:42%;bottom:24px}
 @keyframes bwwPulse{0%,100%{transform:translateY(0) rotate(-1deg) scale(1)}45%{transform:translateY(12px) rotate(1deg) scale(.985)}}
 .compact{padding-top:80px}
 .section-head{width:min(1080px,calc(100% - 36px));margin:0 auto 38px}
@@ -191,7 +191,7 @@ textarea{min-height:130px;resize:vertical}
 .path-card.big{grid-row:span 2;min-height:540px;background:linear-gradient(180deg,#fff,#f1f8ef)}
 .path-card img{height:145px;object-fit:contain;align-self:flex-end;margin:-8px -10px 8px 0}
 .path-card.big img{height:265px;margin:auto}
-.path-card span{color:var(--green);font-weight:950;text-transform:uppercase;letter-spacing:.09em;font-size:.72rem}
+.path-card span{color:var(--green);font-weight:950;text-transform:uppercase;letter-spacing:.09em;font-size:.75rem}
 .path-card h3{font-size:1.7rem;margin:6px 0;color:var(--deep)}.inhouse-grid{width:min(1180px,calc(100% - 36px));margin:auto;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}.inhouse-grid article{background:#fff;border:1px solid var(--line);border-radius:30px;padding:24px;box-shadow:0 18px 55px rgba(12,48,38,.07)}.inhouse-grid img{height:170px;width:100%;object-fit:contain;margin-bottom:14px}
 .dark{background:radial-gradient(circle at top right,rgba(139,207,115,.22),transparent 34%),linear-gradient(135deg,#0c2d25,#061b16);color:#fff}
 .dark .section-head h2,.dark h2{color:#fff}.dark p{color:#d8e8df}
@@ -547,7 +547,7 @@ body{
   .trust-badges{margin-top:5.5rem!important}
   .site-header{min-height:72px!important;padding:10px 14px!important}
   .site-header .brand img{width:92px!important;height:48px!important}
-  .site-header .brand small{display:block!important;font-size:.64rem!important;max-width:190px!important}
+  .site-header .brand small{display:block!important;font-size:.75rem!important;max-width:190px!important}
   .hero.apple-hero{padding:34px 18px 46px!important}
   .hero-copy h1{font-size:clamp(2.55rem,13vw,4.25rem)!important}
   .proof-strip{grid-template-columns:1fr!important}
@@ -902,7 +902,7 @@ body{
 .final-cta .hero-actions{justify-content:center;margin-top:1.6rem}
 .final-cta .btn.ghost{background:rgba(255,255,255,.10);color:#fff;border-color:rgba(255,255,255,.28)}
 .final-cta .final-note{font-size:.95rem;margin-top:1.3rem;color:rgba(255,255,255,.72)!important}
-.final-cta .final-note a{color:#c9efb6;font-weight:800}
+.final-cta .final-note a{color:#c9efb6;font-weight:800;display:inline-block;padding:8px 0}
 
 /* Kontaktblock im Footer */
 .footer-contact{margin:.7rem 0 .3rem}
@@ -1054,7 +1054,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible,.btn:focus-visible,in
 
 .termin-row.is-full{opacity:.62}
 .termin-row.is-full .termin-cta{color:#666}
-.termin-hospitieren{display:block;margin:-.5rem 0 .9rem;font-size:.85rem;color:var(--bww-green,#25704e);text-decoration:none}
+.termin-hospitieren{display:flex;align-items:center;min-height:44px;margin:-.5rem 0 .9rem;font-size:.85rem;color:var(--bww-green,#25704e);text-decoration:none}
 .termin-hospitieren:hover{text-decoration:underline}
 
 /* Scroll-Reveals — nur aktiv, wenn JS die Klasse setzt (sonst voll sichtbar) */
@@ -1110,7 +1110,7 @@ h3,.path-card h3,.feature-card h3,.course-card h3,.knowledge-card h3{font-weight
 .course-inhalte li::before{content:"";position:absolute;left:0;top:.5em;width:.55rem;height:.55rem;border-radius:50%;background:#25704e}
 .course-facts{background:#f4f8f5;border:1px solid #e2ede7;border-radius:16px;padding:1.4rem 1.5rem;display:grid;gap:1rem;position:sticky;top:96px}
 .course-facts .fact{display:grid;gap:.2rem}
-.fact-k{font-size:.72rem;letter-spacing:.05em;text-transform:uppercase;color:#5c6b63;font-weight:700}
+.fact-k{font-size:.75rem;letter-spacing:.05em;text-transform:uppercase;color:#5c6b63;font-weight:700}
 .fact-v{font-size:.98rem;color:#20302a;line-height:1.4}
 .form-wrap{max-width:760px;margin:0 auto}
 .format-chips{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:.8rem}
@@ -1190,7 +1190,7 @@ body.wl-open{overflow:hidden}
 .course-card-meta{display:flex;flex-wrap:wrap;gap:.4rem .55rem;align-items:center;margin:.15rem 0 .7rem;font-size:.82rem;line-height:1.2}
 .ccm-date{font-weight:800;color:#20302a}
 .ccm-price{font-weight:800;color:#25704e}
-.ccm-status{font-weight:700;padding:.14rem .55rem;border-radius:999px;font-size:.72rem;letter-spacing:.01em}
+.ccm-status{font-weight:700;padding:.14rem .55rem;border-radius:999px;font-size:.75rem;letter-spacing:.01em}
 .ccm-status.is-free{background:#e3f3ea;color:#1a6e44}
 .ccm-status.is-full{background:#f4e7e7;color:#a23b3b}
 .ccm-inhouse{font-weight:700;color:#5c6b63}
@@ -1224,7 +1224,7 @@ body.wl-open{overflow:hidden}
 @media(min-width:1201px){
   .site-header{gap:14px}
   .site-header .brand{min-width:0}
-  .site-header nav{gap:13px;font-size:.74rem;flex-wrap:nowrap}
+  .site-header nav{gap:13px;font-size:.75rem;flex-wrap:nowrap}
   .site-header .nav-cta{padding:10px 13px}
 }
 /* Marken-Tagline erst ab 1420px (Koordinator): darunter frisst sie die Nav-Breite -> Umbruch-Band. */
@@ -1252,7 +1252,7 @@ body.wl-open{overflow:hidden}
 .traeger-card{background:#fff;border:1px solid rgba(47,125,90,.15);border-radius:20px;padding:18px 20px;box-shadow:0 12px 34px rgba(16,39,31,.06);display:flex;flex-direction:column;gap:6px}
 .traeger-card b{color:#0d3025;font-size:1.02rem;line-height:1.25}
 .traeger-card span:not(.traeger-badge){color:#4d665a;font-size:.9rem}
-.traeger-badge{align-self:flex-start;font-size:.68rem;font-weight:800;text-transform:uppercase;letter-spacing:.05em;padding:3px 9px;border-radius:999px}
+.traeger-badge{align-self:flex-start;font-size:.75rem;font-weight:800;text-transform:uppercase;letter-spacing:.05em;padding:3px 9px;border-radius:999px}
 .tb-bg{background:#e6f4ec;color:#1f6f55}
 .tb-uk{background:#e7eef9;color:#2f5aa8}
 .tb-lw{background:#f3f0e2;color:#8a6d1f}
@@ -1345,13 +1345,13 @@ body.wl-open{overflow:hidden}
 .badge-strip{padding:1.3rem clamp(18px,5vw,72px) 0}
 .badge-strip .trust-badges{margin-bottom:0}
 .metric{position:relative}
-.metric-tag{display:inline-block;font-style:normal;font-size:.63rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;padding:3px 9px;border-radius:999px;margin:0 0 8px}
+.metric-tag{display:inline-block;font-style:normal;font-size:.75rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;padding:3px 9px;border-radius:999px;margin:0 0 8px}
 .metric-tag.is-pflicht{background:#e3f1e8;color:#1a6e44;border:1px solid #bcdcc8}
 .metric-tag.is-richtwert{background:#fdf1dd;color:#8a5a12;border:1px solid #efd7ac}
 .metric-tag.is-tipp{background:#e6eff7;color:#2b5478;border:1px solid #c2d6e6}
 .metric b.is-text{font-size:1.75rem;line-height:1.2;overflow-wrap:break-word;hyphens:auto}
 .calc-legend{grid-column:1/-1;margin:.4rem 0 0;font-size:.8rem;line-height:1.5;color:#5b6e64}
-@media(max-width:600px){.metric b.is-text{font-size:1.5rem}.metric-tag{font-size:.6rem}}
+@media(max-width:600px){.metric b.is-text{font-size:1.5rem}.metric-tag{font-size:.75rem}}
 /* Grid-Kinder haben min-width:auto und koennen lange Inhalte nicht schrumpfen
    lassen -> Ueberstand ohne horizontales Scrollen. Praeventiv entschaerft. */
 .metric-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
@@ -1455,7 +1455,7 @@ body.menu-open .site-header nav{max-height:calc(100vh - 96px);overflow-y:auto;-w
 @media(max-width:1200px){body:not(.menu-open) .site-header nav{display:none!important}}
 
 /* Arbeitsschutz-Check: Ampel-Tags (Beleg-Transparenz Pflicht/Richtwert/Empfehlung) */
-.result-list .tag{display:inline-block;margin-left:.4rem;padding:.1rem .5rem;border-radius:999px;font-size:.72rem;font-weight:700;white-space:nowrap;vertical-align:middle}
+.result-list .tag{display:inline-block;margin-left:.4rem;padding:.1rem .5rem;border-radius:999px;font-size:.75rem;font-weight:700;white-space:nowrap;vertical-align:middle}
 .result-list .tag.pflicht{background:#e3f3e8;color:#1c6b40}
 .result-list .tag.richtwert{background:#fdf1dc;color:#8a5a12}
 .result-list .tag.empf{background:#eef1f4;color:#4a5560}
