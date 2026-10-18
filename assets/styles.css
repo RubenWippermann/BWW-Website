@@ -1870,3 +1870,12 @@ html:root:root .page-hero .eyebrow{color:#1f6044!important}
 html:root:root:root:root body main .page-hero .crumb{color:#4a5a52!important}
 html:root:root:root:root body main .page-hero .crumb a{color:#1f6044!important}
 .termin-row.is-full{opacity:1;background:#f1f5f3}
+
+/* Klickflächen >=44 px (Handy) */
+.inhouse-link{display:inline-flex;align-items:center;min-height:44px;margin-top:0}
+.privacy-note a{display:inline-flex;align-items:center;min-height:44px}
+.city-directory a{display:flex;align-items:center;min-height:44px}
+.waitlist-toggle,.termin-cta{min-height:44px}
+.contact-card a,.kontakt a[href^="tel:"],.kontakt a[href^="mailto:"],main a[href^="tel:"],main a[href^="mailto:"]{display:inline-flex;align-items:center;min-height:44px}
+.site-footer .footer-contact a{min-height:44px}
+.tf-bg input,.kb-filter input[type=checkbox],.filter-bar input[type=checkbox]{width:22px;height:22px}
