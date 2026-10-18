@@ -132,3 +132,6 @@
   --kal-tint: var(--ad-bg-2, #f5f5f7); --kal-soft: var(--ad-bg-2, #f5f5f7);
   --kal-ink: var(--ad-ink, #1d1d1f); --kal-muted: var(--ad-ink-3, #65656a); --kal-line: var(--ad-hair, #e8e8ed); --kal-card: #fff;
 }
+
+.kal-filter{min-height:44px}.kal-filter[hidden]{display:flex!important;visibility:hidden;pointer-events:none}@media(min-width:700px){.kal-body{min-height:580px}}@media(max-width:699px){.kal-body{min-height:900px}}
+[data-kalender]{min-height:1200px}@media(min-width:700px){[data-kalender]{min-height:720px}}

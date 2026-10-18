@@ -176,7 +176,7 @@ document.addEventListener('DOMContentLoaded',()=>{if(document.getElementById('ca
    verschwindet jetzt von selbst nach 8 Sekunden, statt dauerhaft im Weg zu stehen — ohne
    `localStorage`-Vermerk, damit er beim nächsten Besuch wieder kurz erscheint. */
 (function(){try{if(localStorage.getItem('bww-privacy-ok'))return;}catch(e){}
-var b=document.createElement('div');b.className='privacy-note';
+var b=document.createElement('div');b.className='privacy-note';b.setAttribute('role','region');b.setAttribute('aria-label','Datenschutzhinweis');
 b.innerHTML='<span>Diese Website nutzt <b>keine Tracking-Cookies</b>. Mehr in der <a href="/datenschutz/">Datenschutzerklärung</a>.</span><button type="button">Verstanden</button>';
 var bd=document.body,ro=null,auto=null;
 function pad(){var r=b.getBoundingClientRect();bd.style.paddingBottom=Math.max(0,Math.ceil(window.innerHeight-r.top))+'px';}
