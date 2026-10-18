@@ -1879,3 +1879,6 @@ html:root:root:root:root body main .page-hero .crumb a{color:#1f6044!important}
 .contact-card a,.kontakt a[href^="tel:"],.kontakt a[href^="mailto:"],main a[href^="tel:"],main a[href^="mailto:"]{display:inline-flex;align-items:center;min-height:44px}
 .site-footer .footer-contact a{min-height:44px}
 .tf-bg input,.kb-filter input[type=checkbox],.filter-bar input[type=checkbox]{width:22px;height:22px}
+
+/* Kontrast: Eyebrow liegt teils ueber dem gruenen Deko-Blob (fx-blob), Text dunkler (>=4,5:1) */
+html:root:root main>section.split>div>.eyebrow{color:#174c34!important}
