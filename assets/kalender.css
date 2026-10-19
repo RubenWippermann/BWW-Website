@@ -135,3 +135,5 @@
 
 .kal-filter{min-height:44px}.kal-filter[hidden]{display:flex!important;visibility:hidden;pointer-events:none}@media(min-width:700px){.kal-body{min-height:580px}}@media(max-width:699px){.kal-body{min-height:900px}}
 [data-kalender]{min-height:1200px}@media(min-width:700px){[data-kalender]{min-height:720px}}
+.kal-tag.is-vorbei{opacity:1}.kal-tag.is-vorbei .kal-nr{color:#5c5c5e}
+.kal-tag i{color:#173d2b}

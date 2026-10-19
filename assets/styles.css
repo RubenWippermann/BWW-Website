@@ -1880,5 +1880,14 @@ html:root:root:root:root body main .page-hero .crumb a{color:#1f6044!important}
 .site-footer .footer-contact a{min-height:44px}
 .tf-bg input,.kb-filter input[type=checkbox],.filter-bar input[type=checkbox]{width:22px;height:22px}
 
-/* Kontrast: Eyebrow liegt teils ueber dem gruenen Deko-Blob (fx-blob), Text dunkler (>=4,5:1) */
-html:root:root main>section.split>div>.eyebrow{color:#174c34!important}
+/* Kontrast Eyebrow (>=4,5:1): hell = dunkleres Gruen (liegt teils ueber dem Deko-Blob), dunkel = helle Akzentfarbe */
+:root{--eyebrow-ink:#174c34}
+@media (prefers-color-scheme: dark){:root{--eyebrow-ink:#7fd3a6}}
+html:root:root main>section.split>div>.eyebrow,html:root:root main>section.section-soft>div>.eyebrow,html:root:root main>section.section>div>.eyebrow{color:var(--eyebrow-ink)!important}
+@media (prefers-color-scheme: dark){html:root:root main>section.page-hero>div>.eyebrow{color:#bfe8d0!important}}
+
+/* Kontrast/Erkennbarkeit: Hinweise und Links im Fliesstext */
+.traeger-hint{color:#5a6c62!important}
+.tb-lw{color:#6f5712}
+main p a:not([class]),main li a:not([class]){text-decoration:underline;text-underline-offset:.15em}
+#kbCount{color:#3f4f47}
