@@ -1926,3 +1926,7 @@ a.traeger-link{min-height:44px}
   html:root:root:root body main .crumb,html:root:root:root body main .crumb span{color:var(--ad-ink-3)!important}
   html:root:root:root body main .crumb a{color:var(--ad-accent)!important}
 }
+
+/* Wissensseiten: sichtbares Aenderungsdatum unter der H1 */
+.article-stand{margin:.25rem 0 .9rem;font-size:.85rem;font-weight:600;color:#4a5a51}
+@media (prefers-color-scheme: dark){html:root:root:root body main .article-stand{color:var(--ad-ink-3)!important}}
