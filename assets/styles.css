@@ -1895,3 +1895,16 @@ main p a:not([class]),main li a:not([class]){text-decoration:underline;text-unde
 /* Performance: Terminzeilen erst rendern, wenn sie in die Naehe des Viewports kommen; Einblend-Animation nur fuer die ersten 12 Zeilen */
 .termin-row,.termin-hospitieren{content-visibility:auto;contain-intrinsic-size:auto 130px}
 .termine-rows>*:nth-child(n+13){animation:none}
+
+/* Dark Mode Runde 5: Traeger-Karten auf /abrechnung/ (Hellmodus unveraendert) */
+@media (prefers-color-scheme: dark){
+  html:root:root:root body main .traeger-card{background:var(--ad-card)!important;border-color:var(--ad-hair)!important;box-shadow:none}
+  html:root:root:root body main .traeger-note{background:var(--ad-bg-2)!important;border-color:var(--ad-hair)!important;color:var(--ad-ink-2)!important}
+  html:root:root:root body main .traeger-stand,html:root:root:root body main .traeger-hint{color:var(--ad-ink-3)!important}
+  html:root:root:root body main .traeger-link{color:var(--ad-accent)!important}
+  html:root:root:root body main .timeline div{background:var(--ad-card)!important;border-color:var(--ad-hair)!important}
+  html:root:root:root body main .timeline h3{color:var(--ad-ink)!important}
+  .tb-bg{background:#143528;color:#8fe0b8}
+  .tb-uk{background:#1a2744;color:#a9c4f7}
+  .tb-lw{background:#3a3217;color:#e8cf78}
+}

@@ -137,3 +137,16 @@
 [data-kalender]{min-height:1200px}@media(min-width:700px){[data-kalender]{min-height:720px}}
 .kal-tag.is-vorbei{opacity:1}.kal-tag.is-vorbei .kal-nr{color:#5c5c5e}
 .kal-tag i{color:#173d2b}
+
+/* Dark Mode: Kalenderflaechen auf die Dark-Variablen der Seite (Hellmodus unveraendert) */
+@media (prefers-color-scheme: dark) {
+  .kal.kal-bww {
+    --kal-card: var(--ad-card, #1c1c1e); --kal-voll-bg: #33190f; --kal-voll: #ffb089;
+  }
+  html:root:root:root body main .kal-tag.is-vorbei .kal-nr { color: #a1a1a6 !important; }
+  html:root:root:root body main .kal-tag.is-heute .kal-nr { color: #fff !important; }
+  html:root:root:root body main .kal-tag i { color: var(--ad-ink-2, #d1d1d6) !important; }
+  html:root:root:root body main .kal-fbtn[aria-pressed="true"] { color: var(--ad-accent, #4fb883) !important; border-color: var(--ad-accent, #4fb883); box-shadow: inset 0 0 0 1px var(--ad-accent, #4fb883); }
+  html:root:root:root:root:root:root body main a.kal-cta.kal-cta.kal-cta.kal-cta { color: #fff !important; }
+  html:root:root:root body main .kal-chip.is-voll, html:root:root:root body main .kal-badge.is-voll { color: #ffb089 !important; }
+}
