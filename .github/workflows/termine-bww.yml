@@ -53,7 +53,7 @@ jobs:
       - name: Termine backen (Startseite)
         env:
           BWW_PRERENDER: "1"
-        run: python3 tools/gen_event_jsonld.py site/index.html --write
+        run: python3 tools/gen_event_jsonld.py site/index.html --write --max 4   # = sichtbare Termine der Startseite (data-limit=4)
 
       - name: Termine backen (Kursuebersicht)
         env:

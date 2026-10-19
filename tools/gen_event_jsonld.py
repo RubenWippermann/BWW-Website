@@ -230,6 +230,13 @@ def main():
     if n == 0:
         _fail_closed(args, "Feed lieferte 0 Kurse", N_DAYS)
 
+    # --max N: nur die N frühesten künftigen Termine in die Auszeichnung (Startseite zeigt sichtbar nur
+    # so viele; Strukturdaten sollen dem sichtbaren Inhalt entsprechen, die volle Liste bleibt auf /kurse/
+    # und /kurse/offene-kurse-worbis/). Frischewache/Stempel arbeiten weiter mit der vollen Anzahl n.
+    if "--max" in args:
+        mx = int(args[args.index("--max") + 1])
+        if mx > 0:
+            graph["@graph"] = sorted(graph["@graph"], key=lambda e: e.get("startDate", ""))[:mx]
     block = json.dumps(graph, ensure_ascii=False, indent=1)
     target = args[0] if args else None
     if not target or target == "--print":
