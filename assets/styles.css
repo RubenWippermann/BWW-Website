@@ -1920,3 +1920,9 @@ a.trust-badge{display:inline-flex;align-items:center;min-height:44px}
 }
 a.traeger-link{min-height:44px}
 .check-row{min-height:44px;align-items:center}
+
+/* Dark Mode: Breadcrumb der Kursseiten (.crumb) */
+@media (prefers-color-scheme: dark){
+  html:root:root:root body main .crumb,html:root:root:root body main .crumb span{color:var(--ad-ink-3)!important}
+  html:root:root:root body main .crumb a{color:var(--ad-accent)!important}
+}
