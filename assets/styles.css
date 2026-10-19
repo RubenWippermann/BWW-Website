@@ -1891,3 +1891,7 @@ html:root:root main>section.split>div>.eyebrow,html:root:root main>section.secti
 .tb-lw{color:#6f5712}
 main p a:not([class]),main li a:not([class]){text-decoration:underline;text-underline-offset:.15em}
 #kbCount{color:#3f4f47}
+
+/* Performance: Terminzeilen erst rendern, wenn sie in die Naehe des Viewports kommen; Einblend-Animation nur fuer die ersten 12 Zeilen */
+.termin-row,.termin-hospitieren{content-visibility:auto;contain-intrinsic-size:auto 130px}
+.termine-rows>*:nth-child(n+13){animation:none}
