@@ -1908,3 +1908,15 @@ main p a:not([class]),main li a:not([class]){text-decoration:underline;text-unde
   .tb-uk{background:#1a2744;color:#a9c4f7}
   .tb-lw{background:#3a3217;color:#e8cf78}
 }
+
+/* Fixrunde 19.10.: Breadcrumb-Kontrast, Dark-Antwortboxen, Klickflaechen 44 px */
+html:root:root .breadcrumbs,html:root:root .breadcrumbs a,html:root:root .breadcrumbs .sep{color:#4a5a51}
+.article-related a{display:inline-flex;align-items:center;min-height:44px}
+.traeger-link{min-height:44px}
+a.trust-badge{display:inline-flex;align-items:center;min-height:44px}
+@media (prefers-color-scheme: dark){
+  html:root:root:root body main :is(.answer-lead,.assistant-answer){background:var(--ad-card)!important;border-color:var(--ad-accent)!important}
+  html:root:root:root body main .assistant-answer h2{color:var(--ad-ink)!important}
+}
+a.traeger-link{min-height:44px}
+.check-row{min-height:44px;align-items:center}
