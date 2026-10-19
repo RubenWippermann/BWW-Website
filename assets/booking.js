@@ -108,6 +108,23 @@ function cleanLabel(t) { return anzeigeTitel(t).replace(/\s*\([^)]*\)/g, '').tri
     return 'Weitere Kurse';
   }
 
+  // Grosse Terminlisten in Scheiben rendern: erste Zeilen sofort, Rest in Leerlaufzeit
+  // (token verwirft laufende Scheiben, wenn ein Filter neu rendert).
+  var CHUNK_FIRST = 12, CHUNK = 24;
+  function fillRows(box, items, token) {
+    var idle = window.requestIdleCallback || function (fn) { return setTimeout(function () { fn({ timeRemaining: function () { return 8; } }); }, 50); };
+    box.innerHTML = items.slice(0, CHUNK_FIRST).map(rowHTML).join('');
+    var pos = CHUNK_FIRST;
+    (function next() {
+      if (pos >= items.length || box.__tok !== token) return;
+      idle(function () {
+        if (box.__tok !== token) return;
+        box.insertAdjacentHTML('beforeend', items.slice(pos, pos + CHUNK).map(rowHTML).join(''));
+        pos += CHUNK; next();
+      });
+    })();
+  }
+
   function renderWithFilter(el, all) {
     // eindeutige Kursarten (Code -> lesbares Label aus dem Titel) und Städte
     var arten = {}, staedte = {};
@@ -142,7 +159,9 @@ function cleanLabel(t) { return anzeigeTitel(t).replace(/\s*\([^)]*\)/g, '').tri
       var a = artSel ? artSel.value : '', s = stadtSel ? stadtSel.value : '';
       var bgChk = el.querySelector('.tf-bgchk'), bg = bgChk && bgChk.checked;
       var f = all.filter(function (k) { return passtArt(k, a) && (!s || k.stadt === s) && (!bg || bgUk(k)); });
-      rowsEl.innerHTML = f.length ? f.map(rowHTML).join('') : '<p class="termine-empty">Für diese Auswahl sind aktuell keine Termine frei. <a href="/inhouse-kurse/">Wunschtermin anfragen →</a></p>';
+      var tok = rowsEl.__tok = (rowsEl.__tok || 0) + 1;
+      if (f.length) fillRows(rowsEl, f, tok);
+      else rowsEl.innerHTML = '<p class="termine-empty">Für diese Auswahl sind aktuell keine Termine frei. <a href="/inhouse-kurse/">Wunschtermin anfragen →</a></p>';
       if (countEl) countEl.textContent = f.length + (f.length === 1 ? ' Termin' : ' Termine');
     }
     if (artSel) artSel.addEventListener('change', apply);
@@ -168,7 +187,9 @@ function cleanLabel(t) { return anzeigeTitel(t).replace(/\s*\([^)]*\)/g, '').tri
       if (art.length) {
         all = all.filter(function (k) { return art.indexOf(String(k.kursart || '')) !== -1; });
         if (!all.length) { el.innerHTML = '<p class="termine-empty">Für dieses Format sind aktuell keine offenen Termine gelistet. Als Inhouse-Kurs jederzeit buchbar — <a href="#anfrage">Wunschtermin anfragen →</a></p>'; return; }
-        el.innerHTML = (limit > 0 ? all.slice(0, limit) : all).map(rowHTML).join('');
+        var shown = limit > 0 ? all.slice(0, limit) : all;
+        if (shown.length > CHUNK_FIRST) { el.innerHTML = '<div style="display:contents"></div>'; var box = el.firstChild; fillRows(box, shown, box.__tok = 1); }
+        else el.innerHTML = shown.map(rowHTML).join('');
         return;
       }
       if (!all.length) { el.innerHTML = EMPTY_MSG; return; }
