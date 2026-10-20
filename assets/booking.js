@@ -67,6 +67,7 @@ function cleanLabel(t) { return anzeigeTitel(t).replace(/\s*\([^)]*\)/g, '').tri
     var burl = k.buchungs_url || '';
     if (burl.indexOf('org=') === -1) burl += (burl.indexOf('?') > -1 ? '&' : '?') + 'org=' + ORG;
     if (burl.indexOf('quelle=') === -1) burl += (burl.indexOf('?') > -1 ? '&' : '?') + 'quelle=' + QUELLE;  // Herkunft anhängen, org bleibt unangetastet
+    if (window.bwwHerkunft) burl = window.bwwHerkunft(burl);   // utm_* nur weiterreichen, nie eigene setzen
     var voll = !!k.ausgebucht;
     var zeit = k.uhrzeit ? esc(k.uhrzeit) + (k.uhrzeit_ende ? '–' + esc(k.uhrzeit_ende) : '') + ' Uhr' : '';
     var preis = (k.preis != null && k.preis !== '') ? esc(k.preis) + ' €' : '';
@@ -77,8 +78,11 @@ function cleanLabel(t) { return anzeigeTitel(t).replace(/\s*\([^)]*\)/g, '').tri
       '<span class="termin-meta"><b>' + preis + '</b><small>' + (voll ? 'Ausgebucht' : 'Termin ansehen / buchen') + '</small></span>';
     // Hospitation: eigenes Feld im Feed, noch nicht im Software-Deploy — fehlt es, erscheint
     // hier nichts (kein Rückfall, kein geratener Link), bis der Software-Branch live ist.
+    var hurl = k.hospitation_url || '';
+    if (hurl && hurl.indexOf('quelle=') === -1) hurl += (hurl.indexOf('?') > -1 ? '&' : '?') + 'quelle=' + QUELLE;   // Herkunft auch bei Hospitation
+    if (window.bwwHerkunft) hurl = window.bwwHerkunft(hurl);
     var hosp = (k.hospitation_moeglich === true && k.hospitation_url)
-      ? '<a class="termin-hospitieren" href="' + esc(k.hospitation_url) + '" target="_blank" rel="noopener">Hospitieren (z. B. für angehende Ausbilder:innen) →</a>'
+      ? '<a class="termin-hospitieren" href="' + esc(hurl) + '" target="_blank" rel="noopener">Hospitieren (z. B. für angehende Ausbilder:innen) →</a>'
       : '';
     if (voll) {
       // Ausgebucht: echte Warteliste (POST /api/warteliste), kein Link zur Buchung

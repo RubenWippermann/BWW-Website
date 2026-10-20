@@ -267,3 +267,20 @@ if(bd){bd.insertBefore(b,bd.firstChild);pad();if(window.ResizeObserver){ro=new R
   }
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',go);else go();
 })();
+
+/* Herkunftsauswertung: utm_* nur WEITERREICHEN (nie eigene setzen) an Links zur Buchungs-/Inhouse-Seite der Software.
+   Werte nur a-z 0-9 und - (utm <= 80 Zeichen); Software speichert utm sticky. */
+(function(){
+  var KEYS=['utm_source','utm_medium','utm_campaign','utm_term','utm_content'],utm='';
+  try{var sp=new URLSearchParams(location.search),out=[];KEYS.forEach(function(k){var v=sp.get(k)||'';if(/^[a-z0-9-]{1,80}$/.test(v))out.push(k+'='+v);});utm=out.join('&');}catch(e){}
+  function istSw(u){return /^https:\/\/software-wippermann\.de\/(buchen|inhouse)(\/|\?|$)/.test(u);}
+  window.bwwHerkunft=function(u){
+    if(!utm||typeof u!=='string'||!istSw(u)||/[?&]utm_(source|medium|campaign|term|content)=/.test(u))return u;
+    return u+(u.indexOf('?')>-1?'&':'?')+utm;
+  };
+  function patch(){
+    var as=document.querySelectorAll('a[href^="https://software-wippermann.de/buchen"],a[href^="https://software-wippermann.de/inhouse"]');
+    Array.prototype.forEach.call(as,function(a){var h=a.getAttribute('href'),n=window.bwwHerkunft(h);if(n!==h)a.setAttribute('href',n);});
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',patch);else patch();
+})();

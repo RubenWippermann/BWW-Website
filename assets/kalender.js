@@ -295,6 +295,7 @@
       var url = sichereUrl(k.buchungs_url) || (this.api + '/buchen/?termin=' + encodeURIComponent(k.id || ''));
       url = anhaengen(url, 'org', k._org);
       if (this.quelle) url = anhaengen(url, 'quelle', this.quelle);
+      if (window.bwwHerkunft) url = window.bwwHerkunft(url);   // utm_* nur weiterreichen
       aktion = '<span class="kal-badge">Buchbar</span><a class="kal-cta" href="' + esc(url) + '" target="_blank" rel="noopener"' +
         ' aria-label="Jetzt anmelden: ' + esc(titelAnzeige(k.titel)) + ' am ' + esc(datumKurz(k.datum)) + '">Jetzt anmelden</a>';
     }
