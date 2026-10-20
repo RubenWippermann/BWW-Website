@@ -83,6 +83,14 @@ def anzeige_titel(t):
     s = str("" if t is None else t)
     return re.split(r"\s+[·•]\s+", s, 1)[0].strip() or s
 
+QUELLE = "multiplikatorenstelle"   # Herkunft der Buchung (Software wertet quelle aus); KEINE utm_* setzen (Software speichert utm sticky)
+
+def mit_quelle(url):
+    """Haengt quelle=multiplikatorenstelle an die Buchungs-URL, falls noch keine quelle gesetzt ist."""
+    if not url or "quelle=" in url:
+        return url
+    return url + ("&" if "?" in url else "?") + "quelle=" + QUELLE
+
 def to_event(k, organizer):
     ev = {
         "@type": "EducationEvent",
@@ -99,7 +107,7 @@ def to_event(k, organizer):
             "@type": "Offer",
             "price": f"{int(k['preis'])}.00",
             "priceCurrency": "EUR",
-            "url": k["buchungs_url"],          # unveraendert, traegt org
+            "url": mit_quelle(k["buchungs_url"]),   # traegt org + quelle (Herkunftsauswertung)
             "category": "Kursgebühr pro Person",
             # BEWUSST OHNE availability (plaetze_frei noch nicht belastbar)
         },
