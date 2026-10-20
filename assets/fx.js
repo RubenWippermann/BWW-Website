@@ -69,6 +69,7 @@
             var word = doc.createElement("span");
             word.className = "fx-word";
             word.setAttribute("aria-hidden", "true");
+            if (w.length > 18) word.className += " fx-long";
             Array.prototype.forEach.call(w, function (ch) {
               var s = doc.createElement("span");
               s.className = "fx-ch";
