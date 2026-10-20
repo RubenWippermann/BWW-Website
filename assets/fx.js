@@ -10,6 +10,12 @@
   var hasIO = "IntersectionObserver" in window;
   var deep = location.hash && location.hash.length > 1;
 
+  /* Einmal-Einstieg: beendete Hero-Animationen (fill: forwards) loesen, damit keine dauerhaft laufenden Animationsobjekte bleiben */
+  doc.addEventListener("animationend", function (e) {
+    var t = e.target, c = t && t.classList;
+    if (c && (c.contains("fx-ch") || c.contains("leaf") || c.contains("stem") || (t.closest && t.closest(".fx-hero") && /^fx-up$/.test(e.animationName)))) c.add("fx-done");
+  }, true);
+
   function svgEl(name, attrs) {
     var e = doc.createElementNS(ns, name);
     for (var k in attrs) e.setAttribute(k, attrs[k]);

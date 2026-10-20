@@ -54,6 +54,11 @@
   .fx-hero .hero-actions { animation-delay: 900ms; }
   .fx-hero .proof-strip { animation-delay: 1050ms; }
   @keyframes fx-up { to { transform: none; } }
+  /* beendete Einstiegsanimationen loesen (gleicher Endzustand, keine dauerhaften Animationsobjekte) */
+  .fx-ch.fx-done { animation: none; transform: none; }
+  .fx-vine .stem.fx-done { animation: none; stroke-dashoffset: 0; }
+  .fx-vine .leaf.fx-done { animation: none; opacity: .9; transform: scale(1) rotate(0deg); }
+  .fx-hero :is(.eyebrow, .hero-note, .hero-actions, .proof-strip, h1 ~ p).fx-done { animation: none; transform: none; }
 
   /* Abschnittskopf: Trieb-Linie waechst (ohne Layout-Aenderung, liegt im Abschnitts-Abstand) */
   .section-head { position: relative; }
