@@ -1976,3 +1976,15 @@ html:root:root:root body main :is(.bww-form input,.bww-form select,.bww-form tex
   }
 }
 @media print{html body .site-header,html body main :is(.course-card,.path-card,.feature-card,.card,.anerkennung-card,.sustain-card,.knowledge-card,.tool-card,.result-panel,.termin-row,.bww-form,.final-cta),html body .sticky-book{-webkit-backdrop-filter:none!important;backdrop-filter:none!important;background:#fff!important;box-shadow:none!important}body,html body .section-soft{background:#fff!important;background-image:none!important}}
+
+/* Glas-Optik Dunkelmodus-Fix: bestehende !important-Dunkelregeln (:is mit .faq-list details u. a.) hatten hoehere Spezifitaet und machten Karten/Formular deckend */
+@supports ((-webkit-backdrop-filter:blur(1px)) or (backdrop-filter:blur(1px))){
+  @media (prefers-color-scheme:dark) and (not (prefers-reduced-transparency:reduce)){
+    html:root:root:root:root:root:root body main :is(.course-card,.path-card,.feature-card,.card,.anerkennung-card,.sustain-card,.knowledge-card,.tool-card,.result-panel,.termin-row,.bww-form){background:var(--glas-fuell)!important;border-color:var(--glas-kante)!important}
+    html:root:root:root:root:root:root body main :is(.bww-form,.final-cta,.result-panel,.card,.course-card) :is(.course-card,.card,.termin-row,.format-chip,.bww-form){background:var(--ad-card)!important}
+  }
+}
+
+/* Emoji-Icons durch Linien-Icons ersetzt (Ruben 12:20: nicht nach KI-erstelltem Design) */
+.tool-emoji{filter:none}.tool-emoji .ic{width:1em;height:1em;color:var(--ad-accent);stroke-width:1.6}
+.eco-hero-card .eco-hero-emoji .ic{width:1em;height:1em;color:var(--ad-accent);stroke-width:1.3}
