@@ -60,6 +60,13 @@ jobs:
           BWW_PRERENDER: "1"
         run: python3 tools/gen_event_jsonld.py site/kurse/index.html --write
 
+      # Kursseiten (Auftrag Betriebsleitung 01.11.): Course + CourseInstance (Termin, Ort, Preis aus
+      # dem Feed) je Kursseite. Ohne Termin im Feed wird der Block entfernt (fail-closed).
+      - name: Termine backen (Kursseiten, Course + CourseInstance)
+        env:
+          BWW_PRERENDER: "1"
+        run: python3 tools/gen_event_jsonld.py --kursseiten site/kurse --write
+
       - name: Deploy nach gh-pages (nur bei Änderung)
         run: |
           cd site

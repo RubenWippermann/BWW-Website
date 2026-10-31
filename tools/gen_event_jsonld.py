@@ -203,8 +203,95 @@ def _fail_closed(args, reason, n_days):
     sys.stderr.write(f"[FAIL-CLOSED] {reason}; {grund} -> Block entfernt, Stempel geloescht; exit 0 -> Deploy pusht den Strip.\n")
     sys.exit(0)
 
+
+# ---------------------------------------------------------------------------
+# Kursseiten: Course + CourseInstance (Termin, Ort, Preis aus dem Feed) je Kursseite.
+# Eigene Marker, damit der Event-Block der Terminseiten unberuehrt bleibt. Die Kursart(en)
+# je Seite stehen im data-art der Live-Terminliste (id="live-termine"). Ohne Termin im Feed
+# wird der Block entfernt (nie ein veralteter Termin), die statische Course-Auszeichnung bleibt.
+CSTART = "<!-- BWW-FEED-COURSE:START (auto-generiert, nicht von Hand editieren) -->"
+CEND = "<!-- BWW-FEED-COURSE:END -->"
+SITE = "https://www.multiplikatorenstelle.de"
+
+def course_arten(html):
+    m = re.search(r'id="live-termine"[^>]*data-art="([^"]+)"', html) or re.search(r'data-art="([^"]+)"[^>]*id="live-termine"', html)
+    return [a.strip() for a in m.group(1).split(",")] if m else []
+
+def course_block(html, url, upcoming, organizer):
+    arten = course_arten(html)
+    termine = [k for k in upcoming if k.get("kursart") in arten and k.get("buchungs_url") and k.get("preis") is not None]
+    if not termine:
+        return None
+    name = re.search(r"<h1>(.*?)</h1>", html)
+    name = re.sub(r"<[^>]+>", "", name.group(1)).replace("&amp;", "&") if name else None
+    inst = []
+    for k in termine:
+        inst.append({
+            "@type": "CourseInstance",
+            "courseMode": "onsite",
+            "startDate": iso(k.get("datum"), k.get("uhrzeit")),
+            "endDate": iso(k.get("datum_ende") or k.get("datum"), k.get("uhrzeit_ende")),
+            "location": {"@type": "Place", "name": k.get("stadt"), "address": parse_addr(k.get("adresse"), k.get("stadt"))},
+            "offers": {"@type": "Offer", "price": f"{int(k['preis'])}.00", "priceCurrency": "EUR",
+                       "url": k["buchungs_url"], "category": "Kursgebühr pro Person"},
+        })
+    node = {"@context": "https://schema.org", "@type": "Course", "@id": url + "#kurs",
+            "url": url, "provider": organizer, "hasCourseInstance": inst}
+    if name:
+        node["name"] = name
+    return json.dumps(node, ensure_ascii=False, indent=1)
+
+def inject_course(html, block):
+    payload = f'{CSTART}\n<script type="application/ld+json">\n{block}\n</script>\n{CEND}'
+    if CSTART in html and CEND in html:
+        return re.sub(re.escape(CSTART) + r".*?" + re.escape(CEND), lambda _: payload, html, flags=re.S)
+    return html.replace("</body>", payload + "\n</body>", 1)
+
+def strip_course(html):
+    return re.sub(r"\n?" + re.escape(CSTART) + r".*?" + re.escape(CEND) + r"\n?", "\n", html, flags=re.S)
+
+def run_kursseiten(kdir, write):
+    """--kursseiten <site/kurse>: alle Kursseiten (ausser Uebersicht/Terminliste) backen."""
+    import glob
+    req = urllib.request.Request(FEED, headers={"User-Agent": "BWW-Deploy-JSONLD/1.0 (+multiplikatorenstelle.de)"})
+    try:
+        with urllib.request.urlopen(req, timeout=25) as r:
+            data = json.load(r)
+        kurse = data.get("kurse", data if isinstance(data, list) else [])
+        if not kurse:
+            raise ValueError("0 Kurse")
+    except Exception as e:
+        sys.stderr.write(f"[kursseiten] Feed nicht nutzbar ({e}) -> Kurs-Bloecke entfernt (fail-closed)\n")
+        for p in glob.glob(os.path.join(kdir, "*", "index.html")):
+            h = open(p, encoding="utf-8").read()
+            if CSTART in h and write:
+                open(p, "w", encoding="utf-8").write(strip_course(h))
+        return
+    organizer = organizer_from(data if isinstance(data, dict) else {})
+    today = datetime.now(TZ).date()
+    upcoming = [k for k in kurse if not is_past(k, today)]
+    n = 0
+    for p in sorted(glob.glob(os.path.join(kdir, "*", "index.html"))):
+        slug = os.path.basename(os.path.dirname(p))
+        if slug == "offene-kurse-worbis":
+            continue
+        h = open(p, encoding="utf-8").read()
+        block = course_block(h, f"{SITE}/kurse/{slug}/", upcoming, organizer)
+        out = inject_course(h, block) if block else strip_course(h)
+        if block:
+            n += 1
+        if write and out != h:
+            open(p, "w", encoding="utf-8").write(out)
+    sys.stderr.write(f"[kursseiten] {n} Seiten mit CourseInstance\n")
+
 def main():
     args = sys.argv[1:]
+    if args and args[0] == "--kursseiten":
+        if PRERENDER:
+            run_kursseiten(args[1], "--write" in args)
+        else:
+            sys.stderr.write("[PRERENDER=False] Kursseiten: nichts zu tun.\n")
+        return
 
     # PRERENDER=False: Block entfernen statt bauen, Stempel löschen, fertig. Kein Feed-Abruf nötig.
     if not PRERENDER:
