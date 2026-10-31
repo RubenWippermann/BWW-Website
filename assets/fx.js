@@ -4,6 +4,8 @@
   "use strict";
   var mm = window.matchMedia;
   if (!mm || mm("(prefers-reduced-motion: reduce)").matches) return;
+  var cn = navigator.connection;
+  if (cn && (cn.saveData || /(^|-)2g$/.test(cn.effectiveType || ""))) return;
   var fine = mm("(hover: hover) and (pointer: fine)").matches;
   var doc = document, root = doc.documentElement, ns = "http://www.w3.org/2000/svg";
   var raf = window.requestAnimationFrame.bind(window);
@@ -15,12 +17,15 @@
     var t = e.target, c = t && t.classList;
     if (c && (c.contains("fx-ch") || c.contains("leaf") || c.contains("stem") || (t.closest && t.closest(".fx-hero") && /^fx-up$/.test(e.animationName)))) c.add("fx-done");
   }, true);
-  /* Timer-Fallback: steht die Animationsuhr (iOS-Safari, Hintergrund-Tab), kommt animationend nie; fx-done dann per Timer setzen (gleicher Endzustand). */
-  function finishIntro() {
-    Array.prototype.forEach.call(doc.querySelectorAll(".fx-ch, .fx-vine .stem, .fx-vine .leaf, .fx-hero .eyebrow, .fx-hero .hero-note, .fx-hero .hero-actions, .fx-hero .proof-strip, .fx-hero h1 ~ p"), function (el) { el.classList.add("fx-done"); });
+  /* Timer-Fallback: steht die Animationsuhr (iOS-Safari, Hintergrund-Tab), kommt animationend nie; fx-done dann per Timer setzen (gleicher Endzustand).
+     Text-Einstieg (H1-Buchstaben, Eyebrow, Lead, Knoepfe, Trust) endet nach spaetestens 1 s, Ranke (rein dekorativ) darf laenger laufen. */
+  function finish(sel) {
+    Array.prototype.forEach.call(doc.querySelectorAll(sel), function (el) { el.classList.add("fx-done"); });
   }
-  if (!("AnimationEvent" in window)) setTimeout(finishIntro, 0);
-  else setTimeout(finishIntro, 4500);
+  var TEXT = ".fx-ch, .fx-hero .eyebrow, .fx-hero .hero-note, .fx-hero .hero-actions, .fx-hero .proof-strip, .fx-hero h1 ~ p";
+  var DEKOR = ".fx-vine .stem, .fx-vine .leaf";
+  if (!("AnimationEvent" in window)) { setTimeout(function () { finish(TEXT + ", " + DEKOR); }, 0); }
+  else { setTimeout(function () { finish(TEXT); }, 1000); setTimeout(function () { finish(DEKOR); }, 4500); }
 
   function svgEl(name, attrs) {
     var e = doc.createElementNS(ns, name);
@@ -75,9 +80,11 @@
           if (c.nodeType === 1) { walk(c); return; }
           if (c.nodeType !== 3) return;
           var frag = doc.createDocumentFragment();
-          c.nodeValue.split(/(\s+)/).forEach(function (w) {
-            if (!w) return;
-            if (/^\s+$/.test(w)) { frag.appendChild(doc.createTextNode(" ")); return; }
+          c.nodeValue.split(/(\s+)/).forEach(function (w0) {
+            if (!w0) return;
+            if (/^\s+$/.test(w0)) { frag.appendChild(doc.createTextNode(" ")); return; }
+            /* Bindestrich-Woerter (Erste-Hilfe-Kurs) in umbrechbare Teile zerlegen: Umbruch wie ohne Skript, kein CLS */
+            (w0.match(/[^-]+-?|-/g) || [w0]).forEach(function (w) {
             var word = doc.createElement("span");
             word.className = "fx-word";
             word.setAttribute("aria-hidden", "true");
@@ -90,6 +97,7 @@
               word.appendChild(s);
             });
             frag.appendChild(word);
+            });
           });
           node.replaceChild(frag, c);
         });

@@ -45,14 +45,14 @@
   .fx-word { display: inline-block; white-space: nowrap; }
   .fx-word.fx-long { white-space: normal; max-width: 100%; overflow-wrap: anywhere; }
   .fx-ch { display: inline-block; transform: translate3d(0, .5em, 0) rotate(4deg);
-    animation: fx-ch-in 800ms cubic-bezier(.16,1,.3,1) forwards; animation-delay: calc(100ms + var(--i) * 28ms); }
+    animation: fx-ch-in 600ms cubic-bezier(.16,1,.3,1) forwards; animation-delay: calc(40ms + var(--i) * 8ms); }
   @keyframes fx-ch-in { to { transform: none; } }
   .fx-hero :is(.eyebrow, .hero-note, .hero-actions, .proof-strip, h1 ~ p) { transform: translate3d(0, 16px, 0);
-    animation: fx-up 800ms cubic-bezier(.16,1,.3,1) forwards; animation-delay: 80ms; }
-  .fx-hero h1 ~ p { animation-delay: 650ms; }
-  .fx-hero .hero-note { animation-delay: 800ms; }
-  .fx-hero .hero-actions { animation-delay: 900ms; }
-  .fx-hero .proof-strip { animation-delay: 1050ms; }
+    animation: fx-up 600ms cubic-bezier(.16,1,.3,1) forwards; animation-delay: 40ms; }
+  .fx-hero h1 ~ p { animation-delay: 120ms; }
+  .fx-hero .hero-note { animation-delay: 160ms; }
+  .fx-hero .hero-actions { animation-delay: 200ms; }
+  .fx-hero .proof-strip { animation-delay: 240ms; }
   @keyframes fx-up { to { transform: none; } }
   /* beendete Einstiegsanimationen loesen (gleicher Endzustand, keine dauerhaften Animationsobjekte) */
   .fx-ch.fx-done { animation: none; transform: none; }
