@@ -15,6 +15,12 @@
     var t = e.target, c = t && t.classList;
     if (c && (c.contains("fx-ch") || c.contains("leaf") || c.contains("stem") || (t.closest && t.closest(".fx-hero") && /^fx-up$/.test(e.animationName)))) c.add("fx-done");
   }, true);
+  /* Timer-Fallback: steht die Animationsuhr (iOS-Safari, Hintergrund-Tab), kommt animationend nie; fx-done dann per Timer setzen (gleicher Endzustand). */
+  function finishIntro() {
+    Array.prototype.forEach.call(doc.querySelectorAll(".fx-ch, .fx-vine .stem, .fx-vine .leaf, .fx-hero .eyebrow, .fx-hero .hero-note, .fx-hero .hero-actions, .fx-hero .proof-strip, .fx-hero h1 ~ p"), function (el) { el.classList.add("fx-done"); });
+  }
+  if (!("AnimationEvent" in window)) setTimeout(finishIntro, 0);
+  else setTimeout(finishIntro, 4500);
 
   function svgEl(name, attrs) {
     var e = doc.createElementNS(ns, name);
