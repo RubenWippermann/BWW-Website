@@ -1951,3 +1951,28 @@ html:root .breadcrumbs a,.article-note a:not([class]){text-decoration:underline;
   html:root:root:root:root:root body main .page-hero .crumb,html:root:root:root:root:root body main .page-hero .crumb span{color:var(--ad-ink-3)!important}
   html:root:root:root:root:root body main .page-hero .crumb a{color:var(--ad-accent)!important}
 }
+
+/* ═══ GLAS-OPTIK (CD-Richtlinie Software Kap. 13, Ruben 31.10.2026; nur Tokens + CSS, keine Logik) ═══
+   Glas auf Kopfzeile, Kurs-/Info-Karten, Termin-Zeilen, Formular-/Ergebnis-Panels, Abschlussband (final-cta), Sticky-Buchen.
+   Felder bleiben deckend (nur Lichtkante). BWW-Gruen nur als Akzent-Toenung, nie grossflaechig. Fokus/Fehler haben Vorrang.
+   Fallback = deckende --ad-card-Flaechen oben; aus bei „Transparenz reduzieren“; Druck deckend; kein Glas auf Glas. */
+:root{--glas-blur:blur(26px) saturate(1.6);--glas-blur-karte:blur(18px) saturate(1.4);--glas-fuell:rgba(255,255,255,.86);--glas-fuell-nav:rgba(255,255,255,.88);--glas-licht:inset 0 1px 0 rgba(255,255,255,.95);--glas-kante:rgba(255,255,255,.7);--glas-radius:22px;
+  --glas-grund:radial-gradient(900px 520px at 8% -4%,rgba(37,112,78,.09),transparent 70%),radial-gradient(760px 480px at 96% 6%,rgba(47,125,90,.07),transparent 70%)}
+@media (prefers-color-scheme:dark){:root{--glas-fuell:rgba(28,28,30,.90);--glas-fuell-nav:rgba(18,18,20,.90);--glas-licht:inset 0 1px 0 rgba(255,255,255,.08);--glas-kante:rgba(255,255,255,.10);
+  --glas-grund:radial-gradient(900px 520px at 8% -4%,rgba(79,184,131,.11),transparent 70%),radial-gradient(760px 480px at 96% 6%,rgba(79,184,131,.07),transparent 70%)}}
+/* Lichtkante an Feldern (Fokus und Fehler haben Vorrang) */
+html:root:root:root body main :is(.bww-form input,.bww-form select,.bww-form textarea):not(:focus):not(:focus-visible):not([aria-invalid="true"]){box-shadow:var(--glas-licht)}
+@supports ((-webkit-backdrop-filter:blur(1px)) or (backdrop-filter:blur(1px))){
+  @media not (prefers-reduced-transparency:reduce){
+    body{background-image:var(--glas-grund);background-repeat:no-repeat;background-color:var(--ad-bg)}
+    html:root:root:root body .section-soft,html:root:root:root body .section.section-soft{background:var(--ad-bg-2)!important;background-image:var(--glas-grund)!important}
+    html:root:root:root body .site-header{background:var(--glas-fuell-nav)!important;-webkit-backdrop-filter:var(--glas-blur);backdrop-filter:var(--glas-blur);box-shadow:0 1px 0 var(--glas-kante),0 10px 30px -18px rgba(16,35,27,.25)}
+    html:root:root:root body main :is(.course-card,.path-card,.feature-card,.card,.anerkennung-card,.sustain-card,.knowledge-card,.tool-card,.result-panel,.termin-row,.bww-form){background:var(--glas-fuell)!important;-webkit-backdrop-filter:var(--glas-blur-karte);backdrop-filter:var(--glas-blur-karte);border-color:var(--glas-kante)!important;box-shadow:var(--glas-licht),0 8px 28px -14px rgba(16,35,27,.22)!important}
+    html:root:root:root body main :is(.course-card,.path-card,.feature-card,.card,.termin-row,.bww-form){border-radius:var(--glas-radius)}
+    html:root:root:root body main .final-cta{background:var(--glas-fuell)!important;-webkit-backdrop-filter:var(--glas-blur);backdrop-filter:var(--glas-blur);border:1px solid var(--glas-kante);box-shadow:var(--glas-licht),0 18px 50px -24px rgba(16,35,27,.3)!important}
+    html:root:root:root body .sticky-book{background:var(--glas-fuell-nav)!important;box-shadow:var(--glas-licht),0 2px 16px rgba(0,0,0,.12)!important}
+    /* kein Glas auf Glas */
+    html:root:root:root body main :is(.bww-form,.final-cta,.result-panel,.card,.course-card) :is(.course-card,.card,.termin-row,.format-chip,.bww-form){-webkit-backdrop-filter:none;backdrop-filter:none;background:var(--ad-card)!important}
+  }
+}
+@media print{html body .site-header,html body main :is(.course-card,.path-card,.feature-card,.card,.anerkennung-card,.sustain-card,.knowledge-card,.tool-card,.result-panel,.termin-row,.bww-form,.final-cta),html body .sticky-book{-webkit-backdrop-filter:none!important;backdrop-filter:none!important;background:#fff!important;box-shadow:none!important}body,html body .section-soft{background:#fff!important;background-image:none!important}}
