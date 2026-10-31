@@ -1988,3 +1988,6 @@ html:root:root:root body main :is(.bww-form input,.bww-form select,.bww-form tex
 /* Emoji-Icons durch Linien-Icons ersetzt (Ruben 12:20: nicht nach KI-erstelltem Design) */
 .tool-emoji{filter:none}.tool-emoji .ic{width:1em;height:1em;color:var(--ad-accent);stroke-width:1.6}
 .eco-hero-card .eco-hero-emoji .ic{width:1em;height:1em;color:var(--ad-accent);stroke-width:1.3}
+
+/* Veranstalterzeile unter den Terminlisten (Fremdbuchung: Veranstalter, Impressum, AGB, Widerruf) */
+.termine-veranstalter{text-align:center;max-width:1000px;margin:.9rem auto 0}
