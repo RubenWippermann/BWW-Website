@@ -2006,3 +2006,10 @@ html:root:root:root body main .page-hero .article-stand a{font-weight:600}
 
 /* Symmetrie: Absatz im Abschnittskopf der getönten Sektionen bündig mit der Überschrift (stand eingerückt) */
 html:root:root:root body main .section-soft .section-head p{margin-left:0!important;margin-right:0!important;text-align:left!important}
+
+/* Hero-Szene (Startseite): 16:9-Poster sofort, Loop-Video blendet nach load per Deckkraft ein */
+html:root:root:root body .hero-ill-wrap.hero-scene{aspect-ratio:16/9;padding:0!important;overflow:hidden;display:block;border-radius:24px!important}
+html:root:root:root body .hero-ill-wrap.hero-scene .hero-poster{width:100%;height:100%;object-fit:cover;filter:none;display:block}
+html:root:root:root body .hero-ill-wrap.hero-scene .hero-loop{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .6s ease;pointer-events:none}
+html:root:root:root body .hero-ill-wrap.hero-scene .hero-loop.is-playing{opacity:1}
+.hero-visual .bildnachweis{margin:.5rem 0 0;font-size:.8rem;line-height:1.4;color:var(--ad-ink-3,#65656a);text-align:right}
