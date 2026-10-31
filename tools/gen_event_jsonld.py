@@ -233,7 +233,7 @@ def course_block(html, url, upcoming, organizer):
             "endDate": iso(k.get("datum_ende") or k.get("datum"), k.get("uhrzeit_ende")),
             "location": {"@type": "Place", "name": k.get("stadt"), "address": parse_addr(k.get("adresse"), k.get("stadt"))},
             "offers": {"@type": "Offer", "price": f"{int(k['preis'])}.00", "priceCurrency": "EUR",
-                       "url": k["buchungs_url"], "category": "Kursgebühr pro Person"},
+                       "url": mit_quelle(k["buchungs_url"]), "category": "Kursgebühr pro Person"},
         })
     node = {"@context": "https://schema.org", "@type": "Course", "@id": url + "#kurs",
             "url": url, "provider": organizer, "hasCourseInstance": inst}
