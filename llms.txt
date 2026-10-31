@@ -275,3 +275,6 @@ Diese Preise gelten für offene Kurse; Inhouse-Kurse (deutschlandweit im Betrieb
 - Inhouse-Anfrage: https://www.multiplikatorenstelle.de/inhouse-kurse/
 - E-Mail: info@multiplikatorenstelle.de
 - Telefon: +49 5527 748 7518
+
+## Volltext
+- [llms-full.txt](https://www.multiplikatorenstelle.de/llms-full.txt): Kernseiten mit häufigen Fragen und Antworten im Volltext
