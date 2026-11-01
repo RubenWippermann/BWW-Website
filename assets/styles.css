@@ -2020,3 +2020,10 @@ html:root:root:root body main .page-hero .zg-icon{display:block;width:88px;heigh
   html:root:root:root body main .page-hero .zg-icon{animation:zg-in .42s cubic-bezier(.2,.8,.2,1) both}
   @keyframes zg-in{from{opacity:.01;transform:translateY(12px)}to{opacity:1;transform:none}}
 }
+
+/* Kopf: voller Name (Bildungswerk für Wiederbelebung und Erste Hilfe) sichtbar auf allen Breiten, 01.11.2026 */
+html:root:root:root .site-header .brand small{display:block!important;font-size:.7rem!important;line-height:1.22!important;font-weight:700!important;letter-spacing:0!important;text-transform:none!important;color:#426d58!important;max-width:192px!important;white-space:normal!important;text-wrap:balance}
+html:root:root:root .site-header .brand{gap:11px!important}
+@media(min-width:481px){html:root:root:root .site-header .brand small{max-width:260px!important;font-size:.78rem!important}}
+@media(min-width:1201px){html:root:root:root .site-header .brand small{max-width:215px!important}}
+@media(min-width:1460px){html:root:root:root .site-header .brand small{max-width:300px!important}}
