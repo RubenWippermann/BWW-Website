@@ -239,15 +239,67 @@ def course_block(html, url, upcoming, organizer):
             "url": url, "provider": organizer, "hasCourseInstance": inst}
     if name:
         node["name"] = name
-    return json.dumps(node, ensure_ascii=False, indent=1)
+    # eine Course je @id: statische Course-Auszeichnung der Seite wird mit dem Feed-Block verschmolzen (Marker STATIC haelt das Original fuer strip_course)
+    static = _static_course(html, url)
+    if static:
+        merged = {k: v for k, v in static.items() if k != "@context"}
+        merged.update({"@id": url + "#kurs", "url": url, "provider": organizer, "hasCourseInstance": inst})
+        node = {"@context": "https://schema.org", **merged}
+    if not node.get("description"):
+        staedte = sorted({k.get("stadt") for k in termine if k.get("stadt")})
+        node["description"] = (f"{node.get('name') or 'Kurs'} bei BWW: Präsenzkurs" + (f" in {', '.join(staedte)}" if staedte else "")
+                               + ", Termine und Preis je Person im Buchungssystem.")
+    node["_static"] = static
+    return node
 
-def inject_course(html, block):
-    payload = f'{CSTART}\n<script type="application/ld+json">\n{block}\n</script>\n{CEND}'
+SSTART = "<!-- BWW-FEED-COURSE:STATIC "
+SEND = " -->"
+_LD = re.compile(r'<script type="application/ld\+json">(.*?)</script>', re.S)
+
+def _static_course(html, url):
+    """Statische Course-Auszeichnung (gleiche @id) der Seite: aus dem STATIC-Marker (schon gebacken) oder aus dem Seitenkopf."""
+    m = re.search(re.escape(SSTART) + r"(.*?)" + re.escape(SEND), html, re.S)
+    if m:
+        try: return json.loads(m.group(1))
+        except Exception: return None
+    for x in _LD.finditer(html):
+        try: j = json.loads(x.group(1))
+        except Exception: continue
+        if isinstance(j, dict) and j.get("@type") == "Course" and j.get("@id") == url + "#kurs": return j
+    return None
+
+def _drop_static(html, url):
+    out = html
+    for x in list(_LD.finditer(html)):
+        try: j = json.loads(x.group(1))
+        except Exception: continue
+        if isinstance(j, dict) and j.get("@type") == "Course" and j.get("@id") == url + "#kurs" and CSTART not in html[max(0, x.start() - 300):x.start()]:
+            out = out.replace(x.group(0), "", 1)
+    return out
+
+def inject_course(html, block, url=None):
+    node = dict(block); static = node.pop("_static", None)
+    url = url or node["url"]
+    body = json.dumps(node, ensure_ascii=False, indent=1)
+    marker = ""
+    if static:
+        marker = SSTART + json.dumps(static, ensure_ascii=False).replace("--", "\\u002d\\u002d") + SEND + "\n"
+        html = _drop_static(html, url)
+    payload = f'{CSTART}\n{marker}<script type="application/ld+json">\n{body}\n</script>\n{CEND}'
     if CSTART in html and CEND in html:
         return re.sub(re.escape(CSTART) + r".*?" + re.escape(CEND), lambda _: payload, html, flags=re.S)
     return html.replace("</body>", payload + "\n</body>", 1)
 
 def strip_course(html):
+    m = re.search(re.escape(CSTART) + r".*?" + re.escape(CEND), html, re.S)
+    if m:
+        sm = re.search(re.escape(SSTART) + r"(.*?)" + re.escape(SEND), m.group(0), re.S)
+        if sm and '"@type": "Course"' not in html.replace(m.group(0), "") and '"@type":"Course"' not in html.replace(m.group(0), ""):
+            try:
+                static = json.loads(sm.group(1))
+                html = html.replace("</head>", '<script type="application/ld+json">' + json.dumps(static, ensure_ascii=False, separators=(",", ":")) + "</script></head>", 1)
+            except Exception:
+                pass
     return re.sub(r"\n?" + re.escape(CSTART) + r".*?" + re.escape(CEND) + r"\n?", "\n", html, flags=re.S)
 
 def run_kursseiten(kdir, write):
@@ -277,7 +329,7 @@ def run_kursseiten(kdir, write):
             continue
         h = open(p, encoding="utf-8").read()
         block = course_block(h, f"{SITE}/kurse/{slug}/", upcoming, organizer)
-        out = inject_course(h, block) if block else strip_course(h)
+        out = inject_course(h, block, f"{SITE}/kurse/{slug}/") if block else strip_course(h)
         if block:
             n += 1
         if write and out != h:
