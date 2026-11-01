@@ -23,7 +23,7 @@ NAV_LINKS = [
 def build_header(active_href, cta_href):
     parts = ['<header class="site-header"><a class="brand" href="/">'
              '<img src="/media/bww-logo-transparent.webp" alt="BWW Logo">'
-             '<span><small>Multiplikatorenstelle & Rettungsdienstbildungsstelle</small></span></a>'
+             '<span><small>Multiplikatorenstelle · Bildungsstelle für Erste Hilfe und betrieblichen Sanitätsdienst</small></span></a>'
              '<button class="menu-toggle" aria-label="Menü öffnen" aria-expanded="false" aria-controls="site-nav" '
              'onclick="var o=document.body.classList.toggle(\'menu-open\');'
              'this.setAttribute(\'aria-expanded\',o);'
