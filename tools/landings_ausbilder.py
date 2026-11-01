@@ -8,6 +8,7 @@ BASE = 'wissen/multiplikatorenstelle-dguv-grundsatz-304-003/index.html'
 HOST = 'https://www.multiplikatorenstelle.de'
 STAND = '01.11.2026'
 esc = lambda s: s.replace('&', '&amp;')
+BEL6 = 'BWW bildet betriebliche Ersthelfer aus und fort und ist dafür ermächtigte Stelle der gesetzlichen Unfallversicherung (Kennziffer 8.2122, seit 28.10.2025). Geeignete Stelle ist BWW für die Aus- und Fortbildung von Lehrkräften der Ersten Hilfe (seit 28.10.2025) sowie von Lehrkräften des betrieblichen Sanitätsdienstes und von Betriebssanitätern (seit 29.10.2026). Die ermächtigten bzw. geeigneten Stellen führt die Qualitätssicherungsstelle Erste Hilfe (QSEH) der gesetzlichen Unfallversicherungsträger in einer öffentlichen Liste.'
 QL = 'Die ermächtigten bzw. geeigneten Stellen führt die Qualitätssicherungsstelle Erste Hilfe (QSEH) der gesetzlichen Unfallversicherungsträger in einer öffentlichen Liste.'
 BELEG = '<!-- Beleg offen: Ermächtigungsbescheid UV-Träger (Kennziffer 8.2122) je Lehrgangsart; Wortlaut vom Jurist -->'
 
@@ -145,6 +146,73 @@ PAGES = [
        ('Was kostet eine Hospitation?', 'Der Kurspreis des Lehrgangs, in dem hospitiert wird, plus 25 € je Kurstag.'),
        ('Wo sehe ich den verbindlichen Preis?', 'Bei der Buchung im Buchungssystem. Dort wird der Preis des gewählten Termins angezeigt.')],
   related=[('/fuer-ausbilder/', 'Ausbilder werden: alle Stufen'), ('/ausbilder-werden/erste-hilfe-lehrkraft/', 'Erste-Hilfe-Ausbilder werden'), ('/ausbilder-werden/betriebssanitaeter-lehrkraft/', 'Betriebssanitäter-Lehrkraft'), ('/ausbilder-werden/lehrberechtigung-verlaengern/', 'Lehrberechtigung verlängern'), ('/multiplikatorenstelle/', 'Multiplikatorenstelle')]),
+ dict(path='ausbilder-werden/fuer-hilfsorganisationen/', img='teacher-training', eyebrow='Ausbilder werden',
+  title='Lehrkräfte ausbilden lassen: für Hilfsorganisationen | BWW',
+  desc='Wie Hilfsorganisationen ihre Ausbilder qualifizieren: Lehrkräfte-Ausbildung, Fortbildung und Hospitation bei BWW, Voraussetzungen nach DGUV 304-003.',
+  h1='Angebot für Hilfsorganisationen, die Lehrkräfte qualifizieren lassen möchten',
+  quellen='DGUV Grundsatz 304-003',
+  lead='Wer in einer Hilfsorganisation selbst Erste-Hilfe- oder Sanitätskurse leiten will, braucht die Lehrkräfte-Qualifikation nach DGUV Grundsatz 304-003. Bei BWW gibt es sie als Lehrkräfte-Ausbildung (Themenbereich I und II) und als Lehrkraft für den betrieblichen Sanitätsdienst, jeweils mit Fortbildung.',
+  cta=[('/ausbilder-werden/erste-hilfe-lehrkraft/', 'Erste-Hilfe-Lehrkraft werden', 'primary'), ('/ausbilder-werden/preise/', 'Preise ansehen', 'ghost')],
+  keyfacts=['<strong>Wege:</strong> <a href="/ausbilder-werden/erste-hilfe-lehrkraft/">Erste-Hilfe-Lehrkraft</a>, <a href="/ausbilder-werden/betriebssanitaeter-lehrkraft/">Betriebssanitäter-Lehrkraft</a>, <a href="/ausbilder-werden/lehrberechtigung-verlaengern/">Lehrberechtigung verlängern</a>',
+            '<strong>Fortbildung:</strong> mindestens alle drei Jahre, 16 UE (8 medizinisch-fachlich, 8 pädagogisch)',
+            '<strong>Hospitation:</strong> Kurspreis plus 25 € je Kurstag',
+            '<strong>Gruppen:</strong> Inhouse-Termine auf Anfrage'],
+  body="""<h2>Voraussetzungen je Person</h2>
+<p>Medizinisch: ein Erste-Hilfe-Kurs plus mindestens 48 Unterrichtseinheiten notfallmedizinische Ausbildung. Pädagogisch: mindestens 56 Unterrichtseinheiten und mindestens zwei Hospitationen (DGUV Grundsatz 304-003). Einzelheiten: <a href="/wissen/erste-hilfe-ausbilder-werden-qualifikation/">Erste-Hilfe-Ausbilder werden: Qualifikationsweg</a>.</p>
+<h2>Wenn die Organisation selbst ausbilden will</h2>
+<p>Wer selbst Erste-Hilfe-Kurse für betriebliche Ersthelfer im Sinn der gesetzlichen Unfallversicherung anbieten möchte, braucht dafür eine eigene Ermächtigung. Sie wird von den Unfallversicherungsträgern bzw. der QSEH erteilt; die Lehrkräfte-Qualifikation allein ersetzt sie nicht. Voraussetzungen und Ablauf: <a href="/wissen/erste-hilfe-ausbildungsstelle-gruenden/">Erste-Hilfe-Ausbildungsstelle gründen</a> und <a href="/wissen/qseh-ermaechtigungsverfahren-ablauf/">Ermächtigungsverfahren bei der QSEH</a>.</p>
+<h2>Zur Einordnung</h2>
+<p>""" + BEL6 + """</p>""",
+  faq=[('Können mehrere Personen gemeinsam teilnehmen?', 'Ja. Inhouse-Termine für Gruppen sind auf Anfrage möglich.'),
+       ('Was braucht jede Person vorab?', 'Medizinisch einen Erste-Hilfe-Kurs plus mindestens 48 Unterrichtseinheiten notfallmedizinische Ausbildung, pädagogisch mindestens 56 Unterrichtseinheiten und mindestens zwei Hospitationen (DGUV Grundsatz 304-003).'),
+       ('Wo wird die Eignung von BWW geführt?', 'Die ermächtigten bzw. geeigneten Stellen führt die Qualitätssicherungsstelle Erste Hilfe (QSEH) in einer öffentlichen Liste.'),
+       ('Was kostet es?', 'Die Preise je Person stehen auf der Seite „Preise der Lehrgänge für Ausbilder“.')],
+  related=[('/fuer-ausbilder/', 'Ausbilder werden: alle Stufen'), ('/ausbilder-werden/preise/', 'Preise'), ('/multiplikatorenstelle/', 'Multiplikatorenstelle'), ('/wissen/ermaechtigte-ausbildungsstelle-pflichten/', 'Pflichten ermächtigter Stellen')]),
+ dict(path='ausbilder-werden/fuer-ausbildungsstellen/', img='teacher-training', eyebrow='Ausbilder werden',
+  title='Lehrkräfte fortbilden lassen: für Ausbildungsstellen | BWW',
+  desc='Ausbildungsstellen halten Lehrberechtigungen aktuell: Fortbildung alle drei Jahre (16 UE), Fristen, Ablauf bei Ablauf der Berechtigung. Termine bei BWW.',
+  h1='Lehrberechtigungen im Blick behalten: Fortbildung für Lehrkräfte von Ausbildungsstellen',
+  quellen='DGUV Grundsatz 304-003',
+  lead='Lehrkräfte Erste Hilfe müssen mindestens alle drei Jahre 16 Unterrichtseinheiten Fortbildung nachweisen, davon 8 medizinisch-fachlich und 8 pädagogisch. Ist die Lehrberechtigung abgelaufen, sind mindestens 32 Unterrichtseinheiten im Themenbereich II nötig.',
+  cta=[('/ausbilder-werden/lehrberechtigung-verlaengern/', 'Lehrberechtigung verlängern', 'primary'), ('/kurse/lehrkraefte-fortbildung/', 'Fortbildung buchen', 'ghost')],
+  keyfacts=['<strong>Rhythmus:</strong> mindestens alle drei Jahre', '<strong>Umfang:</strong> 16 UE, davon 8 medizinisch-fachlich und 8 pädagogisch',
+            '<strong>Frist verpasst:</strong> mindestens 32 UE im Themenbereich II', '<strong>Preis bei BWW:</strong> 100 € je Person (Stand ' + STAND + ')'],
+  body="""<h2>Fristen und Planung</h2>
+<p>Fristen, Umfang und Ablauf bei abgelaufener Lehrberechtigung stehen auf der Seite <a href="/ausbilder-werden/lehrberechtigung-verlaengern/">Lehrberechtigung verlängern</a>. Ob die Fortbildung bei BWW für eure Lehrberechtigung zählt, richtet sich nach den Vorgaben der QSEH und eurer Ausbildungsstelle; fragt dort vor der Buchung nach.</p>
+<h2>Pflichten ermächtigter Stellen</h2>
+<p>Was eine ermächtigte Stelle laufend leisten muss, erklärt <a href="/wissen/ermaechtigte-ausbildungsstelle-pflichten/">Pflichten ermächtigter Stellen</a>; aktuelle Änderungen: <a href="/wissen/aktuelle-aenderungen-ausbildungsstellen/">Aktuelle Änderungen für Ausbildungsstellen</a>.</p>
+<h2>Hospitation für künftige Lehrbeauftragte</h2>
+<p>Angehende Lehrbeauftragte hospitieren in einer kompletten Lehrkräftequalifizierung: <a href="/ausbilder-werden/lehrbeauftragter/">Voraussetzungen und Hospitation</a>.</p>
+<h2>Zur Einordnung</h2>
+<p>""" + BEL6 + """</p>""",
+  faq=[('Wie oft müssen Lehrkräfte fortbilden?', 'Mindestens alle drei Jahre im Umfang von mindestens 16 Unterrichtseinheiten, davon 8 medizinisch-fachlich und 8 pädagogisch (DGUV Grundsatz 304-003).'),
+       ('Was gilt bei abgelaufener Lehrberechtigung?', 'Zur Wiedererlangung ist grundsätzlich eine erneute Schulung des Themenbereichs II im Umfang von mindestens 32 Unterrichtseinheiten nötig.'),
+       ('Zählt die Fortbildung bei BWW für unsere Lehrberechtigung?', 'Das richtet sich nach den Vorgaben der QSEH und eurer Ausbildungsstelle; fragt dort vor der Buchung nach.'),
+       ('Was kostet die Fortbildung?', 'Laut Buchungssystem 100 € je Person (Stand ' + STAND + ').')],
+  related=[('/fuer-ausbilder/', 'Ausbilder werden: alle Stufen'), ('/ausbilder-werden/lehrberechtigung-verlaengern/', 'Lehrberechtigung verlängern'), ('/wissen/lehrkraefte-fortbildung-16-ue/', 'Lehrkräfte-Fortbildung (16 UE)'), ('/wissen/qseh-ermaechtigungsverfahren-ablauf/', 'Ermächtigungsverfahren bei der QSEH')]),
+ dict(path='ausbilder-werden/fuer-betriebe/', img='teacher-training', eyebrow='Ausbilder werden',
+  title='Betriebssanitäter und Ersthelfer im Betrieb: Ausbilder | BWW',
+  desc='Betriebe, die Ersthelfer oder Betriebssanitäter ausbilden lassen, finden hier die Wege: Kurse inhouse, Fortbildung, Lehrgänge für Ausbilder.',
+  h1='Betriebliche Ersthelfer und Betriebssanitäter: Ausbildung im Betrieb und Ausbilder-Qualifikation',
+  quellen='DGUV Vorschrift 1, DGUV Grundsatz 304-003',
+  lead='BWW bildet betriebliche Ersthelfer aus und fort und ist dafür ermächtigte Stelle der gesetzlichen Unfallversicherung (Kennziffer 8.2122, seit 28.10.2025). Wer im Betrieb selbst Kurse leiten soll, braucht zusätzlich die Lehrkräfte-Qualifikation nach DGUV Grundsatz 304-003.',
+  cta=[('/inhouse-kurse/', 'Inhouse-Kurs anfragen', 'primary'), ('/ausbilder-werden/erste-hilfe-lehrkraft/', 'Ausbilder im Betrieb qualifizieren', 'ghost')],
+  keyfacts=['<strong>Ersthelfer:</strong> Ausbildung und Fortbildung inhouse oder offen, Bescheinigung digital', '<strong>Betriebssanitäter:</strong> Grund-, Aufbau- und Fortbildungslehrgänge; geeignete Stelle seit 29.10.2026',
+            '<strong>Ausbilder im Betrieb:</strong> Lehrkräfte-Qualifikation nach DGUV 304-003', '<strong>Kosten:</strong> Ob und in welcher Höhe der Träger die Kosten übernimmt, entscheidet der Träger'],
+  body="""<h2>Ersthelfer</h2>
+<p><a href="/kurse/erste-hilfe-ausbildung/">Erste-Hilfe-Ausbildung</a> und <a href="/kurse/erste-hilfe-fortbildung/">Fortbildung</a> für betriebliche Ersthelfer; wie viele Ersthelfer ein Betrieb braucht, erklärt <a href="/wissen/ersthelfer-anzahl-dguv/">Wie viele Ersthelfer braucht ein Betrieb?</a></p>
+<h2>Betriebssanitäter</h2>
+<p><a href="/ausbilder-werden/betriebssanitaeter-lehrkraft/">Betriebssanitäter-Lehrgänge und Lehrkraft Sanitätsdienst</a>. Aktuelle Termine stehen in der <a href="/kurse/">Terminliste</a> (Stand """ + STAND + """: erster Termin am 13.07.2027).</p>
+<h2>Ausbilder im Betrieb</h2>
+<p>Wer im Betrieb selbst Kurse leiten soll, findet die Wege unter <a href="/ausbilder-werden/erste-hilfe-lehrkraft/">Erste-Hilfe-Ausbilder werden</a> und <a href="/ausbilder-werden/betriebssanitaeter-lehrkraft/">Betriebssanitäter-Ausbilder werden</a>.</p>
+<h2>Abrechnung</h2>
+<p>Die Erste-Hilfe-Aus- und Fortbildung betrieblicher Ersthelfer ist über den zuständigen Träger abrechenbar; Einzelheiten auf der Seite <a href="/abrechnung/">Abrechnung</a>. Ob und in welcher Höhe der Träger die Kosten übernimmt, entscheidet der Träger.</p>
+<h2>Zur Einordnung</h2>
+<p>""" + BEL6 + """</p>""",
+  faq=[('Wer trägt die Kosten der Ersthelfer-Ausbildung?', 'Ob und in welcher Höhe der zuständige Träger die Kosten übernimmt, entscheidet der Träger. Einzelheiten stehen im Beitrag „Was kostet der Erste-Hilfe-Kurs den Betrieb wirklich?“.'),
+       ('Brauchen wir einen eigenen Ausbilder im Betrieb?', 'Nicht zwingend. Wer im Betrieb selbst Kurse leiten soll, braucht die Lehrkräfte-Qualifikation nach DGUV Grundsatz 304-003; die Wege stehen unter „Ausbilder werden“.'),
+       ('Ab wann gibt es Betriebssanitäter-Kurse bei BWW?', 'BWW ist für Betriebssanitäter seit dem 29.10.2026 geeignete Stelle. Aktuelle Termine stehen in der Terminliste (Stand ' + STAND + ': erster Termin am 13.07.2027).')],
+  related=[('/fuer-ausbilder/', 'Ausbilder werden: alle Stufen'), ('/inhouse-kurse/', 'Inhouse-Kurse'), ('/abrechnung/', 'Abrechnung'), ('/wissen/ersthelfer-anzahl-dguv/', 'Wie viele Ersthelfer braucht ein Betrieb?'), ('/wissen/erste-hilfe-kurs-kosten-betrieb/', 'Was kostet der Erste-Hilfe-Kurs den Betrieb?')]),
  dict(path='multiplikatorenstelle/', img='legal-docs', eyebrow='Multiplikatorenstelle',
   title='Multiplikatorenstelle: Was sie leistet, was sie darf | BWW',
   desc='Eine Multiplikatorenstelle bildet Lehrkräfte für Erste Hilfe und Sanitätsdienst aus (DGUV Grundsatz 304-003). Aufgaben, Ablauf, Kontakt.',
@@ -251,6 +319,9 @@ def main():
     ll = open('llms.txt', encoding='utf8').read(); o = ll
     LL = [("/ausbilder-werden/erste-hilfe-lehrkraft/", "Erste-Hilfe-Ausbilder werden", "Qualifikationsweg und Lehrkräfte-Ausbildung"),
           ("/ausbilder-werden/betriebssanitaeter-lehrkraft/", "Betriebssanitäter-Ausbilder werden", "Lehrkraft betrieblicher Sanitätsdienst und Betriebssanitäter-Lehrgänge"),
+          ("/ausbilder-werden/fuer-hilfsorganisationen/", "Für Hilfsorganisationen", "Lehrkräfte qualifizieren lassen: Wege, Voraussetzungen, Hospitation"),
+          ("/ausbilder-werden/fuer-ausbildungsstellen/", "Für Ausbildungsstellen", "Lehrberechtigungen aktuell halten: Fortbildung, Fristen"),
+          ("/ausbilder-werden/fuer-betriebe/", "Für Betriebe", "Ersthelfer, Betriebssanitäter und Ausbilder im Betrieb"),
           ("/ausbilder-werden/preise/", "Preise der Lehrgänge für Ausbilder", "Lehrkräfte-, Betriebssanitäter- und Hospitationspreise aus dem Buchungssystem"),
           ("/ausbilder-werden/lehrberechtigung-verlaengern/", "Lehrberechtigung verlängern", "Fortbildung für Lehrkräfte Erste Hilfe: Frist, Umfang, Ablauf"),
           ("/ausbilder-werden/lehrbeauftragter/", "Künftige Lehrbeauftragte", "Voraussetzungen und Weg über die Hospitation"),

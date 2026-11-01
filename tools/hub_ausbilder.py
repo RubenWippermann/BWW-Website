@@ -28,6 +28,7 @@ WEG = ('<section class="section" id="wege"><div class="section-head"><span class
        '<li><a href="/ausbilder-werden/betriebssanitaeter-lehrkraft/">Betriebssanitäter-Ausbilder werden</a>: lehrkraft für den betrieblichen Sanitätsdienst</li>'
        '<li><a href="/ausbilder-werden/lehrberechtigung-verlaengern/">Lehrberechtigung verlängern</a>: Fortbildung, Frist und Ablauf</li>'
        '<li><a href="/ausbilder-werden/lehrbeauftragter/">Künftige Lehrbeauftragte</a>: Voraussetzungen und Hospitation</li>'
+       '<li>Für Zielgruppen: <a href="/ausbilder-werden/fuer-hilfsorganisationen/">Hilfsorganisationen</a>, <a href="/ausbilder-werden/fuer-ausbildungsstellen/">Ausbildungsstellen</a>, <a href="/ausbilder-werden/fuer-betriebe/">Betriebe</a></li>'
        '<li><a href="/ausbilder-werden/preise/">Preise</a>: Lehrkräfte-, Betriebssanitäter- und Hospitationspreise</li>'
        '<li><a href="/multiplikatorenstelle/">Multiplikatorenstelle</a>: Aufgaben und die DGUV-Grundsätze 304-001 bis 304-003</li></ul></section>').replace('lehrkraft für', 'Lehrkraft für')
 if 'id="wege"' not in h:
