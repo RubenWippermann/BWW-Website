@@ -2,12 +2,12 @@
 """Schritt A (SEO 01.11.): Title (<=60) und Meta Description (<=155) der 20 meistgezeigten Seiten. Idempotent."""
 import re, html, sys, os
 S = {
- '': ("BWW: Erste Hilfe & Brandschutz inhouse, Kennziffer 8.2122",
-      "BWW schult Betriebe, Schulen und Kitas deutschlandweit in Erster Hilfe, Brandschutz und AED. Inhouse oder offen, DGUV-ermächtigt, Bescheinigung digital."),
+ '': ("BWW: Erste Hilfe & Brandschutz inhouse, deutschlandweit",
+      "BWW schult Betriebe, Schulen und Kitas deutschlandweit in Erster Hilfe, Brandschutz und AED. Inhouse oder offen, ermächtigte Stelle, Bescheinigung digital."),
  'kurse/': ("Alle Kurse: Erste Hilfe, Brandschutz, Sanitäter | BWW",
       "Erste-Hilfe-Ausbildung und -Fortbildung, Brandschutzhelfer, Betriebssanitäter, Lehrkräfte: alle BWW-Kurse im Überblick, freie Termine direkt buchen."),
  'kurse/erste-hilfe-ausbildung/': ("Ersthelfer-Ausbildung im Betrieb, 9 UE, inhouse | BWW",
-      "Betriebliche Ersthelfer ausbilden: 9 UE bei euch vor Ort, deutschlandweit, DGUV-ermächtigt (8.2122), Bescheinigung digital. Inhouse-Angebot anfragen."),
+      "Betriebliche Ersthelfer ausbilden: 9 UE bei euch vor Ort, deutschlandweit, ermächtigt (8.2122), Bescheinigung digital. Inhouse-Angebot anfragen."),
  'kurse/erste-hilfe-fortbildung/': ("Erste-Hilfe-Fortbildung für Ersthelfer, 9 UE | BWW",
       "Auffrischung für betriebliche Ersthelfer, in der Regel alle zwei Jahre: 9 UE in Präsenz, inhouse oder offen, Bescheinigung digital direkt nach dem Kurs."),
  'kurse/brandschutzhelfer/': ("Brandschutzhelfer ausbilden, 4 UE nach ASR A2.2 | BWW",

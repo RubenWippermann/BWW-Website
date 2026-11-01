@@ -103,7 +103,7 @@ PAGES = [
   body="""<h2>Wer muss was nachweisen?</h2>
 <p>Die Fortbildung betrifft Lehrkräfte Erste Hilfe mit gültiger Lehrberechtigung. Für Lehrkräfte des betrieblichen Sanitätsdienstes richten sich die Vorgaben nach der Lehrgangsart; bei der Ausbildungsstelle erfragen.</p>
 <h2>Fristen und Planung</h2>
-<p>Die Fortbildung muss innerhalb der Gültigkeit der Lehrberechtigung erfolgen. Lehrgänge werden vorab bei der Qualitätssicherungsstelle Erste Hilfe (QSEH) gemeldet und haben begrenzte Plätze; bucht deshalb rechtzeitig vor Fristende. Mehr zu Rhythmus und Aufteilung: <a href="/wissen/lehrkraefte-fortbildung-16-ue/">Lehrkräfte-Fortbildung: 16 UE alle drei Jahre</a>.</p>
+<p>Die Fortbildung muss innerhalb der Gültigkeit der Lehrberechtigung erfolgen. Lehrgänge werden vorab bei der Qualitätssicherungsstelle Erste Hilfe (QSEH) gemeldet und haben begrenzte Plätze; bucht deshalb rechtzeitig vor Fristende. Ob die Fortbildung bei BWW für eure Lehrberechtigung zählt, richtet sich nach den Vorgaben der QSEH und eurer Ausbildungsstelle; fragt dort vor der Buchung nach. Mehr zu Rhythmus und Aufteilung: <a href="/wissen/lehrkraefte-fortbildung-16-ue/">Lehrkräfte-Fortbildung: 16 UE alle drei Jahre</a>.</p>
 <h2>Was passiert bei Ablauf?</h2>
 <p>Ohne rechtzeitige Fortbildung erlischt die Lehrberechtigung. Um sie wiederzuerlangen, ist grundsätzlich eine erneute Schulung des Themenbereichs II „Fachdidaktische Umsetzung Erste Hilfe“ im Umfang von mindestens 32 UE nötig (DGUV Grundsatz 304-003). Details erklärt der Beitrag <a href="/wissen/lehrberechtigung-erste-hilfe-fortbildung-lehrkraefte/">Lehrberechtigung erhalten</a>.</p>
 <h2>Fortbildung bei BWW</h2>

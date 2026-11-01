@@ -1,4 +1,4 @@
-# BWW – Multiplikatorenstelle & Rettungsdienstbildungsstelle: Kernseiten im Volltext (llms-full.txt)
+# BWW – Multiplikatorenstelle · Bildungsstelle für Erste Hilfe und betrieblichen Sanitätsdienst: Kernseiten im Volltext (llms-full.txt)
 
 > Zusammenstellung der Kernseiten von www.multiplikatorenstelle.de aus deren Seitentext: Titel, Beschreibung, Hauptüberschrift und die sichtbaren häufigen Fragen mit Antworten. Termine und Preise ändern sich täglich und stehen live in der Terminliste unter https://www.multiplikatorenstelle.de/kurse/ ; Kurzfassung: https://www.multiplikatorenstelle.de/llms.txt
 
@@ -36,7 +36,7 @@ Hauptüberschrift: Kostenübernahme für Erste-Hilfe-Kurse verständlich erklär
 
 ## BWW – Unternehmensprofil & Faktenblatt
 URL: https://www.multiplikatorenstelle.de/unternehmensprofil/
-BWW-Unternehmensprofil: DGUV-ermächtigte Stelle (Kennziffer 8.2122), bundesweit Inhouse-Kurse für Erste Hilfe, Brandschutz und Betriebssanitäter.
+BWW-Unternehmensprofil: von der gesetzlichen Unfallversicherung ermächtigte Stelle (Kennziffer 8.2122), bundesweit Inhouse-Kurse für Erste Hilfe, Brandschutz und Betriebssanitäter.
 Hauptüberschrift: BWW UG (haftungsbeschränkt) – Bildungswerk für Wiederbelebung und Erste Hilfe
 
 ## Erste Hilfe für Schulen: Lehrkräfte & Schulsanitäter | BWW
@@ -193,14 +193,14 @@ Hauptüberschrift: Brandschutzhelfer
 
 ## Betriebliche Ersthelfer ausbilden: Inhouse bundesweit | BWW
 URL: https://www.multiplikatorenstelle.de/kurse/erste-hilfe-ausbildung/
-Ersthelfer-Ausbildung im Betrieb, 9 UE, DGUV-ermächtigt (8.2122). Wir kommen deutschlandweit zu euch. Jetzt Inhouse-Angebot anfragen.
+Ersthelfer-Ausbildung im Betrieb, 9 UE, ermächtigt (8.2122). Wir kommen deutschlandweit zu euch. Jetzt Inhouse-Angebot anfragen.
 Hauptüberschrift: Betriebliche Ersthelfer ausbilden – Inhouse-Kurs bei euch vor Ort
 - Frage: Weitere Kurse hinzufügen (Erste-Hilfe-Ausbildung ist vorausgewählt) Kursart(en) * (mindestens eine auswählen) Erste-Hilfe-Ausbildung Erste-Hilfe-Fortbildung Erste Hilfe am Kind (Baby/Kleinkind) Erste-Hilfe-Schulung in Bildungs- und Betreuungseinrichtungen Reanimation & AED-Training AED-Einweisung Brandschutzhelfer Evakuierungshelfer Betriebssanitäter Grundausbildung Betriebssanitäter Aufbaulehrgang Betriebssanitäter Fortbildung Notfalltraining (Gesundheitswesen) Schulsanitäter-Ausbildung Sanitätshelfer-Ausbildung Lehrkräfte-Ausbildung (Themenbereich I & II) Lehrkräfte-Fortbildung Sonstiges / Beratung Nachricht Abweichende Rechnungsadresse angeben (optional) Rechnungsadresse Bitte frei lassen Ja, schickt mir gelegentlich Kurs-Infos & Neuigkeiten per E-Mail (jederzeit abbestellbar). Ich habe die Datenschutzerklärung gelesen und stimme der Verarbeitung meiner Daten zur Bearbeitung der Anfrage zu. Anfrage senden Wir melden uns i. d. R. innerhalb eines Werktags. Am Telefon hilft auch Bella, unsere KI-Assistentin. Häufige Fragen Häufige Fragen zur Ersthelfer-Ausbildung im Betrieb Wie viele Ersthelfer braucht ein Betrieb?
   Antwort: Nach § 26 DGUV Vorschrift 1 ist bei 2 bis zu 20 anwesenden Versicherten 1 Ersthelfer nötig. Bei mehr als 20 anwesenden Versicherten sind es 5 % in Verwaltungs- und Handelsbetrieben und 10 % in sonstigen Betrieben. Quelle: DGUV, Betriebliche Ersthelfer.
 - Frage: Wie lange dauert die Erste-Hilfe-Ausbildung?
   Antwort: Die Erste-Hilfe-Ausbildung umfasst 9 Unterrichtseinheiten à 45 Minuten und findet in der Regel an einem Tag statt.
 - Frage: Wer trägt die Kosten für betriebliche Ersthelfende?
-  Antwort: Die Aus- und Fortbildung betrieblicher Ersthelfender ist über die zuständige Berufsgenossenschaft oder Unfallkasse abrechenbar; die Entscheidung trifft der Träger. Voraussetzung ist eine ermächtigte Stelle – BWW ist unter der Kennziffer 8.2122 anerkannt, die ihr bei eurem Unfallversicherungsträger nachprüfen könnt.
+  Antwort: Die Aus- und Fortbildung betrieblicher Ersthelfender ist über die zuständige Berufsgenossenschaft oder Unfallkasse abrechenbar; die Entscheidung trifft der Träger. Voraussetzung ist eine ermächtigte Stelle – BWW ist unter der Kennziffer 8.2122 ermächtigt, die ihr bei eurem Unfallversicherungsträger nachprüfen könnt.
 - Frage: Wie oft muss die Erste-Hilfe-Ausbildung aufgefrischt werden?
   Antwort: Die Auffrischung erfolgt in der Regel alle zwei Jahre in Form einer Fortbildung mit 9 Unterrichtseinheiten. Danach gilt der Nachweis wieder für zwei Jahre.
 - Frage: Wie viele Personen können an einem Kurs teilnehmen?
