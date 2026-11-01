@@ -3,7 +3,7 @@
 Langform 'Bildungswerk ...' nur mit Rechtsform als Geschäftsbezeichnung. Idempotent."""
 import glob, os
 S = 'BWW UG (haftungsbeschränkt) ist ein gewerblicher Bildungsanbieter und keine Schule im Sinne der Schulgesetze.'
-LEGAL = ('impressum/', 'datenschutz/', 'agb/', 'widerruf/')
+LEGAL = ()   # Footer-Satz auf JEDER Seite (Jurist 01.11., Bedingung zum Namen im Kopf); nur der Footer, nie der Rechtstext
 n = 0
 OLDF = 'BWW UG (haftungsbeschränkt). Praxisnahe'
 NEWF = S + ' Praxisnahe'
