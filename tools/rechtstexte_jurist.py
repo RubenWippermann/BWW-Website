@@ -51,4 +51,7 @@ DSG = [
  ('der Begleitung von behördlichen Anerkennungsverfahren (z. B. Zulassung als ermächtigte Stelle nach § 68 FeV oder DGUV)', 'der Begleitung von behördlichen Ermächtigungs- bzw. Anerkennungsverfahren Dritter (z. B. Ermächtigung als Stelle der gesetzlichen Unfallversicherung oder amtliche Anerkennung nach § 68 FeV)'),
 ]
 apply('datenschutz/index.html', DSG)
+h = open('datenschutz/index.html', encoding='utf8').read()
+A53 = 'Qualitätssicherungsstelle Erste Hilfe der DGUV bzw. die jeweilige BG zu übermitteln.'
+if A53 in h: open('datenschutz/index.html', 'w', encoding='utf8').write(h.replace(A53, 'Qualitätssicherungsstelle Erste Hilfe der gesetzlichen Unfallversicherungsträger bzw. den jeweiligen Unfallversicherungsträger zu übermitteln.', 1)); n += 1   # Jurist-OK 02.11.
 print('geändert:', n)
