@@ -14,6 +14,8 @@ mapping = json.load(open(MAP_PATH, encoding='utf-8'))
 # 26.09.2026: Hauptnavigation auf 5 Punkte + 1 CTA (Offene Kurse, Standorte, Dozent werden, Shop stehen im Footer)
 NAV_LINKS = [
     ('/kurse/', 'Kurse'),
+    ('/fuer-ausbilder/', 'Ausbilder werden'),
+    ('/fuer-sanitaetsdienst/', 'Betriebssanitäter'),
     ('/inhouse-kurse/', 'Inhouse'),
     ('/arbeitsschutz-check/', 'Tools'),
     ('/wissen/', 'Wissen'),
