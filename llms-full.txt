@@ -48,7 +48,7 @@ Hauptüberschrift: Erste Hilfe für Lehrkräfte, Schulsanitätsdienst und Kolleg
 - Frage: Welche Kurse eignen sich für Schulen?
   Antwort: Für Lehrkräfte die Lehrkräfte-Ausbildung LK1/LK2, für Schülerinnen und Schüler der Schulsanitätsdienst AG, und für das Kollegium allgemein Erste Hilfe in Bildungs- und Betreuungseinrichtungen.
 - Frage: Ist BWW eine ermächtigte Stelle?
-  Antwort: Ja. BWW ist ermächtigte Stelle der gesetzlichen Unfallversicherung (Kennziffer 8.2122). Die Kennziffer könnt ihr bei eurem Unfallversicherungsträger nachprüfen.
+  Antwort: Ja. Für die Erste-Hilfe-Aus- und Fortbildung im Betrieb ist BWW ermächtigte Stelle der gesetzlichen Unfallversicherung (Kennziffer 8.2122, seit 28.10.2025). Geeignete Stelle ist BWW Stelle zur Aus- und Fortbildung von Lehrkräften der Ersten Hilfe (seit 28.10.2025, Kennziffer 8.2122). Für Lehrkräfte des betrieblichen Sanitätsdienstes und Betriebssanitäter gilt dies seit 29.10.2026. Die Kennziffer könnt ihr bei eurem Unfallversicherungsträger nachprüfen.
 
 ## Erste Hilfe für Behörden: Abrechnung per Unfallkasse | BWW
 URL: https://www.multiplikatorenstelle.de/fuer-behoerden/
@@ -59,7 +59,7 @@ Hauptüberschrift: Erste Hilfe für Ämter, Verwaltung und den öffentlichen Die
 - Frage: Gilt das auch für Finanzämter und andere Ämter?
   Antwort: Ja. Finanzämter, Kommunalverwaltungen und andere Ämter sind Teil des öffentlichen Dienstes und rechnen wie andere Behörden über die zuständige Unfallkasse ab.
 - Frage: Ist BWW eine ermächtigte Stelle?
-  Antwort: Ja. BWW ist ermächtigte Stelle der gesetzlichen Unfallversicherung (Kennziffer 8.2122). Die Kennziffer könnt ihr bei eurem Unfallversicherungsträger nachprüfen.
+  Antwort: Ja. Für die Erste-Hilfe-Aus- und Fortbildung im Betrieb ist BWW ermächtigte Stelle der gesetzlichen Unfallversicherung (Kennziffer 8.2122, seit 28.10.2025). Geeignete Stelle ist BWW Stelle zur Aus- und Fortbildung von Lehrkräften der Ersten Hilfe (seit 28.10.2025, Kennziffer 8.2122). Für Lehrkräfte des betrieblichen Sanitätsdienstes und Betriebssanitäter gilt dies seit 29.10.2026. Die Kennziffer könnt ihr bei eurem Unfallversicherungsträger nachprüfen.
 
 ## Lehrkräfte & Lehrbeauftragte Erste Hilfe | BWW
 URL: https://www.multiplikatorenstelle.de/fuer-ausbilder/
@@ -70,7 +70,7 @@ Hauptüberschrift: Lehrkräfte und Lehrbeauftragte Erste Hilfe: alle Stufen im �
 - Frage: Welche Voraussetzungen brauche ich für LK1?
   Antwort: In der Regel eine gültige Erste-Hilfe-Ausbildung sowie eine notfallmedizinische Qualifikation. Die genauen Zugangsvoraussetzungen stimmen wir vor der Anmeldung mit dir ab.
 - Frage: Ist BWW eine ermächtigte Stelle?
-  Antwort: Ja. BWW ist ermächtigte Stelle der gesetzlichen Unfallversicherung (Kennziffer 8.2122). Die Kennziffer kannst du bei deinem Unfallversicherungsträger nachprüfen.
+  Antwort: Ja. Für die Erste-Hilfe-Aus- und Fortbildung im Betrieb ist BWW ermächtigte Stelle der gesetzlichen Unfallversicherung (Kennziffer 8.2122, seit 28.10.2025). Geeignete Stelle ist BWW Stelle zur Aus- und Fortbildung von Lehrkräften der Ersten Hilfe (seit 28.10.2025, Kennziffer 8.2122). Für Lehrkräfte des betrieblichen Sanitätsdienstes und Betriebssanitäter gilt dies seit 29.10.2026. Die Kennziffer kannst du bei deinem Unfallversicherungsträger nachprüfen.
 - Frage: Ist der Kurs für Lehrbeauftragte eine von der DGUV anerkannte Maßnahme?
   Antwort: Nein. Der Orientierungsrahmen in Anhang 3 der DGUV Grundsatz 304-003 ist eine Empfehlung für Stellen, die Lehrbeauftragte aus- und fortbilden. Der Kurs ist keine beim QSEH-Portal registrierte Maßnahme; die Bescheinigung enthält deshalb keine DGUV-Anerkennung.
 
@@ -140,7 +140,7 @@ Hauptüberschrift: Betriebssanitäter Aufbaukurs
 - Frage: Worauf baut der Aufbaukurs auf?
   Antwort: Auf dem Betriebssanitäter-Grundkurs. Er vertieft und trainiert die berufsbezogenen Inhalte und schließt die Ausbildung zur Betriebssanitäterin oder zum Betriebssanitäter ab.
 - Frage: Ist BWW eine ermächtigte Stelle?
-  Antwort: Ja. BWW ist ermächtigte Stelle der gesetzlichen Unfallversicherung (Kennziffer 8.2122). Die Kennziffer könnt ihr bei eurem Unfallversicherungsträger nachprüfen.
+  Antwort: Ja. Für die Erste-Hilfe-Aus- und Fortbildung im Betrieb ist BWW ermächtigte Stelle der gesetzlichen Unfallversicherung (Kennziffer 8.2122, seit 28.10.2025). Geeignete Stelle ist BWW Stelle zur Aus- und Fortbildung von Lehrkräften der Ersten Hilfe (seit 28.10.2025, Kennziffer 8.2122). Für Lehrkräfte des betrieblichen Sanitätsdienstes und Betriebssanitäter gilt dies seit 29.10.2026. Die Kennziffer könnt ihr bei eurem Unfallversicherungsträger nachprüfen.
 - Frage: Wie läuft ein Inhouse-Kurs ab?
   Antwort: Wir kommen deutschlandweit direkt zu euch – in Betrieb, Schule, Kita oder Verein. Ihr stellt einen geeigneten Raum, das gesamte Übungsmaterial bringen wir mit.
 - Frage: Kann ich den Kurs online machen?
@@ -153,7 +153,7 @@ Hauptüberschrift: Betriebssanitäter Fortbildung
 - Frage: Wie oft müssen sich Betriebssanitäter fortbilden?
   Antwort: Betriebssanitäterinnen und Betriebssanitäter halten ihre Qualifikation durch regelmäßige Fortbildung aufrecht – in der Regel innerhalb von drei Jahren. Die Fortbildung umfasst 16 Unterrichtseinheiten.
 - Frage: Ist BWW eine ermächtigte Stelle?
-  Antwort: Ja. BWW ist ermächtigte Stelle der gesetzlichen Unfallversicherung (Kennziffer 8.2122). Die Kennziffer könnt ihr bei eurem Unfallversicherungsträger nachprüfen.
+  Antwort: Ja. Für die Erste-Hilfe-Aus- und Fortbildung im Betrieb ist BWW ermächtigte Stelle der gesetzlichen Unfallversicherung (Kennziffer 8.2122, seit 28.10.2025). Geeignete Stelle ist BWW Stelle zur Aus- und Fortbildung von Lehrkräften der Ersten Hilfe (seit 28.10.2025, Kennziffer 8.2122). Für Lehrkräfte des betrieblichen Sanitätsdienstes und Betriebssanitäter gilt dies seit 29.10.2026. Die Kennziffer könnt ihr bei eurem Unfallversicherungsträger nachprüfen.
 - Frage: Wie läuft ein Inhouse-Kurs ab?
   Antwort: Wir kommen deutschlandweit direkt zu euch – in Betrieb, Schule, Kita oder Verein. Ihr stellt einen geeigneten Raum, das gesamte Übungsmaterial bringen wir mit.
 - Frage: Kann ich den Kurs online machen?
@@ -170,7 +170,7 @@ Hauptüberschrift: Betriebssanitäter Grundkurs
 - Frage: Was ist die Voraussetzung für die Ausbildung?
   Antwort: Ein gültiger Erste-Hilfe-Nachweis. Der Grundkurs vermittelt die erweiterte Versorgung; darauf baut der Aufbaukurs auf.
 - Frage: Ist BWW eine ermächtigte Stelle?
-  Antwort: Ja. BWW ist ermächtigte Stelle der gesetzlichen Unfallversicherung (Kennziffer 8.2122). Die Kennziffer könnt ihr bei eurem Unfallversicherungsträger nachprüfen.
+  Antwort: Ja. Für die Erste-Hilfe-Aus- und Fortbildung im Betrieb ist BWW ermächtigte Stelle der gesetzlichen Unfallversicherung (Kennziffer 8.2122, seit 28.10.2025). Geeignete Stelle ist BWW Stelle zur Aus- und Fortbildung von Lehrkräften der Ersten Hilfe (seit 28.10.2025, Kennziffer 8.2122). Für Lehrkräfte des betrieblichen Sanitätsdienstes und Betriebssanitäter gilt dies seit 29.10.2026. Die Kennziffer könnt ihr bei eurem Unfallversicherungsträger nachprüfen.
 - Frage: Wie läuft ein Inhouse-Kurs ab?
   Antwort: Wir kommen deutschlandweit direkt zu euch – in Betrieb, Schule, Kita oder Verein. Ihr stellt einen geeigneten Raum, das gesamte Übungsmaterial bringen wir mit.
 - Frage: Kann ich den Kurs online machen?
@@ -236,7 +236,7 @@ Hauptüberschrift: Erste-Hilfe-Schulung für Kita & Schule (Bildungs- und Betreu
 - Frage: Wer trägt die Kosten?
   Antwort: Die Aus- und Fortbildung von Beschäftigten ist über die zuständige Berufsgenossenschaft oder Unfallkasse abrechenbar, wenn sie bei einer ermächtigten Stelle absolviert wird; die Entscheidung trifft der Träger.
 - Frage: Ist BWW eine ermächtigte Stelle?
-  Antwort: Ja. BWW ist ermächtigte Stelle der gesetzlichen Unfallversicherung (Kennziffer 8.2122). Die Kennziffer könnt ihr bei eurem Unfallversicherungsträger nachprüfen.
+  Antwort: Ja. Für die Erste-Hilfe-Aus- und Fortbildung im Betrieb ist BWW ermächtigte Stelle der gesetzlichen Unfallversicherung (Kennziffer 8.2122, seit 28.10.2025). Geeignete Stelle ist BWW Stelle zur Aus- und Fortbildung von Lehrkräften der Ersten Hilfe (seit 28.10.2025, Kennziffer 8.2122). Für Lehrkräfte des betrieblichen Sanitätsdienstes und Betriebssanitäter gilt dies seit 29.10.2026. Die Kennziffer könnt ihr bei eurem Unfallversicherungsträger nachprüfen.
 - Frage: Wie läuft ein Inhouse-Kurs ab?
   Antwort: Wir kommen deutschlandweit direkt zu euch – in Betrieb, Schule, Kita oder Verein. Ihr stellt einen geeigneten Raum, das gesamte Übungsmaterial bringen wir mit.
 - Frage: Kann ich den Kurs online machen?
@@ -253,7 +253,7 @@ Hauptüberschrift: Erste-Hilfe-Fortbildung
 - Frage: Wer trägt die Kosten?
   Antwort: Die Aus- und Fortbildung betrieblicher Ersthelfender ist über die zuständige Berufsgenossenschaft oder Unfallkasse abrechenbar – Voraussetzung ist eine ermächtigte Stelle wie BWW (Kennziffer 8.2122); die Entscheidung trifft der Träger.
 - Frage: Ist BWW eine ermächtigte Stelle?
-  Antwort: Ja. BWW ist ermächtigte Stelle der gesetzlichen Unfallversicherung (Kennziffer 8.2122). Die Kennziffer könnt ihr bei eurem Unfallversicherungsträger nachprüfen.
+  Antwort: Ja. Für die Erste-Hilfe-Aus- und Fortbildung im Betrieb ist BWW ermächtigte Stelle der gesetzlichen Unfallversicherung (Kennziffer 8.2122, seit 28.10.2025). Geeignete Stelle ist BWW Stelle zur Aus- und Fortbildung von Lehrkräften der Ersten Hilfe (seit 28.10.2025, Kennziffer 8.2122). Für Lehrkräfte des betrieblichen Sanitätsdienstes und Betriebssanitäter gilt dies seit 29.10.2026. Die Kennziffer könnt ihr bei eurem Unfallversicherungsträger nachprüfen.
 - Frage: Wie läuft ein Inhouse-Kurs ab?
   Antwort: Wir kommen deutschlandweit direkt zu euch – in Betrieb, Schule, Kita oder Verein. Ihr stellt einen geeigneten Raum, das gesamte Übungsmaterial bringen wir mit.
 - Frage: Kann ich den Kurs online machen?
@@ -303,7 +303,7 @@ Hauptüberschrift: Lehrkräfte-Ausbildung LK1
 - Frage: Welche Voraussetzungen brauche ich?
   Antwort: In der Regel eine gültige Erste-Hilfe-Ausbildung sowie eine notfallmedizinische Qualifikation; die genauen Zugangsvoraussetzungen stimmen wir vor der Anmeldung mit euch ab. BWW bildet als ermächtigte Stelle (Kennziffer 8.2122) auch Lehrkräfte aus.
 - Frage: Ist BWW eine ermächtigte Stelle?
-  Antwort: Ja. BWW ist ermächtigte Stelle der gesetzlichen Unfallversicherung (Kennziffer 8.2122). Die Kennziffer könnt ihr bei eurem Unfallversicherungsträger nachprüfen.
+  Antwort: Ja. Für die Erste-Hilfe-Aus- und Fortbildung im Betrieb ist BWW ermächtigte Stelle der gesetzlichen Unfallversicherung (Kennziffer 8.2122, seit 28.10.2025). Geeignete Stelle ist BWW Stelle zur Aus- und Fortbildung von Lehrkräften der Ersten Hilfe (seit 28.10.2025, Kennziffer 8.2122). Für Lehrkräfte des betrieblichen Sanitätsdienstes und Betriebssanitäter gilt dies seit 29.10.2026. Die Kennziffer könnt ihr bei eurem Unfallversicherungsträger nachprüfen.
 - Frage: Wie läuft ein Inhouse-Kurs ab?
   Antwort: Wir kommen deutschlandweit direkt zu euch – in Betrieb, Schule, Kita oder Verein. Ihr stellt einen geeigneten Raum, das gesamte Übungsmaterial bringen wir mit.
 - Frage: Kann ich den Kurs online machen?
@@ -316,7 +316,7 @@ Hauptüberschrift: Lehrkräfte-Ausbildung LK2
 - Frage: Worauf baut die Ausbildung LK2 auf?
   Antwort: Sie richtet sich an Lehrkräfte mit abgeschlossenem Themenbereich I bzw. angehende Ausbilderinnen und Ausbilder und vertieft die didaktisch-methodischen und fachlichen Inhalte der Erste-Hilfe-Ausbildung.
 - Frage: Ist BWW eine ermächtigte Stelle?
-  Antwort: Ja. BWW ist ermächtigte Stelle der gesetzlichen Unfallversicherung (Kennziffer 8.2122). Die Kennziffer könnt ihr bei eurem Unfallversicherungsträger nachprüfen.
+  Antwort: Ja. Für die Erste-Hilfe-Aus- und Fortbildung im Betrieb ist BWW ermächtigte Stelle der gesetzlichen Unfallversicherung (Kennziffer 8.2122, seit 28.10.2025). Geeignete Stelle ist BWW Stelle zur Aus- und Fortbildung von Lehrkräften der Ersten Hilfe (seit 28.10.2025, Kennziffer 8.2122). Für Lehrkräfte des betrieblichen Sanitätsdienstes und Betriebssanitäter gilt dies seit 29.10.2026. Die Kennziffer könnt ihr bei eurem Unfallversicherungsträger nachprüfen.
 - Frage: Wie läuft ein Inhouse-Kurs ab?
   Antwort: Wir kommen deutschlandweit direkt zu euch – in Betrieb, Schule, Kita oder Verein. Ihr stellt einen geeigneten Raum, das gesamte Übungsmaterial bringen wir mit.
 - Frage: Kann ich den Kurs online machen?
@@ -329,7 +329,7 @@ Hauptüberschrift: Lehrkräfte-Ausbildung Sanitätsdienst
 - Frage: An wen richtet sich diese Ausbildung?
   Antwort: An Lehrkräfte und Leiterinnen und Leiter von Sanitätsdiensten, die andere in Sanitäts- und Erste-Hilfe-Themen ausbilden. BWW führt sie als ermächtigte Stelle (Kennziffer 8.2122) durch.
 - Frage: Ist BWW eine ermächtigte Stelle?
-  Antwort: Ja. BWW ist ermächtigte Stelle der gesetzlichen Unfallversicherung (Kennziffer 8.2122). Die Kennziffer könnt ihr bei eurem Unfallversicherungsträger nachprüfen.
+  Antwort: Ja. Für die Erste-Hilfe-Aus- und Fortbildung im Betrieb ist BWW ermächtigte Stelle der gesetzlichen Unfallversicherung (Kennziffer 8.2122, seit 28.10.2025). Geeignete Stelle ist BWW Stelle zur Aus- und Fortbildung von Lehrkräften der Ersten Hilfe (seit 28.10.2025, Kennziffer 8.2122). Für Lehrkräfte des betrieblichen Sanitätsdienstes und Betriebssanitäter gilt dies seit 29.10.2026. Die Kennziffer könnt ihr bei eurem Unfallversicherungsträger nachprüfen.
 - Frage: Wie läuft ein Inhouse-Kurs ab?
   Antwort: Wir kommen deutschlandweit direkt zu euch – in Betrieb, Schule, Kita oder Verein. Ihr stellt einen geeigneten Raum, das gesamte Übungsmaterial bringen wir mit.
 - Frage: Kann ich den Kurs online machen?
@@ -344,7 +344,7 @@ Hauptüberschrift: Lehrkräfte-Fortbildung LKF1 / LKF2 / LKF3
 - Frage: Was passiert, wenn die Lehrberechtigung abgelaufen ist?
   Antwort: Dann reichen die 16 Unterrichtseinheiten nicht: Bei abgelaufener Lehrberechtigung ist eine Fortbildung im Umfang von mindestens 32 Unterrichtseinheiten zu absolvieren. Plant die Fortbildung deshalb mit Puffer.
 - Frage: Ist BWW eine ermächtigte Stelle?
-  Antwort: Ja. BWW ist ermächtigte Stelle der gesetzlichen Unfallversicherung (Kennziffer 8.2122). Die Kennziffer könnt ihr bei eurem Unfallversicherungsträger nachprüfen.
+  Antwort: Ja. Für die Erste-Hilfe-Aus- und Fortbildung im Betrieb ist BWW ermächtigte Stelle der gesetzlichen Unfallversicherung (Kennziffer 8.2122, seit 28.10.2025). Geeignete Stelle ist BWW Stelle zur Aus- und Fortbildung von Lehrkräften der Ersten Hilfe (seit 28.10.2025, Kennziffer 8.2122). Für Lehrkräfte des betrieblichen Sanitätsdienstes und Betriebssanitäter gilt dies seit 29.10.2026. Die Kennziffer könnt ihr bei eurem Unfallversicherungsträger nachprüfen.
 - Frage: Wie läuft ein Inhouse-Kurs ab?
   Antwort: Wir kommen deutschlandweit direkt zu euch – in Betrieb, Schule, Kita oder Verein. Ihr stellt einen geeigneten Raum, das gesamte Übungsmaterial bringen wir mit.
 - Frage: Kann ich den Kurs online machen?
