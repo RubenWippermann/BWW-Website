@@ -25,8 +25,9 @@ for a, b in (('Die Rettungskette: die fünf Glieder der Ersten Hilfe', 'Die Rett
              ('<h2>Die fünf Glieder im Überblick</h2>', '<h2>Die Glieder im Überblick (BWW-Darstellung mit fünf Gliedern)</h2>'),
              ('<h2>Kurz gefasst</h2><ul><li><strong>Glied 1:</strong>', '<h2>Kurz gefasst (Darstellung in fünf Gliedern)</h2><ul><li><strong>Glied 1:</strong>'),
              ('Welche fünf Glieder hat die Rettungskette?', 'Welche Glieder hat die Rettungskette?'), ('Wie lauten die 5 Schritte der Rettungskette?', 'Wie viele Glieder hat die Rettungskette?'),
-             (Q2A, Q2N), (Q5A, Q5N), ('"dateModified":"2026-11-01"', '"dateModified":"2026-11-02"')):
+             (Q5A, Q5N), ('"dateModified":"2026-11-01"', '"dateModified":"2026-11-02"')):
     h = h.replace(a, b)
+h = re.sub(r'(?<!In der Darstellung von BWW: )' + re.escape(Q2A), lambda _: Q2N, h)   # idempotent (Q2A ist Teilstring von Q2N)
 if NOTE not in h:
     k = h.find('<div class="key-facts">'); assert k > 0
     h = h[:k] + NOTE + h[k:]
