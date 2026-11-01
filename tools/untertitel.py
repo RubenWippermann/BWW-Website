@@ -4,7 +4,7 @@ Eine Stelle: UNTERTITEL_NEU. Ohne --apply nur Zählung (Trockenlauf). Idempotent
 import glob, sys, os
 UNTERTITEL_ALT = 'Multiplikatorenstelle &amp; Rettungsdienstbildungsstelle'   # so steht es im HTML
 UNTERTITEL_ALT_ROH = 'Multiplikatorenstelle & Rettungsdienstbildungsstelle'
-UNTERTITEL_NEU = 'Multiplikatorenstelle · Kurse für Erste Hilfe und Wiederbelebung'   # Jurist-Vorschlag 01.11.
+UNTERTITEL_NEU = 'Multiplikatorenstelle · Bildungsstelle für Erste Hilfe und betrieblichen Sanitätsdienst'   # Jurist Nachtrag 2, 01.11. (kurz: '… Erste Hilfe und Sanitätsdienst'); erst nach Rubens Bestätigung --apply
 apply = '--apply' in sys.argv
 n = 0
 for f in glob.glob('**/index.html', recursive=True) + ['index.html', '404.html']:
