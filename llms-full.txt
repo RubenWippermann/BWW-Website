@@ -94,7 +94,7 @@ Hauptüberschrift: Erste Hilfe für Kitas, Tagespflege und alle, die Kinder betr
 - Frage: Für wen ist der Kurs in Bildungs- und Betreuungseinrichtungen gedacht?
   Antwort: Für Erzieher:innen, Lehrkräfte, Tagespflegepersonen und Betreuungspersonal – überall dort, wo Kinder betreut werden. Der Schwerpunkt liegt auf Notfällen im Umgang mit Kindern.
 - Frage: Zählt der Kurs als Erste-Hilfe-Nachweis für Beschäftigte?
-  Antwort: Ja. Als Schulung in Erster Hilfe für Bildungs- und Betreuungseinrichtungen ist er der anerkannte Nachweis für Beschäftigte in diesem Bereich; BWW führt ihn als ermächtigte Stelle (Kennziffer 8.2122) durch.
+  Antwort: Ja. Als Schulung in Erster Hilfe für Bildungs- und Betreuungseinrichtungen ist er der maßgebliche Nachweis für Beschäftigte in diesem Bereich; BWW führt ihn als ermächtigte Stelle (Kennziffer 8.2122) durch.
 - Frage: Wer trägt die Kosten?
   Antwort: Die Aus- und Fortbildung von Beschäftigten ist über die zuständige Berufsgenossenschaft oder Unfallkasse abrechenbar, wenn sie bei einer ermächtigten Stelle absolviert wird; die Entscheidung trifft der Träger.
 - Frage: Gibt es einen Kurs für Eltern und Betreuungspersonen?
@@ -232,7 +232,7 @@ Hauptüberschrift: Erste-Hilfe-Schulung für Kita & Schule (Bildungs- und Betreu
 - Frage: Für wen ist dieser Kurs gedacht?
   Antwort: Für Erzieher:innen, Lehrkräfte, Tagespflegepersonen und Betreuungspersonal – überall dort, wo Kinder betreut werden. Der Schwerpunkt liegt auf Notfällen im Umgang mit Kindern.
 - Frage: Zählt der Kurs als betrieblicher Erste-Hilfe-Nachweis?
-  Antwort: Ja. Als Schulung in Erster Hilfe für Bildungs- und Betreuungseinrichtungen ist er der anerkannte Nachweis für Beschäftigte in diesem Bereich; BWW führt ihn als ermächtigte Stelle (Kennziffer 8.2122) durch.
+  Antwort: Ja. Als Schulung in Erster Hilfe für Bildungs- und Betreuungseinrichtungen ist er der maßgebliche Nachweis für Beschäftigte in diesem Bereich; BWW führt ihn als ermächtigte Stelle (Kennziffer 8.2122) durch.
 - Frage: Wer trägt die Kosten?
   Antwort: Die Aus- und Fortbildung von Beschäftigten ist über die zuständige Berufsgenossenschaft oder Unfallkasse abrechenbar, wenn sie bei einer ermächtigten Stelle absolviert wird; die Entscheidung trifft der Träger.
 - Frage: Ist BWW eine ermächtigte Stelle?
@@ -432,4 +432,4 @@ Quelle: öffentliche Terminliste der BWW-Buchung, Stand 31.10.2026. Preise gelte
 - Telefon: +49 5527 7487518 (am Telefon meldet sich Bella, eine KI-Assistentin)
 - E-Mail: info@multiplikatorenstelle.de
 - Inhouse-Anfrage: https://www.multiplikatorenstelle.de/inhouse-kurse/#anfrage
-- Anerkennung: von der Berufsgenossenschaft ermächtigte Stelle, Kennziffer 8.2122
+- Ermächtigung: ermächtigte Stelle der gesetzlichen Unfallversicherung für die Erste-Hilfe-Aus- und Fortbildung im Betrieb, Kennziffer 8.2122
