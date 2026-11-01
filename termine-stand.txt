@@ -1,4 +1,4 @@
-2026-11-01T12:18:02+01:00	92
+2026-11-01T23:25:05+01:00	92
 # startdate_ausgezeichnet=ja
 # bewegung_zuletzt=2026-10-14
 # unveraendert_seit_tagen=18
