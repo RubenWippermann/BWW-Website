@@ -14,13 +14,15 @@ function zdSubmit(e){e.preventDefault();
   if(form.querySelector('[name="website"]').value){return false;}
   var payload={org:ZD_ORG,website:''};
   Array.prototype.forEach.call(form.querySelectorAll('[name]'),function(f){var n=f.getAttribute('name');
-    if(n==='website'||n==='consent')return; if(f.type==='checkbox')return; if(f.value)payload[n]=f.value;});
+    if(n==='website'||n==='consent')return; if(n==='widerruf_verzicht'){if(f.checked)payload.widerruf_verzicht=true;return;} if(f.type==='checkbox')return; if(f.value)payload[n]=f.value;});
+  if(payload.kursart)payload.kurs=payload.kursart;
   st.className='form-status';st.textContent='Anfrage wird geprüft …';
   var btn=document.getElementById('zd-submit');btn.disabled=true;
   fetch(ZD_API+'/api/zertifikat-duplikat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)})
     .then(function(r){return r.json().catch(function(){return{};}).then(function(j){return{status:r.status,ok:r.ok,j:j};});})
     .then(function(res){var d=res.j||{};
       if(res.ok&&d.checkout_url){st.textContent='Weiterleitung zur sicheren Zahlung …';window.location.href=d.checkout_url;return;}
+      if(res.ok&&d.ok){btn.disabled=false;st.className='form-status';st.textContent=d.hinweis||('Wir haben eure Anfrage erhalten'+(d.ticket_id?' (Vorgang '+d.ticket_id+')':'')+'. Das Büro bearbeitet sie persönlich und meldet sich per E-Mail bei euch.');return;}
       btn.disabled=false;st.className='form-status is-error';
       if(res.status===404||d.error==='not_found'){st.textContent='Wir konnten zu diesen Angaben keinen Nachweis finden. Bitte prüft Name, Geburtsdatum und Kursdatum – oder meldet euch bei uns.';return;}
       if(d.error==='invalid_input'){st.textContent='Bitte prüft eure Eingaben und versucht es erneut.';return;}
