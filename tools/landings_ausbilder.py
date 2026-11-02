@@ -72,22 +72,22 @@ PAGES = [
   h1='Künftige Lehrbeauftragte Erste Hilfe: Voraussetzungen und Hospitation',
   topnote='<strong>Hinweis:</strong> „Lehrbeauftragte“ ist die Funktionsbezeichnung der gesetzlichen Unfallversicherung nach DGUV Grundsatz 304-003 (Abschnitt 2.2.2), keine Hochschulfunktion. Über die Funktion entscheidet die jeweilige Ausbildungsstelle. Lehrgänge nach dem Orientierungsrahmen in Anhang 3 sind keine beim QSEH-Portal registrierten Maßnahmen.',
   quellen='DGUV Grundsatz 304-003',
-  lead='Angehende Lehrbeauftragte müssen mindestens in einer kompletten Lehrkräftequalifizierung einer Ausbildungsstelle hospitieren. Bei BWW kostet die Hospitation den Kurspreis plus 25 € je Kurstag.',
+  lead='Angehende Lehrbeauftragte müssen mindestens in einer kompletten Lehrkräftequalifizierung einer Ausbildungsstelle hospitieren. Bei BWW kostet die Hospitation den Kurspreis des besuchten Lehrgangs zuzüglich 25 € je Kurstag. Verbindlich ist der bei der Anfrage genannte Betrag.',
   cta=[('/kontakt/', 'Hospitation anfragen', 'primary'), ('/ausbilder-werden/erste-hilfe-lehrkraft/', 'Lehrkräfte-Ausbildung ansehen', 'ghost')],
   keyfacts=['<strong>Hospitation:</strong> mindestens eine komplette Lehrkräftequalifizierung einer Ausbildungsstelle',
-            '<strong>Kosten bei BWW:</strong> Kurspreis plus 25 € je Kurstag',
+            '<strong>Kosten bei BWW:</strong> Kurspreis des besuchten Lehrgangs zuzüglich 25 € je Kurstag. Verbindlich ist der bei der Anfrage genannte Betrag.',
             '<strong>Pädagogisch:</strong> Qualifikation als Lehrkraft Erste Hilfe und pädagogische Schulung von insgesamt mindestens 120 UE',
             '<strong>Fortbildung:</strong> mindestens alle drei Jahre, 24 UE (16 pädagogisch, 8 medizinisch-fachlich)'],
   body="""<h2>Voraussetzungen</h2>
 <p>Nach DGUV Grundsatz 304-003 (Abschnitt 2.2.2) sind medizinisch-fachlich mindestens eine Erste-Hilfe-Ausbildung (9 UE) und eine Sanitätsausbildung mit bestandener Prüfung (48 UE) nötig. Pädagogisch verlangt der Grundsatz die Qualifikation als Lehrkraft Erste Hilfe sowie eine pädagogische Schulung von insgesamt mindestens 120 UE. Vor Abschluss der 120 UE ist in der Regel ein Nachweis über 12 Aus- oder Fortbildungen in Erster Hilfe (nicht älter als 3 Jahre) zu erbringen.</p>
 <h2>Der Weg zur Qualifizierung</h2>
 <ul><li>Zuerst die Qualifikation als <a href="/ausbilder-werden/erste-hilfe-lehrkraft/">Lehrkraft Erste Hilfe</a> erwerben.</li>
-<li>Hospitation in einer kompletten Lehrkräftequalifizierung einer Ausbildungsstelle. Bei BWW: Kurspreis plus 25 € je Kurstag, Anfrage über den <a href="/kontakt/">Kontakt</a>.</li>
+<li>Hospitation in einer kompletten Lehrkräftequalifizierung einer Ausbildungsstelle. Bei BWW: Kurspreis des besuchten Lehrgangs zuzüglich 25 € je Kurstag; verbindlich ist der bei der Anfrage genannte Betrag. Anfrage über den <a href="/kontakt/">Kontakt</a>.</li>
 <li>Pädagogische Schulung im Umfang von insgesamt mindestens 120 UE nach dem Orientierungsrahmen in Anhang 3 der DGUV Grundsatz 304-003.</li>
 <li>Fortbildung alle drei Jahre im Umfang von 24 UE.</li></ul>""",
   faq=[('Was macht ein Lehrbeauftragter Erste Hilfe?', 'Lehrbeauftragte halten die Lehrgänge zur Aus- und Fortbildung von Lehrkräften in der Ersten Hilfe.'),
        ('Welche Voraussetzungen gelten für Lehrbeauftragte?', 'Nach DGUV Grundsatz 304-003 (Abschnitt 2.2.2) mindestens eine Erste-Hilfe-Ausbildung (9 UE) und eine Sanitätsausbildung mit bestandener Prüfung (48 UE), pädagogisch die Qualifikation als Lehrkraft Erste Hilfe und eine pädagogische Schulung von mindestens 120 UE.'),
-       ('Muss ich als angehender Lehrbeauftragter hospitieren?', 'Ja. Verlangt ist mindestens eine Hospitation in einer kompletten Lehrkräftequalifizierung einer Ausbildungsstelle. Bei BWW kostet sie den Kurspreis plus 25 € je Kurstag.'),
+       ('Muss ich als angehender Lehrbeauftragter hospitieren?', 'Ja. Verlangt ist mindestens eine Hospitation in einer kompletten Lehrkräftequalifizierung einer Ausbildungsstelle. Bei BWW kostet sie den Kurspreis des besuchten Lehrgangs zuzüglich 25 € je Kurstag. Verbindlich ist der bei der Anfrage genannte Betrag.'),
        ('Wie oft müssen Lehrbeauftragte sich fortbilden?', 'Mindestens alle drei Jahre im Umfang von 24 Unterrichtseinheiten, davon mindestens 16 pädagogisch und 8 medizinisch-fachlich (DGUV Grundsatz 304-003).')],
   related=[('/fuer-ausbilder/', 'Ausbilder werden: alle Stufen'), ('/ausbilder-werden/erste-hilfe-lehrkraft/', 'Erste-Hilfe-Ausbilder werden'), ('/multiplikatorenstelle/', 'Multiplikatorenstelle'), ('/wissen/lehrkraefte-erste-hilfe/', 'Lehrkräfte in der Erste-Hilfe-Ausbildung'), ('/wissen/lehrberechtigung-erste-hilfe-fortbildung-lehrkraefte/', 'Lehrberechtigung und Fortbildung')]),
  dict(path='ausbilder-werden/lehrberechtigung-verlaengern/', img='teacher-training', eyebrow='Ausbilder werden',
@@ -127,7 +127,7 @@ PAGES = [
   keyfacts=['<strong>Lehrkräfte Erste Hilfe:</strong> Themenbereich I 150 €, Themenbereich II 200 €, Fortbildung 100 €',
             '<strong>Betriebssanitäter:</strong> Grundkurs 450 €, Aufbaulehrgang 250 €',
             '<strong>Lehrkraft Sanitätsdienst:</strong> Teil a 100 €, Teil b 50 €',
-            '<strong>Hospitation:</strong> Kurspreis plus 25 € je Kurstag'],
+            '<strong>Hospitation:</strong> Kurspreis des besuchten Lehrgangs zuzüglich 25 € je Kurstag'],
   body="""<h2>Lehrkräfte Erste Hilfe</h2>
 <ul><li><a href="/kurse/lehrkraefte-ausbildung-lk1/">Lehrkräfte-Ausbildung Themenbereich I (24 UE)</a>: 150 €</li>
 <li><a href="/kurse/lehrkraefte-ausbildung-lk2/">Lehrkräfte-Ausbildung Themenbereich II (32 UE)</a>: 200 €</li>
@@ -139,11 +139,11 @@ PAGES = [
 <h2>Weitere Angebote</h2>
 <ul><li><a href="/kurse/lehrbeauftragten-fortbildung/">Fortbildung für Lehrbeauftragte (24 UE)</a>: 150 €</li>
 <li><a href="/kurse/lehrbeauftragter-erste-hilfe/">Lehrbeauftragten-Qualifizierung nach Orientierungsrahmen (mind. 120 UE)</a>: 700 €; keine QSEH-registrierte Maßnahme, keine DGUV-Anerkennung</li>
-<li><a href="/ausbilder-werden/lehrbeauftragter/">Hospitation</a> in einer Lehrkräftequalifizierung: Kurspreis plus 25 € je Kurstag</li></ul>
+<li><a href="/ausbilder-werden/lehrbeauftragter/">Hospitation</a> in einer Lehrkräftequalifizierung: Kurspreis des besuchten Lehrgangs zuzüglich 25 € je Kurstag (verbindlich ist der bei der Anfrage genannte Betrag)</li></ul>
 <p class="small-note">Preise je Person laut Buchungssystem, Stand """ + STAND + """. Inhouse-Preise nach Anfrage.</p>""",
   faq=[('Was kostet die Lehrkräfte-Ausbildung bei BWW?', 'Themenbereich I (24 UE) kostet 150 €, Themenbereich II (32 UE) 200 €, die Lehrkräfte-Fortbildung 100 € je Person (Stand ' + STAND + ').'),
        ('Was kostet ein Betriebssanitäter-Lehrgang?', 'Der Grundkurs kostet 450 €, der Aufbaulehrgang 250 € je Person (Stand ' + STAND + ').'),
-       ('Was kostet eine Hospitation?', 'Der Kurspreis des Lehrgangs, in dem hospitiert wird, plus 25 € je Kurstag.'),
+       ('Was kostet eine Hospitation?', 'Kurspreis des besuchten Lehrgangs zuzüglich 25 € je Kurstag. Verbindlich ist der bei der Anfrage genannte Betrag.'),
        ('Wo sehe ich den verbindlichen Preis?', 'Bei der Buchung im Buchungssystem. Dort wird der Preis des gewählten Termins angezeigt.')],
   related=[('/fuer-ausbilder/', 'Ausbilder werden: alle Stufen'), ('/ausbilder-werden/erste-hilfe-lehrkraft/', 'Erste-Hilfe-Ausbilder werden'), ('/ausbilder-werden/betriebssanitaeter-lehrkraft/', 'Betriebssanitäter-Lehrkraft'), ('/ausbilder-werden/lehrberechtigung-verlaengern/', 'Lehrberechtigung verlängern'), ('/multiplikatorenstelle/', 'Multiplikatorenstelle')]),
  dict(path='ausbilder-werden/fuer-hilfsorganisationen/', img='teacher-training', eyebrow='Ausbilder werden',
@@ -155,7 +155,7 @@ PAGES = [
   cta=[('/ausbilder-werden/erste-hilfe-lehrkraft/', 'Erste-Hilfe-Lehrkraft werden', 'primary'), ('/ausbilder-werden/preise/', 'Preise ansehen', 'ghost')],
   keyfacts=['<strong>Wege:</strong> <a href="/ausbilder-werden/erste-hilfe-lehrkraft/">Erste-Hilfe-Lehrkraft</a>, <a href="/ausbilder-werden/betriebssanitaeter-lehrkraft/">Betriebssanitäter-Lehrkraft</a>, <a href="/ausbilder-werden/lehrberechtigung-verlaengern/">Lehrberechtigung verlängern</a>',
             '<strong>Fortbildung:</strong> mindestens alle drei Jahre, 16 UE (8 medizinisch-fachlich, 8 pädagogisch)',
-            '<strong>Hospitation:</strong> Kurspreis plus 25 € je Kurstag',
+            '<strong>Hospitation:</strong> Kurspreis des besuchten Lehrgangs zuzüglich 25 € je Kurstag',
             '<strong>Gruppen:</strong> Inhouse-Termine auf Anfrage'],
   body="""<h2>Voraussetzungen je Person</h2>
 <p>Medizinisch: ein Erste-Hilfe-Kurs plus mindestens 48 Unterrichtseinheiten notfallmedizinische Ausbildung. Pädagogisch: mindestens 56 Unterrichtseinheiten und mindestens zwei Hospitationen (DGUV Grundsatz 304-003). Einzelheiten: <a href="/wissen/erste-hilfe-ausbilder-werden-qualifikation/">Erste-Hilfe-Ausbilder werden: Qualifikationsweg</a>.</p>
