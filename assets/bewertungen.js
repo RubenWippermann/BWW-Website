@@ -1,6 +1,7 @@
 /* Stimmen unserer Teilnehmenden: freigegebene Bewertungen der BWW (org=bww).
    Platzierung: Block steht am Seitenende (unterhalb des ersten Bildschirms), bei 0 Bewertungen hidden = kein Rahmen; CLS mit 6 Mock-Bewertungen max. 0,018.   Ein Request je Seitenaufruf, Kurzzeit-Cache im sessionStorage, Block bleibt ohne Daten/bei Fehler verborgen.
-   Kein JSON-LD / AggregateRating: Bewertungen gelten fuer die Firma, nicht fuer eine einzelne Kursseite (Selbstbewertungs-Richtlinie). */
+   Kein JSON-LD / AggregateRating: Bewertungen gelten fuer die Firma, nicht fuer eine einzelne Kursseite (Selbstbewertungs-Richtlinie).
+   Keine Gesamtnote/Anzahl (Jurist 03.11.2026): nur ausgewaehlte Stimmen mit offener Unterzeile (4 und 5 Sterne). */
 (function () {
   var sec = document.getElementById('stimmen');
   if (!sec) return;
@@ -50,10 +51,6 @@
       fig.appendChild(el('figcaption', null, String(b.name || '').trim() || 'Teilnehmer:in'));
       box.appendChild(fig);
     });
-    var a = d.aggregat, agg = document.getElementById('stimmen-agg');
-    if (agg && a && a.anzahl >= 1 && typeof a.durchschnitt === 'number') {
-      agg.textContent = 'Durchschnitt ' + String(a.durchschnitt).replace('.', ',') + ' von 5 Sternen aus ' + a.anzahl + (a.anzahl === 1 ? ' Bewertung' : ' Bewertungen') + '.';
-    }
     sec.hidden = false;
   }
 
