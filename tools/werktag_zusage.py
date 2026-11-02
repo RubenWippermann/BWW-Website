@@ -5,7 +5,7 @@ R = [('Wir melden uns i.&nbsp;d.&nbsp;R. innerhalb eines Werktags.', 'Wir melden
      ('wir melden uns in der Regel innerhalb eines Werktags.', 'wir melden uns bei dir.'),
      ('Wir melden uns in der Regel innerhalb eines Werktags mit Terminvorschlag und Angebot.', 'Wir melden uns mit Terminvorschlag und Angebot.'),
      ('Wir bestätigen dir den Eingang – i.&nbsp;d.&nbsp;R. innerhalb eines Werktags.', 'Wir bestätigen dir den Eingang.')]
-KONTAKT = [(' Wir melden uns in der Regel innerhalb eines Werktags.</p></div><img', '</p></div><img'),
+KONTAKT = [(' Wir melden uns in der Regel innerhalb eines Werktags.', ''),
            ('<span class="form-hint">Wir melden uns i.&nbsp;d.&nbsp;R. innerhalb eines Werktags.</span>', '')]   # /kontakt/: Zusage gestrichen (BL-Auflage)
 FAQQ = 'Wie schnell melden wir uns nach einer Anfrage?'
 n = 0
