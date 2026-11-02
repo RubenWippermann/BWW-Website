@@ -16,5 +16,5 @@ rw('unternehmensprofil/index.html', [('<h2>Alleinstellungsmerkmale</h2>', '<h2>A
 B = '<span class="trust-badge">Ermächtigte Stelle · Kennziffer 8.2122</span>'
 rw('fuer-pflege/index.html', [(B, '<span class="trust-badge">Ermächtigte Stelle für Erste Hilfe im Betrieb · Kennziffer 8.2122</span>')])
 rw('fuer-kitas/index.html', [(B, '<span class="trust-badge">Ermächtigte Stelle für Erste Hilfe im Betrieb · Kennziffer 8.2122</span>')])
-rw('fuer-sanitaetsdienst/index.html', [(B, '<span class="trust-badge">Geeignete Stelle für Betriebssanitäter (seit 29.10.2026) · Kennziffer 8.2122</span>')])
+rw('fuer-sanitaetsdienst/index.html', [(B, '<span class="trust-badge">Betriebssanitäter-Lehrgänge: geeignete Stelle (seit 29.10.2026) · Kennziffer 8.2122</span>')])
 print('geändert:', n)
