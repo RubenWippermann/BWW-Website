@@ -11,7 +11,7 @@ FAQ = [
  ('Wie lange dauert die Ausbildung zum Betriebssanitäter?',
   'Die DGUV nennt 63 Unterrichtseinheiten für den Grundlehrgang und 32 für den Aufbaulehrgang, zusammen 95. Rettungssanitäter steigen direkt mit dem Aufbaulehrgang ein.'),
  ('Wer darf Betriebssanitäter ausbilden?',
-  'Die Ausbildung findet bei Stellen statt, die von den Unfallversicherungsträgern dafür als geeignet bewertet sind. Die öffentliche Liste führt die QSEH unter bg-qseh.de. Prüft dort den Eintrag, bevor ihr bucht.'),
+  'Die Ausbildung findet bei Stellen statt, die von den Unfallversicherungsträgern dafür als geeignet bewertet sind. Die öffentliche Liste steht auf bg-qseh.de. Prüft dort den Eintrag, bevor ihr bucht.'),
  ('Wie oft muss ein Betriebssanitäter sich fortbilden?',
   'Spätestens alle drei Jahre. Die DGUV beschreibt dafür 16 Lerneinheiten.'),
 ]
@@ -33,7 +33,7 @@ BODY = f'''<p class="answer-lead"><strong>Direkt beantwortet:</strong> Wer Betri
 <h2>Wer sich dafür eignet</h2>
 <p>Die DGUV beschreibt keinen festen Berufsweg zum Betriebssanitäter. Für Beschäftigte im Betrieb ist der Weg offen: Genannt werden etwa Sicherheitsbeauftragte, die sich für die Aufgabe bewerben können. Wer aus dem Rettungsdienst kommt, spart durch den direkten Einstieg in den Aufbaulehrgang den ersten Lehrgang. Auf die besonderen Risiken des eigenen Betriebs bereitet der Betriebsarzt vor.</p>
 <h2>Wo die Ausbildung stattfindet</h2>
-<p>Die Lehrgänge werden von Stellen durchgeführt, die von den Unfallversicherungsträgern als dafür geeignet bewertet sind. Eine Liste dieser Stellen führt die Qualitätssicherungsstelle Erste Hilfe (QSEH) auf bg-qseh.de. Prüft den Eintrag dort, bevor ihr bucht.</p>
+<p>Die Lehrgänge werden von Stellen durchgeführt, die von den Unfallversicherungsträgern als dafür geeignet bewertet sind. Eine Liste dieser Stellen steht auf bg-qseh.de. Prüft den Eintrag dort, bevor ihr bucht.</p>
 <h2>Termine bei BWW</h2>
 <p>Bei BWW sind die Betriebssanitäter-Lehrgänge in Leinefelde-Worbis angesetzt. Nach der Terminliste vom 02.11.2026 beginnt die <a href="/kurse/betriebssanitaeter-grundkurs/">Betriebssanitäter-Grundausbildung</a> am 13.07.2027 (450 € je Teilnehmer:in), der <a href="/kurse/betriebssanitaeter-aufbau/">Aufbaulehrgang</a> am 26.07.2027 (250 €). Weitere Termine im November 2027 stehen in der Terminliste. Für die <a href="/kurse/betriebssanitaeter-fortbildung/">Fortbildung</a> gelten die Termine auf der Kursseite. Ob ein Lehrgang für euer Unternehmen passt und was er im Einzelfall kostet, klären wir vor der Buchung mit euch.</p>
 <p>Wer selbst andere für den betrieblichen Sanitätsdienst ausbilden will, findet die Wege unter <a href="/ausbilder-werden/betriebssanitaeter-lehrkraft/">Betriebssanitäter-Ausbilder werden</a>. Für Betriebe, die zwischen Ersthelfern und Sanitätern abwägen, hilft <a href="/wissen/ersthelfer-oder-betriebssanitaeter/">Ersthelfer oder Betriebssanitäter?</a>.</p>
