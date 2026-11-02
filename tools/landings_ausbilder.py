@@ -213,6 +213,32 @@ PAGES = [
        ('Brauchen wir einen eigenen Ausbilder im Betrieb?', 'Nicht zwingend. Wer im Betrieb selbst Kurse leiten soll, braucht die Lehrkräfte-Qualifikation nach DGUV Grundsatz 304-003; die Wege stehen unter „Ausbilder werden“.'),
        ('Ab wann gibt es Betriebssanitäter-Kurse bei BWW?', 'BWW ist für Betriebssanitäter seit dem 29.10.2026 geeignete Stelle. Aktuelle Termine stehen in der Terminliste (Stand ' + STAND + ': erster Termin am 13.07.2027).')],
   related=[('/fuer-ausbilder/', 'Ausbilder werden: alle Stufen'), ('/inhouse-kurse/', 'Inhouse-Kurse'), ('/abrechnung/', 'Abrechnung'), ('/wissen/ersthelfer-anzahl-dguv/', 'Wie viele Ersthelfer braucht ein Betrieb?'), ('/wissen/erste-hilfe-kurs-kosten-betrieb/', 'Was kostet der Erste-Hilfe-Kurs den Betrieb?')]),
+ dict(path='ausbilder-werden/hospitation/', img='teacher-training', eyebrow='Ausbilder werden', nocred=True, stand='02.11.2026',
+  title='Qualifizierung für künftige Lehrbeauftragte | BWW',
+  desc='Hospitation bei BWW für künftige Lehrbeauftragte: Voraussetzung nach DGUV Grundsatz 304-003, Ablauf, Kurspreis plus 25 € je Kurstag.',
+  h1='Qualifizierung für künftige Lehrbeauftragte: Hospitation bei BWW',
+  quellen='DGUV Grundsatz 304-003',
+  topnote='<strong>Hinweis:</strong> „Lehrbeauftragte“ ist die Funktionsbezeichnung der gesetzlichen Unfallversicherung nach DGUV Grundsatz 304-003 (Abschnitt 2.2.2), keine Hochschulfunktion. Die Hospitation ist eine Voraussetzung auf dem Weg dorthin; ob jemand als Lehrbeauftragte oder Lehrbeauftragter tätig werden darf, entscheidet die Ausbildungsstelle, die sie oder ihn benennt, und die QSEH.',
+  lead='Angehende Lehrbeauftragte müssen nach den Anforderungen zu DGUV Grundsatz 304-003 (Abschnitt 2.2.2) mindestens eine Hospitation in einer kompletten Lehrkräftequalifizierung einer Ausbildungsstelle nachweisen. Bei BWW hospitiert ihr in einem Lehrgang der Lehrkräfte-Ausbildung; Preis: Kurspreis des besuchten Lehrgangs zuzüglich 25 € je Kurstag. Verbindlich ist der bei der Anfrage genannte Betrag.',
+  cta=[('/kontakt/', 'Hospitation anfragen', 'primary'), ('/ausbilder-werden/erste-hilfe-lehrkraft/', 'Lehrkräfte-Ausbildung ansehen', 'ghost')],
+  keyfacts=['<strong>Preis:</strong> Kurspreis des besuchten Lehrgangs zuzüglich 25 € je Kurstag. Verbindlich ist der bei der Anfrage genannte Betrag. Anreise, Unterkunft und Verpflegung sind nicht enthalten.',
+            '<strong>Einordnung:</strong> Die Hospitation ist keine anerkannte Maßnahme der gesetzlichen Unfallversicherung und führt für sich nicht zur Lehrberechtigung.',
+            '<strong>Plätze:</strong> höchstens 2 Hospitanten je Kurs; ein Hospitant belegt keinen Teilnehmerplatz; ein Platz ist erst mit unserer Bestätigung zugesagt',
+            '<strong>Wo:</strong> in Lehrgängen der Lehrkräfte-Ausbildung bei BWW (Termine in der Terminliste)',
+            '<strong>Fortbildung danach:</strong> mindestens alle drei Jahre, 24 UE (16 pädagogisch, 8 medizinisch-fachlich)'],
+  body="""<h2>So läuft die Hospitation</h2>
+<ol><li>Lehrgang wählen: Termine der <a href="/ausbilder-werden/erste-hilfe-lehrkraft/">Lehrkräfte-Ausbildung</a> stehen in der <a href="/kurse/#live-termine">Terminliste</a>.</li>
+<li>Hospitation über das Anfrageformular bzw. den <a href="/kontakt/">Kontakt</a> anfragen, mit Angabe von Lehrgang und Termin.</li>
+<li>Wir bestätigen die Anfrage. Erst mit der Bestätigung ist der Platz als Hospitant zugesagt.</li>
+<li>Ihr nehmt als Hospitanten am Lehrgang teil. Preis: Kurspreis des besuchten Lehrgangs zuzüglich 25 € je Kurstag; verbindlich ist der bei der Anfrage genannte Betrag.</li></ol>
+<div class="article-note"><strong>Einordnung:</strong> Die Hospitation ist keine anerkannte Maßnahme der gesetzlichen Unfallversicherung und führt für sich nicht zur Lehrberechtigung.</div>
+<h2>Voraussetzungen für künftige Lehrbeauftragte</h2>
+<p>Nach DGUV Grundsatz 304-003 (Abschnitt 2.2.2) sind medizinisch-fachlich mindestens eine Erste-Hilfe-Ausbildung (9 UE) und eine Sanitätsausbildung mit bestandener Prüfung (48 UE) nötig. Pädagogisch verlangt der Grundsatz die Qualifikation als Lehrkraft Erste Hilfe sowie eine pädagogische Schulung von insgesamt mindestens 120 UE. Die Hospitation ist einer von mehreren Bausteinen.</p>""",
+  faq=[('Was ist eine Hospitation für künftige Lehrbeauftragte?', 'Die Teilnahme als Gast an einer kompletten Lehrkräftequalifizierung einer Ausbildungsstelle. Mindestens eine solche Hospitation verlangen die Anforderungen zu DGUV Grundsatz 304-003 (Abschnitt 2.2.2) von angehenden Lehrbeauftragten.'),
+       ('Was kostet die Hospitation bei BWW?', 'Kurspreis des besuchten Lehrgangs zuzüglich 25 € je Kurstag. Verbindlich ist der bei der Anfrage genannte Betrag.'),
+       ('Wie viele Hospitanten sind je Kurs möglich?', 'Höchstens 2 je Kurs. Ein Hospitant belegt keinen Teilnehmerplatz; ein Platz ist erst mit der Bestätigung durch BWW zugesagt.'),
+       ('Werde ich durch die Hospitation Lehrbeauftragte oder Lehrbeauftragter?', 'Nein. Die Hospitation ist eine Voraussetzung. Ob jemand als Lehrbeauftragte oder Lehrbeauftragter tätig werden darf, entscheidet die Ausbildungsstelle, die sie oder ihn benennt, und die QSEH.')],
+  related=[('/ausbilder-werden/erste-hilfe-lehrkraft/', 'Erste-Hilfe-Ausbilder werden'), ('/multiplikatorenstelle/', 'Multiplikatorenstelle'), ('/wissen/lehrkraefte-erste-hilfe/', 'Lehrkräfte in der Erste-Hilfe-Ausbildung')]),
  dict(path='multiplikatorenstelle/', img='legal-docs', eyebrow='Multiplikatorenstelle',
   title='Multiplikatorenstelle: Was sie leistet, was sie darf | BWW',
   desc='Eine Multiplikatorenstelle bildet Lehrkräfte für Erste Hilfe und Sanitätsdienst aus (DGUV Grundsatz 304-003). Aufgaben, Ablauf, Kontakt.',
@@ -266,6 +292,8 @@ def build(p, base):
     # JSON-LD: Organisation behalten, Rest neu
     blocks = list(re.finditer(r'<script type="application/ld\+json">(.*?)</script>', h, re.S))
     org = blocks[0].group(0)
+    if p.get('nocred'):
+        oj = json.loads(blocks[0].group(1)); oj.pop('hasCredential', None); nog = '<script type="application/ld+json">' + json.dumps(oj, ensure_ascii=False, separators=(',', ':')) + '</script>'; h = h.replace(org, nog, 1); org = nog
     for b in blocks[1:]: h = h.replace(b.group(0), '', 1)
     crumbs = [("Start", HOST + "/"), ("Ausbilder werden", HOST + "/fuer-ausbilder/")] if p['path'] != 'multiplikatorenstelle/' else [("Start", HOST + "/")]
     crumbs.append((strip_tags(p['h1']).split(':')[0] if p['path'] == 'multiplikatorenstelle/' else p['title'].split(' | ')[0], url))
@@ -287,9 +315,9 @@ def build(p, base):
     topn = f'<div class="article-note">{p["topnote"]}</div>' if p.get('topnote') else ''
     kf = '<div class="key-facts"><h2>Kurz gefasst</h2><ul>' + ''.join(f'<li>{k}</li>' for k in p['keyfacts']) + '</ul></div>'
     rel = '<p class="article-related">' + ''.join(f'<a href="{u}">{esc(l)}</a>' for u, l in p['related']) + '</p>'
-    src = f'<p class="article-sources"><strong>Offizielle Quellen:</strong> {esc(p["quellen"])}. Stand: {STAND}. Dieser Beitrag ersetzt keine Rechtsberatung; verbindlich sind die jeweils geltenden Vorgaben der DGUV und der QSEH.</p>'
+    src = f'<p class="article-sources"><strong>Offizielle Quellen:</strong> {esc(p["quellen"])}. Stand: {p.get("stand", STAND)}. Dieser Beitrag ersetzt keine Rechtsberatung; verbindlich sind die jeweils geltenden Vorgaben der DGUV und der QSEH.</p>'
     main = (f'<main id="hauptinhalt" tabindex="-1">{bcrumb}<section class="page-hero"><div><span class="eyebrow">{esc(p["eyebrow"])}</span><h1>{esc(p["h1"])}</h1>'
-            f'<p class="article-stand">Stand: {STAND} · Redaktion BWW · Quellen: {esc(p["quellen"])}</p><p>{p["lead"]}</p><div class="hero-actions">{acts}</div></div>{img}</section>'
+            f'<p class="article-stand">Stand: {p.get("stand", STAND)} · Redaktion BWW · Quellen: {esc(p["quellen"])}</p><p>{p["lead"]}</p><div class="hero-actions">{acts}</div></div>{img}</section>'
             f'<section class="section article-body">{topn}{kf}{p["body"]}<h2>Häufige Fragen</h2>{faq_html(p["faq"])}{rel}{src}</section>{cta_block}')
     h = h[:i] + main + h[j:]
     return h
@@ -322,6 +350,7 @@ def main():
           ("/ausbilder-werden/fuer-hilfsorganisationen/", "Für Hilfsorganisationen", "Lehrkräfte qualifizieren lassen: Wege, Voraussetzungen, Hospitation"),
           ("/ausbilder-werden/fuer-ausbildungsstellen/", "Für Ausbildungsstellen", "Lehrberechtigungen aktuell halten: Fortbildung, Fristen"),
           ("/ausbilder-werden/fuer-betriebe/", "Für Betriebe", "Ersthelfer, Betriebssanitäter und Ausbilder im Betrieb"),
+          ("/ausbilder-werden/hospitation/", "Qualifizierung für künftige Lehrbeauftragte", "Hospitation bei BWW: Voraussetzung, Ablauf, Kurspreis plus 25 € je Kurstag"),
           ("/ausbilder-werden/preise/", "Preise der Lehrgänge für Ausbilder", "Lehrkräfte-, Betriebssanitäter- und Hospitationspreise aus dem Buchungssystem"),
           ("/ausbilder-werden/lehrberechtigung-verlaengern/", "Lehrberechtigung verlängern", "Fortbildung für Lehrkräfte Erste Hilfe: Frist, Umfang, Ablauf"),
           ("/ausbilder-werden/lehrbeauftragter/", "Künftige Lehrbeauftragte", "Voraussetzungen und Weg über die Hospitation"),
