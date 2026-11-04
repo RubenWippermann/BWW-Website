@@ -2,7 +2,7 @@
 """Stimmen-Block: keine Gesamtnote/Anzahl mehr; offene Unterzeile (Jurist 03.11.2026, Mindestlösung). Idempotent. Kein AggregateRating im Markup (war nie vorhanden)."""
 import hashlib, os, re
 os.chdir(os.path.expanduser('~/Claude/bww-neu-wt'))
-UZ = 'Ausgewählte Rückmeldungen unserer Teilnehmenden. Wir veröffentlichen Rückmeldungen mit 4 und 5 Sternen; nicht alle Bewertungen werden veröffentlicht.'
+UZ = ''  # Hinweissatz am 04.11.2026 entfernt (siehe bewertung_unterzeile_entfernen.py)
 js = open('assets/bewertungen.js', encoding='utf8').read()
 a = js.find("    var a = d.aggregat, agg = document.getElementById('stimmen-agg');"); b = js.find("    sec.hidden = false;")
 if 0 <= a < b:
