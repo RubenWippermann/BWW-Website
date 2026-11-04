@@ -10,3 +10,9 @@ for f in ['index.html', 'inhouse-kurse/index.html', 'kurse/lehrkraefte-ausbildun
 print('Seiten:', n)
 p = 'tools/bewertung_darstellung.py'; s = open(p, encoding='utf8').read()
 if UZ in s: open(p, 'w', encoding='utf8').write(s.replace("UZ = '" + UZ + "'", "UZ = ''  # Hinweissatz am 04.11.2026 entfernt (siehe bewertung_unterzeile_entfernen.py)"))
+# Überschrift (Jurist/BL 04.11.): "Auszüge aus Rückmeldungen" statt "Stimmen unserer Teilnehmenden"
+m = 0
+for f in ['index.html', 'inhouse-kurse/index.html', 'kurse/lehrkraefte-ausbildung-lk1/index.html', 'kurse/lehrkraefte-ausbildung-lk2/index.html']:
+    h = open(f, encoding='utf8').read(); a = '<h2 id="stimmen-h">Stimmen unserer Teilnehmenden</h2>'
+    if a in h: open(f, 'w', encoding='utf8').write(h.replace(a, '<h2 id="stimmen-h">Auszüge aus Rückmeldungen</h2>')); m += 1
+print('Überschriften:', m)
