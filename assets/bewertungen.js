@@ -1,21 +1,12 @@
 /* Stimmen unserer Teilnehmenden: freigegebene Bewertungen der BWW (org=bww).
-   Platzierung: Block steht am Seitenende (unterhalb des ersten Bildschirms), bei 0 Bewertungen hidden = kein Rahmen; CLS mit 6 Mock-Bewertungen max. 0,018.   Ein Request je Seitenaufruf, Kurzzeit-Cache im sessionStorage, Block bleibt ohne Daten/bei Fehler verborgen.
+   Platzierung: Block steht am Seitenende (unterhalb des ersten Bildschirms), bei 0 Bewertungen hidden = kein Rahmen; CLS mit 6 Mock-Bewertungen max. 0,018.   Ein Request je Seitenaufruf, kein Browser-Speicher (§ 25 TDDDG), Block bleibt ohne Daten/bei Fehler verborgen.
    Kein JSON-LD / AggregateRating: Bewertungen gelten fuer die Firma, nicht fuer eine einzelne Kursseite (Selbstbewertungs-Richtlinie).
-   Keine Gesamtnote/Anzahl (Jurist 03.11.2026): nur ausgewaehlte Stimmen mit offener Unterzeile (4 und 5 Sterne). */
+   Keine Gesamtnote/Anzahl (Jurist 03.11.2026): nur ausgewaehlte Stimmen. */
 (function () {
   var sec = document.getElementById('stimmen');
   if (!sec) return;
   var URL = 'https://software-wippermann.de/api/bewertungen?org=bww';
-  var KEY = 'bww-bewertungen-v1', TTL = 10 * 60 * 1000, MAXLEN = 280, MAXN = 6;
-
-  function fromCache() {
-    try {
-      var c = JSON.parse(sessionStorage.getItem(KEY) || 'null');
-      if (c && c.t && Date.now() - c.t < TTL) return c.d;
-    } catch (e) {}
-    return null;
-  }
-  function toCache(d) { try { sessionStorage.setItem(KEY, JSON.stringify({ t: Date.now(), d: d })); } catch (e) {} }
+  var MAXLEN = 280, MAXN = 6;
 
   function el(tag, cls, txt) {
     var n = document.createElement(tag);
@@ -54,13 +45,11 @@
     sec.hidden = false;
   }
 
-  var c = fromCache();
-  if (c) { render(c); return; }
   var ctl = window.AbortController ? new AbortController() : null;
   var to = ctl ? setTimeout(function () { ctl.abort(); }, 6000) : null;
   fetch(URL, ctl ? { signal: ctl.signal } : {})
     .then(function (r) { if (!r.ok) throw 0; return r.json(); })
-    .then(function (d) { toCache(d); render(d); })
+    .then(function (d) { render(d); })
     .catch(function () { /* Block bleibt verborgen */ })
     .then(function () { if (to) clearTimeout(to); });
 })();
