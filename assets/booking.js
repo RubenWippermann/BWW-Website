@@ -217,19 +217,24 @@ function cleanLabel(t) { return anzeigeTitel(t).replace(/\s*\([^)]*\)/g, '').tri
   // Formularinhalt (auch nach Neuladen der Seite) einen zweiten Vorgang erzeugt.
   var SENT_PREFIX = 'bww_sent_';
   var SENT_TTL_MS = 24 * 60 * 60 * 1000;
-  function sentKey(apiName, payload) { return SENT_PREFIX + apiName + '_' + JSON.stringify(payload); }
+  var SENT_MEM = {};   // nur Arbeitsspeicher dieser Seite: kein Browser-Speicher, kein Klartext-Payload (§ 25 TDDDG, Datenminimierung)
+  // Alte Einträge früherer Fassungen (Schlüssel enthielt den Anfrage-Inhalt) einmalig vom Gerät entfernen
+  try {
+    var alt = [];
+    for (var i = 0; i < localStorage.length; i++) { var k = localStorage.key(i); if (k && k.indexOf(SENT_PREFIX) === 0) alt.push(k); }
+    alt.forEach(function (k) { localStorage.removeItem(k); });
+  } catch (e) {}
+  function sentKey(apiName, payload) {
+    var str = JSON.stringify(payload), h = 5381;
+    for (var i = 0; i < str.length; i++) h = ((h << 5) + h + str.charCodeAt(i)) | 0;
+    return SENT_PREFIX + apiName + '_' + (h >>> 0).toString(36);
+  }
   function readSent(key) {
-    try {
-      var raw = localStorage.getItem(key);
-      if (!raw) return null;
-      var cached = JSON.parse(raw);
-      if (Date.now() - cached.t > SENT_TTL_MS) return null;
-      return cached;
-    } catch (e) { return null; }
+    var c = SENT_MEM[key];
+    if (!c || Date.now() - c.t > SENT_TTL_MS) return null;
+    return c;
   }
-  function writeSent(key, ticketId) {
-    try { localStorage.setItem(key, JSON.stringify({ t: Date.now(), ticket_id: ticketId || '' })); } catch (e) {}
-  }
+  function writeSent(key, ticketId) { SENT_MEM[key] = { t: Date.now(), ticket_id: ticketId || '' }; }
   function wireForms() {
     var forms = document.querySelectorAll('form[data-api]');
     Array.prototype.forEach.call(forms, function (form) {
