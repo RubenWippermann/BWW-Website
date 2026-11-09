@@ -2,6 +2,9 @@
 (function () {
   var API = 'https://software-wippermann.de';
   var ORG = 'bww';
+  // Anzeigen-Kennung aus der Adresse (?quelle=ads-w|d|p|b), nur Allowlist, nur im Arbeitsspeicher dieser Seite (kein Speicher, keine Weitergabe an andere Seiten)
+  var KENNUNG = (function () { var m = /[?&]quelle=(ads-[wdpb])(?:&|$)/.exec(location.search); return m ? m[1] : ''; })();
+  function mitKennung(u) { return (KENNUNG && u && u.indexOf('kennung=') === -1) ? u + (u.indexOf('?') > -1 ? '&' : '?') + 'kennung=' + KENNUNG : u; }
   var QUELLE = 'multiplikatorenstelle';   // Herkunft (Schema: Domain ohne Endung) — an jede Buchung/Anfrage anhängen, NIE org ersetzen
   /* Rechts-Guard: BG/UK-Erstattung NUR fuer betriebliche Erste-Hilfe-Aus-/Fortbildung (EHA/EHF/EHB), unabhaengig vom Feed-Flag (§23 Abs.2 SGB VII). Strenger als der Feed. */
   var BG_UK_ALLOW = { EHA: 1, EHF: 1, EHB: 1 };
@@ -67,6 +70,7 @@ function cleanLabel(t) { return anzeigeTitel(t).replace(/\s*\([^)]*\)/g, '').tri
     var burl = k.buchungs_url || '';
     if (burl.indexOf('org=') === -1) burl += (burl.indexOf('?') > -1 ? '&' : '?') + 'org=' + ORG;
     if (burl.indexOf('quelle=') === -1) burl += (burl.indexOf('?') > -1 ? '&' : '?') + 'quelle=' + QUELLE;  // Herkunft anhängen, org bleibt unangetastet
+    burl = mitKennung(burl);
     if (window.bwwHerkunft) burl = window.bwwHerkunft(burl);   // utm_* nur weiterreichen, nie eigene setzen
     var voll = !!k.ausgebucht;
     var zeit = k.uhrzeit ? esc(k.uhrzeit) + (k.uhrzeit_ende ? '–' + esc(k.uhrzeit_ende) : '') + ' Uhr' : '';
@@ -80,6 +84,7 @@ function cleanLabel(t) { return anzeigeTitel(t).replace(/\s*\([^)]*\)/g, '').tri
     // hier nichts (kein Rückfall, kein geratener Link), bis der Software-Branch live ist.
     var hurl = k.hospitation_url || '';
     if (hurl && hurl.indexOf('quelle=') === -1) hurl += (hurl.indexOf('?') > -1 ? '&' : '?') + 'quelle=' + QUELLE;   // Herkunft auch bei Hospitation
+    hurl = mitKennung(hurl);
     if (window.bwwHerkunft) hurl = window.bwwHerkunft(hurl);
     var hosp = (k.hospitation_moeglich === true && k.hospitation_url)
       ? '<a class="termin-hospitieren" href="' + esc(hurl) + '" target="_blank" rel="noopener">Hospitieren (z. B. für angehende Ausbilder:innen) →</a>'
@@ -247,6 +252,7 @@ function cleanLabel(t) { return anzeigeTitel(t).replace(/\s*\([^)]*\)/g, '').tri
           }
         }
         var payload = { org: ORG, website: '' };
+        if (KENNUNG) payload.kennung = KENNUNG;
         // Lead-Quelle für die Software (Büro trennt Inhouse-Website-Leads von Buchungen)
         if (form.getAttribute('data-api') === 'inhouse-anfrage') payload.quelle = QUELLE;   // Seiten-Herkunft, NICHT der generische Formularname (kollidierte mit einem anderen Absender + Server-Default)
         Array.prototype.forEach.call(form.querySelectorAll('[name]'), function (f) {
@@ -270,7 +276,7 @@ function cleanLabel(t) { return anzeigeTitel(t).replace(/\s*\([^)]*\)/g, '').tri
         var nlEl = form.querySelector('input[name="newsletter"]');
         if (nlEl && nlEl.checked) {
           var nlMail = (form.querySelector('[name="email"]') || {}).value || '';
-          if (nlMail) { try { fetch(API + '/api/newsletter', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ org: ORG, email: nlMail, quelle: QUELLE, website: '' }) }); } catch (e) {} }
+          if (nlMail) { try { fetch(API + '/api/newsletter', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(KENNUNG ? { org: ORG, email: nlMail, quelle: QUELLE, kennung: KENNUNG, website: '' } : { org: ORG, email: nlMail, quelle: QUELLE, website: '' }) }); } catch (e) {} }
         }
         var httpStatus = 0;
         fetch(API + '/api/' + form.getAttribute('data-api'), {
@@ -360,7 +366,7 @@ function cleanLabel(t) { return anzeigeTitel(t).replace(/\s*\([^)]*\)/g, '').tri
       var httpStatus = 0;
       fetch(API + '/api/warteliste', {
         method: 'POST', headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ org: ORG, quelle: QUELLE, termin: o.dataset.termin || '', name: name, email: email, website: '' })
+        body: JSON.stringify(KENNUNG ? { org: ORG, quelle: QUELLE, kennung: KENNUNG, termin: o.dataset.termin || '', name: name, email: email, website: '' } : { org: ORG, quelle: QUELLE, termin: o.dataset.termin || '', name: name, email: email, website: '' })
       }).then(function (r) { httpStatus = r.status; return r.json().catch(function () { return {}; }); }).then(function (res) {
         if (res && res.ok) {
           writeSent(wlDupKey, res.ticket_id);
@@ -526,3 +532,5 @@ function cleanLabel(t) { return anzeigeTitel(t).replace(/\s*\([^)]*\)/g, '').tri
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
   else init();
 })();
+// Feste Buchungslinks zur Software ergänzen (nur mit gültiger Kennung)
+(function () { if (!/[?&]quelle=ads-[wdpb](?:&|$)/.test(location.search)) return; function run() { var k = /[?&]quelle=(ads-[wdpb])(?:&|$)/.exec(location.search)[1]; Array.prototype.forEach.call(document.querySelectorAll('a[href*="software-wippermann.de/buchen"]'), function (a) { var u = a.getAttribute('href'); if (u.indexOf('kennung=') === -1) a.setAttribute('href', u + (u.indexOf('?') > -1 ? '&' : '?') + 'kennung=' + k); }); } if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', run); else run(); })();
