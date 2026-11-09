@@ -224,6 +224,7 @@ function cleanLabel(t) { return anzeigeTitel(t).replace(/\s*\([^)]*\)/g, '').tri
     for (var i = 0; i < localStorage.length; i++) { var k = localStorage.key(i); if (k && k.indexOf(SENT_PREFIX) === 0) alt.push(k); }
     alt.forEach(function (k) { localStorage.removeItem(k); });
   } catch (e) {}
+  try { sessionStorage.removeItem('bww-bewertungen-v1'); localStorage.removeItem('bww-bewertungen-v1'); } catch (e) {}   // abgeschaffter Bewertungs-Cache früherer Fassungen
   function sentKey(apiName, payload) {
     var str = JSON.stringify(payload), h = 5381;
     for (var i = 0; i < str.length; i++) h = ((h << 5) + h + str.charCodeAt(i)) | 0;
