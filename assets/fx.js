@@ -121,11 +121,21 @@
     }
 
     if (spot) {
+      var hr = null, ex = 0, ey = 0, pend = false;
+      function inval() { hr = null; }
+      window.addEventListener("scroll", inval, { passive: true });
+      window.addEventListener("resize", inval);
       hero.addEventListener("pointermove", function (e) {
-        var r = hero.getBoundingClientRect();
-        spot.style.setProperty("--sx", e.clientX - r.left + "px");
-        spot.style.setProperty("--sy", e.clientY - r.top + "px");
+        ex = e.clientX; ey = e.clientY;
         hero.classList.add("fx-hot");
+        if (pend) return;
+        pend = true;
+        raf(function () {
+          pend = false;
+          if (!hr) hr = hero.getBoundingClientRect();
+          spot.style.setProperty("--sx", (ex - hr.left) + "px");
+          spot.style.setProperty("--sy", (ey - hr.top) + "px");
+        });
       }, { passive: true });
       hero.addEventListener("pointerleave", function () { hero.classList.remove("fx-hot"); });
     }
@@ -176,7 +186,7 @@
   /* Karten: gestaffelter Einzug (nur was unter dem sichtbaren Bereich liegt, nie bei Deep-Links) */
   if (!deep) {
     var vh = window.innerHeight;
-    var cards = Array.prototype.filter.call(doc.querySelectorAll("main .path-card, main .feature-card, main .sustain-card"), function (c) {
+    var cards = Array.prototype.filter.call(doc.querySelectorAll("main .path-card, main .feature-card, main .sustain-card, main .course-card, main .tool-tile, main .anerkennung-card"), function (c) {
       return c.getBoundingClientRect().top > vh;
     });
     cards.forEach(function (c) { c.classList.add("fx-pre"); });
@@ -187,60 +197,4 @@
       });
     });
   }
-
-  if (!fine) return;
-
-  /* 3D-Neigung + Lichtreflex (Delegation, nur Maus/Trackpad) */
-  var SEL = ".path-card, .feature-card, .course-card, .sustain-card, .knowledge-card, .eco-highlight";
-  var cur = null, pending = false, last = null;
-  function leaveCard() { if (cur) { cur.classList.remove("fx-tilt-on"); cur = null; } }
-  doc.addEventListener("pointermove", function (e) {
-    var t = e.target.closest ? e.target.closest(SEL) : null;
-    if (t && t.querySelector("input, select, textarea")) t = null;
-    if (t !== cur) {
-      leaveCard();
-      if (t) {
-        if (!t.classList.contains("fx-tilt")) {
-          t.classList.add("fx-tilt");
-          var g = doc.createElement("span");
-          g.className = "fx-glare";
-          g.setAttribute("aria-hidden", "true");
-          t.appendChild(g);
-        }
-        cur = t;
-      }
-    }
-    if (!cur) return;
-    last = e;
-    if (pending) return;
-    pending = true;
-    raf(function () {
-      pending = false;
-      if (!cur) return;
-      var r = cur.getBoundingClientRect();
-      var x = (last.clientX - r.left) / r.width, y = (last.clientY - r.top) / r.height;
-      cur.style.setProperty("--ry", ((x - 0.5) * 7).toFixed(2) + "deg");
-      cur.style.setProperty("--rx", ((0.5 - y) * 7).toFixed(2) + "deg");
-      cur.style.setProperty("--gx", (x * 100).toFixed(1) + "%");
-      cur.style.setProperty("--gy", (y * 100).toFixed(1) + "%");
-      cur.classList.add("fx-tilt-on");
-    });
-  }, { passive: true });
-  doc.addEventListener("pointerleave", leaveCard);
-
-  /* Primaere Buttons: magnetisch */
-  doc.querySelectorAll("main .btn.primary, .hero .btn.primary").forEach(function (b) {
-    var pos = getComputedStyle(b).position;
-    if (pos !== "static" && pos !== "relative") return;
-    b.classList.add("fx-mag");
-    b.addEventListener("pointermove", function (e) {
-      var r = b.getBoundingClientRect();
-      b.style.setProperty("--bx", ((e.clientX - r.left - r.width / 2) * 0.14).toFixed(1) + "px");
-      b.style.setProperty("--by", ((e.clientY - r.top - r.height / 2) * 0.2).toFixed(1) + "px");
-    }, { passive: true });
-    b.addEventListener("pointerleave", function () {
-      b.style.setProperty("--bx", "0px");
-      b.style.setProperty("--by", "0px");
-    });
-  });
 })();
