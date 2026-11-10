@@ -4,6 +4,7 @@
   var ORG = 'bww';
   // Anzeigen-Kennung aus der Adresse (?quelle=ads-w|d|p|b), nur Allowlist, nur im Arbeitsspeicher dieser Seite (kein Speicher, keine Weitergabe an andere Seiten)
   var KENNUNG = (function () { var m = /[?&]quelle=(ads-[wdpb])(?:&|$)/.exec(location.search); return m ? m[1] : ''; })();
+  function mitZeit(o) { if (window.AbortController) { var c = new AbortController(); setTimeout(function () { c.abort(); }, 30000); o.signal = c.signal; } return o; }   // Zeitgrenze 30 s, danach greift die Fehlermeldung mit Telefonnummer
   function mitKennung(u) { return (KENNUNG && u && u.indexOf('kennung=') === -1) ? u + (u.indexOf('?') > -1 ? '&' : '?') + 'kennung=' + KENNUNG : u; }
   var QUELLE = 'multiplikatorenstelle';   // Herkunft (Schema: Domain ohne Endung) — an jede Buchung/Anfrage anhängen, NIE org ersetzen
   /* Rechts-Guard: BG/UK-Erstattung NUR fuer betriebliche Erste-Hilfe-Aus-/Fortbildung (EHA/EHF/EHB), unabhaengig vom Feed-Flag (§23 Abs.2 SGB VII). Strenger als der Feed. */
@@ -285,9 +286,9 @@ function cleanLabel(t) { return anzeigeTitel(t).replace(/\s*\([^)]*\)/g, '').tri
           if (nlMail) { try { fetch(API + '/api/newsletter', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(KENNUNG ? { org: ORG, email: nlMail, quelle: QUELLE, kennung: KENNUNG, website: '' } : { org: ORG, email: nlMail, quelle: QUELLE, website: '' }) }); } catch (e) {} }
         }
         var httpStatus = 0;
-        fetch(API + '/api/' + form.getAttribute('data-api'), {
+        fetch(API + '/api/' + form.getAttribute('data-api'), mitZeit({
           method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload)
-        }).then(function (r) { httpStatus = r.status; return r.json().catch(function () { return {}; }); }).then(function (res) {
+        })).then(function (r) { httpStatus = r.status; return r.json().catch(function () { return {}; }); }).then(function (res) {
           if (res && res.ok) {
             writeSent(dupKey, res.ticket_id);
             form.innerHTML = successHTML(res.ticket_id);
@@ -303,8 +304,8 @@ function cleanLabel(t) { return anzeigeTitel(t).replace(/\s*\([^)]*\)/g, '').tri
           }
           if (status) { status.className = 'form-status is-error'; status.textContent = msg; }
           if (btn) { btn.disabled = false; btn.textContent = origTxt; }
-        }).catch(function () {
-          if (status) { status.className = 'form-status is-error'; status.textContent = 'Verbindung fehlgeschlagen. Bitte später erneut versuchen oder anrufen: ' + TEL + '.'; }
+        }).catch(function (e) {
+          if (status) { status.className = 'form-status is-error'; status.textContent = (e && e.name === 'AbortError') ? 'Wir haben keine Antwort erhalten. Ihre Anfrage ist möglicherweise angekommen. Bitte prüfen Sie Ihr Postfach oder rufen Sie uns an, bevor Sie erneut senden. Telefon: ' + TEL : 'Verbindung fehlgeschlagen. Bitte später erneut versuchen oder anrufen: ' + TEL + '.'; }
           if (btn) { btn.disabled = false; btn.textContent = origTxt; }
         });
       });
@@ -370,10 +371,10 @@ function cleanLabel(t) { return anzeigeTitel(t).replace(/\s*\([^)]*\)/g, '').tri
       var btn = form.querySelector('button[type="submit"]'); var orig = btn.textContent;
       btn.disabled = true; btn.textContent = 'Wird gesendet …'; status.textContent = ''; status.className = 'wl-status';
       var httpStatus = 0;
-      fetch(API + '/api/warteliste', {
+      fetch(API + '/api/warteliste', mitZeit({
         method: 'POST', headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(KENNUNG ? { org: ORG, quelle: QUELLE, kennung: KENNUNG, termin: o.dataset.termin || '', name: name, email: email, website: '' } : { org: ORG, quelle: QUELLE, termin: o.dataset.termin || '', name: name, email: email, website: '' })
-      }).then(function (r) { httpStatus = r.status; return r.json().catch(function () { return {}; }); }).then(function (res) {
+      })).then(function (r) { httpStatus = r.status; return r.json().catch(function () { return {}; }); }).then(function (res) {
         if (res && res.ok) {
           writeSent(wlDupKey, res.ticket_id);
           form.innerHTML = '<div class="form-success"><span class="form-success-ic">✓</span><h3>Du stehst auf der Warteliste!</h3><p>Wir melden uns, sobald ein Platz frei wird.' + (res.ticket_id ? ' Vorgang: <b>' + esc(res.ticket_id) + '</b>.' : '') + '</p></div>';
@@ -384,8 +385,8 @@ function cleanLabel(t) { return anzeigeTitel(t).replace(/\s*\([^)]*\)/g, '').tri
           : 'Das hat nicht geklappt. Bitte erneut versuchen oder anrufen: ' + TEL + '.';
         status.className = 'wl-status is-error'; status.textContent = msg;
         btn.disabled = false; btn.textContent = orig;
-      }).catch(function () {
-        status.className = 'wl-status is-error'; status.textContent = 'Verbindung fehlgeschlagen. Bitte später erneut versuchen oder anrufen: ' + TEL + '.';
+      }).catch(function (e) {
+        status.className = 'wl-status is-error'; status.textContent = (e && e.name === 'AbortError') ? 'Wir haben keine Antwort erhalten. Ihre Anfrage ist möglicherweise angekommen. Bitte prüfen Sie Ihr Postfach oder rufen Sie uns an, bevor Sie erneut senden. Telefon: ' + TEL : 'Verbindung fehlgeschlagen. Bitte später erneut versuchen oder anrufen: ' + TEL + '.';
         btn.disabled = false; btn.textContent = orig;
       });
     });
