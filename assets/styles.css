@@ -911,7 +911,7 @@ body{
 .footer-contact span{display:block;color:rgba(255,255,255,.7);font-size:.92rem;margin-top:.4rem}
 
 /* ============ Accessibility & Interaktions-Politur ============ */
-a:focus-visible,button:focus-visible,summary:focus-visible,.btn:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--ad-accent,#25704e);outline-offset:2px;border-radius:8px}
+a:focus-visible,button:focus-visible,summary:focus-visible,.btn:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--ad-accent,#25704e);outline-offset:2px;border-radius:8px}
 .btn{transition:transform .16s ease,box-shadow .2s ease,background .2s ease,color .2s ease}
 .btn.primary:hover{transform:translateY(-2px);box-shadow:0 20px 46px rgba(47,125,90,.30)}
 .btn.ghost:hover,.btn.soft:hover{transform:translateY(-2px)}
@@ -1581,7 +1581,7 @@ a.feature-card:hover,a.knowledge-card:hover,.course-card:hover,.path-card:hover{
   .btn{width:auto}
   .hero-actions{gap:10px}
 }
-@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+
 /* --- Apple-Design-Schicht, Nachbesserung: Reste der alten Gestaltung --- */
 body{background:var(--ad-bg)!important}
 h1,h2,h3,h4{hyphens:auto!important;-webkit-hyphens:auto!important;overflow-wrap:break-word;text-wrap:balance}
@@ -1853,7 +1853,7 @@ html:root:root:root body.sb-in-list .sticky-book{opacity:0!important;visibility:
   html:root .fx-hero .proof-strip{animation-delay:200ms}
   html:root :is(.btn.primary,.sticky-book a,.text-link,.termin-cta){transition:transform 150ms ease-out!important;translate:none!important}
   @media (hover:hover){html:root :is(.btn.primary,.sticky-book a,.text-link,.termin-cta):hover{transform:translateY(-1px)!important}}
-  html:root :is(.btn.primary,.sticky-book a,.text-link,.termin-cta):active{transform:none!important}
+  html:root :is(.btn,.nav-cta,.sticky-book a,.text-link,.termin-cta):active{transform:scale(.97)!important;transition-duration:90ms!important}
 }
 
 /* a3-Abstand: einheitlicher Abstand zwischen Kaesten (Variable --a3-gap), gap am Container */
@@ -2041,3 +2041,13 @@ html:root:root:root .hero h1 .h1-kw{display:block!important;font-size:max(.3em,1
   html:root:root:root .site-header .brand small{color:var(--ad-accent)!important}
   html:root:root:root body main .tag-cloud a{background:var(--ad-card)!important;color:var(--ad-accent)!important;border-color:var(--ad-line)!important}
 }
+
+/* Design 10.11. Teil A */
+/* BWW-02: fuenf Kurskarten 3+2 mittig statt 4+1 (ab 1181 px), zwei Spalten: letzte Karte mittig */
+@media(min-width:1181px){html:root:root:root .course-grid.large:has(>:nth-child(5):last-child){grid-template-columns:repeat(6,minmax(0,1fr))}
+html:root:root:root .course-grid.large:has(>:nth-child(5):last-child)>*{grid-column:span 2}
+html:root:root:root .course-grid.large:has(>:nth-child(5):last-child)>:nth-child(4){grid-column:2/span 2}
+html:root:root:root .course-grid.large:has(>:nth-child(5):last-child)>:nth-child(5){grid-column:4/span 2}}
+@media(min-width:601px) and (max-width:1180px){html:root:root:root .course-grid.large>:last-child:nth-child(odd){grid-column:1/-1;justify-self:center;width:calc(50% - .55rem)}}
+/* BWW-06: Kartentitel ohne automatische Silbentrennung, fluide Groesse */
+html:root:root:root body main .course-card h3{hyphens:manual;font-size:clamp(1.05rem,1.6vw,1.25rem);overflow-wrap:normal}

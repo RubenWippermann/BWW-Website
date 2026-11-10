@@ -8,3 +8,5 @@
 .stimme figcaption{font-weight:600;color:#10271f;font-size:.95rem;margin-top:auto}
 .stimmen .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 @media(max-width:900px){.stimmen-grid{grid-template-columns:1fr}}
+/* 4 Stimmen: 2x2 statt 3+1 (Design 10.11., BWW-02) */
+@media(min-width:901px){.stimmen-grid:has(>:nth-child(4):last-child){grid-template-columns:repeat(2,minmax(0,1fr));max-width:760px}}
