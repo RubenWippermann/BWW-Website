@@ -2074,3 +2074,7 @@ html:root:root:root body .site-header nav a{display:inline-flex;align-items:cent
 
 /* BWW-10 */
 html:root:root:root body main .page-hero>.bww-ill{height:auto!important;aspect-ratio:419/284;object-fit:contain}
+
+/* Zielgroesse 13.11. */
+html:root:root:root body input[type=checkbox],html:root:root:root body input[type=radio]{width:24px!important;height:24px!important;min-width:24px;min-height:24px;flex:0 0 24px}
+html:root:root:root body .bww-form .checks label{grid-template-columns:24px 1fr}
