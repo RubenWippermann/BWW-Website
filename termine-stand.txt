@@ -1,5 +1,5 @@
-2026-11-13T13:16:09+01:00	89
+2026-11-14T12:31:20+01:00	88
 # startdate_ausgezeichnet=ja
-# bewegung_zuletzt=2026-11-06
-# unveraendert_seit_tagen=7
+# bewegung_zuletzt=2026-11-14
+# unveraendert_seit_tagen=0
 # spaetester_termin=2027-12-19
