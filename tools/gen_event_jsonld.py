@@ -302,6 +302,37 @@ def strip_course(html):
                 pass
     return re.sub(r"\n?" + re.escape(CSTART) + r".*?" + re.escape(CEND) + r"\n?", "\n", html, flags=re.S)
 
+# ---- Sichtbare, statische Terminliste je Kursseite (T-271): steht im Roh-HTML fuer Crawler/ohne JS, booking.js ersetzt den Block beim Laden.
+LSTART = "<!-- BWW-FEED-LISTE:START (auto-generiert) -->"
+LEND = "<!-- BWW-FEED-LISTE:END -->"
+_LIVE = re.compile(r'(<div id="live-termine"[^>]*>)(?:' + re.escape(LSTART) + r'.*?' + re.escape(LEND) + r')?(?:Termine (?:auf Anfrage\.|werden geladen …) )?', re.S)
+
+def _de(d):
+    y, m, t = (d or "").split("-")
+    return f"{t}.{m}.{y}"
+
+def liste_html(termine, limit=4):
+    import html as H
+    rows = []
+    for k in sorted(termine, key=lambda x: (x.get("datum") or "", x.get("uhrzeit") or ""))[:limit]:
+        d = _de(k["datum"]) + (f" – {_de(k['datum_ende'])}" if k.get("datum_ende") and k["datum_ende"] != k["datum"] else "")
+        zeit = f"<small>{H.escape(k['uhrzeit'])} Uhr</small>" if k.get("uhrzeit") else ""
+        preis = f"<b>{int(k['preis'])} €</b>" if k.get("preis") is not None else "<b></b>"
+        ort = f"<small class=\"termin-ort\">{H.escape(k['stadt'])}</small>" if k.get("stadt") else ""
+        rows.append('<a class="termin-row" href="' + H.escape(mit_quelle(k["buchungs_url"])) + '" rel="noopener">'
+                    f'<span class="termin-date"><b>{d}</b>{zeit}</span>'
+                    f'<span class="termin-info"><b>{H.escape(anzeige_titel(k.get("titel") or ""))}</b>{ort}</span>'
+                    f'<span class="termin-meta">{preis}<small>Termin ansehen / buchen</small></span><span class="termin-cta">Buchen →</span></a>')
+    return LSTART + "".join(rows) + LEND
+
+def inject_liste(html, termine):
+    """Mit Terminen: Liste zwischen Markern, Platzhaltertext entfaellt. Ohne Termine: Marker entfernt, 'Termine auf Anfrage.' bleibt."""
+    m = _LIVE.search(html)
+    if not m:
+        return html
+    neu = m.group(1) + (liste_html(termine) if termine else "Termine auf Anfrage. ")
+    return html[:m.start()] + neu + html[m.end():]
+
 def run_kursseiten(kdir, write):
     """--kursseiten <site/kurse>: alle Kursseiten (ausser Uebersicht/Terminliste) backen."""
     import glob
@@ -316,8 +347,9 @@ def run_kursseiten(kdir, write):
         sys.stderr.write(f"[kursseiten] Feed nicht nutzbar ({e}) -> Kurs-Bloecke entfernt (fail-closed)\n")
         for p in glob.glob(os.path.join(kdir, "*", "index.html")):
             h = open(p, encoding="utf-8").read()
-            if CSTART in h and write:
-                open(p, "w", encoding="utf-8").write(strip_course(h))
+            h2 = inject_liste(strip_course(h) if CSTART in h else h, [])   # fail-closed: auch die sichtbare Liste entfernen
+            if h2 != h and write:
+                open(p, "w", encoding="utf-8").write(h2)
         return
     organizer = organizer_from(data if isinstance(data, dict) else {})
     today = datetime.now(TZ).date()
@@ -330,6 +362,8 @@ def run_kursseiten(kdir, write):
         h = open(p, encoding="utf-8").read()
         block = course_block(h, f"{SITE}/kurse/{slug}/", upcoming, organizer)
         out = inject_course(h, block, f"{SITE}/kurse/{slug}/") if block else strip_course(h)
+        arten = course_arten(h)
+        out = inject_liste(out, [k for k in upcoming if k.get("kursart") in arten and k.get("buchungs_url") and k.get("datum")])
         if block:
             n += 1
         if write and out != h:
