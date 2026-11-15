@@ -2,7 +2,7 @@
 
 > Zusammenstellung der Kernseiten von www.multiplikatorenstelle.de aus deren Seitentext: Titel, Beschreibung, Hauptüberschrift und die sichtbaren häufigen Fragen mit Antworten. Termine und Preise ändern sich täglich und stehen live in der Terminliste unter https://www.multiplikatorenstelle.de/kurse/ ; Kurzfassung: https://www.multiplikatorenstelle.de/llms.txt
 
-Stand: 31.10.2026
+Stand: 15.11.2026
 
 
 ## Erste Hilfe & Brandschutz inhouse · Kennziffer 8.2122 | BWW
@@ -71,8 +71,8 @@ Hauptüberschrift: Lehrkräfte und Lehrbeauftragte Erste Hilfe: alle Stufen im �
   Antwort: In der Regel eine gültige Erste-Hilfe-Ausbildung sowie eine notfallmedizinische Qualifikation. Die genauen Zugangsvoraussetzungen stimmen wir vor der Anmeldung mit dir ab.
 - Frage: Ist BWW eine ermächtigte Stelle?
   Antwort: Ja. Für die Erste-Hilfe-Aus- und Fortbildung im Betrieb ist BWW ermächtigte Stelle der gesetzlichen Unfallversicherung (Kennziffer 8.2122, seit 28.10.2025). Geeignete Stelle ist BWW Stelle zur Aus- und Fortbildung von Lehrkräften der Ersten Hilfe (seit 28.10.2025, Kennziffer 8.2122). Für Lehrkräfte des betrieblichen Sanitätsdienstes und Betriebssanitäter gilt dies seit 29.10.2026. Die Kennziffer kannst du bei deinem Unfallversicherungsträger nachprüfen.
-- Frage: Ist der Kurs für Lehrbeauftragte eine von der DGUV anerkannte Maßnahme?
-  Antwort: Nein. Der Orientierungsrahmen in Anhang 3 der DGUV Grundsatz 304-003 ist eine Empfehlung für Stellen, die Lehrbeauftragte aus- und fortbilden. Der Kurs ist keine beim QSEH-Portal registrierte Maßnahme; die Bescheinigung enthält deshalb keine DGUV-Anerkennung.
+- Frage: Wie steht es um die Anerkennung des Kurses für Lehrbeauftragte?
+  Antwort: Anerkennungsstatus: Auskunft vor Buchung auf Anfrage.
 
 ## Betriebssanitäter werden: alle Stufen & Termine | BWW
 URL: https://www.multiplikatorenstelle.de/fuer-sanitaetsdienst/
@@ -278,8 +278,8 @@ Lehrbeauftragten-Fortbildung (LBEHF): 24 UE an 3 Tagen, mindestens alle drei Jah
 Hauptüberschrift: Fortbildung für Lehrbeauftragte
 - Frage: Wie oft ist die Fortbildung nötig?
   Antwort: Nach DGUV Grundsatz 304-003 (Abschnitt 2.2.2) mindestens alle 3 Jahre im Umfang von 24 UE, davon mindestens 16 UE pädagogisch und 8 UE medizinisch-fachlich.
-- Frage: Ist der Kurs eine von der DGUV anerkannte Maßnahme?
-  Antwort: Nein. Der Aufbau folgt einem Orientierungsrahmen der DGUV für Stellen, die Lehrbeauftragte fortbilden. Der Kurs ist keine beim QSEH-Portal registrierte Maßnahme; die Bescheinigung enthält deshalb keine DGUV-Anerkennung.
+- Frage: Wie steht es um die Anerkennung des Kurses?
+  Antwort: Anerkennungsstatus: Auskunft vor Buchung auf Anfrage.
 - Frage: Kann ich den Kurs online machen?
   Antwort: Nein. Der Kurs findet in Präsenz statt. Digital sind bei uns Buchung, Nachweise und Zertifikate, nicht die Ausbildung selbst.
 
@@ -289,8 +289,8 @@ Lehrbeauftragter Erste Hilfe (LBEH): Qualifizierung zum Ausbilder von Lehrkräft
 Hauptüberschrift: Lehrbeauftragter Erste Hilfe
 - Frage: Welche Voraussetzungen gelten für Lehrbeauftragte?
   Antwort: Nach DGUV Grundsatz 304-003 (Abschnitt 2.2.2) sind medizinisch-fachlich mindestens eine Erste-Hilfe-Ausbildung (9 UE) und eine Sanitätsausbildung mit bestandener Prüfung (48 UE) nötig, pädagogisch die Qualifikation als Lehrkraft Erste Hilfe sowie eine pädagogische Schulung von insgesamt mindestens 120 UE. Vor Abschluss der 120 UE ist in der Regel ein Nachweis über 12 Aus- oder Fortbildungen in Erster Hilfe (nicht älter als 3 Jahre) zu erbringen.
-- Frage: Ist der Kurs eine von der DGUV anerkannte Maßnahme?
-  Antwort: Nein. Der Orientierungsrahmen in Anhang 3 der DGUV Grundsatz 304-003 ist eine Empfehlung für Stellen, die Lehrbeauftragte aus- und fortbilden. Der Kurs ist keine beim QSEH-Portal registrierte Maßnahme; die Bescheinigung enthält deshalb keine DGUV-Anerkennung.
+- Frage: Wie steht es um die Anerkennung des Kurses?
+  Antwort: Anerkennungsstatus: Auskunft vor Buchung auf Anfrage.
 - Frage: Kann ich den Kurs online machen?
   Antwort: Nein. Der Kurs findet in Präsenz statt. Digital sind bei uns Buchung, Nachweise und Zertifikate, nicht die Ausbildung selbst.
 
