@@ -65,6 +65,7 @@ jobs:
       - name: Termine backen (Kursseiten, Course + CourseInstance)
         env:
           BWW_PRERENDER: "1"
+          BWW_KURSSEITEN_AUSNAHMEN: "lehrkraefte-ausbildung-lk1"   # Messseite bis nach dem Freeze nicht anfassen
         run: python3 tools/gen_event_jsonld.py --kursseiten site/kurse --write
 
       - name: Deploy nach gh-pages (nur bei Änderung)

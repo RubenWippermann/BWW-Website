@@ -212,6 +212,7 @@ def _fail_closed(args, reason, n_days):
 CSTART = "<!-- BWW-FEED-COURSE:START (auto-generiert, nicht von Hand editieren) -->"
 CEND = "<!-- BWW-FEED-COURSE:END -->"
 SITE = "https://www.multiplikatorenstelle.de"
+AUSNAHMEN = {x.strip() for x in (os.environ.get("BWW_KURSSEITEN_AUSNAHMEN") or "").split(",") if x.strip()}
 
 def course_arten(html):
     m = re.search(r'id="live-termine"[^>]*data-art="([^"]+)"', html) or re.search(r'data-art="([^"]+)"[^>]*id="live-termine"', html)
@@ -354,6 +355,9 @@ def run_kursseiten(kdir, write):
     for p in sorted(glob.glob(os.path.join(kdir, "*", "index.html"))):
         slug = os.path.basename(os.path.dirname(p))
         if slug == "offene-kurse-worbis":
+            continue
+        if slug in AUSNAHMEN:        # BWW_KURSSEITEN_AUSNAHMEN=slug1,slug2: Seiten, die der Lauf NICHT anfasst (z. B. Messseite)
+            sys.stderr.write(f"[kursseiten] Ausnahme, nicht angefasst: {slug}\n")
             continue
         h = open(p, encoding="utf-8").read()
         block = course_block(h, f"{SITE}/kurse/{slug}/", upcoming, organizer)
