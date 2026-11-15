@@ -2084,3 +2084,8 @@ html:root:root:root body .bww-form .checks label{grid-template-columns:24px 1fr}
 @media (prefers-color-scheme: dark){.form-note{color:var(--ad-ink-3)}}
 .wl-note{font-size:.875rem;line-height:1.5;color:#5b6e64;margin:.8rem 0 0}.wl-note a{color:inherit;text-decoration:underline}
 @media (prefers-color-scheme: dark){.wl-note{color:var(--ad-ink-3)}}
+
+/* zd-Layout 13.11. */
+html:root:root:root body #zd-form .consent{flex-direction:row;align-items:flex-start;gap:.7rem}
+html:root:root:root body #zd-form .consent input{margin-top:.1rem}
+html:root:root:root body #zd-form .form-actions{margin-top:1.4rem;display:flex;align-items:center;gap:1rem;flex-wrap:wrap}
