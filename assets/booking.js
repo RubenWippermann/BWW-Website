@@ -326,9 +326,9 @@ function cleanLabel(t) { return anzeigeTitel(t).replace(/\s*\([^)]*\)/g, '').tri
         '<form class="wl-form" novalidate>' +
           '<label for="wl-name">Name *</label><input id="wl-name" name="name" required>' +
           '<label for="wl-mail">E-Mail *</label><input id="wl-mail" name="email" type="email" required>' +
-          '<label class="wl-consent"><input type="checkbox" name="consent" required><span>Ich habe die <a href="/datenschutz/" target="_blank" rel="noopener">Datenschutzerklärung</a> gelesen und stimme der Verarbeitung meiner Daten zu.</span></label>' +
           '<div class="hp"><label>Bitte frei lassen<input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true"></label></div>' +
           '<button type="submit" class="btn primary">Eintragen</button>' +
+          '<p class="wl-note">Wir verwenden deine Angaben nur, um dich zu benachrichtigen, wenn ein Platz frei wird (Art. 6 Abs. 1 lit. b DSGVO). Mehr dazu in der <a href="/datenschutz/" target="_blank" rel="noopener">Datenschutzerklärung</a>.</p>' +
           '<p class="wl-status" role="status"></p>' +
         '</form>' +
       '</div>';
@@ -360,8 +360,7 @@ function cleanLabel(t) { return anzeigeTitel(t).replace(/\s*\([^)]*\)/g, '').tri
       if (hp && hp.value) { close(); return; }
       var name = form.querySelector('input[name="name"]').value.trim();
       var email = form.querySelector('input[name="email"]').value.trim();
-      var consent = form.querySelector('input[name="consent"]').checked;
-      if (!name || !email || !consent) { status.className = 'wl-status is-error'; status.textContent = 'Bitte Name, E-Mail und Einwilligung ausfüllen.'; return; }
+      if (!name || !email) { status.className = 'wl-status is-error'; status.textContent = 'Bitte Name und E-Mail ausfüllen.'; return; }
       var wlPayload = { termin: o.dataset.termin || '', name: name, email: email };
       var wlDupKey = sentKey('warteliste', wlPayload);
       var wlAlready = readSent(wlDupKey);
