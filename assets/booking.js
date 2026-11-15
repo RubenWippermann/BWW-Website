@@ -272,6 +272,7 @@ function cleanLabel(t) { return anzeigeTitel(t).replace(/\s*\([^)]*\)/g, '').tri
             payload[n] = f.value;
           }
         });
+        if (form.getAttribute('data-api') === 'widerruf' && !String(payload.nachricht || '').trim()) payload.nachricht = 'Widerruf';   // API verlangt eine Nachricht; Feld ist im Formular optional
         var dupKey = sentKey(form.getAttribute('data-api'), payload);
         var already = readSent(dupKey);
         if (already) { form.innerHTML = successHTML(already.ticket_id); return; }
