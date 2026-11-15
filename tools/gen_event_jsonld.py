@@ -344,13 +344,9 @@ def run_kursseiten(kdir, write):
         if not kurse:
             raise ValueError("0 Kurse")
     except Exception as e:
-        sys.stderr.write(f"[kursseiten] Feed nicht nutzbar ({e}) -> Kurs-Bloecke entfernt (fail-closed)\n")
-        for p in glob.glob(os.path.join(kdir, "*", "index.html")):
-            h = open(p, encoding="utf-8").read()
-            h2 = inject_liste(strip_course(h) if CSTART in h else h, [])   # fail-closed: auch die sichtbare Liste entfernen
-            if h2 != h and write:
-                open(p, "w", encoding="utf-8").write(h2)
-        return
+        # BL 16.11.: Feedausfall/-fehler = NICHTS schreiben (keine Seite veraendern, auch kein Entfernen des Course-JSON-LD), Exit 3 -> Workflow rot, Deploy laeuft nicht.
+        sys.stderr.write(f"[kursseiten] Feed nicht nutzbar ({e}) -> nichts geschrieben, Abbruch (Exit 3)\n")
+        sys.exit(3)
     organizer = organizer_from(data if isinstance(data, dict) else {})
     today = datetime.now(TZ).date()
     upcoming = [k for k in kurse if not is_past(k, today)]
