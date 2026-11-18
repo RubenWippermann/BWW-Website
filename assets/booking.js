@@ -88,14 +88,14 @@ function cleanLabel(t) { return anzeigeTitel(t).replace(/\s*\([^)]*\)/g, '').tri
     hurl = mitKennung(hurl);
     if (window.bwwHerkunft) hurl = window.bwwHerkunft(hurl);
     var hosp = (k.hospitation_moeglich === true && k.hospitation_url)
-      ? '<a class="termin-hospitieren" href="' + esc(hurl) + '" target="_blank" rel="noopener">Hospitieren (z. B. für angehende Ausbilder:innen) →</a>'
+      ? '<a class="termin-hospitieren" href="' + esc(hurl) + '">Hospitieren (z. B. für angehende Ausbilder:innen) →</a>'
       : '';
     if (voll) {
       // Ausgebucht: echte Warteliste (POST /api/warteliste), kein Link zur Buchung
       return '<div class="termin-row is-full">' + inner +
         '<button type="button" class="termin-cta waitlist-toggle" data-termin="' + esc(k.id) + '" data-titel="' + esc(anzeigeTitel(k.titel)) + '" data-datum="' + esc(fmtRange(k)) + (k.stadt ? ' · ' + esc(k.stadt) : '') + '">Warteliste →</button></div>' + hosp;
     }
-    return '<a class="termin-row" href="' + esc(burl) + '" target="_blank" rel="noopener"' +
+    return '<a class="termin-row" href="' + esc(burl) + '"' +
       ' data-termin-id="' + esc(k.id || '') + '" data-titel="' + esc(cleanLabel(k.titel) || '') + '">' + inner +
       '<span class="termin-cta">Buchen →</span></a>' + hosp;
   }
