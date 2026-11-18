@@ -2089,3 +2089,13 @@ html:root:root:root body .bww-form .checks label{grid-template-columns:24px 1fr}
 html:root:root:root body #zd-form .consent{flex-direction:row;align-items:flex-start;gap:.7rem}
 html:root:root:root body #zd-form .consent input{margin-top:.1rem}
 html:root:root:root body #zd-form .form-actions{margin-top:1.4rem;display:flex;align-items:center;gap:1rem;flex-wrap:wrap}
+
+/* Layout 18.11. (WM-Layout-Liste, nur Layout): T-273 19 Kurskarten auf /kurse/ ab 1181 px mit mittiger letzter Reihe (4+4+4+4+3);
+   T-274 Kursdetail-Bereich auf die gemeinsame Inhaltsbreite (--wrap), damit H2 an der Kante der H1 steht;
+   T-276 Ueberschriften ohne automatische Silbentrennung (Umbruch bei Ueberlauf bleibt ueber overflow-wrap), ausgewogene Zeilen */
+@media(min-width:1181px){
+html:root:root:root body main .course-grid.large:has(>:nth-child(19):last-child){grid-template-columns:repeat(24,minmax(0,1fr))!important}
+html:root:root:root body main .course-grid.large:has(>:nth-child(19):last-child)>*{grid-column:span 6!important;min-width:0}
+html:root:root:root body main .course-grid.large:has(>:nth-child(19):last-child)>:nth-child(17){grid-column:4/span 6!important}}
+html:root:root:root body main .course-detail{width:var(--wrap);max-width:none;margin-left:auto;margin-right:auto}
+html:root:root:root body :is(h1,h2,h3){hyphens:manual!important;-webkit-hyphens:manual!important;text-wrap:balance;overflow-wrap:break-word}
