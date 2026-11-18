@@ -3,6 +3,17 @@
    Kein JSON-LD / AggregateRating: Bewertungen gelten fuer die Firma, nicht fuer eine einzelne Kursseite (Selbstbewertungs-Richtlinie).
    Keine Gesamtnote/Anzahl (Jurist 03.11.2026): nur ausgewaehlte Stimmen. */
 (function () {
+  /* Sterne als SVG (currentColor) statt Textzeichen: gleiche Bedeutung, auf allen Systemen gleiche Form */
+  function sternSvg(n, gap) {
+    n = Math.max(0, Math.min(5, parseInt(n, 10) || 0));
+    var path = 'M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z';
+    var out = '';
+    for (var i = 0; i < 5; i++) {
+      out += '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" style="display:inline-block;width:1em;height:1em;vertical-align:-.15em;margin-right:' + gap + '">' +
+        '<path d="' + path + '" fill="' + (i < n ? 'currentColor' : 'none') + '" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>';
+    }
+    return out;
+  }
   var sec = document.getElementById('stimmen');
   if (!sec) return;
   var URL = 'https://software-wippermann.de/api/bewertungen?org=bww';
@@ -30,7 +41,8 @@
       var n = Math.round(Number(b.sterne));
       if (n >= 1 && n <= 5) {
         var st = el('div', 'stimme-sterne');
-        var vis = el('span', null, '★★★★★'.slice(0, n) + '☆☆☆☆☆'.slice(0, 5 - n));
+        var vis = el('span', null);
+        vis.innerHTML = sternSvg(n, '.12em');
         vis.setAttribute('aria-hidden', 'true');
         st.appendChild(vis);
         st.appendChild(el('span', 'sr-only', n + ' von 5 Sternen'));

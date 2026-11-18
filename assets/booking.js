@@ -409,11 +409,22 @@ function cleanLabel(t) { return anzeigeTitel(t).replace(/\s*\([^)]*\)/g, '').tri
   }
 
   /* ---------- Kundenstimmen / Bewertungen (GET /api/bewertungen) ---------- */
-  function stars(n) { n = Math.max(0, Math.min(5, parseInt(n, 10) || 0)); var s = ''; for (var i = 0; i < 5; i++) s += (i < n ? '★' : '☆'); return s; }
+  /* Sterne als SVG (currentColor) statt Textzeichen: gleiche Bedeutung, auf allen Systemen gleiche Form */
+  function sternSvg(n, gap) {
+    n = Math.max(0, Math.min(5, parseInt(n, 10) || 0));
+    var path = 'M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z';
+    var out = '';
+    for (var i = 0; i < 5; i++) {
+      out += '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" style="display:inline-block;width:1em;height:1em;vertical-align:-.15em;margin-right:' + gap + '">' +
+        '<path d="' + path + '" fill="' + (i < n ? 'currentColor' : 'none') + '" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>';
+    }
+    return out;
+  }
+  function stars(n) { return sternSvg(n, '2px'); }
   function reviewHTML(b) {
     var meta = [b.quelle, b.datum].filter(Boolean).map(esc).join(' · ');
     var n = parseInt(b.sterne, 10) || 0;
-    return '<figure class="review-card"><div class="review-stars" aria-label="' + n + ' von 5 Sternen">' + stars(n) + '</div>' +
+    return '<figure class="review-card"><div class="review-stars" role="img" aria-label="' + n + ' von 5 Sternen">' + stars(n) + '</div>' +
       '<blockquote>' + esc(b.text || '') + '</blockquote>' +
       '<figcaption><b>' + esc(b.name || 'Anonym') + '</b>' + (meta ? '<small>' + meta + '</small>' : '') + '</figcaption></figure>';
   }
