@@ -370,6 +370,10 @@ def run_kursseiten(kdir, write):
             open(p, "w", encoding="utf-8").write(out)
     sys.stderr.write(f"[kursseiten] {n} Seiten mit CourseInstance\n")
 
+# Seiten, die KEINE sichtbare Terminliste tragen: dort kein Event-Graph (siehe main). Pfadende, "/"-getrennt.
+OHNE_SICHTBARE_TERMINE = ("kurse/offene-kurse-worbis/index.html",)
+
+
 def main():
     args = sys.argv[1:]
     if args and args[0] == "--kursseiten":
@@ -428,7 +432,13 @@ def main():
     with open(target, encoding="utf-8") as f:
         html = f.read()
     gen_at = datetime.now(TZ).isoformat(timespec="seconds")   # (①) Block traegt seinen Erzeugungszeitpunkt
-    out = inject(html, block, gen_at)
+    if target.replace("\\", "/").endswith(OHNE_SICHTBARE_TERMINE):
+        # Schema nur zu sichtbarem Text (BL 18.11.): diese Seite zeigt keine Terminliste, nur Kurzinfo und
+        # Links. Der Graph wird deshalb nicht geschrieben und ein vorhandener Block entfernt. Der
+        # Frischestempel (unten) bleibt unveraendert: er ist die Frischewache des ganzen Jobs.
+        out = strip(html)
+    else:
+        out = inject(html, block, gen_at)
     write = "--write" in args
     if write:
         with open(target, "w", encoding="utf-8") as f:
