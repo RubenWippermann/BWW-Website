@@ -72,6 +72,7 @@ PAGES = [
   h1='Künftige Lehrbeauftragte Erste Hilfe: Voraussetzungen und Hospitation',
   topnote='<strong>Hinweis:</strong> „Lehrbeauftragte“ ist die Funktionsbezeichnung der gesetzlichen Unfallversicherung nach DGUV Grundsatz 304-003 (Ausgabe April 2022, Abschnitt 2.2.2), keine Hochschulfunktion. Über die Funktion entscheidet die jeweilige Ausbildungsstelle. Lehrgänge nach dem Orientierungsrahmen in Anhang 3 sind keine beim QSEH-Portal registrierten Maßnahmen.',
   quellen='DGUV Grundsatz 304-003 (Ausgabe April 2022)',
+  verbindlich='verbindlich sind die jeweils geltenden Vorgaben der Unfallversicherungsträger (DGUV Grundsatz 304-003, Fassung April 2022); Verfahren und Registrierung laufen über das QSEH-Portal.',
   lead='Angehende Lehrbeauftragte müssen mindestens in einer kompletten Lehrkräftequalifizierung einer Ausbildungsstelle hospitieren. Bei BWW kostet die Hospitation den Kurspreis des besuchten Lehrgangs zuzüglich 25 € je Kurstag. Verbindlich ist der bei der Anfrage genannte Betrag.',
   cta=[('/kontakt/', 'Hospitation anfragen', 'primary'), ('/ausbilder-werden/erste-hilfe-lehrkraft/', 'Lehrkräfte-Ausbildung ansehen', 'ghost')],
   keyfacts=['<strong>Hospitation:</strong> mindestens eine komplette Lehrkräftequalifizierung einer Ausbildungsstelle',
@@ -315,7 +316,7 @@ def build(p, base):
     topn = f'<div class="article-note">{p["topnote"]}</div>' if p.get('topnote') else ''
     kf = '<div class="key-facts"><h2>Kurz gefasst</h2><ul>' + ''.join(f'<li>{k}</li>' for k in p['keyfacts']) + '</ul></div>'
     rel = '<p class="article-related">' + ''.join(f'<a href="{u}">{esc(l)}</a>' for u, l in p['related']) + '</p>'
-    src = f'<p class="article-sources"><strong>Offizielle Quellen:</strong> {esc(p["quellen"])}. Stand: {p.get("stand", STAND)}. Dieser Beitrag ersetzt keine Rechtsberatung; verbindlich sind die jeweils geltenden Vorgaben der DGUV und der QSEH.</p>'
+    src = f'<p class="article-sources"><strong>Offizielle Quellen:</strong> {esc(p["quellen"])}. Stand: {p.get("stand", STAND)}. Dieser Beitrag ersetzt keine Rechtsberatung; {p.get("verbindlich", "verbindlich sind die jeweils geltenden Vorgaben der DGUV und der QSEH.")}</p>'
     main = (f'<main id="hauptinhalt" tabindex="-1">{bcrumb}<section class="page-hero"><div><span class="eyebrow">{esc(p["eyebrow"])}</span><h1>{esc(p["h1"])}</h1>'
             f'<p class="article-stand">Stand: {p.get("stand", STAND)} · Redaktion BWW · Quellen: {esc(p["quellen"])}</p><p>{p["lead"]}</p><div class="hero-actions">{acts}</div></div>{img}</section>'
             f'<section class="section article-body">{topn}{kf}{p["body"]}<h2>Häufige Fragen</h2>{faq_html(p["faq"])}{rel}{src}</section>{cta_block}')
