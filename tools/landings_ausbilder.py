@@ -279,6 +279,10 @@ INBOUND = {
  '/multiplikatorenstelle/': ('Multiplikatorenstelle: Aufgaben und Angebot', ['wissen/erste-hilfe-ausbilder-werden-qualifikation', 'wissen/ermaechtigte-ausbildungsstelle-pflichten', 'wissen/qseh-ermaechtigungsverfahren-ablauf', 'wissen/lehrkraefte-erste-hilfe']),
 }
 
+VERB_MAP = {'ausbilder-werden/lehrberechtigung-verlaengern/': 'verbindlich sind die jeweils geltenden Vorgaben der Unfallversicherungsträger (DGUV Grundsatz 304-003, Fassung April 2022); Verfahren und Registrierung laufen über das QSEH-Portal.', 'ausbilder-werden/betriebssanitaeter-lehrkraft/': 'verbindlich sind die jeweils geltenden Vorgaben der Unfallversicherungsträger (DGUV Grundsatz 304-003, Fassung April 2022); Verfahren und Registrierung laufen über das QSEH-Portal.', 'ausbilder-werden/fuer-hilfsorganisationen/': 'verbindlich sind die jeweils geltenden Vorgaben der Unfallversicherungsträger (DGUV Grundsatz 304-003, Fassung April 2022); Verfahren und Registrierung laufen über das QSEH-Portal.', 'ausbilder-werden/erste-hilfe-lehrkraft/': 'verbindlich sind die jeweils geltenden Vorgaben der Unfallversicherungsträger (DGUV Grundsatz 304-003, Fassung April 2022); Verfahren und Registrierung laufen über das QSEH-Portal.', 'ausbilder-werden/hospitation/': 'verbindlich sind die jeweils geltenden Vorgaben der Unfallversicherungsträger (DGUV Grundsatz 304-003, Fassung April 2022); Verfahren und Registrierung laufen über das QSEH-Portal.', 'ausbilder-werden/fuer-ausbildungsstellen/': 'verbindlich sind die jeweils geltenden Vorgaben der Unfallversicherungsträger (DGUV Grundsatz 304-001, Fassung April 2022); Verfahren und Registrierung laufen über das QSEH-Portal.', 'multiplikatorenstelle/': 'verbindlich sind die jeweils geltenden Vorgaben der Unfallversicherungsträger (DGUV Grundsatz 304-003, Fassung April 2022); Verfahren und Registrierung laufen über das QSEH-Portal.'}
+VERB_OHNE = 'verbindlich sind die jeweils geltenden Vorgaben der Unfallversicherungsträger; Verfahren und Registrierung laufen über das QSEH-Portal.'
+VERB_OHNE_PFADE = ('preise/', 'fuer-betriebe/')
+
 def build(p, base):
     url = f"{HOST}/{p['path']}"; t, d = esc(p['title']), esc(p['desc'])
     assert len(p['title']) <= 60 and len(p['desc']) <= 155, (p['path'], len(p['title']), len(p['desc']))
@@ -316,7 +320,7 @@ def build(p, base):
     topn = f'<div class="article-note">{p["topnote"]}</div>' if p.get('topnote') else ''
     kf = '<div class="key-facts"><h2>Kurz gefasst</h2><ul>' + ''.join(f'<li>{k}</li>' for k in p['keyfacts']) + '</ul></div>'
     rel = '<p class="article-related">' + ''.join(f'<a href="{u}">{esc(l)}</a>' for u, l in p['related']) + '</p>'
-    src = f'<p class="article-sources"><strong>Offizielle Quellen:</strong> {esc(p["quellen"])}. Stand: {p.get("stand", STAND)}. Dieser Beitrag ersetzt keine Rechtsberatung; {p.get("verbindlich", "verbindlich sind die jeweils geltenden Vorgaben der Unfallversicherungsträger (DGUV); Verfahren und Registrierung laufen über das QSEH-Portal.")}</p>'
+    src = f'<p class="article-sources"><strong>Offizielle Quellen:</strong> {esc(p["quellen"])}. Stand: {p.get("stand", STAND)}. Dieser Beitrag ersetzt keine Rechtsberatung; {p.get("verbindlich") or VERB_MAP.get(p["path"]) or VERB_OHNE}</p>'
     main = (f'<main id="hauptinhalt" tabindex="-1">{bcrumb}<section class="page-hero"><div><span class="eyebrow">{esc(p["eyebrow"])}</span><h1>{esc(p["h1"])}</h1>'
             f'<p class="article-stand">Stand: {p.get("stand", STAND)} · Redaktion BWW · Quellen: {esc(p["quellen"])}</p><p>{p["lead"]}</p><div class="hero-actions">{acts}</div></div>{img}</section>'
             f'<section class="section article-body">{topn}{kf}{p["body"]}<h2>Häufige Fragen</h2>{faq_html(p["faq"])}{rel}{src}</section>{cta_block}')
