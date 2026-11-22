@@ -1,6 +1,6 @@
 # BWW UG (haftungsbeschränkt): Multiplikatorenstelle · Bildungsstelle für Erste Hilfe und betrieblichen Sanitätsdienst
 
-> BWW (BWW UG, haftungsbeschränkt; Geschäftsbezeichnung: BWW – Bildungswerk für Wiederbelebung und Erste Hilfe) ist ein deutscher Anbieter für praxisnahe Erste-Hilfe-, Brandschutz- und Notfallmedizin-Schulungen. Kurse finden als Inhouse-Schulung deutschlandweit direkt beim Kunden vor Ort statt sowie als offene Kurse am Standort Leinefelde-Worbis/Duderstadt. Alle Trainerinnen und Trainer kommen aus dem Rettungsdienst. Buchung und Nachweise laufen digital. Sitz: Worbiser Straße 2, 37115 Duderstadt, Deutschland. Telefon: +49 5527 748 7518 (am Telefon meldet sich Bella, eine KI-Assistentin). E-Mail: info@multiplikatorenstelle.de.
+> BWW (BWW UG, haftungsbeschränkt; Geschäftsbezeichnung: BWW – Bildungswerk für Wiederbelebung und Erste Hilfe) ist ein deutscher Anbieter für praxisnahe Erste-Hilfe-, Brandschutz- und Notfallmedizin-Schulungen. Kurse finden als Inhouse-Schulung direkt beim Kunden vor Ort statt (Orte nach Absprache) sowie als offene Kurse am Standort Leinefelde-Worbis/Duderstadt. Alle Trainerinnen und Trainer kommen aus dem Rettungsdienst. Buchung und Nachweise laufen digital. Sitz: Worbiser Straße 2, 37115 Duderstadt, Deutschland. Telefon: +49 5527 748 7518 (am Telefon meldet sich Bella, eine KI-Assistentin). E-Mail: info@multiplikatorenstelle.de.
 
 Stand: 2026-11-15
 
@@ -17,7 +17,7 @@ BWW eignet sich für Unternehmen, Schulen, Kindertagesstätten, Verwaltungen, Ve
 - Brandschutzhelfer: In der Regel ist ein Anteil von 5 % der Beschäftigten als Brandschutzhelfer auszubilden (ASR A2.2).
 
 ## Kursangebot
-- [Erste-Hilfe-Ausbildung für betriebliche Ersthelfer (Inhouse)](https://www.multiplikatorenstelle.de/kurse/erste-hilfe-ausbildung/): 9 Unterrichtseinheiten à 45 Minuten, in der Regel ein Tag; Inhouse deutschlandweit oder offene Termine; Preis der offenen Termine in der Terminliste, Inhouse auf Anfrage; Fortbildung spätestens alle 2 Jahre (9 UE); Ersthelfer-Quote: 1 Ersthelfer bei 2 bis 20 anwesenden Versicherten, darüber 5 % (Verwaltung, Handel) bzw. 10 % (sonstige Betriebe), § 26 DGUV Vorschrift 1
+- [Erste-Hilfe-Ausbildung für betriebliche Ersthelfer (Inhouse)](https://www.multiplikatorenstelle.de/kurse/erste-hilfe-ausbildung/): 9 Unterrichtseinheiten à 45 Minuten, in der Regel ein Tag; Inhouse (Orte nach Absprache) oder offene Termine; Preis der offenen Termine in der Terminliste, Inhouse auf Anfrage; Fortbildung spätestens alle 2 Jahre (9 UE); Ersthelfer-Quote: 1 Ersthelfer bei 2 bis 20 anwesenden Versicherten, darüber 5 % (Verwaltung, Handel) bzw. 10 % (sonstige Betriebe), § 26 DGUV Vorschrift 1
 
 - Erste-Hilfe-Ausbildung (9 UE) – für Betriebe und für die Führerscheinzulassung geeignet
 - Erste-Hilfe-Fortbildung (9 UE) – Auffrischung, in der Regel alle 2 Jahre
@@ -51,7 +51,7 @@ BWW eignet sich für Unternehmen, Schulen, Kindertagesstätten, Verwaltungen, Ve
 - [Für den Sanitätsdienst](https://www.multiplikatorenstelle.de/fuer-sanitaetsdienst/): Grundkurs, Aufbau, Fortbildung und Sanitätshelfer-Ausbildung.
 - [Für Pflege und Gesundheitswesen](https://www.multiplikatorenstelle.de/fuer-pflege/): Notfalltraining und Erste Hilfe für Pflegeeinrichtungen.
 - [Kursformate](https://www.multiplikatorenstelle.de/kurse/): alle Kursarten mit freien Live-Terminen und Buchung
-- [Inhouse-Kurse](https://www.multiplikatorenstelle.de/inhouse-kurse/): Schulungen deutschlandweit vor Ort anfragen
+- [Inhouse-Kurse](https://www.multiplikatorenstelle.de/inhouse-kurse/): Schulungen vor Ort anfragen (Orte nach Absprache)
 - [Standorte](https://www.multiplikatorenstelle.de/standorte/): Inhouse-Kurse in Städten in ganz Deutschland
 - [Offene Kurse Worbis](https://www.multiplikatorenstelle.de/kurse/offene-kurse-worbis/): offene Kurse am Standort
 - [BG/UK-Abrechnung](https://www.multiplikatorenstelle.de/abrechnung/): Kostenübernahme durch Unfallversicherungsträger
@@ -273,7 +273,7 @@ BWW eignet sich für Unternehmen, Schulen, Kindertagesstätten, Verwaltungen, Ve
 - [Welche Berufsgenossenschaft ist für meine Branche zuständig?](https://www.multiplikatorenstelle.de/wissen/zustaendige-berufsgenossenschaft-finden/)
 ## Preise (offene Kurse, je Teilnehmer:in)
 
-Diese Preise gelten für offene Kurse; Inhouse-Kurse (deutschlandweit im Betrieb) werden nach Teilnehmerzahl und Aufwand individuell kalkuliert. Betriebliche Formate sind über BG/UK abrechenbar.
+Diese Preise gelten für offene Kurse; Inhouse-Kurse (im Betrieb vor Ort, Orte nach Absprache) werden nach Teilnehmerzahl und Aufwand individuell kalkuliert. Betriebliche Formate sind über BG/UK abrechenbar.
 
 - Erste-Hilfe-Ausbildung (9 UE): 30 €
 - Erste-Hilfe-Fortbildung, Erste Hilfe am Kind, Erste Hilfe für Bildungs- und Betreuungseinrichtungen, Brandschutzhelfer, Notfalltraining: je 50 €
