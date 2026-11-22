@@ -4,7 +4,7 @@ Auf /kurse/lehrbeauftragten-fortbildung/ nur der Kennziffer-Satz entfernt (gleic
 import re, json
 def esc(s): return s.replace('&', '&amp;')
 T = 'Lehrbeauftragten-Qualifizierung Erste Hilfe, 120 UE | BWW'
-D = 'Qualifizierung für Erste-Hilfe-Lehrkräfte nach Orientierungsrahmen: 120 UE an 14 Tagen, 700 €. Keine QSEH-registrierte Maßnahme, keine DGUV-Anerkennung.'
+D = 'Qualifizierung für erfahrene Erste-Hilfe-Lehrkräfte: 120 Unterrichtseinheiten an 14 Tagen in Präsenz, 700 €. Voraussetzungen und Termine auf der Seite.'
 assert len(T) <= 60 and len(D) <= 155, (len(T), len(D))
 P = 'kurse/lehrbeauftragter-erste-hilfe/index.html'
 h = open(P, encoding='utf8').read(); o = h

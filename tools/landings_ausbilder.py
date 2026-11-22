@@ -68,7 +68,7 @@ PAGES = [
   related=[('/fuer-ausbilder/', 'Ausbilder werden: alle Stufen'), ('/ausbilder-werden/erste-hilfe-lehrkraft/', 'Erste-Hilfe-Ausbilder werden'), ('/multiplikatorenstelle/', 'Multiplikatorenstelle'), ('/wissen/betriebssanitaeter-ausbildung/', 'Betriebssanitäter-Ausbildung'), ('/wissen/ersthelfer-oder-betriebssanitaeter/', 'Ersthelfer oder Betriebssanitäter?')]),
  dict(path='ausbilder-werden/lehrbeauftragter/', img='teacher-training', eyebrow='Ausbilder werden',
   title='Künftige Lehrbeauftragte: Voraussetzungen, Hospitation | BWW',
-  desc='Voraussetzungen für künftige Lehrbeauftragte Erste Hilfe nach DGUV Grundsatz 304-003 (Ausgabe April 2022) und die Hospitation in der Lehrkräftequalifizierung bei BWW.',
+  desc='Voraussetzungen für künftige Lehrbeauftragte Erste Hilfe (DGUV Grundsatz 304-003, Ausgabe April 2022) und Ablauf der Hospitation bei BWW.',
   h1='Künftige Lehrbeauftragte Erste Hilfe: Voraussetzungen und Hospitation',
   topnote='<strong>Hinweis:</strong> „Lehrbeauftragte“ ist die Funktionsbezeichnung der gesetzlichen Unfallversicherung nach DGUV Grundsatz 304-003 (Ausgabe April 2022, Abschnitt 2.2.2), keine Hochschulfunktion. Über die Funktion entscheidet die jeweilige Ausbildungsstelle. Lehrgänge nach dem Orientierungsrahmen in Anhang 3 sind keine beim QSEH-Portal registrierten Maßnahmen.',
   quellen='DGUV Grundsatz 304-003 (Ausgabe April 2022)',
