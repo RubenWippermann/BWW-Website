@@ -29,7 +29,7 @@ assert len(T_NEW) <= 60
 rw('kurse/index.html', lambda h: h.replace(T_OLD, T_NEW).replace(esc(T_OLD), esc(T_NEW)).replace('<h1>Der passende Kurs für Team, Betrieb, Führerschein und Notfallmedizin.</h1>', '<h1>Erste-Hilfe-Kurse und mehr: der passende Kurs für Team, Betrieb, Führerschein und Notfallmedizin.</h1>'))
 # F4: /inhouse-kurse/
 FAQ = [('Was müssen wir für einen Inhouse-Kurs bereitstellen?', 'Ihr braucht nur einen geeigneten Raum mit mindestens 50 m² freier Fläche. Übungspuppen, AED-Trainer, Beatmungsmasken und Verbandmaterial bringen wir mit.'),
-       ('Wohin kommt BWW für Inhouse-Kurse?', 'Wir kommen deutschlandweit direkt zu euch, in Betrieb, Schule, Kita oder Verein.'),
+       ('Wohin kommt BWW für Inhouse-Kurse?', 'Wir kommen direkt zu euch (Orte nach Absprache), in Betrieb, Schule, Kita oder Verein.'),
        ('Können Inhouse-Kurse online stattfinden?', 'Nein. Die Kurse leben von praktischen Übungen und finden in Präsenz statt, vor Ort bei euch.'),
        ('Wie schnell melden wir uns nach einer Anfrage?', 'In der Regel innerhalb eines Werktags.')]
 def f4(h):

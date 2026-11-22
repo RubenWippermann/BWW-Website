@@ -127,7 +127,7 @@ Hauptüberschrift: AED-Einweisung & Inbetriebnahme
 - Frage: Ersetzt die Einweisung eine Erste-Hilfe-Ausbildung?
   Antwort: Nein. Die Einweisung macht mit dem konkreten Gerät vertraut; die lebensrettenden Basismaßnahmen inklusive Wiederbelebung werden in der Erste-Hilfe-Ausbildung gelernt. Beides ergänzt sich.
 - Frage: Wie läuft ein Inhouse-Kurs ab?
-  Antwort: Wir kommen deutschlandweit direkt zu euch – in Betrieb, Schule, Kita oder Verein. Ihr stellt einen geeigneten Raum, das gesamte Übungsmaterial bringen wir mit.
+  Antwort: Wir kommen direkt zu euch (Orte nach Absprache) – in Betrieb, Schule, Kita oder Verein. Ihr stellt einen geeigneten Raum, das gesamte Übungsmaterial bringen wir mit.
 - Frage: Kann ich den Kurs online machen?
   Antwort: Nein. Der Kurs lebt von praktischen Übungen und findet in Präsenz statt – vor Ort bei euch oder an unseren Terminen. Digital sind bei uns Buchung, Nachweise und Zertifikate, nicht die Ausbildung selbst.
 
@@ -142,7 +142,7 @@ Hauptüberschrift: Betriebssanitäter Aufbaukurs
 - Frage: Ist BWW eine ermächtigte Stelle?
   Antwort: Ja. Für die Erste-Hilfe-Aus- und Fortbildung im Betrieb ist BWW ermächtigte Stelle der gesetzlichen Unfallversicherung (Kennziffer 8.2122, seit 28.10.2025). Geeignete Stelle ist BWW Stelle zur Aus- und Fortbildung von Lehrkräften der Ersten Hilfe (seit 28.10.2025, Kennziffer 8.2122). Für Lehrkräfte des betrieblichen Sanitätsdienstes und Betriebssanitäter gilt dies seit 29.10.2026. Die Kennziffer könnt ihr bei eurem Unfallversicherungsträger nachprüfen.
 - Frage: Wie läuft ein Inhouse-Kurs ab?
-  Antwort: Wir kommen deutschlandweit direkt zu euch – in Betrieb, Schule, Kita oder Verein. Ihr stellt einen geeigneten Raum, das gesamte Übungsmaterial bringen wir mit.
+  Antwort: Wir kommen direkt zu euch (Orte nach Absprache) – in Betrieb, Schule, Kita oder Verein. Ihr stellt einen geeigneten Raum, das gesamte Übungsmaterial bringen wir mit.
 - Frage: Kann ich den Kurs online machen?
   Antwort: Nein. Der Kurs lebt von praktischen Übungen und findet in Präsenz statt – vor Ort bei euch oder an unseren Terminen. Digital sind bei uns Buchung, Nachweise und Zertifikate, nicht die Ausbildung selbst.
 
@@ -155,7 +155,7 @@ Hauptüberschrift: Betriebssanitäter Fortbildung
 - Frage: Ist BWW eine ermächtigte Stelle?
   Antwort: Ja. Für die Erste-Hilfe-Aus- und Fortbildung im Betrieb ist BWW ermächtigte Stelle der gesetzlichen Unfallversicherung (Kennziffer 8.2122, seit 28.10.2025). Geeignete Stelle ist BWW Stelle zur Aus- und Fortbildung von Lehrkräften der Ersten Hilfe (seit 28.10.2025, Kennziffer 8.2122). Für Lehrkräfte des betrieblichen Sanitätsdienstes und Betriebssanitäter gilt dies seit 29.10.2026. Die Kennziffer könnt ihr bei eurem Unfallversicherungsträger nachprüfen.
 - Frage: Wie läuft ein Inhouse-Kurs ab?
-  Antwort: Wir kommen deutschlandweit direkt zu euch – in Betrieb, Schule, Kita oder Verein. Ihr stellt einen geeigneten Raum, das gesamte Übungsmaterial bringen wir mit.
+  Antwort: Wir kommen direkt zu euch (Orte nach Absprache) – in Betrieb, Schule, Kita oder Verein. Ihr stellt einen geeigneten Raum, das gesamte Übungsmaterial bringen wir mit.
 - Frage: Kann ich den Kurs online machen?
   Antwort: Nein. Der Kurs lebt von praktischen Übungen und findet in Präsenz statt – vor Ort bei euch oder an unseren Terminen. Digital sind bei uns Buchung, Nachweise und Zertifikate, nicht die Ausbildung selbst.
 
@@ -172,7 +172,7 @@ Hauptüberschrift: Betriebssanitäter Grundkurs
 - Frage: Ist BWW eine ermächtigte Stelle?
   Antwort: Ja. Für die Erste-Hilfe-Aus- und Fortbildung im Betrieb ist BWW ermächtigte Stelle der gesetzlichen Unfallversicherung (Kennziffer 8.2122, seit 28.10.2025). Geeignete Stelle ist BWW Stelle zur Aus- und Fortbildung von Lehrkräften der Ersten Hilfe (seit 28.10.2025, Kennziffer 8.2122). Für Lehrkräfte des betrieblichen Sanitätsdienstes und Betriebssanitäter gilt dies seit 29.10.2026. Die Kennziffer könnt ihr bei eurem Unfallversicherungsträger nachprüfen.
 - Frage: Wie läuft ein Inhouse-Kurs ab?
-  Antwort: Wir kommen deutschlandweit direkt zu euch – in Betrieb, Schule, Kita oder Verein. Ihr stellt einen geeigneten Raum, das gesamte Übungsmaterial bringen wir mit.
+  Antwort: Wir kommen direkt zu euch (Orte nach Absprache) – in Betrieb, Schule, Kita oder Verein. Ihr stellt einen geeigneten Raum, das gesamte Übungsmaterial bringen wir mit.
 - Frage: Kann ich den Kurs online machen?
   Antwort: Nein. Der Kurs lebt von praktischen Übungen und findet in Präsenz statt – vor Ort bei euch oder an unseren Terminen. Digital sind bei uns Buchung, Nachweise und Zertifikate, nicht die Ausbildung selbst.
 
@@ -187,13 +187,13 @@ Hauptüberschrift: Brandschutzhelfer
 - Frage: Wie oft sollte aufgefrischt werden?
   Antwort: Als Orientierung wird eine Wiederholung etwa alle drei bis fünf Jahre empfohlen – abhängig von der Gefährdungsbeurteilung.
 - Frage: Wie läuft ein Inhouse-Kurs ab?
-  Antwort: Wir kommen deutschlandweit direkt zu euch – in Betrieb, Schule, Kita oder Verein. Ihr stellt einen geeigneten Raum, das gesamte Übungsmaterial bringen wir mit.
+  Antwort: Wir kommen direkt zu euch (Orte nach Absprache) – in Betrieb, Schule, Kita oder Verein. Ihr stellt einen geeigneten Raum, das gesamte Übungsmaterial bringen wir mit.
 - Frage: Kann ich den Kurs online machen?
   Antwort: Nein. Der Kurs lebt von praktischen Übungen und findet in Präsenz statt – vor Ort bei euch oder an unseren Terminen. Digital sind bei uns Buchung, Nachweise und Zertifikate, nicht die Ausbildung selbst.
 
 ## Betriebliche Ersthelfer ausbilden: Inhouse-Kurse bei Ihnen vor Ort (Orte nach Absprache) | BWW
 URL: https://www.multiplikatorenstelle.de/kurse/erste-hilfe-ausbildung/
-Ersthelfer-Ausbildung im Betrieb, 9 UE, ermächtigt (8.2122). Wir kommen deutschlandweit zu euch. Jetzt Inhouse-Angebot anfragen.
+Ersthelfer-Ausbildung im Betrieb, 9 UE, ermächtigt (8.2122). Wir kommen zu euch (Orte nach Absprache). Jetzt Inhouse-Angebot anfragen.
 Hauptüberschrift: Betriebliche Ersthelfer ausbilden – Inhouse-Kurs bei euch vor Ort
 - Frage: Weitere Kurse hinzufügen (Erste-Hilfe-Ausbildung ist vorausgewählt) Kursart(en) * (mindestens eine auswählen) Erste-Hilfe-Ausbildung Erste-Hilfe-Fortbildung Erste Hilfe am Kind (Baby/Kleinkind) Erste-Hilfe-Schulung in Bildungs- und Betreuungseinrichtungen Reanimation & AED-Training AED-Einweisung Brandschutzhelfer Evakuierungshelfer Betriebssanitäter Grundausbildung Betriebssanitäter Aufbaulehrgang Betriebssanitäter Fortbildung Notfalltraining (Gesundheitswesen) Schulsanitäter-Ausbildung Sanitätshelfer-Ausbildung Lehrkräfte-Ausbildung (Themenbereich I & II) Lehrkräfte-Fortbildung Sonstiges / Beratung Nachricht Abweichende Rechnungsadresse angeben (optional) Rechnungsadresse Bitte frei lassen Ja, schickt mir gelegentlich Kurs-Infos & Neuigkeiten per E-Mail (jederzeit abbestellbar). Ich habe die Datenschutzerklärung gelesen und stimme der Verarbeitung meiner Daten zur Bearbeitung der Anfrage zu. Anfrage senden Wir melden uns i. d. R. innerhalb eines Werktags. Am Telefon hilft auch Bella, unsere KI-Assistentin. Häufige Fragen Häufige Fragen zur Ersthelfer-Ausbildung im Betrieb Wie viele Ersthelfer braucht ein Betrieb?
   Antwort: Nach § 26 DGUV Vorschrift 1 ist bei 2 bis zu 20 anwesenden Versicherten 1 Ersthelfer nötig. Bei mehr als 20 anwesenden Versicherten sind es 5 % in Verwaltungs- und Handelsbetrieben und 10 % in sonstigen Betrieben. Quelle: DGUV, Betriebliche Ersthelfer.
@@ -221,7 +221,7 @@ Hauptüberschrift: Erste-Hilfe-Kurs Baby & Kind
 - Frage: Was ist bei Kindern anders als bei Erwachsenen?
   Antwort: Bei Kindern ist Sauerstoffmangel die häufigste Ursache eines Notfalls, deshalb spielt die Beatmung eine größere Rolle: Die Wiederbelebung beginnt mit fünf initialen Beatmungen, danach im Wechsel Herzdruckmassage und Beatmung.
 - Frage: Wie läuft ein Inhouse-Kurs ab?
-  Antwort: Wir kommen deutschlandweit direkt zu euch – in Betrieb, Schule, Kita oder Verein. Ihr stellt einen geeigneten Raum, das gesamte Übungsmaterial bringen wir mit.
+  Antwort: Wir kommen direkt zu euch (Orte nach Absprache) – in Betrieb, Schule, Kita oder Verein. Ihr stellt einen geeigneten Raum, das gesamte Übungsmaterial bringen wir mit.
 - Frage: Kann ich den Kurs online machen?
   Antwort: Nein. Der Kurs lebt von praktischen Übungen und findet in Präsenz statt – vor Ort bei euch oder an unseren Terminen. Digital sind bei uns Buchung, Nachweise und Zertifikate, nicht die Ausbildung selbst.
 
@@ -238,7 +238,7 @@ Hauptüberschrift: Erste-Hilfe-Schulung für Kita & Schule (Bildungs- und Betreu
 - Frage: Ist BWW eine ermächtigte Stelle?
   Antwort: Ja. Für die Erste-Hilfe-Aus- und Fortbildung im Betrieb ist BWW ermächtigte Stelle der gesetzlichen Unfallversicherung (Kennziffer 8.2122, seit 28.10.2025). Geeignete Stelle ist BWW Stelle zur Aus- und Fortbildung von Lehrkräften der Ersten Hilfe (seit 28.10.2025, Kennziffer 8.2122). Für Lehrkräfte des betrieblichen Sanitätsdienstes und Betriebssanitäter gilt dies seit 29.10.2026. Die Kennziffer könnt ihr bei eurem Unfallversicherungsträger nachprüfen.
 - Frage: Wie läuft ein Inhouse-Kurs ab?
-  Antwort: Wir kommen deutschlandweit direkt zu euch – in Betrieb, Schule, Kita oder Verein. Ihr stellt einen geeigneten Raum, das gesamte Übungsmaterial bringen wir mit.
+  Antwort: Wir kommen direkt zu euch (Orte nach Absprache) – in Betrieb, Schule, Kita oder Verein. Ihr stellt einen geeigneten Raum, das gesamte Übungsmaterial bringen wir mit.
 - Frage: Kann ich den Kurs online machen?
   Antwort: Nein. Der Kurs lebt von praktischen Übungen und findet in Präsenz statt – vor Ort bei euch oder an unseren Terminen. Digital sind bei uns Buchung, Nachweise und Zertifikate, nicht die Ausbildung selbst.
 
@@ -255,7 +255,7 @@ Hauptüberschrift: Erste-Hilfe-Fortbildung
 - Frage: Ist BWW eine ermächtigte Stelle?
   Antwort: Ja. Für die Erste-Hilfe-Aus- und Fortbildung im Betrieb ist BWW ermächtigte Stelle der gesetzlichen Unfallversicherung (Kennziffer 8.2122, seit 28.10.2025). Geeignete Stelle ist BWW Stelle zur Aus- und Fortbildung von Lehrkräften der Ersten Hilfe (seit 28.10.2025, Kennziffer 8.2122). Für Lehrkräfte des betrieblichen Sanitätsdienstes und Betriebssanitäter gilt dies seit 29.10.2026. Die Kennziffer könnt ihr bei eurem Unfallversicherungsträger nachprüfen.
 - Frage: Wie läuft ein Inhouse-Kurs ab?
-  Antwort: Wir kommen deutschlandweit direkt zu euch – in Betrieb, Schule, Kita oder Verein. Ihr stellt einen geeigneten Raum, das gesamte Übungsmaterial bringen wir mit.
+  Antwort: Wir kommen direkt zu euch (Orte nach Absprache) – in Betrieb, Schule, Kita oder Verein. Ihr stellt einen geeigneten Raum, das gesamte Übungsmaterial bringen wir mit.
 - Frage: Kann ich den Kurs online machen?
   Antwort: Nein. Der Kurs lebt von praktischen Übungen und findet in Präsenz statt – vor Ort bei euch oder an unseren Terminen. Digital sind bei uns Buchung, Nachweise und Zertifikate, nicht die Ausbildung selbst.
 
@@ -268,7 +268,7 @@ Hauptüberschrift: Evakuierungshelfer
 - Frage: Was ist der Unterschied zum Brandschutzhelfer?
   Antwort: Brandschutzhelfer bekämpfen Entstehungsbrände; Evakuierungshelfer sorgen für die geordnete Räumung, lotsen Personen zu Sammelstellen und behalten den Überblick. Beide Rollen ergänzen sich.
 - Frage: Wie läuft ein Inhouse-Kurs ab?
-  Antwort: Wir kommen deutschlandweit direkt zu euch – in Betrieb, Schule, Kita oder Verein. Ihr stellt einen geeigneten Raum, das gesamte Übungsmaterial bringen wir mit.
+  Antwort: Wir kommen direkt zu euch (Orte nach Absprache) – in Betrieb, Schule, Kita oder Verein. Ihr stellt einen geeigneten Raum, das gesamte Übungsmaterial bringen wir mit.
 - Frage: Kann ich den Kurs online machen?
   Antwort: Nein. Der Kurs lebt von praktischen Übungen und findet in Präsenz statt – vor Ort bei euch oder an unseren Terminen. Digital sind bei uns Buchung, Nachweise und Zertifikate, nicht die Ausbildung selbst.
 
@@ -305,7 +305,7 @@ Hauptüberschrift: Lehrkräfte-Ausbildung LK1
 - Frage: Ist BWW eine ermächtigte Stelle?
   Antwort: Ja. Für die Erste-Hilfe-Aus- und Fortbildung im Betrieb ist BWW ermächtigte Stelle der gesetzlichen Unfallversicherung (Kennziffer 8.2122, seit 28.10.2025). Geeignete Stelle ist BWW Stelle zur Aus- und Fortbildung von Lehrkräften der Ersten Hilfe (seit 28.10.2025, Kennziffer 8.2122). Für Lehrkräfte des betrieblichen Sanitätsdienstes und Betriebssanitäter gilt dies seit 29.10.2026. Die Kennziffer könnt ihr bei eurem Unfallversicherungsträger nachprüfen.
 - Frage: Wie läuft ein Inhouse-Kurs ab?
-  Antwort: Wir kommen deutschlandweit direkt zu euch – in Betrieb, Schule, Kita oder Verein. Ihr stellt einen geeigneten Raum, das gesamte Übungsmaterial bringen wir mit.
+  Antwort: Wir kommen direkt zu euch (Orte nach Absprache) – in Betrieb, Schule, Kita oder Verein. Ihr stellt einen geeigneten Raum, das gesamte Übungsmaterial bringen wir mit.
 - Frage: Kann ich den Kurs online machen?
   Antwort: Nein. Der Kurs lebt von praktischen Übungen und findet in Präsenz statt – vor Ort bei euch oder an unseren Terminen. Digital sind bei uns Buchung, Nachweise und Zertifikate, nicht die Ausbildung selbst.
 
@@ -318,7 +318,7 @@ Hauptüberschrift: Lehrkräfte-Ausbildung LK2
 - Frage: Ist BWW eine ermächtigte Stelle?
   Antwort: Ja. Für die Erste-Hilfe-Aus- und Fortbildung im Betrieb ist BWW ermächtigte Stelle der gesetzlichen Unfallversicherung (Kennziffer 8.2122, seit 28.10.2025). Geeignete Stelle ist BWW Stelle zur Aus- und Fortbildung von Lehrkräften der Ersten Hilfe (seit 28.10.2025, Kennziffer 8.2122). Für Lehrkräfte des betrieblichen Sanitätsdienstes und Betriebssanitäter gilt dies seit 29.10.2026. Die Kennziffer könnt ihr bei eurem Unfallversicherungsträger nachprüfen.
 - Frage: Wie läuft ein Inhouse-Kurs ab?
-  Antwort: Wir kommen deutschlandweit direkt zu euch – in Betrieb, Schule, Kita oder Verein. Ihr stellt einen geeigneten Raum, das gesamte Übungsmaterial bringen wir mit.
+  Antwort: Wir kommen direkt zu euch (Orte nach Absprache) – in Betrieb, Schule, Kita oder Verein. Ihr stellt einen geeigneten Raum, das gesamte Übungsmaterial bringen wir mit.
 - Frage: Kann ich den Kurs online machen?
   Antwort: Nein. Der Kurs lebt von praktischen Übungen und findet in Präsenz statt – vor Ort bei euch oder an unseren Terminen. Digital sind bei uns Buchung, Nachweise und Zertifikate, nicht die Ausbildung selbst.
 
@@ -331,7 +331,7 @@ Hauptüberschrift: Lehrkräfte-Ausbildung Sanitätsdienst
 - Frage: Ist BWW eine ermächtigte Stelle?
   Antwort: Ja. Für die Erste-Hilfe-Aus- und Fortbildung im Betrieb ist BWW ermächtigte Stelle der gesetzlichen Unfallversicherung (Kennziffer 8.2122, seit 28.10.2025). Geeignete Stelle ist BWW Stelle zur Aus- und Fortbildung von Lehrkräften der Ersten Hilfe (seit 28.10.2025, Kennziffer 8.2122). Für Lehrkräfte des betrieblichen Sanitätsdienstes und Betriebssanitäter gilt dies seit 29.10.2026. Die Kennziffer könnt ihr bei eurem Unfallversicherungsträger nachprüfen.
 - Frage: Wie läuft ein Inhouse-Kurs ab?
-  Antwort: Wir kommen deutschlandweit direkt zu euch – in Betrieb, Schule, Kita oder Verein. Ihr stellt einen geeigneten Raum, das gesamte Übungsmaterial bringen wir mit.
+  Antwort: Wir kommen direkt zu euch (Orte nach Absprache) – in Betrieb, Schule, Kita oder Verein. Ihr stellt einen geeigneten Raum, das gesamte Übungsmaterial bringen wir mit.
 - Frage: Kann ich den Kurs online machen?
   Antwort: Nein. Der Kurs lebt von praktischen Übungen und findet in Präsenz statt – vor Ort bei euch oder an unseren Terminen. Digital sind bei uns Buchung, Nachweise und Zertifikate, nicht die Ausbildung selbst.
 
@@ -346,7 +346,7 @@ Hauptüberschrift: Lehrkräfte-Fortbildung LKF1 / LKF2 / LKF3
 - Frage: Ist BWW eine ermächtigte Stelle?
   Antwort: Ja. Für die Erste-Hilfe-Aus- und Fortbildung im Betrieb ist BWW ermächtigte Stelle der gesetzlichen Unfallversicherung (Kennziffer 8.2122, seit 28.10.2025). Geeignete Stelle ist BWW Stelle zur Aus- und Fortbildung von Lehrkräften der Ersten Hilfe (seit 28.10.2025, Kennziffer 8.2122). Für Lehrkräfte des betrieblichen Sanitätsdienstes und Betriebssanitäter gilt dies seit 29.10.2026. Die Kennziffer könnt ihr bei eurem Unfallversicherungsträger nachprüfen.
 - Frage: Wie läuft ein Inhouse-Kurs ab?
-  Antwort: Wir kommen deutschlandweit direkt zu euch – in Betrieb, Schule, Kita oder Verein. Ihr stellt einen geeigneten Raum, das gesamte Übungsmaterial bringen wir mit.
+  Antwort: Wir kommen direkt zu euch (Orte nach Absprache) – in Betrieb, Schule, Kita oder Verein. Ihr stellt einen geeigneten Raum, das gesamte Übungsmaterial bringen wir mit.
 - Frage: Kann ich den Kurs online machen?
   Antwort: Nein. Der Kurs lebt von praktischen Übungen und findet in Präsenz statt – vor Ort bei euch oder an unseren Terminen. Digital sind bei uns Buchung, Nachweise und Zertifikate, nicht die Ausbildung selbst.
 
@@ -359,7 +359,7 @@ Hauptüberschrift: Notfalltraining
 - Frage: Ersetzt das Notfalltraining die Erste-Hilfe-Ausbildung?
   Antwort: Nein. Das Notfalltraining vertieft und trainiert praxisnah; die anerkannte Erste-Hilfe-Ausbildung als Nachweis für betriebliche Ersthelfende ist ein eigenes Format.
 - Frage: Wie läuft ein Inhouse-Kurs ab?
-  Antwort: Wir kommen deutschlandweit direkt zu euch – in Betrieb, Schule, Kita oder Verein. Ihr stellt einen geeigneten Raum, das gesamte Übungsmaterial bringen wir mit.
+  Antwort: Wir kommen direkt zu euch (Orte nach Absprache) – in Betrieb, Schule, Kita oder Verein. Ihr stellt einen geeigneten Raum, das gesamte Übungsmaterial bringen wir mit.
 - Frage: Kann ich den Kurs online machen?
   Antwort: Nein. Der Kurs lebt von praktischen Übungen und findet in Präsenz statt – vor Ort bei euch oder an unseren Terminen. Digital sind bei uns Buchung, Nachweise und Zertifikate, nicht die Ausbildung selbst.
 
@@ -372,7 +372,7 @@ Hauptüberschrift: Einzelplätze einfach online buchen.
 - Frage: Wer kann an den offenen Kursen teilnehmen?
   Antwort: Alle Interessierten – ob für den Führerschein, als betriebliche Ersthelfende oder privat. Ihr bucht einzelne Plätze zu festen Terminen, ohne selbst eine Gruppe zusammenstellen zu müssen.
 - Frage: Worin liegt der Unterschied zum Inhouse-Kurs?
-  Antwort: Bei offenen Kursen bucht ihr einzelne Plätze an unseren Terminen in Worbis. Beim Inhouse-Kurs kommen wir für eine geschlossene Gruppe direkt zu euch vor Ort – deutschlandweit.
+  Antwort: Bei offenen Kursen bucht ihr einzelne Plätze an unseren Terminen in Worbis. Beim Inhouse-Kurs kommen wir für eine geschlossene Gruppe direkt zu euch vor Ort (Orte nach Absprache).
 - Frage: Kann ich den Kurs online machen?
   Antwort: Nein. Der Kurs lebt von praktischen Übungen und findet in Präsenz statt – vor Ort bei euch oder an unseren Terminen. Digital sind bei uns Buchung, Nachweise und Zertifikate, nicht die Ausbildung selbst.
 - Frage: Was gilt, wenn die letzte Fortbildung länger als zwei Jahre zurückliegt?
@@ -400,7 +400,7 @@ Hauptüberschrift: Schulsanitätsdienst AG
 - Frage: Ersetzt der Schulsanitätsdienst die Erste-Hilfe-Ausstattung der Schule?
   Antwort: Nein. Er ergänzt die Erste-Hilfe-Organisation und -Ausstattung der Schule, ersetzt sie aber nicht. Verantwortlich für die Grundausstattung bleibt der Schulträger.
 - Frage: Wie läuft ein Inhouse-Kurs ab?
-  Antwort: Wir kommen deutschlandweit direkt zu euch – in Betrieb, Schule, Kita oder Verein. Ihr stellt einen geeigneten Raum, das gesamte Übungsmaterial bringen wir mit.
+  Antwort: Wir kommen direkt zu euch (Orte nach Absprache) – in Betrieb, Schule, Kita oder Verein. Ihr stellt einen geeigneten Raum, das gesamte Übungsmaterial bringen wir mit.
 - Frage: Kann ich den Kurs online machen?
   Antwort: Nein. Der Kurs lebt von praktischen Übungen und findet in Präsenz statt – vor Ort bei euch oder an unseren Terminen. Digital sind bei uns Buchung, Nachweise und Zertifikate, nicht die Ausbildung selbst.
 
@@ -425,7 +425,7 @@ Quelle: öffentliche Terminliste der BWW-Buchung, Stand 31.10.2026. Preise gelte
 
 ## Standorte
 - Offene Kurse: Leinefelde-Worbis, Nordhäuser Straße 38, 37339 Leinefelde-Worbis.
-- Inhouse-Kurse: deutschlandweit direkt beim Kunden.
+- Inhouse-Kurse: direkt beim Kunden (Orte nach Absprache).
 - Firmensitz: BWW UG (haftungsbeschränkt), Worbiser Straße 2, 37115 Duderstadt.
 
 ## Kontakt
