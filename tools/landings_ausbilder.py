@@ -316,7 +316,7 @@ def build(p, base):
     topn = f'<div class="article-note">{p["topnote"]}</div>' if p.get('topnote') else ''
     kf = '<div class="key-facts"><h2>Kurz gefasst</h2><ul>' + ''.join(f'<li>{k}</li>' for k in p['keyfacts']) + '</ul></div>'
     rel = '<p class="article-related">' + ''.join(f'<a href="{u}">{esc(l)}</a>' for u, l in p['related']) + '</p>'
-    src = f'<p class="article-sources"><strong>Offizielle Quellen:</strong> {esc(p["quellen"])}. Stand: {p.get("stand", STAND)}. Dieser Beitrag ersetzt keine Rechtsberatung; {p.get("verbindlich", "verbindlich sind die jeweils geltenden Vorgaben der DGUV und der QSEH.")}</p>'
+    src = f'<p class="article-sources"><strong>Offizielle Quellen:</strong> {esc(p["quellen"])}. Stand: {p.get("stand", STAND)}. Dieser Beitrag ersetzt keine Rechtsberatung; {p.get("verbindlich", "verbindlich sind die jeweils geltenden Vorgaben der Unfallversicherungsträger (DGUV); Verfahren und Registrierung laufen über das QSEH-Portal.")}</p>'
     main = (f'<main id="hauptinhalt" tabindex="-1">{bcrumb}<section class="page-hero"><div><span class="eyebrow">{esc(p["eyebrow"])}</span><h1>{esc(p["h1"])}</h1>'
             f'<p class="article-stand">Stand: {p.get("stand", STAND)} · Redaktion BWW · Quellen: {esc(p["quellen"])}</p><p>{p["lead"]}</p><div class="hero-actions">{acts}</div></div>{img}</section>'
             f'<section class="section article-body">{topn}{kf}{p["body"]}<h2>Häufige Fragen</h2>{faq_html(p["faq"])}{rel}{src}</section>{cta_block}')
