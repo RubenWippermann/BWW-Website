@@ -52,7 +52,7 @@ BWW eignet sich für Unternehmen, Schulen, Kindertagesstätten, Verwaltungen, Ve
 - [Für Pflege und Gesundheitswesen](https://www.multiplikatorenstelle.de/fuer-pflege/): Notfalltraining und Erste Hilfe für Pflegeeinrichtungen.
 - [Kursformate](https://www.multiplikatorenstelle.de/kurse/): alle Kursarten mit freien Live-Terminen und Buchung
 - [Inhouse-Kurse](https://www.multiplikatorenstelle.de/inhouse-kurse/): Schulungen vor Ort anfragen (Orte nach Absprache)
-- [Standorte](https://www.multiplikatorenstelle.de/standorte/): Inhouse-Kurse in Städten in ganz Deutschland
+- [Standorte](https://www.multiplikatorenstelle.de/standorte/): Inhouse-Kurse in Städten (Orte nach Absprache)
 - [Offene Kurse Worbis](https://www.multiplikatorenstelle.de/kurse/offene-kurse-worbis/): offene Kurse am Standort
 - [BG/UK-Abrechnung](https://www.multiplikatorenstelle.de/abrechnung/): Kostenübernahme durch Unfallversicherungsträger
 - [Dozent werden](https://www.multiplikatorenstelle.de/dozent-werden/): Bewerbung als Trainer:in
