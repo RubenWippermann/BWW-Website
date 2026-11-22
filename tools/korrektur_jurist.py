@@ -19,7 +19,7 @@ R = [  # (alt, neu) sitewide in index.html + llms
  ('Multiplikatorenstelle & Rettungsdienstbildungsstelle', 'Multiplikatorenstelle · Bildungsstelle für Erste Hilfe und betrieblichen Sanitätsdienst'),
  ('Multiplikatorenstelle &amp; Rettungsdienstbildungsstelle', 'Multiplikatorenstelle · Bildungsstelle für Erste Hilfe und betrieblichen Sanitätsdienst'),
 ]
-DESC = [('unternehmensprofil/index.html', 'BWW-Unternehmensprofil: von der gesetzlichen Unfallversicherung ermächtigte Stelle (Kennziffer 8.2122), bundesweit Inhouse-Kurse für Erste Hilfe, Brandschutz und Betriebssanitäter.', 'BWW-Unternehmensprofil: ermächtigte Stelle der Unfallversicherung (Kennziffer 8.2122), Inhouse-Kurse für Erste Hilfe, Brandschutz und Betriebssanitäter.'),
+DESC = [('unternehmensprofil/index.html', 'BWW-Unternehmensprofil: von der gesetzlichen Unfallversicherung ermächtigte Stelle (Kennziffer 8.2122), Inhouse-Kurse bei Ihnen vor Ort (Orte nach Absprache) für Erste Hilfe, Brandschutz und Betriebssanitäter.', 'BWW-Unternehmensprofil: ermächtigte Stelle der Unfallversicherung (Kennziffer 8.2122), Inhouse-Kurse für Erste Hilfe, Brandschutz und Betriebssanitäter.'),
         ('impressum/index.html', 'Impressum der BWW UG (haftungsbeschränkt), Multiplikatorenstelle und Bildungsstelle für Erste Hilfe und betrieblichen Sanitätsdienst. Anbieterkennzeichnung und Kontakt.', 'Impressum der BWW UG (haftungsbeschränkt), Bildungsstelle für Erste Hilfe und betrieblichen Sanitätsdienst. Anbieterkennzeichnung und Kontakt.'),
         ('unternehmen/index.html', 'inhouse, DGUV-ermächtigt, BG/UK-abrechenbar.', 'inhouse, ermächtigt, BG/UK-abrechenbar.')]
 n = 0
