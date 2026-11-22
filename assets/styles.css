@@ -2099,3 +2099,16 @@ html:root:root:root body main .course-grid.large:has(>:nth-child(19):last-child)
 html:root:root:root body main .course-grid.large:has(>:nth-child(19):last-child)>:nth-child(17){grid-column:4/span 6!important}}
 html:root:root:root body main .course-detail{width:var(--wrap);max-width:none;margin-left:auto;margin-right:auto}
 html:root:root:root body :is(h1,h2,h3){hyphens:manual!important;-webkit-hyphens:manual!important;text-wrap:balance;overflow-wrap:break-word}
+
+/* === T-495 (Ruben 20.11., 22.11.): ruhige Nachhaltigkeits-Karte, Kurs-Karussell === */
+.eco-highlight{border:1px solid #cfe9d3!important;border-left-width:1px!important;box-shadow:none!important}
+.sustain-grid{grid-template-columns:repeat(2,1fr)!important}
+@media(max-width:900px){.sustain-grid{grid-template-columns:1fr!important}}
+.carousel-hint{display:none;margin:.2rem 0 1.2rem;text-align:right;font-size:.85rem;font-weight:700;color:var(--bww-muted,#52685e)}
+@media(max-width:860px){
+  .carousel-hint{display:block}
+  .course-carousel .course-card{min-height:0!important}
+  .course-carousel .course-card .text-link{align-self:stretch!important;width:100%;min-height:44px!important;padding:.55rem .9rem!important;font-size:.88rem!important;line-height:1.3!important;border-radius:14px!important;text-align:left}
+  .course-carousel .course-card .inhouse-link{font-size:.8rem}
+}
+.eco-highlight::before,.eco-highlight::after{display:none!important;content:none!important}
