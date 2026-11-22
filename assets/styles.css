@@ -979,6 +979,11 @@ a:focus-visible,button:focus-visible,summary:focus-visible,.btn:focus-visible,in
 .article-related{margin:1.8rem 0 0;display:flex;flex-wrap:wrap;gap:.6rem}
 .article-related a{background:var(--bww-mint,#e8f6eb);color:var(--bww-green,#25704e);border-radius:999px;padding:.5rem .95rem;text-decoration:none;font-weight:800;font-size:.9rem}
 .article-related a:hover{background:#d9efdd}
+.article-toc{margin:1.8rem 0;padding:1.1rem 1.5rem;border:1px solid var(--bww-line,#d9e5dd);border-radius:18px;background:var(--bww-mint,#e8f6eb)}
+.article-toc strong{display:block;margin-bottom:.3rem;color:var(--bww-ink,#10231b)}
+.article-toc ul{list-style:none;margin:0;padding:0}
+.article-toc a{display:flex;align-items:center;min-height:44px;color:var(--bww-green,#25704e);font-weight:700;text-decoration:none}
+.article-toc a:hover{text-decoration:underline}
 
 /* Nav-Button "Kurs buchen" – Schrift immer weiß */
 .site-header .nav-cta,.site-header nav a.nav-cta{color:#fff!important}
