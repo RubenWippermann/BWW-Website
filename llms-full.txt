@@ -96,7 +96,7 @@ Hauptüberschrift: Erste Hilfe für Kitas, Tagespflege und alle, die Kinder betr
 - Frage: Zählt der Kurs als Erste-Hilfe-Nachweis für Beschäftigte?
   Antwort: Ja. Als Schulung in Erster Hilfe für Bildungs- und Betreuungseinrichtungen ist er der maßgebliche Nachweis für Beschäftigte in diesem Bereich; BWW führt ihn als ermächtigte Stelle (Kennziffer 8.2122) durch.
 - Frage: Wer trägt die Kosten?
-  Antwort: Die Aus- und Fortbildung von Beschäftigten ist über die zuständige Berufsgenossenschaft oder Unfallkasse abrechenbar, wenn sie bei einer ermächtigten Stelle absolviert wird; die Entscheidung trifft der Träger.
+  Antwort: Die Aus- und Fortbildung von Beschäftigten ist über die zuständige Berufsgenossenschaft oder Unfallkasse abrechenbar, wenn sie bei einer ermächtigten Stelle absolviert wird; die Entscheidung trifft der Träger; eine Übernahme ist nicht garantiert.
 - Frage: Gibt es einen Kurs für Eltern und Betreuungspersonen?
   Antwort: Ja, den Erste-Hilfe-Kurs Baby & Kind (4 UE). Im Mittelpunkt stehen Notfälle bei Säuglingen und Kindern – von Verschlucken über Fieberkrampf bis zur Wiederbelebung.
 
@@ -200,7 +200,7 @@ Hauptüberschrift: Betriebliche Ersthelfer ausbilden – Inhouse-Kurs bei euch v
 - Frage: Wie lange dauert die Erste-Hilfe-Ausbildung?
   Antwort: Die Erste-Hilfe-Ausbildung umfasst 9 Unterrichtseinheiten à 45 Minuten und findet in der Regel an einem Tag statt.
 - Frage: Wer trägt die Kosten für betriebliche Ersthelfende?
-  Antwort: Die Aus- und Fortbildung betrieblicher Ersthelfender ist über die zuständige Berufsgenossenschaft oder Unfallkasse abrechenbar; die Entscheidung trifft der Träger. Voraussetzung ist eine ermächtigte Stelle – BWW ist unter der Kennziffer 8.2122 ermächtigt, die ihr bei eurem Unfallversicherungsträger nachprüfen könnt.
+  Antwort: Die Aus- und Fortbildung betrieblicher Ersthelfender ist über die zuständige Berufsgenossenschaft oder Unfallkasse abrechenbar; die Entscheidung trifft der Träger; eine Übernahme ist nicht garantiert. Voraussetzung ist eine ermächtigte Stelle – BWW ist unter der Kennziffer 8.2122 ermächtigt, die ihr bei eurem Unfallversicherungsträger nachprüfen könnt.
 - Frage: Wie oft muss die Erste-Hilfe-Ausbildung aufgefrischt werden?
   Antwort: Die Auffrischung erfolgt in der Regel alle zwei Jahre in Form einer Fortbildung mit 9 Unterrichtseinheiten. Danach gilt der Nachweis wieder für zwei Jahre.
 - Frage: Wie viele Personen können an einem Kurs teilnehmen?
@@ -234,7 +234,7 @@ Hauptüberschrift: Erste-Hilfe-Schulung für Kita & Schule (Bildungs- und Betreu
 - Frage: Zählt der Kurs als betrieblicher Erste-Hilfe-Nachweis?
   Antwort: Ja. Als Schulung in Erster Hilfe für Bildungs- und Betreuungseinrichtungen ist er der maßgebliche Nachweis für Beschäftigte in diesem Bereich; BWW führt ihn als ermächtigte Stelle (Kennziffer 8.2122) durch.
 - Frage: Wer trägt die Kosten?
-  Antwort: Die Aus- und Fortbildung von Beschäftigten ist über die zuständige Berufsgenossenschaft oder Unfallkasse abrechenbar, wenn sie bei einer ermächtigten Stelle absolviert wird; die Entscheidung trifft der Träger.
+  Antwort: Die Aus- und Fortbildung von Beschäftigten ist über die zuständige Berufsgenossenschaft oder Unfallkasse abrechenbar, wenn sie bei einer ermächtigten Stelle absolviert wird; die Entscheidung trifft der Träger; eine Übernahme ist nicht garantiert.
 - Frage: Ist BWW eine ermächtigte Stelle?
   Antwort: Ja. Für die Erste-Hilfe-Aus- und Fortbildung im Betrieb ist BWW ermächtigte Stelle der gesetzlichen Unfallversicherung (Kennziffer 8.2122, seit 28.10.2025). Geeignete Stelle ist BWW Stelle zur Aus- und Fortbildung von Lehrkräften der Ersten Hilfe (seit 28.10.2025, Kennziffer 8.2122). Für Lehrkräfte des betrieblichen Sanitätsdienstes und Betriebssanitäter gilt dies seit 29.10.2026. Die Kennziffer könnt ihr bei eurem Unfallversicherungsträger nachprüfen.
 - Frage: Wie läuft ein Inhouse-Kurs ab?
@@ -251,7 +251,7 @@ Hauptüberschrift: Erste-Hilfe-Fortbildung
 - Frage: Was passiert, wenn die zwei Jahre überschritten sind?
   Antwort: Ist der Nachweis deutlich abgelaufen, verlangt die zuständige Stelle in der Regel eine erneute Erste-Hilfe-Ausbildung statt der Fortbildung. Plant die Auffrischung deshalb rechtzeitig vor Fristablauf.
 - Frage: Wer trägt die Kosten?
-  Antwort: Die Aus- und Fortbildung betrieblicher Ersthelfender ist über die zuständige Berufsgenossenschaft oder Unfallkasse abrechenbar – Voraussetzung ist eine ermächtigte Stelle wie BWW (Kennziffer 8.2122); die Entscheidung trifft der Träger.
+  Antwort: Die Aus- und Fortbildung betrieblicher Ersthelfender ist über die zuständige Berufsgenossenschaft oder Unfallkasse abrechenbar – Voraussetzung ist eine ermächtigte Stelle wie BWW (Kennziffer 8.2122); die Entscheidung trifft der Träger; eine Übernahme ist nicht garantiert.
 - Frage: Ist BWW eine ermächtigte Stelle?
   Antwort: Ja. Für die Erste-Hilfe-Aus- und Fortbildung im Betrieb ist BWW ermächtigte Stelle der gesetzlichen Unfallversicherung (Kennziffer 8.2122, seit 28.10.2025). Geeignete Stelle ist BWW Stelle zur Aus- und Fortbildung von Lehrkräften der Ersten Hilfe (seit 28.10.2025, Kennziffer 8.2122). Für Lehrkräfte des betrieblichen Sanitätsdienstes und Betriebssanitäter gilt dies seit 29.10.2026. Die Kennziffer könnt ihr bei eurem Unfallversicherungsträger nachprüfen.
 - Frage: Wie läuft ein Inhouse-Kurs ab?

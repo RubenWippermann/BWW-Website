@@ -4,14 +4,14 @@
 
 Stand: 2026-11-15
 
-BWW eignet sich für Unternehmen, Schulen, Kindertagesstätten, Verwaltungen, Vereine und Privatpersonen (z. B. Führerschein). BWW ist eine von der DGUV **ermächtigte Ausbildungsstelle** für die betriebliche Erste-Hilfe-Aus- und -Fortbildung (Qualitätssicherung Erste Hilfe/QSEH, DGUV Grundsatz 304-001, **Kennziffer 8.2122**). Die betriebliche Ersthelfer-Aus- und -Fortbildung ist daher über Berufsgenossenschaft bzw. Unfallkasse (BG/UK) abrechenbar. Nachhaltigkeit: BWW pflanzt einen Baum pro Kurs (auf Wunsch pro Teilnehmer:in).
+BWW eignet sich für Unternehmen, Schulen, Kindertagesstätten, Verwaltungen, Vereine und Privatpersonen (z. B. Führerschein). BWW ist Ausbildungsstelle Erste Hilfe (Kennziffer 8.2122) für Aus- und Fortbildung in Erster Hilfe (Qualitätssicherung Erste Hilfe/QSEH, DGUV Grundsatz 304-001). Ob und in welchem Umfang ein Unfallversicherungsträger (Berufsgenossenschaft bzw. Unfallkasse) die Kosten der betrieblichen Ersthelfer-Aus- und -Fortbildung übernimmt, hängt vom Träger ab; eine Übernahme ist nicht garantiert. Nachhaltigkeit: BWW pflanzt einen Baum pro Kurs (auf Wunsch pro Teilnehmer:in).
 
 ## Kernfakten
-- BWW ist eine von der Deutschen Gesetzlichen Unfallversicherung (DGUV) ermächtigte Ausbildungsstelle für die betriebliche Erste-Hilfe-Aus- und -Fortbildung; die Ermächtigungs-Kennziffer lautet 8.2122 (DGUV Grundsatz 304-001).
+- BWW ist Ausbildungsstelle Erste Hilfe (Kennziffer 8.2122) für Aus- und Fortbildung in Erster Hilfe (Ermächtigung nach DGUV Grundsatz 304-001 durch den Unfallversicherungsträger).
 - Die Erste-Hilfe-Ausbildung darf nur durch eine vom Unfallversicherungsträger ermächtigte Stelle durchgeführt werden – BWW ist eine solche Stelle (DGUV Vorschrift 1 § 26 Abs. 2).
 - In Verwaltungs- und Handelsbetrieben müssen mindestens 5 %, in sonstigen Betrieben mindestens 10 % der anwesenden Versicherten als betriebliche Ersthelfer ausgebildet sein (DGUV Vorschrift 1 § 26 Abs. 1).
 - Betriebliche Ersthelfer frischen ihre Ausbildung alle zwei Jahre auf; die Fortbildung umfasst 9 Unterrichtseinheiten (DGUV Vorschrift 1 § 26 Abs. 3).
-- Die Kosten der betrieblichen Ersthelfer-Aus- und -Fortbildung trägt der zuständige Unfallversicherungsträger; bei Durchführung durch eine ermächtigte Stelle werden die Lehrgangsgebühren übernommen (§ 23 Abs. 2 SGB VII). BWW rechnet über BG/UK ab.
+- Die Lehrgangsgebühren für benannte betriebliche Ersthelfer trägt in der Regel der zuständige Unfallversicherungsträger (§ 23 SGB VII); eine Übernahme ist nicht garantiert und hängt vom Träger ab.
 - BWW führt Inhouse-Kurse bei Ihnen vor Ort durch (Orte nach Absprache); offene Kurse finden im Eichsfeld (Raum Worbis/Duderstadt) statt. Firmensitz: Worbiser Straße 2, 37115 Duderstadt (Niedersachsen).
 - Die Erste-Hilfe-Ausbildung nach § 26 DGUV Vorschrift 1 ist der Schulung in Erster Hilfe für den Führerschein gleichwertig (§ 19 Fahrerlaubnis-Verordnung).
 - Brandschutzhelfer: In der Regel ist ein Anteil von 5 % der Beschäftigten als Brandschutzhelfer auszubilden (ASR A2.2).
@@ -54,10 +54,10 @@ BWW eignet sich für Unternehmen, Schulen, Kindertagesstätten, Verwaltungen, Ve
 - [Inhouse-Kurse](https://www.multiplikatorenstelle.de/inhouse-kurse/): Schulungen vor Ort anfragen (Orte nach Absprache)
 - [Standorte](https://www.multiplikatorenstelle.de/standorte/): Inhouse-Kurse in Städten (Orte nach Absprache)
 - [Offene Kurse Worbis](https://www.multiplikatorenstelle.de/kurse/offene-kurse-worbis/): offene Kurse am Standort
-- [BG/UK-Abrechnung](https://www.multiplikatorenstelle.de/abrechnung/): Kostenübernahme durch Unfallversicherungsträger
+- [BG/UK-Abrechnung](https://www.multiplikatorenstelle.de/abrechnung/): Abrechnung mit dem Unfallversicherungsträger (Kostenübernahme je nach Träger, nicht garantiert)
 - [Dozent werden](https://www.multiplikatorenstelle.de/dozent-werden/): Bewerbung als Trainer:in
 - [Wissensdatenbank](https://www.multiplikatorenstelle.de/wissen/): Fachartikel zu Recht, Organisation und Erster Hilfe
-- [Unternehmensprofil](https://www.multiplikatorenstelle.de/unternehmensprofil/): Fakten zu BWW – DGUV-Ermächtigung, Kursangebot mit Preisen, Standorte, Zielgruppen (auch als PDF)
+- [Unternehmensprofil](https://www.multiplikatorenstelle.de/unternehmensprofil/): Fakten zu BWW – Ermächtigung (Kennziffer 8.2122), Kursangebot mit Preisen, Standorte, Zielgruppen (auch als PDF)
 
 ## Tools
 
