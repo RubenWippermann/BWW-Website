@@ -230,6 +230,10 @@ def course_block(html, url, upcoming, organizer):
         inst.append({
             "@type": "CourseInstance",
             "courseMode": "onsite",
+            "organizer": organizer,
+            "provider": organizer,
+            "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+            "eventStatus": STATUS.get(k.get("eventStatus", "scheduled"), STATUS["scheduled"]),
             "startDate": iso(k.get("datum"), k.get("uhrzeit")),
             "endDate": iso(k.get("datum_ende") or k.get("datum"), k.get("uhrzeit_ende")),
             "location": {"@type": "Place", "name": k.get("stadt"), "address": parse_addr(k.get("adresse"), k.get("stadt"))},
